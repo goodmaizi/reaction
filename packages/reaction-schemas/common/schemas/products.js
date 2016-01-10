@@ -381,6 +381,12 @@ ReactionCore.Schemas.Product = new SimpleSchema({
     optional: true
   },
   userId: {
-    type: String
-  }
+    type: String,
+    index: 1
+  },
+  isActive: {
+    type: Boolean,
+    index: 1,
+    defaultValue: false
+  },
 });
