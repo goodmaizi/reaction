@@ -1143,17 +1143,17 @@ Meteor.methods({
         product !==
         null ? product.title : void 0)) {
       // update product visibility
-      ReactionCore.Log.info("toggle product visibility ", product._id, !
+      ReactionCore.Log.info("toggle product active state ", product._id, !
         product.isVisible);
 
       ReactionCore.Collections.Products.update(product._id, {
         $set: {
-          isVisible: !product.isVisible
+          isActive: !product.isActive
         }
       });
-      return ReactionCore.Collections.Products.findOne(product._id).isVisible;
+      return ReactionCore.Collections.Products.findOne(product._id).isActive;
     }
-    ReactionCore.Log.debug("invalid product visibility ", productId);
+    ReactionCore.Log.debug("invalid product active state ", productId);
     throw new Meteor.Error(400, "Bad Request");
   },
 });
