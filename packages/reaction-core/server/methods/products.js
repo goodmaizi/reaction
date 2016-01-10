@@ -679,6 +679,9 @@ Meteor.methods({
    * @return {String} return insert result
    */
   "products/createProduct": function (product) {
+    ReactionCore.Log.info("WAKKA createProduct ", "userId: ", Meteor.userId(), " prod: ",product);
+    //return;
+
     check(product, Match.Optional(Object));
     // must have createProduct permission
     if (!ReactionCore.hasPermission("createProduct")) {
@@ -697,7 +700,8 @@ Meteor.methods({
         _id: Random.id(),
         title: "",
         price: 0.00
-      }]
+      }],
+      userId: Meteor.userId()
     }, {
       validate: false
     });
@@ -710,8 +714,12 @@ Meteor.methods({
    */
   "products/deleteProduct": function (productId) {
     check(productId, Match.OneOf(Array, String));
+
     // must have admin permission to delete
-    if (!ReactionCore.hasAdminAccess()) {
+    let productBelongingtoCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
+    ReactionCore.Log.info("WAKKA deleteProduct ", "userId: ", Meteor.userId(), " prod: ",productBelongingtoCurrUser);
+
+    if (!ReactionCore.hasAdminAccess() && productBelongingtoCurrUser == null) { //SCYDEVTODO: or user is owner
       throw new Meteor.Error(403, "Access Denied");
     }
     this.unblock();

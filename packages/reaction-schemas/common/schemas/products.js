@@ -379,5 +379,8 @@ ReactionCore.Schemas.Product = new SimpleSchema({
       return new Date;
     },
     optional: true
+  },
+  userId: {
+    type: String
   }
 });
