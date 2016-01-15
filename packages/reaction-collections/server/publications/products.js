@@ -62,8 +62,11 @@ Meteor.publish("Product", function (productId) {
   selector.isActive = true;
 
   if (Roles.userIsInRole(this.userId, ["owner", "admin", "createProduct"],
-      shop._id)) {
+      shop._id) || productBelongingtoCurrUser(productId)) {
     selector.isVisible = {
+      $in: [true, false]
+    };
+    selector.isActive = {
       $in: [true, false]
     };
   }

@@ -299,6 +299,9 @@ Package.onUse(function (api) {
   api.addFiles("client/templates/dashboard/orders/workflow/shippingTracking/shippingTracking.html", "client");
   api.addFiles("client/templates/dashboard/orders/workflow/shippingTracking/shippingTracking.js", "client");
 
+  api.addFiles("client/templates/dashboard/products/list/productsList.html", "client");
+  api.addFiles("client/templates/dashboard/products/list/productsList.js", "client");
+
   api.addFiles("client/templates/dashboard/packages/packages.html", "client");
 
   api.addFiles("client/templates/dashboard/packages/grid/package/package.html", "client");
