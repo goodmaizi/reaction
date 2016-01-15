@@ -8,6 +8,24 @@
       </h3>
     </div>
     <div class="panel-body">
+
+      <a class="product-grid-item-images"
+        href="{{pathForSEO 'product' 'handle'}}"
+        data-event-category="grid"
+        data-event-action="productClick"
+        data-event-label="grid product click"
+        data-event-value="{{_id}}">
+
+        <div class="product-primary-images">
+          {{#with media}}
+            <span class="product-image" style="background-image: url('{{url store='large'}}')"></span>
+          {{else}}
+            <span class="product-image" style="background-image: url(/resources/placeholder.gif)"></span>
+          {{/with}}
+        </div>
+
+      </a>
+
 <!--
       <div class="row">
         <div class="col-xs-6 col-sm-2">
