@@ -68,16 +68,11 @@ Accounts.onCreateUser(function (options, user) {
     // clone before adding roles
     let account = _.clone(user);
     account.userId = user._id;
-    account.isSeller = (options.isSeller != null && options.isSeller === 'on'); // this works
 
-    //if (user.profile == null) user.profile = {}
+    // add additional data
+    account.isSeller = options.isSeller; //(options.isSeller != null && options.isSeller === 'on');
     user.profile = options.profile;
-    //account.displayName
-    /*
-    account.profile.isSeller = (options.isSeller != null && options.isSeller === true);
-    account.profile.name = "OOOM";
-    account.profile.firstName = "BLUB";
-    */
+
     ReactionCore.Log.error("Accounts.insert: ", account, " options: ", options);
     ReactionCore.Collections.Accounts.insert(account);
     // send welcome email to new users
