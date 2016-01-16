@@ -32,14 +32,17 @@ Template.loginFormSignUpView.events({
     let emailInput = template.$(".login-input-email");
     let passwordInput = template.$(".login-input-password");
     let isSellerInput = template.$(".login-input-isSeller");
+    let nameInput = template.$(".login-input-name");
 
     let email = emailInput.val().trim();
     let password = passwordInput.val().trim();
     let isSeller = isSellerInput.val().trim();
+    let name = nameInput.val().trim();
 
     let validatedEmail = LoginFormValidation.email(email);
     let validatedPassword = LoginFormValidation.password(password);
     let validatedIsSeller = LoginFormValidation.isSeller(isSeller);
+    let validatedName = LoginFormValidation.name(name);
 
     let templateInstance = Template.instance();
     let errors = {};
@@ -54,9 +57,12 @@ Template.loginFormSignUpView.events({
       errors.password = validatedPassword;
     }
 
-    ReactionCore.Log.debug("submit form isSeller ", isSeller, " ", validatedIsSeller.reason);
     if (validatedIsSeller !== true) {
       errors.isSeller = validatedIsSeller.reason;
+    }
+
+    if (validatedName !== true) {
+      errors.name = validatedName.reason;
     }
 
     if ($.isEmptyObject(errors) === false) {
@@ -72,12 +78,11 @@ Template.loginFormSignUpView.events({
       email: email,
       password: password,
       isSeller: isSeller,
-      /*
       profile: {
-        firstName: "WAKKA",
-        name: "OLO",
-        isSeller: isSeller
-      }*/
+        //firstName: "WAKKA",
+        name: name,
+        //isSeller: isSeller
+      }
     };
 
     Accounts.createUser(newUserData, function (error) {

@@ -16,6 +16,16 @@
 
     {{> loginFormMessages messages=messages}}
 
+    <div class="form-group form-group-name {{hasError messages.errors.name}}">
+      <label for="name-{{uniqueId}}" class="control-label" data-i18n="accountsUI.name">Name</label>
+      <input id="name-{{uniqueId}}" class="form-control login-input-name" type="string" value="{{name}}">
+      {{#if hasError messages.errors.name}}
+      <span class="help-block">
+        {{messages.errors.name}}
+      </span>
+      {{/if}}
+    </div>
+
     <div class="form-group form-group-email {{hasError messages.errors.email}}">
       <label for="email-{{uniqueId}}" class="control-label" data-i18n="accountsUI.emailAddress">Email</label>
       <input id="email-{{uniqueId}}" class="form-control login-input-email" type="email" value="{{email}}">

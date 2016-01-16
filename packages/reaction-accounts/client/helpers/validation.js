@@ -96,5 +96,21 @@ window.LoginFormValidation = {
       error: "INVALID_ISSELLER",
       reason: i18n.t('accountsUI.error.invalidIsSeller')
     };
-  }
+  },
+
+  name: function(name) {
+
+    // Valid
+    if (name.length >= 3) {
+      return true;
+    }
+
+    // Invalid
+    return {
+      "error": "INVALID_NAME",
+      "reason": i18n.t('accountsUI.error.usernameTooShort')
+    };
+  },
+
+
 };

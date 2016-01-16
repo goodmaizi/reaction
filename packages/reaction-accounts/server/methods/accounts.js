@@ -68,7 +68,10 @@ Accounts.onCreateUser(function (options, user) {
     // clone before adding roles
     let account = _.clone(user);
     account.userId = user._id;
-    account.isSeller = (options.isSeller != null && options.isSeller === 'on');
+    account.isSeller = (options.isSeller != null && options.isSeller === 'on'); // this works
+
+    //if (user.profile == null) user.profile = {}
+    user.profile = options.profile;
     //account.displayName
     /*
     account.profile.isSeller = (options.isSeller != null && options.isSeller === true);
