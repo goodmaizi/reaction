@@ -64,9 +64,18 @@ Accounts.onCreateUser(function (options, user) {
         }
       }
     }
+
     // clone before adding roles
     let account = _.clone(user);
     account.userId = user._id;
+    account.isSeller = (options.isSeller != null && options.isSeller === 'on');
+    //account.displayName
+    /*
+    account.profile.isSeller = (options.isSeller != null && options.isSeller === true);
+    account.profile.name = "OOOM";
+    account.profile.firstName = "BLUB";
+    */
+    ReactionCore.Log.error("Accounts.insert: ", account, " options: ", options);
     ReactionCore.Collections.Accounts.insert(account);
     // send welcome email to new users
     Meteor.call("accounts/sendWelcomeEmail", shopId, user._id);

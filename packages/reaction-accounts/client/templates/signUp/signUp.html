@@ -18,7 +18,8 @@
 
     <div class="form-group form-group-email {{hasError messages.errors.email}}">
       <label for="email-{{uniqueId}}" class="control-label" data-i18n="accountsUI.emailAddress">Email</label>
-      <input id="email-{{uniqueId}}" class="form-control login-input-email" type="email" value="{{email}}"> {{#if hasError messages.errors.email}}
+      <input id="email-{{uniqueId}}" class="form-control login-input-email" type="email" value="{{email}}">
+      {{#if hasError messages.errors.email}}
       <span class="help-block">
         {{messages.errors.email}}
       </span>
@@ -27,11 +28,22 @@
 
     <div class="form-group form-group-password {{hasError messages.errors.password }}">
       <label for="password-{{uniqueId}}" class="control-label" data-i18n="accountsUI.password">Password</label>
-      <input id="password-{{uniqueId}}" class="form-control login-input-password" type="password" value="{{password}}"> {{#if hasError messages.errors.password}}
+      <input id="password-{{uniqueId}}" class="form-control login-input-password" type="password" value="{{password}}">
+      {{#if hasError messages.errors.password}}
       <span class="help-block">
         {{#each messages.errors.password}}
         <p>{{reason}}</p>
         {{/each}}
+      </span>
+      {{/if}}
+    </div>
+
+    <div class="form-group form-group-isSeller {{hasError messages.errors.isSeller }}">
+      <label for="isSeller-{{uniqueId}}" class="control-label" data-i18n="accountsUI.isSeller">Do you want to sell products?</label>
+      <input id="isSeller-{{uniqueId}}" class="form-control login-input-isSeller" type="checkbox" value="{{isSeller}}">
+      {{#if hasError messages.errors.isSeller}}
+      <span class="help-block">
+        {{messages.errors.isSeller}}
       </span>
       {{/if}}
     </div>

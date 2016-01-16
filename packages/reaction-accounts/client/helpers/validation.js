@@ -82,5 +82,19 @@ window.LoginFormValidation = {
 
     // Otherwise the password is valid
     return true
+  },
+
+  isSeller: function(isSeller) {
+    //ReactionCore.Log.error("validate isSeller ", isSeller);
+
+    if (isSeller == null || isSeller == "" || isSeller == true || isSeller == false || isSeller == "on" || isSeller == "off") {
+      return true;
+    }
+
+    // Invalid
+    return {
+      error: "INVALID_ISSELLER",
+      reason: i18n.t('accountsUI.error.invalidIsSeller')
+    };
   }
 };
