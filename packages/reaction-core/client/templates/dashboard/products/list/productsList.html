@@ -9,22 +9,29 @@
     </div>
     <div class="panel-body">
 
-      <a class="product-grid-item-images"
-        href="{{pathForSEO 'product' 'handle'}}"
-        data-event-category="grid"
-        data-event-action="productClick"
-        data-event-label="grid product click"
-        data-event-value="{{_id}}">
+      <span data-i18n="profile.products.isVisible">Visible</span>: <span>{{isVisible}}</span>
+      <span data-i18n="profile.products.isActive">Active</span>: <span>{{isActive}}</span>
 
-        <div class="product-primary-images">
-          {{#with media}}
-            <span class="product-image" style="background-image: url('{{url store='large'}}')"></span>
-          {{else}}
-            <span class="product-image" style="background-image: url(/resources/placeholder.gif)"></span>
-          {{/with}}
+      <div class="product-grid-list">
+        <div class="product-grid-item">
+          <a class="product-grid-item-images"
+            href="{{pathForSEO 'product' 'handle'}}"
+            data-event-category="grid"
+            data-event-action="productClick"
+            data-event-label="grid product click"
+            data-event-value="{{_id}}">
+
+            <div class="product-primary-images">
+              {{#with media}}
+                <span class="product-image" style="background-image: url('{{url store='large'}}')"></span>
+              {{else}}
+                <span class="product-image" style="background-image: url(/resources/placeholder.gif)"></span>
+              {{/with}}
+            </div>
+
+          </a>
         </div>
-
-      </a>
+      </div>
 
 <!--
       <div class="row">
@@ -118,7 +125,7 @@
 
 {{else}}
   <div class="alert alert-info">
-    <span data-i18n="profile.noProductsFound">No products found.</span>
+    <span data-i18n="profile.products.noProductsFound">No products found.</span>
   </div>
 {{/each}}
 </template>
