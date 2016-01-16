@@ -80,7 +80,7 @@ Meteor.publish("Product", function (productId) {
   selector.isActive = true;
 
   if (Roles.userIsInRole(this.userId, ["owner", "admin", "createProduct"],
-      shop._id) || productBelongingtoCurrUser(productId)) {
+      shop._id) || Meteor.call("products/belongsToCurrentUser", productId)) {
     selector.isVisible = {
       $in: [true, false]
     };

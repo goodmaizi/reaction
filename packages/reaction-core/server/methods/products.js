@@ -144,8 +144,8 @@ function copyMedia(newId, variantOldId, variantNewId) {
  * @return {Boolean}
  */
 function belongsToCurrentUser(productId) {
-  let productBelongingtoCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
-  return productBelongingtoCurrUser != null;
+  let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
+  return productBelongingToCurrUser != null;
 }
 
 Meteor.methods({
@@ -717,11 +717,11 @@ Meteor.methods({
       validate: false
     });
   },
-  /*
   "products/belongsToCurrentUser": function (productId) {
-    let productBelongingtoCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
-    return productBelongingtoCurrUser != null;
-  },*/
+    check(productId, Match.OneOf(Array, String));
+
+    return belongsToCurrentUser(productId);
+  },
   /**
    * products/deleteProduct
    * @summary delete a product and unlink it from all media
