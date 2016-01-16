@@ -36,23 +36,22 @@ Meteor.publish("Products", function (productScrollLimit, shops) {
     if (!(Roles.userIsInRole(this.userId, ["owner"], shop._id) || shopAdmin)) {
       //selector.userId = this.userId
 
-      selector = {
-        $or: [
-          {
-            userId: this.userId
-          },
-          {
-            $and: [
-              {
-                isVisible: true
-              },
-              {
-                isActive: true
-              }
-            ]
-          }
-        ]
-      }
+      selector.$or = [
+        {
+          userId: this.userId
+        },
+        {
+          $and: [
+            {
+              isVisible: true
+            },
+            {
+              isActive: true
+            }
+          ]
+        }
+      ]
+
       //selector.isVisible = true;
       //selector.isActive = true;
     }
