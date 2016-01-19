@@ -31,12 +31,18 @@ Template.loginFormSignUpView.events({
     // var usernameInput = template.$(".login-input--username");
     let emailInput = template.$(".login-input-email");
     let passwordInput = template.$(".login-input-password");
+    let isSellerInput = template.$(".login-input-isSeller");
+    let nameInput = template.$(".login-input-name");
 
     let email = emailInput.val().trim();
     let password = passwordInput.val().trim();
+    let isSeller = isSellerInput.val().trim();
+    let name = nameInput.val().trim();
 
     let validatedEmail = LoginFormValidation.email(email);
     let validatedPassword = LoginFormValidation.password(password);
+    let validatedIsSeller = LoginFormValidation.isSeller(isSeller);
+    let validatedName = LoginFormValidation.name(name);
 
     let templateInstance = Template.instance();
     let errors = {};
@@ -51,6 +57,14 @@ Template.loginFormSignUpView.events({
       errors.password = validatedPassword;
     }
 
+    if (validatedIsSeller !== true) {
+      errors.isSeller = validatedIsSeller.reason;
+    }
+
+    if (validatedName !== true) {
+      errors.name = validatedName.reason;
+    }
+
     if ($.isEmptyObject(errors) === false) {
       templateInstance.formMessages.set({
         errors: errors
@@ -62,7 +76,13 @@ Template.loginFormSignUpView.events({
     let newUserData = {
       // username: username,
       email: email,
-      password: password
+      password: password,
+      isSeller: isSeller,
+      profile: {
+        //firstName: "WAKKA",
+        name: name,
+        //isSeller: isSeller
+      }
     };
 
     Accounts.createUser(newUserData, function (error) {

@@ -34,7 +34,26 @@ Meteor.publish("Products", function (productScrollLimit, shops) {
 
     // products are always visible to owners
     if (!(Roles.userIsInRole(this.userId, ["owner"], shop._id) || shopAdmin)) {
-      selector.isVisible = true;
+      //selector.userId = this.userId
+
+      selector.$or = [
+        {
+          userId: this.userId
+        },
+        {
+          $and: [
+            {
+              isVisible: true
+            },
+            {
+              isActive: true
+            }
+          ]
+        }
+      ]
+
+      //selector.isVisible = true;
+      //selector.isActive = true;
     }
 
     return Products.find(selector, {
@@ -58,10 +77,14 @@ Meteor.publish("Product", function (productId) {
   let Products = ReactionCore.Collections.Products;
   let selector = {};
   selector.isVisible = true;
+  selector.isActive = true;
 
   if (Roles.userIsInRole(this.userId, ["owner", "admin", "createProduct"],
-      shop._id)) {
+      shop._id) || Meteor.call("products/belongsToCurrentUser", productId)) {
     selector.isVisible = {
+      $in: [true, false]
+    };
+    selector.isActive = {
       $in: [true, false]
     };
   }

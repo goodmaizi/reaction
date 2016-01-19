@@ -64,9 +64,22 @@ Accounts.onCreateUser(function (options, user) {
         }
       }
     }
+
     // clone before adding roles
     let account = _.clone(user);
     account.userId = user._id;
+
+    // add additional data
+    account.isSeller = (options.isSeller != null && options.isSeller === 'on'); //options.isSeller; //
+    if (account.isSeller === true) {
+      //Meteor.call("accounts/addUserPermissions", user._id, ["createProduct"], shopId);
+      //Roles.addUsersToRoles(user._id, ["createProduct"], shopId);
+      roles[shopId].push("createProduct");
+      ReactionCore.Log.error("Accounts.insert: add permissions ", roles, " to: ", user.roles);
+    }
+    user.profile = options.profile;
+
+    ReactionCore.Log.error("Accounts.insert: ", account, " \noptions: ", options, " \nuser: ", user);
     ReactionCore.Collections.Accounts.insert(account);
     // send welcome email to new users
     Meteor.call("accounts/sendWelcomeEmail", shopId, user._id);

@@ -1,5 +1,11 @@
 <template name="products">
+  <h2>
+    <div> | <span id="productGridView">Grid</span> | <span id="productListView">List</span> | <span id="productMapView">Map</span> | </div>
+ </h2>
+
   {{>productGrid}}
+
+  {{>productList}}
 </template>
 
 <template name="productListGrid">
@@ -10,4 +16,3 @@
     {{/if}}
   </div>
 </template>
-

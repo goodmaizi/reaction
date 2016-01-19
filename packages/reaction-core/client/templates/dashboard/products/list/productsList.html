@@ -1,0 +1,131 @@
+<template name="dashboardProductsList">
+
+{{#each products data=data}}
+  <div class="panel panel-default products-list-detail">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <span>{{title}}</span>
+      </h3>
+    </div>
+    <div class="panel-body">
+
+      <span data-i18n="profile.products.isVisible">Visible</span>: <span>{{isVisible}}</span>
+      <span data-i18n="profile.products.isActive">Active</span>: <span>{{isActive}}</span>
+
+      <div class="product-grid-list">
+        <div class="product-grid-item">
+          <a class="product-grid-item-images"
+            href="{{pathForSEO 'product' 'handle'}}"
+            data-event-category="grid"
+            data-event-action="productClick"
+            data-event-label="grid product click"
+            data-event-value="{{_id}}">
+
+            <div class="product-primary-images">
+              {{#with media}}
+                <span class="product-image" style="background-image: url('{{url store='large'}}')"></span>
+              {{else}}
+                <span class="product-image" style="background-image: url(/resources/placeholder.gif)"></span>
+              {{/with}}
+            </div>
+
+          </a>
+        </div>
+      </div>
+
+<!--
+      <div class="row">
+        <div class="col-xs-6 col-sm-2">
+          <strong>
+            <span data-i18n="cartCompleted.status">Status</span>
+          </strong>
+        </div>
+        <div class="col-xs-6 col-sm-10">
+          {{#if orderStatus}}
+              <span data-i18n="orderShipping.shipped">Completed</span>
+          {{else}}
+              <span data-i18n="orderShipping.notShipped">Processing</span>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="row order-address-info">
+        <div class="col-xs-6 col-sm-2">
+          <strong>
+            <span data-i18n="cartCompleted.destination">Destination</span>
+          </strong>
+        </div>
+        <div class="col-xs-10">
+          {{#each shipping}}
+            {{#with address}}
+              <span>
+                <address>
+                  {{address1}}
+                  {{address2}}
+                  {{city}}, {{region}} {{postal}} {{country}}
+                  {{phone}}
+                </address>
+              </span>
+            {{/with}}
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="row order-shipment-info">
+        <div class="col-xs-6 col-sm-2">
+          <strong>
+            <span data-i18n="cartCompleted.shipment">Shipment</span>
+          </strong>
+        </div>
+        {{#each shipping}}
+        <div class="col-xs-10">
+          {{shipmentMethod.label}}
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="row order-payment-info">
+        <div class="col-xs-6 col-sm-2">
+          <strong>
+            <span data-i18n="cartCompleted.payment">Payment</span>
+          </strong>
+        </div>
+        <div class="col-xs-10">
+          {{#each billing}}
+          <span id="order-payment-method">{{paymentMethod.storedCard}}</span>
+          <span data-id="cartCompleted.reference">Ref:</span>
+          <span id="order-payment-transaction">{{paymentMethod.transactionId}}</span>
+          &nbsp;
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="row order-group-title">
+        <div class="col-xs-12">
+          <strong>
+            <span id="order-item-count">{{itemCount}}</span>
+            <span data-i18n="cartCompleted.itemsFrom">item(s) from</span>
+            <span id="order-group-name">{{shopName}}</span>
+          </strong>
+        </div>
+      </div>
+
+      <div class="row order-list-items">
+        <div class="col-xs-12">
+          {{> ordersListItems}}
+        </div>
+      </div>
+-->
+    </div>
+<!--
+    <div class="panel-footer">
+      {{> ordersListSummary}}
+    </div>-->
+  </div>
+
+{{else}}
+  <div class="alert alert-info">
+    <span data-i18n="profile.products.noProductsFound">No products found.</span>
+  </div>
+{{/each}}
+</template>
