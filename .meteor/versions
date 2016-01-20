@@ -52,6 +52,7 @@ cfs:worker@0.1.4
 check@1.1.0
 coffeescript@1.0.11
 cosmos:browserify@0.9.3
+dburles:google-maps@1.1.5
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -155,6 +156,7 @@ reload@1.1.4
 retry@1.0.4
 risul:moment-timezone@0.4.1
 routepolicy@1.0.6
+scydev:reaction-p2p-marketplace-locations@0.0.1
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
