@@ -46,12 +46,86 @@ Template.productMap.onCreated(function() {
   // We can use the `ready` callback to interact with the map API once the map is ready.
   GoogleMaps.ready('map', function(map) {
     // Add a marker to the map once it's ready
-    var markerIcon = image = "http://gmaps-samples.googlecode.com/svn/trunk/markers/blue/blank.png";
+    //var markerIcon = image = "http://gmaps-samples.googlecode.com/svn/trunk/markers/blue/blank.png";
     var marker = new google.maps.Marker({
       position: map.options.center,
       map: map.instance,
-      title: "Wos zum essn'",
+      title: "Demo Marker: Wos zum essn'",
       //icon: markerIcon
     });
+
+    var prodLocations = ReactionCore.Collections.Products.find(
+    {/*
+      $and: [
+        {$or: [
+          {latitude: { $gt: 0 }},
+          {latitude: { $lt: 0 }}
+        ]},
+        {$or: [
+          {longitude: { $gt: 0 }},
+          {longitude: { $lt: 0 }}
+        ]}
+      ]*/
+    },
+    {
+      sort: {
+        createdAt: -1
+      },
+      //limit: 25
+    });
+    prodLocations.forEach(function(prodLocation){
+      //console.log("Product Locationanananaaaa: "+prodLocation.title );
+
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(prodLocation.latitude, prodLocation.longitude),
+        map: map.instance,
+        title: prodLocation.title,
+        //icon: markerIcon
+      });
+    });
+
+    google.maps.event.addListener(map.instance, 'click', function(event) {
+      ReactionCore.Collections.MapMarkers.insert({ latitude: event.latLng.lat(), longitude: event.latLng.lng() });
+    });
+
+    var markers = {};
+
+    ReactionCore.Collections.MapMarkers.find().observe({
+      added: function(document) {
+        // Create a marker for this document
+        var marker = new google.maps.Marker({
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: new google.maps.LatLng(document.latitude, document.longitude),
+          map: map.instance,
+          // We store the document _id on the marker in order
+          // to update the document within the 'dragend' event below.
+          id: document._id
+        });
+
+        // This listener lets us drag markers on the map and update their corresponding document.
+        google.maps.event.addListener(marker, 'dragend', function(event) {
+          ReactionCore.Collections.MapMarkers.update(marker.id, { $set: { latitude: event.latLng.lat(), longitude: event.latLng.lng() }});
+        });
+
+        // Store this marker instance within the markers object.
+        markers[document._id] = marker;
+      },
+      changed: function(newDocument, oldDocument) {
+        markers[newDocument._id].setPosition({ latitude: newDocument.latitude, longitude: newDocument.longitude });
+      },
+      removed: function(oldDocument) {
+        // Remove the marker from the map
+        markers[oldDocument._id].setMap(null);
+
+        // Clear the event listener
+        google.maps.event.clearInstanceListeners(
+          markers[oldDocument._id]);
+
+        // Remove the reference to this marker instance
+        delete markers[oldDocument._id];
+      }
+    });
+
   });
 });

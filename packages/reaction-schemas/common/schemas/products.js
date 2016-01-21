@@ -389,4 +389,14 @@ ReactionCore.Schemas.Product = new SimpleSchema({
     index: 1,
     defaultValue: false
   },
+  latitude: {
+    type: String,
+    defaultValue: "0",
+    optional: true
+  },
+  longitude: {
+    type: String,
+    defaultValue: "0",
+    optional: true
+  },
 });

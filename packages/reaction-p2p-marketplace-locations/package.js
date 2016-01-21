@@ -37,17 +37,26 @@ Package.onUse(function(api) {
 
   api.use("dburles:google-maps");
 
-  //api.addAssets('client/templates/products/productMap/productMap.html', 'client');
+  // common files
+  api.addFiles([
+                'common/schemas/mapmarkers.js',
+                'common/collections/collections.js',
+              ]);
+
+  // client files
   api.addFiles([
                 'client/templates/products/productMap/productMap.html',
                 'client/templates/products/productMap/productMap.less',
-                'client/templates/products/productMap/productMap.js'
+                'client/templates/products/productMap/productMap.js',
               ],
               'client');
 
+  // server files
   api.addFiles([
                 "server/security/browserPolicy.js",
-              ], ["server"]);
+                "server/security/security.js",
+              ],
+              ["server"]);
 
   api.addFiles('reaction-p2p-marketplace-locations.js');
 });

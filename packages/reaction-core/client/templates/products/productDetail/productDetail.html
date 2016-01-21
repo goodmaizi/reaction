@@ -107,6 +107,19 @@
               </div>
 
             </div>
+            {{#if hasPermission "createProduct"}}
+            <div class="row col-md-11">
+
+              <div class="product-detail-map">
+                <div class="product-location">
+                  <span class="latitude-text" data-i18n="productDetail.latitude">Latitude</span>: <span id="latitude" itemprop="latitude">{{>fieldComponent field="latitude" value=latitude}}</span>
+                  <span class="longitude-text" data-i18n="productDetail.longitude">Longitude</span>: <span id="longitude" itemprop="longitude">{{>fieldComponent field="longitude" value=longitude}}</span>
+                </div>
+
+                {{>productMap}}
+              </div>
+            </div>
+            {{/if}}
             <!-- END Right Side -->
           </div>
         </div>
