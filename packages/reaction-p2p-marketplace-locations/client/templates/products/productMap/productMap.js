@@ -46,9 +46,12 @@ Template.productMap.onCreated(function() {
   // We can use the `ready` callback to interact with the map API once the map is ready.
   GoogleMaps.ready('map', function(map) {
     // Add a marker to the map once it's ready
+    var markerIcon = image = "http://gmaps-samples.googlecode.com/svn/trunk/markers/blue/blank.png";
     var marker = new google.maps.Marker({
       position: map.options.center,
-      map: map.instance
+      map: map.instance,
+      title: "Wos zum essn'",
+      //icon: markerIcon
     });
   });
 });
