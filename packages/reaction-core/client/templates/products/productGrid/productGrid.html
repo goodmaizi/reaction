@@ -1,14 +1,11 @@
 <template name="productGrid">
-  <div class="container-main">
-    <div class="product-grid" data-event-category="grid" data-event-action="generic-click" data-event-label="product grid click">
-      <ul class="product-grid-list list-unstyled" id="product-grid-list">
-      {{#each products}}
-        {{> productGridItems}}
-      {{/each}}
-      </ul>
-    </div>
+  <div class="product-grid" data-event-category="grid" data-event-action="generic-click" data-event-label="product grid click">
+    <ul class="product-grid-list list-unstyled" id="product-grid-list">
+    {{#each products}}
+      {{> productGridItems}}
+    {{/each}}
+    </ul>
   </div>
-
 
   {{#if productScrollLimit}}
     <div class="row" id="productScrollLimitLoader">
