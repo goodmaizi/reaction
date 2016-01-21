@@ -1,10 +1,11 @@
 <template name="productMap">
-  <div class="product-map">
+  <div class="product-map" data-event-category="map" data-event-action="generic-click" data-event-label="product map click">
 
-    <div class="map-container" style="width: 400px; height: 300px;">
+    <div class="map-container">
       {{> googleMap name="map" options=mapOptions}}
     </div>
 
+    <!--
     <table class="table table-hover">
       <tbody>
         {{#each products}}
@@ -32,5 +33,7 @@
         {{/each}}
       </tbody>
     </table>
+  -->
+
   </div>
 </template>

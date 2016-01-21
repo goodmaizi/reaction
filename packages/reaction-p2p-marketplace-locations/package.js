@@ -40,6 +40,7 @@ Package.onUse(function(api) {
   //api.addAssets('client/templates/products/productMap/productMap.html', 'client');
   api.addFiles([
                 'client/templates/products/productMap/productMap.html',
+                'client/templates/products/productMap/productMap.less',
                 'client/templates/products/productMap/productMap.js'
               ],
               'client');
