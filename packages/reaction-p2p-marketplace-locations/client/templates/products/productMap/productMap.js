@@ -36,7 +36,8 @@ Template.productMap.helpers({
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(47.3770309, 8.5077843), // start pos zürich 47.3770309,8.5077843
-        zoom: 13
+        zoom: 13,
+        reactionTag: this.tag
       };
     }
   }
@@ -47,35 +48,17 @@ Template.productMap.onCreated(function() {
   GoogleMaps.ready('map', function(map) {
     // Add a marker to the map once it's ready
     //var markerIcon = image = "http://gmaps-samples.googlecode.com/svn/trunk/markers/blue/blank.png";
+    /*
     var marker = new google.maps.Marker({
       position: map.options.center,
       map: map.instance,
       title: "Demo Marker: Wos zum essn'",
       //icon: markerIcon
-    });
+    });*/
 
-    var prodLocations = ReactionCore.Collections.Products.find(
-    {/*
-      $and: [
-        {$or: [
-          {latitude: { $gt: 0 }},
-          {latitude: { $lt: 0 }}
-        ]},
-        {$or: [
-          {longitude: { $gt: 0 }},
-          {longitude: { $lt: 0 }}
-        ]}
-      ]*/
-    },
-    {
-      sort: {
-        createdAt: -1
-      },
-      //limit: 25
-    });
+    // tag is not available in onCreated event by this.tag, so we get it through mapOptions helper
+    prodLocations = getProductsByTag(map.options.reactionTag);
     prodLocations.forEach(function(prodLocation){
-      //console.log("Product Locationanananaaaa: "+prodLocation.title );
-
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(prodLocation.latitude, prodLocation.longitude),
         map: map.instance,
