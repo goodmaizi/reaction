@@ -1,7 +1,7 @@
 <template name="productMap">
   <div class="product-map" data-event-category="map" data-event-action="generic-click" data-event-label="product map click">
 
-    <div class="map-container">
+    <div class="map-container" id="map-container" style="opacity:0.1;">
       {{> googleMap name="map" options=mapOptions}}
     </div>
 

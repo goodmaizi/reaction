@@ -16,6 +16,7 @@ Template.products.events({
   "click #productMapView": function () {
     $(".product-list").hide();
     $(".product-grid").hide();
+    $(".map-container").css({ opacity: 1.0 }); // map was hidden with opacity, because with display:none; it wouldn't load contents
     return $(".product-map").show();
   },
   "click .product-list-item": function () {
