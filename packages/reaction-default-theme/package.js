@@ -15,7 +15,12 @@ Package.onUse(function (api) {
   api.use("reactioncommerce:core-theme@2.0.0");
 
   // Add top level .less files
+  api.addAssets([
+    "img/logo.png",
+  ], "client");
+
+  // Add top level .less files
   api.addFiles([
-    "main.less"
+    "main.less",
   ], "client");
 });
