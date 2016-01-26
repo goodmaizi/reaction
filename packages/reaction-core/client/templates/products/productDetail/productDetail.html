@@ -114,8 +114,10 @@
 
               <div class="product-detail-map">
                 <div class="product-location">
-                  <h3 class="latitude-text" data-i18n="productDetail.latitude">Latitude</h3>: <span id="latitude" itemprop="latitude">{{>fieldComponent field="latitude" value=latitude}}</span>
-                  <h3 class="longitude-text" data-i18n="productDetail.longitude">Longitude</h3>: <span id="longitude" itemprop="longitude">{{>fieldComponent field="longitude" value=longitude}}</span>
+                  <h3 class="latitude-text" data-i18n="productDetail.latitude">Latitude</h3>
+                  <span id="latitude" itemprop="latitude">{{>fieldComponent field="latitude" value=latitude}}</span>
+                  <h3 class="longitude-text" data-i18n="productDetail.longitude">Longitude</h3>
+                  <span id="longitude" itemprop="longitude">{{>fieldComponent field="longitude" value=longitude}}</span>
                 </div>
 
                 {{>productMap}}

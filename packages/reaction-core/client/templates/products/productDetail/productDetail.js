@@ -299,9 +299,30 @@ Template.productDetail.events({
   "focusout .facebookMsg-edit-input,.twitterMsg-edit-input,.pinterestMsg-edit-input,.googleplusMsg-edit": function () {
     Session.set("editing-" + this.field, false);
     return $(".social-media-inputs > *").hide();
+  },
+  'click .rateit' : function(e) {
+    e.preventDefault();
+    $(".rateit").on('rated', function (event, value) {
+
+        // console.log('id:' + event.target.id);
+        // console.log('id:' + this.id);
+        // console.log('Rating:' + value)
+
+        var thisRating = value;
+        var productId = self._id;
+        /*
+        Meteor.call('Put rating in DB', {rating: thisRating}, function(error, id) {
+            if (error)
+                return alert(error.reason);
+            else {
+                // alert('success');
+            }
+        });*/
+    });
   }
 });
 
+// Initialize rateIt widget
 Template.productDetail.onRendered(function(){
   $('.rateit').rateit();
 });

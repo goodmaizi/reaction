@@ -399,4 +399,9 @@ ReactionCore.Schemas.Product = new SimpleSchema({
     defaultValue: "0",
     optional: true
   },
+  rating: {
+    type: String,
+    defaultValue: "0",
+    optional: true
+  },
 });
