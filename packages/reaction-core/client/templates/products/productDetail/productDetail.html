@@ -8,6 +8,12 @@
           {{#if isVisible}}
             <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeInvisible">Make invisible</a> |
           {{/if}}
+          {{#if isActive}}
+            <a href="#" class="toggle-product-isActive-link" data-i18n="productDetail.makeInactive">Make inactive</a> |
+          {{/if}}
+          {{#unless isActive}}
+            <a href="#" class="toggle-product-isActive-link" data-i18n="productDetail.makeActive">Make active</a> |
+          {{/unless}}
           {{#if hasAdminAccess}}
             <a href="#" class="delete-product-link" data-i18n="app.delete">Delete</a>
           {{/if}}
@@ -101,6 +107,19 @@
               </div>
 
             </div>
+            {{#if hasPermission "createProduct"}}
+            <div class="row col-md-11">
+
+              <div class="product-detail-map">
+                <div class="product-location">
+                  <span class="latitude-text" data-i18n="productDetail.latitude">Latitude</span>: <span id="latitude" itemprop="latitude">{{>fieldComponent field="latitude" value=latitude}}</span>
+                  <span class="longitude-text" data-i18n="productDetail.longitude">Longitude</span>: <span id="longitude" itemprop="longitude">{{>fieldComponent field="longitude" value=longitude}}</span>
+                </div>
+
+                {{>productMap}}
+              </div>
+            </div>
+            {{/if}}
             <!-- END Right Side -->
           </div>
         </div>

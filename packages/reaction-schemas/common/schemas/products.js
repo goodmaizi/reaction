@@ -379,5 +379,24 @@ ReactionCore.Schemas.Product = new SimpleSchema({
       return new Date;
     },
     optional: true
-  }
+  },
+  userId: {
+    type: String,
+    index: 1
+  },
+  isActive: {
+    type: Boolean,
+    index: 1,
+    defaultValue: false
+  },
+  latitude: {
+    type: String,
+    defaultValue: "0",
+    optional: true
+  },
+  longitude: {
+    type: String,
+    defaultValue: "0",
+    optional: true
+  },
 });
