@@ -86,7 +86,7 @@ iron:location@1.0.11
 iron:middleware-stack@1.0.11
 iron:router@1.0.12
 iron:url@1.0.11
-jeremy:stripe@1.0.0
+jeremy:stripe@1.1.0
 jparker:crypto-core@0.1.0
 jparker:crypto-md5@0.1.1
 jparker:gravatar@0.4.1
@@ -135,7 +135,7 @@ rate-limit@1.0.0
 reactioncommerce:core@0.11.0
 reactioncommerce:core-theme@2.0.1
 reactioncommerce:default-theme@1.0.3
-reactioncommerce:launchdock-connect@0.1.3
+reactioncommerce:launchdock-connect@0.1.4
 reactioncommerce:reaction-accounts@1.6.1
 reactioncommerce:reaction-analytics@1.2.1
 reactioncommerce:reaction-analytics-libs@1.1.0
@@ -143,7 +143,7 @@ reactioncommerce:reaction-braintree@1.5.0
 reactioncommerce:reaction-collections@1.0.3
 reactioncommerce:reaction-email-templates@0.1.1
 reactioncommerce:reaction-inventory@0.2.1
-reactioncommerce:reaction-paymentmethod@0.0.1
+reactioncommerce:reaction-paymentmethod@0.0.2
 reactioncommerce:reaction-paypal@1.2.7
 reactioncommerce:reaction-sample-data@0.1.1
 reactioncommerce:reaction-schemas@1.0.3
