@@ -53,6 +53,7 @@ check@1.1.0
 coffeescript@1.0.11
 cosmos:browserify@0.9.3
 dburles:google-maps@1.1.5
+dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -72,6 +73,7 @@ geojson-utils@1.0.4
 github@1.1.4
 google@1.1.7
 gouthamve:reaction-cod@1.2.0
+gwendall:body-events@0.1.6
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
@@ -91,6 +93,7 @@ jparker:crypto-core@0.1.0
 jparker:crypto-md5@0.1.1
 jparker:gravatar@0.4.1
 jquery@1.11.4
+lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 less@2.5.1
 livedata@1.0.15
@@ -102,6 +105,21 @@ meteor@1.1.10
 meteor-base@1.0.1
 meteor-platform@1.2.3
 meteorhacks:ssr@2.2.0
+meteortoys:allthings@2.3.1
+meteortoys:authenticate@2.1.0
+meteortoys:autopub@2.1.0
+meteortoys:blueprint@2.1.0
+meteortoys:email@2.1.0
+meteortoys:hotreload@2.1.0
+meteortoys:listen@2.1.0
+meteortoys:method@3.0.2
+meteortoys:pub@3.0.2
+meteortoys:result@2.1.0
+meteortoys:shell@2.1.0
+meteortoys:status@2.1.0
+meteortoys:sub@2.1.0
+meteortoys:throttle@2.1.0
+meteortoys:toykit@2.2.1
 mikowals:batch-insert@1.1.13
 minifiers@1.1.7
 minimongo@1.0.10
@@ -113,6 +131,8 @@ mongo-id@1.0.1
 mongo-livedata@1.0.9
 mquandalle:bower@1.5.2_1
 mrt:later@1.6.1
+msavin:jetsetter@1.5.2
+msavin:mongol@1.6.2
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 npm-node-aes-gcm@0.1.3_6
