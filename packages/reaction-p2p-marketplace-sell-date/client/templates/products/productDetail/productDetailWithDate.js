@@ -4,5 +4,5 @@
 Template.productDetail.rendered = function() {
   // inject date field template here
   console.log("HUMPPA");
-  Blaze.renderWithData(Template.productDetailDateField, {my: "data"}, $(".product-location")[0])
+  Blaze.renderWithData(Template.productDetailDateField, this.data, $(".product-location")[0])
 };
