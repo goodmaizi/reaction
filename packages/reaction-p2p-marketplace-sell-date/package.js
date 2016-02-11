@@ -34,6 +34,8 @@ Package.onUse(function(api) {
     api.use("less");
     api.use("reactioncommerce:core@0.10.0");
 
+    api.use("aldeed:template-extension");
+
   api.addFiles([
                 'reaction-p2p-marketplace-sell-date.js',
                 'client/templates/products/dateField/dateField.html',
