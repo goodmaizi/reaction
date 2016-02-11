@@ -34,7 +34,15 @@ Package.onUse(function(api) {
     api.use("less");
     api.use("reactioncommerce:core@0.10.0");
 
-  api.addFiles('reaction-p2p-marketplace-sell-date.js');
+  api.addFiles([
+                'reaction-p2p-marketplace-sell-date.js',
+                'client/templates/products/dateField/dateField.html',
+                'client/templates/products/dateField/dateField.js',
+                'client/templates/products/productDetail/productDetailWithDate.html',
+                'client/templates/products/productDetail/productDetailWithDate.js',
+              ],
+              'client'
+              );
 
   // common files
   api.addFiles([
