@@ -781,18 +781,21 @@ Meteor.methods({
    * @return {String} returns update result
    */
   "products/updateProductField": function (productId, field, value) {
+    ReactionCore.Log.error("updateProductField checking... ", productId);
     check(productId, String);
     check(field, String);
-    check(value, Match.OneOf(String, Object, Array, Boolean));
+    check(value, Match.OneOf(String, Object, Array, Boolean, Date));
     // must have createProduct permission
     if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
       throw new Meteor.Error(403, "Access Denied");
     }
     this.unblock();
 
+    ReactionCore.Log.error("updateProductField updating product ", productId);
     let stringValue = EJSON.stringify(value);
     let update = EJSON.parse("{\"" + field + "\":" + stringValue + "}");
-
+    ReactionCore.Log.error("updateProductField updated product ", productId);
+    
     return ReactionCore.Collections.Products.update(productId, {
       $set: update
     });
