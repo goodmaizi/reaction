@@ -1,6 +1,4 @@
 
-
-
 var existingRenderedCallback = Template.productDetail.rendered;
 Template.productDetail.rendered = function() {
   if (existingRenderedCallback != null) existingRenderedCallback();
@@ -15,11 +13,20 @@ Template.productDetail.rendered = function() {
     console.log("hid variant");
   }
   else {
-    var productTitle = $('.title-edit-input').val();
-    $('.variant-edit-form [name=title]').val(productTitle);
+    //var productTitle = $('.title-edit-input').val();
+    $('.variant-edit-form [name=title]').val("Variante 1");
     $('.variant-edit-form [name=weight]').val('1');
-    $('.variant-edit-form [name=inventoryQuantity]').val('1');
-    $('.variant-edit-form [name=price]').val('1');
+    if ($('.variant-edit-form [name=inventoryQuantity]').val() == '') {
+      $('.variant-edit-form [name=inventoryQuantity]').val('1');
+    }
+    $('.variant-edit-form [name=compareAtPrice]').val('1');
+    /*
+    if ($('.variant-edit-form [name=price]').val() == '0') {
+      $('.variant-edit-form [name=price]').val('8.90');
+    }*/
+
+    $('.variant-edit-form [name=title]').focus();
+    $('.variant-edit-form [name=title]').blur();
 
     // click variant edit for seller to see
 
@@ -58,3 +65,12 @@ Template.productDetail.rendered = function() {
   // hide title "Options"
   $('.options-add-to-cart h3').hide();
 };
+
+/*
+Template.productDetailHideVariants.events({
+  "blur .title-edit-input": function () {
+      var productTitle = $('.title-edit-input').val();
+      $('.variant-edit-form [name=title]').val(productTitle);
+    }
+  }
+);*/
