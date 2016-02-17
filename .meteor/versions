@@ -150,8 +150,10 @@ ordered-dict@1.0.4
 promise@0.5.1
 raix:eventemitter@0.1.3
 raix:ui-dropped-event@0.0.7
+rajit:bootstrap3-datepicker@1.3.1
 random@1.0.5
 rate-limit@1.0.0
+reaction-search@0.0.0
 reactioncommerce:core@0.11.0
 reactioncommerce:core-theme@2.0.1
 reactioncommerce:default-theme@1.0.3
@@ -178,6 +180,7 @@ risul:moment-timezone@0.4.1
 routepolicy@1.0.6
 scydev:reaction-p2p-marketplace-locations@0.0.1
 scydev:reaction-p2p-marketplace-simplified-products@0.0.1
+scydev:reaction-p2p-marketplace-sell-date@0.0.1
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
