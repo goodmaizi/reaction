@@ -17,14 +17,18 @@ Template.productDetail.rendered = function() {
     var productTitle = $('.title-edit-input').val();
     $('.variant-edit-form [name=title]').val(productTitle);
     $('.variant-edit-form [name=weight]').val('1');
-    $('.variant-edit-form [name=quantity]').val('1');
+    $('.variant-edit-form [name=inventoryQuantity]').val('1');
     $('.variant-edit-form [name=price]').val('1');
 
     // click variant edit for seller to see
 
     // check if it's already open
-    $('.variant-edit').click();
-    console.log("clicked variant edit");
+    if ($('.variant-edit-form').hasClass('hidden')) {
+      $('.variant-edit').click();
+      console.log("clicked variant edit");
+    }
+
+    $('.variant-detail').hide();
 
     // prevent second variant
     $('.variant-form-buttons').hide();
@@ -45,6 +49,9 @@ Template.productDetail.rendered = function() {
       }
     );
 
-
+    $('.add-to-cart-block').hide();
   }
+
+  // hide title "Options"
+  $('.options-add-to-cart h3').hide();
 };
