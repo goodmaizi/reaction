@@ -1,7 +1,5 @@
 
-Template.productDetailHideVariants.inheritsHelpersFrom("productDetail");
-Template.productDetailHideVariants.inheritsEventsFrom("productDetail");
-Template.productDetailHideVariants.inheritsHooksFrom("productDetail");
+
 
 var existingRenderedCallback = Template.productDetail.rendered;
 Template.productDetail.rendered = function() {
@@ -40,6 +38,8 @@ Template.productDetail.rendered = function() {
 
     // hide unneeded fields
     $('.vendor-edit-input').hide();
+    $('.pageTitle-edit-input').hide();
+    $('#price').hide();
 
     $('.variant-edit-form .form-group').each(
       function(index, element) {
