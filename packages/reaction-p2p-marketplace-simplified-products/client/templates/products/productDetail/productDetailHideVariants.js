@@ -17,6 +17,8 @@ Template.productDetail.rendered = function() {
     var productTitle = $('.title-edit-input').val();
     $('.variant-edit-form [name=title]').val(productTitle);
     $('.variant-edit-form [name=weight]').val('1');
+    $('.variant-edit-form [name=quantity]').val('1');
+    $('.variant-edit-form [name=price]').val('1');
 
     // click variant edit for seller to see
 
@@ -26,6 +28,23 @@ Template.productDetail.rendered = function() {
 
     // prevent second variant
     $('.variant-form-buttons').hide();
-    console.log("hid variant edit buttons");
+    $('.variant-options').hide();
+    console.log("hid variant extra stuff");
+
+    // hide unneeded fields
+    $('.vendor-edit-input').hide();
+
+    $('.variant-edit-form .form-group').each(
+      function(index, element) {
+        if (index == 2 || index == 4) {
+          $(this).show();
+        }
+        else {
+          $(this).hide();
+        }
+      }
+    );
+
+
   }
 };
