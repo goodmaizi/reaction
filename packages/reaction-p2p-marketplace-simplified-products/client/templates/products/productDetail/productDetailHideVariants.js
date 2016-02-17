@@ -3,7 +3,10 @@ Template.productDetailHideVariants.inheritsHelpersFrom("productDetail");
 Template.productDetailHideVariants.inheritsEventsFrom("productDetail");
 Template.productDetailHideVariants.inheritsHooksFrom("productDetail");
 
+var existingRenderedCallback = Template.productDetail.rendered;
 Template.productDetail.rendered = function() {
+  if (existingRenderedCallback != null) existingRenderedCallback();
+
   if (!ReactionCore.hasPermission("createProduct")) {
     // auto-select variant
     $('.variant-detail .variant-title').click();
