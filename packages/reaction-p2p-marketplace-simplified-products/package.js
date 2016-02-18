@@ -42,6 +42,8 @@ Package.onUse(function(api) {
                 'client/templates/products/productDetail/productDetailHideVariants.js',
                 'client/templates/cart/checkout/shipping/shipping.html',
                 'client/templates/cart/checkout/shipping/shipping.js',
+                'client/templates/cart/payment/methods/cod/cod.html',
+                'client/templates/cart/payment/methods/cod/cod.js',
               ],
               'client'
               );
