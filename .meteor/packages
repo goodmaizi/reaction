@@ -90,4 +90,5 @@ reactioncommerce:reaction-braintree
 dburles:google-maps
 scydev:reaction-p2p-marketplace-locations
 
-meteortoys:allthings
+reaction-search
+scydev:reaction-p2p-marketplace-sell-date
