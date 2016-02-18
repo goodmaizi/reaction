@@ -160,6 +160,7 @@ risul:moment-timezone@0.4.1
 routepolicy@1.0.6
 scydev:reaction-p2p-marketplace-locations@0.0.1
 scydev:reaction-p2p-marketplace-sell-date@0.0.1
+scydev:reaction-p2p-marketplace-simplified-products@0.0.1
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
