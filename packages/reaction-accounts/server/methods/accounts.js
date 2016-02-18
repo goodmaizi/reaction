@@ -79,16 +79,17 @@ Accounts.onCreateUser(function (options, user) {
     account.userId = user._id;
 
     // add additional data
-    account.isSeller = (options.isSeller != null && options.isSeller === 'on'); //options.isSeller; //
+    ReactionCore.Log.info("Accounts.onCreateUser: options.isSeller ",options.isSeller);
+    account.isSeller = (options.isSeller != null && options.isSeller === true); //options.isSeller; //
     if (account.isSeller === true) {
       //Meteor.call("accounts/addUserPermissions", user._id, ["createProduct"], shopId);
       //Roles.addUsersToRoles(user._id, ["createProduct"], shopId);
       roles[shopId].push("createProduct");
-      ReactionCore.Log.error("Accounts.insert: add permissions ", roles, " to: ", user.roles);
+      ReactionCore.Log.info("Accounts.onCreateUser: add permissions ", roles, " to: ", user.roles);
     }
     user.profile = options.profile;
 
-    ReactionCore.Log.error("Accounts.insert: ", account, " \noptions: ", options, " \nuser: ", user);
+    ReactionCore.Log.info("Accounts.onCreateUser: ", account, " \noptions: ", options, " \nuser: ", user);
     ReactionCore.Collections.Accounts.insert(account);
 
     // send a welcome email to new users,

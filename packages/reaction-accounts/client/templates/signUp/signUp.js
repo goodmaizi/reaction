@@ -31,12 +31,12 @@ Template.loginFormSignUpView.events({
     // var usernameInput = template.$(".login-input--username");
     let emailInput = template.$(".login-input-email");
     let passwordInput = template.$(".login-input-password");
-    let isSellerInput = template.$(".login-input-isSeller");
+    let isSellerInput = template.$(".login-input-isSeller").prop('checked') && template.$(".login-input-isSeller").val().trim() == "on";
     let nameInput = template.$(".login-input-name");
 
     let email = emailInput.val().trim();
     let password = passwordInput.val().trim();
-    let isSeller = isSellerInput.val().trim();
+    let isSeller = isSellerInput;
     let name = nameInput.val().trim();
 
     let validatedEmail = LoginFormValidation.email(email);
@@ -72,6 +72,9 @@ Template.loginFormSignUpView.events({
       // prevent signup
       return;
     }
+
+    ReactionCore.Log.info("submit form isSeller -", isSeller, "- ", "was -", isSellerInput, "-");
+    console.log("submit form isSeller -", isSeller, "- ");
 
     let newUserData = {
       // username: username,
