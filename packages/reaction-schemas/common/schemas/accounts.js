@@ -129,7 +129,7 @@ ReactionCore.Schemas.Accounts = new SimpleSchema({
   isSeller: {
     type: Boolean,
     defaultValue: false,
-    optional: false
+    optional: true
   },/*
   "displayName": {
     type: String,
