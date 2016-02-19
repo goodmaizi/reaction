@@ -51,7 +51,7 @@ Package.onUse(function(api) {
                 'client/templates/products/productMap/productMap.js',
                 'client/templates/products/locationField/locationField.html',
                 'client/templates/products/locationField/locationField.js',
-                'client/templates/products/productDetail/productDetail.html',
+                //'client/templates/products/productDetail/productDetail.html',
                 'client/templates/products/productDetail/productDetail.js',
               ],
               'client');
@@ -59,7 +59,6 @@ Package.onUse(function(api) {
   api.addFiles("client/templates/dashboard/locations.html", ["client"]);
   api.addFiles("client/templates/dashboard/locations.js", ["client"]);
 
-  api.addFiles("client/templates/products/products.html", ["client"]);
   api.addFiles("client/templates/products/products.js", ["client"]);
 
 
