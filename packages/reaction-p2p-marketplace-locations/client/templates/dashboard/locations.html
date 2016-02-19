@@ -2,31 +2,31 @@
 
   {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.LocationsPackageConfig" doc=packageData type="update" id="locations-update-form" autosave=true}}
 
-  <div class="panel panel-default">
-    <div class="panel-heading panel-heading-flex">
-      <h3 class="panel-title">
-        <i class="fa fa-map"></i> Locations on products
-      </h3>
-      <div class="panel-controls">
-        {{>afQuickField name='settings.public.apps.locations.products' input-col-class="checkbox-switch"}}
+    <div class="panel panel-default">
+      <div class="panel-heading panel-heading-flex">
+        <h3 class="panel-title">
+          <i class="fa fa-map"></i> Locations on products
+        </h3>
+        <div class="panel-controls">
+          {{>afQuickField name='settings.public.apps.locations.products' input-col-class="checkbox-switch"}}
+        </div>
+      </div>
+      <div class="panel-body">
       </div>
     </div>
-    <div class="panel-body">
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading panel-heading-flex">
-      <h3 class="panel-title">
-        <i class="fa fa-map"></i> Locations on sellers
-      </h3>
-      <div class="panel-controls">
-        {{>afQuickField name='settings.public.apps.locations.sellers' input-col-class="checkbox-switch"}}
+    <div class="panel panel-default">
+      <div class="panel-heading panel-heading-flex">
+        <h3 class="panel-title">
+          <i class="fa fa-map"></i> Locations on sellers
+        </h3>
+        <div class="panel-controls">
+          {{>afQuickField name='settings.public.apps.locations.sellers' input-col-class="checkbox-switch"}}
+        </div>
+      </div>
+      <div class="panel-body">
       </div>
     </div>
-    <div class="panel-body">
-    </div>
-  </div>
 
 
     <!--
@@ -48,7 +48,10 @@
     </div>
     -->
 
+    <!--
     <button type="submit" class="btn btn-primary pull-right" data-i18n="app.saveChanges">Save Changes</button>
+    -->
+
   {{/autoForm}}
 </template>
 
