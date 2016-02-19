@@ -1,18 +1,26 @@
 
 /*
-ReactionCore.Schemas.SocialProvider = new SimpleSchema({
-  profilePage: {
-    type: String,
-    regEx: SimpleSchema.RegEx.Url,
-    label: 'Profile Page',
-    optional: true
-  },
-  enabled: {
-    type: Boolean,
-    defaultValue: false,
-    optional: true
+ReactionCore.Schemas.Accounts = new SimpleSchema([
+  ReactionCore.Schemas.Accounts, {
+    / * wait a moment! user already has adresses! use those!
+    "address": {
+      type: String,
+      //defaultValue: true,
+      optional: false
+    },
+    * /
+    "lat": {
+      type: String,
+      //defaultValue: true,
+      optional: true
+    },
+    "long": {
+      type: String,
+      //defaultValue: true,
+      optional: true
+    },
   }
-});*/
+]);*/
 
 ReactionCore.Schemas.LocationsPackageConfig = new SimpleSchema([
   ReactionCore.Schemas.PackageConfig, {

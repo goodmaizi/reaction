@@ -49,9 +49,10 @@ Package.onUse(function(api) {
                 'client/templates/products/productMap/productMap.html',
                 'client/templates/products/productMap/productMap.less',
                 'client/templates/products/productMap/productMap.js',
+                'client/templates/products/productMap/productMapSingle.html',
+                'client/templates/products/productMap/productMapSingle.js',
                 'client/templates/products/locationField/locationField.html',
                 'client/templates/products/locationField/locationField.js',
-                //'client/templates/products/productDetail/productDetail.html',
                 'client/templates/products/productDetail/productDetail.js',
               ],
               'client');
@@ -61,10 +62,10 @@ Package.onUse(function(api) {
 
   api.addFiles("client/templates/products/products.js", ["client"]);
 
-
   // server files
   api.addFiles("server/register.js", ["server"]);
   api.addFiles([
+                "server/methods/accounts.js",
                 "server/security/browserPolicy.js",
                 "server/security/security.js",
               ],
