@@ -41,7 +41,6 @@ Package.onUse(function(api) {
                 'reaction-p2p-marketplace-sell-date.js',
                 'client/templates/products/dateField/dateField.html',
                 'client/templates/products/dateField/dateField.js',
-                'client/templates/products/productDetail/productDetailWithDate.html',
                 'client/templates/products/productDetail/productDetailWithDate.js',
               ],
               'client'
