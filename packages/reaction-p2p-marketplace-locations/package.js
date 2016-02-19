@@ -48,6 +48,10 @@ Package.onUse(function(api) {
                 'client/templates/products/productMap/productMap.html',
                 'client/templates/products/productMap/productMap.less',
                 'client/templates/products/productMap/productMap.js',
+                'client/templates/products/locationField/locationField.html',
+                'client/templates/products/locationField/locationField.js',
+                'client/templates/products/productDetail/productDetail.html',
+                'client/templates/products/productDetail/productDetail.js',
               ],
               'client');
 
