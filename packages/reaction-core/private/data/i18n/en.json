@@ -73,7 +73,10 @@
         "startTracking": "Start Tracking",
         "addBarcode": "Add Barcode",
         "quantity": "Quantity",
-        "quantityGreaterThanZero": "Error: Quantity must be greater than zero"
+        "quantityGreaterThanZero": "Error: Quantity must be greater than zero",
+        "forSaleOnDate": "For sale on date",
+        "makeActive": "Activate",
+        "makeInactive": "Deactivate"
       },
       "productDetailEdit": {
         "title": "Product title",

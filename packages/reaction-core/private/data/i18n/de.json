@@ -42,7 +42,10 @@
                     "productDeleteError": "Fehler beim Löschen von ",
                     "publishFirst": "Produkt kann erst nach Veröffentlichung in den Warenkorb gelegt werden.",
                     "selectOption": "Es muss eine Produktoption ausgewählt werden, bevor es in den Warenkorb gelegt werden kann.",
-                    "addedToCart": "hinzugefügt"
+                    "addedToCart": "hinzugefügt",
+                    "forSaleOnDate": "Verkaufsdatum",
+                    "makeActive": "Aktivieren",
+                    "makeInactive": "Deaktivieren"
                 },
                 "productDetailEdit": {
                     "title": "Produkttitle",
