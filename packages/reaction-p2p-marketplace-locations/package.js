@@ -39,6 +39,7 @@ Package.onUse(function(api) {
 
   // common files
   api.addFiles([
+                'common/schemas/schemas.js',
                 'common/schemas/mapmarkers.js',
                 'common/collections/collections.js',
               ]);
@@ -54,8 +55,10 @@ Package.onUse(function(api) {
                 'client/templates/products/productDetail/productDetail.js',
               ],
               'client');
+
   api.addFiles("client/templates/dashboard/locations.html", ["client"]);
   api.addFiles("client/templates/dashboard/locations.js", ["client"]);
+
 
   // server files
   api.addFiles("server/register.js", ["server"]);
