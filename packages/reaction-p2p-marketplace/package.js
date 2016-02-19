@@ -12,8 +12,33 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
+
+  // meteor base packages
+  api.use("standard-minifiers");
+  api.use("mobile-experience");
+  api.use("meteor-base");
+  api.use("mongo");
+  api.use("blaze-html-templates");
+  api.use("session");
+  api.use("jquery");
+  api.use("tracker");
+  api.use("logging");
+  api.use("reload");
+  api.use("random");
+  api.use("ejson");
+  api.use("spacebars");
+  api.use("check");
+
   api.use('ecmascript');
+  api.use('templating');
+  api.use("less");
+  api.use("reactioncommerce:core@0.10.0");
+
   api.addFiles('reaction-p2p-marketplace.js');
+
+  api.addFiles("client/templates/products/products.html", ["client"]);
+  api.addFiles("client/templates/products/products.js", ["client"]);
+
 });
 
 Package.onTest(function(api) {

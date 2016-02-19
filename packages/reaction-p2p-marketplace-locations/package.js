@@ -59,6 +59,9 @@ Package.onUse(function(api) {
   api.addFiles("client/templates/dashboard/locations.html", ["client"]);
   api.addFiles("client/templates/dashboard/locations.js", ["client"]);
 
+  api.addFiles("client/templates/products/products.html", ["client"]);
+  api.addFiles("client/templates/products/products.js", ["client"]);
+
 
   // server files
   api.addFiles("server/register.js", ["server"]);

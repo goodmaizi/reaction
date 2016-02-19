@@ -158,6 +158,7 @@ reload@1.1.4
 retry@1.0.4
 risul:moment-timezone@0.4.1
 routepolicy@1.0.6
+scydev:reaction-p2p-marketplace@0.0.1
 scydev:reaction-p2p-marketplace-locations@0.0.1
 scydev:reaction-p2p-marketplace-sell-date@0.0.1
 scydev:reaction-p2p-marketplace-simplified-products@0.0.1
