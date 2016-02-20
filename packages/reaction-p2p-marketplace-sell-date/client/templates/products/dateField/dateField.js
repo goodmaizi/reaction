@@ -1,11 +1,13 @@
 
 // inherit helpers from template productDetail so we can use fieldComponent in this here template
-Template.productDetailDateField.inheritsHelpersFrom("productDetail");
-Template.productDetailDateField.inheritsEventsFrom("productDetail");
-Template.productDetailDateField.inheritsHooksFrom("productDetail");
+Template.productDetailDateField.inheritsHelpersFrom(["productDetail", "productDetailEdit"]);
+Template.productDetailDateField.inheritsEventsFrom(["productDetail", "productDetailEdit"]);
+Template.productDetailDateField.inheritsHooksFrom(["productDetail", "productDetailEdit"]);
 
 Template.productDetailDateField.onRendered(
   function() {
-    $(".forSaleOnDate-edit-input").datepicker();
+    Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
+      $(".forSaleOnDate-edit-input").datepicker();
+    }, 100);
   }
 );

@@ -780,7 +780,7 @@ Meteor.methods({
    * @return {String} returns update result
    */
   "products/updateProductField": function (productId, field, value) {
-    ReactionCore.Log.info("updateProductField checking... ", productId);
+    ReactionCore.Log.info("updateProductField checking... ", field,": ",value," for ",productId);
     check(productId, String);
     check(field, String);
     check(value, Match.OneOf(String, Object, Array, Boolean, Date));

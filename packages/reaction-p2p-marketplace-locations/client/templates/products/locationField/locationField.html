@@ -1,7 +1,10 @@
 <template name="productDetailLocationField">
+  {{#with product}}
   <div class="row col-md-11">
 
     <div class="product-detail-map">
+      <h2><span class="forSaleOnDate-text" data-i18n="productDetail.location">Location</span>:</h2>
+
       {{#if hasPermission "createProduct"}}
         <div class="product-location">
           <span class="latitude-text" data-i18n="productDetail.latitude">Latitude</span>: <span id="latitude" itemprop="latitude">{{>fieldComponent field="latitude" value=latitude}}</span>
@@ -12,4 +15,5 @@
       {{>productMapSingle}}
     </div>
   </div>
+  {{/with}}
 </template>
