@@ -21,7 +21,7 @@ ReactionCore.registerPackage({
     }*/
   },
   registry: [{
-      route: "dashboard/locations",
+      route: "/dashboard/locations",
       provides: "dashboard",
       label: "Locations",
       description: "Locations for products and sellers",
@@ -29,7 +29,7 @@ ReactionCore.registerPackage({
       cycle: "4",
       container: "dashboard",
     }, {
-      route: "dashboard/locations",
+      route: "/dashboard/locations",
       template: "locationsSettings",
       label: "Locations Settings",
       provides: "settings",
