@@ -2,9 +2,11 @@
 Template.products.onRendered(
   function() {
     if ($('.product-map').length === 0) { // make sure its only injected once, not on every rendered event
-      // inject template here
-      Blaze.renderWithData(Template.productMap, this.data, $(".container-main")[0])
-      console.log('injected map');
+      Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
+        // inject template here
+        Blaze.renderWithData(Template.productMap, this.data, $(".container-main")[0])
+        console.log('injected map');
+      }, 100);
     }
   }
 );
