@@ -780,7 +780,7 @@ Meteor.methods({
    * @return {String} returns update result
    */
   "products/updateProductField": function (productId, field, value) {
-    ReactionCore.Log.error("updateProductField checking... ", productId);
+    ReactionCore.Log.info("updateProductField checking... ", productId);
     check(productId, String);
     check(field, String);
     check(value, Match.OneOf(String, Object, Array, Boolean, Date));
@@ -790,11 +790,11 @@ Meteor.methods({
     }
     this.unblock();
 
-    ReactionCore.Log.error("updateProductField updating product ", productId);
+    ReactionCore.Log.info("updateProductField updating product ", productId);
     let stringValue = EJSON.stringify(value);
     let update = EJSON.parse("{\"" + field + "\":" + stringValue + "}");
-    ReactionCore.Log.error("updateProductField updated product ", productId);
-    
+    ReactionCore.Log.info("updateProductField updated product ", productId);
+
     return ReactionCore.Collections.Products.update(productId, {
       $set: update
     });
