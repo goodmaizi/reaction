@@ -131,7 +131,7 @@
         "quantityGreaterThanZero": "Error: Quantity must be greater than zero",
         "forSaleOnDate": "For sale on date",
         "makeActive": "Activate",
-        "makeInactive": "Deactivate"
+        "makeInactive": "Deactivate",
         "notFoundTitle": "Oops!",
         "notFoundError": "This is not the product you were looking for."
       },
