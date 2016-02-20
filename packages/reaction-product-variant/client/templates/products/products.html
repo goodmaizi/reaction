@@ -1,0 +1,16 @@
+<template name="products">
+ 
+  <div class="container-main">
+  {{>productGrid tag}}
+  </div>
+
+</template>
+
+<template name="productListGrid">
+  <div class="row">
+    {{>productGrid}}
+    {{#if hasPermission "createProduct"}}
+      {{>productList}}
+    {{/if}}
+  </div>
+</template>

@@ -42,22 +42,24 @@ Template.accountProfile.helpers({
         }
       },
 
-      /**
-       * User's order history
-       * @return {Array|null} an array of available orders for the user
-       */
-      userOrders() {
-        if (Meteor.user()) {
-          return ReactionCore.Collections.Orders.find({
-            userId: Meteor.userId()
-          }, {
-            sort: {
-              createdAt: -1
-            },
-            limit: 25
-          });
-        }
-      },
+  /**
+   * User's order history
+   * @return {Array|null} an array of available orders for the user
+   */
+  userOrders() {
+    const orderSub = Meteor.subscribe("AccountOrders", Meteor.userId());
+    if (orderSub.ready()) {
+      return ReactionCore.Collections.Orders.find({
+        userId: Meteor.userId()
+      }, {
+        sort: {
+          createdAt: -1
+        },
+        limit: 25
+      });
+    }
+  },
+
 
   /**
    * User's account profile
