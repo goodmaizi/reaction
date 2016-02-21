@@ -2,11 +2,13 @@
 Template.products.onRendered(
   function() {
     if ($('.viewSwitch').length === 0) { // make sure its only injected once, not on every rendered event
-      // inject template here
-      Blaze.renderWithData(Template.searchBox, this.data, $(".container-main")[0], $('.product-grid')[0])
-      Blaze.renderWithData(Template.productsViewSwitcher, this.data, $(".container-main")[0], $('.product-grid')[0])
-      Blaze.renderWithData(Template.productList, this.data, $(".container-main")[0])
-      console.log('injected view switcher');
+      Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
+        // inject template here
+        //Blaze.renderWithData(Template.searchBox, this.data, $(".container-main")[0], $('.product-grid')[0])
+        Blaze.renderWithData(Template.productsViewSwitcher, this.data, $(".container-main")[0], $('.product-grid')[0])
+        Blaze.renderWithData(Template.productList, this.data, $(".container-main")[0])
+        console.log('injected view switcher');
+      }, 100);
     }
   }
 );
