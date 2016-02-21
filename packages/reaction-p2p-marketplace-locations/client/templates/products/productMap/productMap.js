@@ -10,7 +10,7 @@ let Media;
 Media = ReactionCore.Collections.Media;
 Template.productMap.helpers({
   products: function () {
-    return getProductsByTag(this.tag);
+    return ReactionProduct.getProductsByTag(this.tag);
   },
   media: function () {
     let defaultImage;
@@ -57,7 +57,7 @@ Template.productMap.onCreated(function() {
     });*/
 
     // tag is not available in onCreated event by this.tag, so we get it through mapOptions helper
-    prodLocations = getProductsByTag(map.options.reactionTag);
+    prodLocations = ReactionProduct.getProductsByTag(map.options.reactionTag);
     prodLocations.forEach(function(prodLocation){
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(prodLocation.latitude, prodLocation.longitude),
