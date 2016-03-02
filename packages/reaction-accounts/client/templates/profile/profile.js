@@ -24,23 +24,6 @@ Template.accountProfile.helpers({
     return Template.instance().userHasPassword.get();
   },
 
-      /**
-       * User's products
-       * @return {Array|null} an array of available products for the user
-       */
-      userProducts() {
-        if (Meteor.user()) {
-          ReactionCore.Log.debug("userProducts: sreaching products for use ", Meteor.userId());
-          return ReactionCore.Collections.Products.find({
-            userId: Meteor.userId()
-          }, {
-            sort: {
-              createdAt: -1
-            },
-            limit: 25
-          });
-        }
-      },
 
   /**
    * User's order history
