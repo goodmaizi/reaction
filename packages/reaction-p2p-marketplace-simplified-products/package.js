@@ -40,7 +40,6 @@ Package.onUse(function(api) {
                 'reaction-p2p-marketplace-simplified-products.js',
                 'client/templates/products/productDetail/productDetailHideVariants.js',
                 'client/templates/cart/checkout/shipping/shipping.js',
-                'client/templates/cart/payment/methods/cod/cod.js',
               ],
               'client'
               );
