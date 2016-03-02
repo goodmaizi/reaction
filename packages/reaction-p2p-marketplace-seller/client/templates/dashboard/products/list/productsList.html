@@ -7,50 +7,39 @@
           </div>
 
           <div class="panel-content">
-            <!-- {{> dashboardProductsList data=userProducts}} -->
-
-            {{#each products data=data}}
-              <div class="panel panel-default products-list-detail">
-                <div class="panel-heading">
-                  <h3 class="panel-title">
-                    <span>{{title}}</span>
-                  </h3>
-                </div>
-                <div class="panel-body">
-
-                  <span data-i18n="profile.products.isVisible">Visible</span>: <span>{{isVisible}}</span>
-                  <span data-i18n="profile.products.isActive">Active</span>: <span>{{isActive}}</span>
-
-                  <div class="product-grid-list">
-                    <div class="product-grid-item">
-                      <a class="product-grid-item-images"
-                        href="{{pathFor 'product' 'handle'}}"
-                        data-event-category="grid"
-                        data-event-action="productClick"
-                        data-event-label="grid product click"
-                        data-event-value="{{_id}}">
-
-                        <div class="product-primary-images">
-                          {{#with media}}
-                            <span class="product-image" style="background-image: url('{{url store='large'}}')"></span>
-                          {{else}}
-                            <span class="product-image" style="background-image: url(/resources/placeholder.gif)"></span>
-                          {{/with}}
-                        </div>
-
+            <div class="backend-product-list">
+              <table class="table table-hover">
+                <tbody>
+                  {{#each products}}
+                  <tr class="product-list-item">
+                    <td>
+                      <a href="{{pathFor 'product' handle=handle}}" data-event-category="grid" data-event-action="product-click" data-event-label="Grid product click" data-event-value="{{_id}}">
+                      {{#with media}}
+                        <img src="{{url}}" class="product-grid-item-images img-responsive">
+                      {{else}}
+                        <img src= "/resources/placeholder.gif" class="product-grid-item-images img-responsive">
+                      {{/with}}
                       </a>
+                    </td>
+                    <td>
+                      <div><h3>{{title}}</h3></div>
+                      <div>{{{description}}}</div>
+                    </td>
+                    <td>
+                      <div><h3>{{formatPrice variants.[0].price}}</h3></div>
+                      {{#if cart.showItemLowInventoryWarning variants.[0]}}
+                      <div class="badge badge-low-inv-warning">{{variants.[0].inventoryQuantity}} Left!</div>
+                      {{/if}}
+                    </td>
+                  </tr>
+                  {{else}}
+                    <div class="alert alert-info">
+                      <span data-i18n="profile.products.noProductsFound">No products found.</span>
                     </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-            {{else}}
-              <div class="alert alert-info">
-                <span data-i18n="profile.products.noProductsFound">No products found.</span>
-              </div>
-            {{/each}}
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
 
           </div>
         </div>
