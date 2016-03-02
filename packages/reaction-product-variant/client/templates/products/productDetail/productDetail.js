@@ -268,40 +268,6 @@ Template.productDetail.events({
       });
     }
   },
-  "click .toggle-product-isActive-link": function (event, template) {
-    let errorMsg = "";
-    const self = this;
-    if (!self.title) {
-      errorMsg += "Product title is required. ";
-      template.$(".title-edit-input").focus();
-    }
-    let variants = self.variants;
-    for (let variant of variants) {
-      let index = _.indexOf(variants, variant);
-      if (!variant.title) {
-        errorMsg += "Variant " + (index + 1) + " label is required. ";
-      }
-      if (!variant.price) {
-        errorMsg += "Variant " + (index + 1) + " price is required. ";
-      }
-    }
-    if (errorMsg.length > 0) {
-      Alerts.add(errorMsg, "danger", {
-        placement: "productManagement",
-        i18nKey: "productDetail.errorMsg"
-      });
-    } else {
-      Meteor.call("products/activateProduct", self._id, function (error) {
-        if (error) {
-          return Alerts.add(error.reason, "danger", {
-            placement: "productManagement",
-            id: self._id,
-            i18nKey: "productDetail.errorMsg"
-          });
-        }
-      });
-    }
-  },
   "click .delete-product-link": function () {
     ReactionProduct.maybeDeleteProduct(this);
   },

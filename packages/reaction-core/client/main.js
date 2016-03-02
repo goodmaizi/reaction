@@ -111,11 +111,6 @@ _.extend(ReactionCore, {
         }
       }
     }
-
-    if (permissions == "createProduct") {
-      
-    }
-
     // no specific permissions found returning false
     return false;
   },
@@ -124,7 +119,7 @@ _.extend(ReactionCore, {
     return this.hasPermission(ownerPermissions);
   },
   hasAdminAccess: function () {
-    let adminPermissions = ["admin"];
+    let adminPermissions = ["owner", "admin"];
     return this.hasPermission(adminPermissions);
   },
   hasDashboardAccess: function () {
