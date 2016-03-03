@@ -1,6 +1,7 @@
 
 Template.accountProfile.onRendered(
   function() {
+    /*
     Meteor.setTimeout(function() {
       var selector = "#main .container-lg";
       console.log('injecting products list into: '+$(selector)[0]);
@@ -9,5 +10,6 @@ Template.accountProfile.onRendered(
 
       console.log('injected products list');
     }, 100);
+    */
   }
 );
