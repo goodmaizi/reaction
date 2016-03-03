@@ -44,6 +44,9 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/dashboard/products/list/productsList.js', 'client');
   api.addFiles('client/templates/profile/profile.js', 'client');
 
+  api.addFiles('server/register.js', 'server');
+  api.addFiles('server/methods/accounts.js', 'server');
+
 });
 
 Package.onTest(function(api) {
