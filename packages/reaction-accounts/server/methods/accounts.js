@@ -88,6 +88,9 @@ Accounts.onCreateUser(function (options, user) {
       //Roles.addUsersToRoles(user._id, ["createProduct"], shopId);
       roles[shopId].push("createProduct");
       roles[shopId].push("account/seller/products");
+      roles[shopId].push("reaction-orders");
+      roles[shopId].push("orders");
+      roles[shopId].push("dashboard/orders");
       ReactionCore.Log.info("Accounts.onCreateUser: add permissions ", roles, " to: ", user.roles);
     }
     user.profile = options.profile;
