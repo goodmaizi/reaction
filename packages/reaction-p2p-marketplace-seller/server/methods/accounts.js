@@ -1,42 +1,21 @@
 
-//Accounts.onCreateUser(function (options, user) {
-ReactionCore.MethodHooks.after('accounts/onCreateUser', function(user, options){
-  ReactionCore.Log.info("Adding permission: account/seller/products");
-  Meteor.call("accounts/addUserPermissions", this.userId, ["guest", "account/seller/products"], this.shopId);
+ReactionCore.Hooks.Events.add(
+  "onCreateUser",
+  function(user, options) {
+    const shop = ReactionCore.getCurrentShop();
+    const shopId = shop._id;
 
-  return user;
-}
-);
+    if (options.isSeller != null && options.isSeller === true) {
+      ReactionCore.Log.info("Adding seller permissions.");
 
-ReactionCore.MethodHooks.before('accounts/onCreateUser', function(user, options){
-  ReactionCore.Log.info("Adding permission: account/seller/products");
-  Meteor.call("accounts/addUserPermissions", this.userId, ["guest", "account/seller/products"], this.shopId);
+      user.roles[shopId].push("createProduct");
+      user.roles[shopId].push("account/seller/products"); // for access to our own products route
+      user.roles[shopId].push("account/seller/orders"); // for access to our own orders route
+      user.roles[shopId].push("reaction-orders"); // for access on orders collection
+      user.roles[shopId].push("orders"); // for access on orders collection
+      user.roles[shopId].push("dashboard/orders"); // for access to existing AND our own orders route
+    }
 
-  return user;
-}
-);
-
-
-ReactionCore.MethodHooks.before('accounts/onCreateUser', function(options){
-  ReactionCore.Log.info("Adding permission: account/seller/products");
-  Meteor.call("accounts/addUserPermissions", this.userId, ["guest", "account/seller/products"], this.shopId);
-
-  return user;
-}
-);
-
-ReactionCore.MethodHooks.before('onCreateUser', function(user, options){
-  ReactionCore.Log.info("Adding permission: account/seller/products");
-  Meteor.call("accounts/addUserPermissions", this.userId, ["guest", "account/seller/products"], this.shopId);
-
-  return user;
-}
-);
-
-ReactionCore.MethodHooks.before('onCreateUser', function(options){
-  ReactionCore.Log.info("Adding permission: account/seller/products");
-  Meteor.call("accounts/addUserPermissions", this.userId, ["guest", "account/seller/products"], this.shopId);
-
-  return user;
-}
+    return user;
+  }
 );

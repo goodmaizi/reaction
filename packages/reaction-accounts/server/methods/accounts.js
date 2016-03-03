@@ -84,8 +84,7 @@ Accounts.onCreateUser(function (options, user) {
     ReactionCore.Log.info("Accounts.onCreateUser: options.isSeller ",options.isSeller);
     account.isSeller = (options.isSeller != null && options.isSeller === true); //options.isSeller; //
     if (account.isSeller === true) {
-      //Meteor.call("accounts/addUserPermissions", user._id, ["createProduct"], shopId);
-      //Roles.addUsersToRoles(user._id, ["createProduct"], shopId);
+      /*
       roles[shopId].push("createProduct");
       roles[shopId].push("account/seller/products"); // for access to our own products route
       roles[shopId].push("account/seller/orders"); // for access to our own orders route
@@ -93,6 +92,7 @@ Accounts.onCreateUser(function (options, user) {
       roles[shopId].push("orders"); // for access on orders collection
       roles[shopId].push("dashboard/orders"); // for access to existing AND our own orders route
       ReactionCore.Log.info("Accounts.onCreateUser: add permissions ", roles, " to: ", user.roles);
+      */
     }
     user.profile = options.profile;
 
