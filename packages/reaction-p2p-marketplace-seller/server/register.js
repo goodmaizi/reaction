@@ -14,15 +14,14 @@ ReactionCore.registerPackage({
       icon: "fa fa-user",
       provides: "userAccountDropdown"
     },
-    /* already exists as dashboard/orders
     {
       route: "/account/seller/orders",
-      template: "dashboardOrdersList",
+      template: "sellerOrders",
       name: "account/seller/orders",
       label: "My Orders",
       icon: "fa fa-user",
       provides: "userAccountDropdown"
-    },*/
+    },
   ],
   /*
   permissions: [
