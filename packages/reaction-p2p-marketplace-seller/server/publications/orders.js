@@ -17,6 +17,11 @@ Meteor.publish("SellerOrders", function () {
   }
   return ReactionCore.Collections.Orders.find({
     shopId: shopId,
-    //userId: this.userId
+    //"items.item.sellerId": this.userId
+    items: {
+      $elemMatch: {
+           sellerId: this.userId,
+      }
+    }
   });
 });

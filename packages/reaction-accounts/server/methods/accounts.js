@@ -87,11 +87,11 @@ Accounts.onCreateUser(function (options, user) {
       //Meteor.call("accounts/addUserPermissions", user._id, ["createProduct"], shopId);
       //Roles.addUsersToRoles(user._id, ["createProduct"], shopId);
       roles[shopId].push("createProduct");
-      roles[shopId].push("account/seller/products");
-      roles[shopId].push("account/seller/orders");
-      roles[shopId].push("reaction-orders");
-      roles[shopId].push("orders");
-      roles[shopId].push("dashboard/orders");
+      roles[shopId].push("account/seller/products"); // for access to our own products route
+      roles[shopId].push("account/seller/orders"); // for access to our own orders route
+      roles[shopId].push("reaction-orders"); // for access on orders collection
+      roles[shopId].push("orders"); // for access on orders collection
+      roles[shopId].push("dashboard/orders"); // for access to existing AND our own orders route
       ReactionCore.Log.info("Accounts.onCreateUser: add permissions ", roles, " to: ", user.roles);
     }
     user.profile = options.profile;
