@@ -32,7 +32,7 @@ Meteor.methods(
       check(userId, String);
 
       let account =  ReactionCore.Collections.Accounts.findOne({userId: userId});
-      ReactionCore.Log.info("User address book: ",account.profile.addressBook);
+      //ReactionCore.Log.info("User address book: ",account.profile.addressBook);
 
       if (account.profile.addressBook.length > 0) {
         let address = account.profile.addressBook[0];

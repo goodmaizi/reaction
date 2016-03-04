@@ -57,14 +57,51 @@ Template.productMap.onCreated(function() {
     });*/
 
     // tag is not available in onCreated event by this.tag, so we get it through mapOptions helper
-    prodLocations = ReactionProduct.getProductsByTag(map.options.reactionTag);
-    prodLocations.forEach(function(prodLocation){
+    products = ReactionProduct.getProductsByTag(map.options.reactionTag);
+    products.forEach(function(product){
+      // ### this block copied from singleMap. refactor!!! ###
+      let prodOwner = ReactionCore.Collections.Accounts.findOne({
+        userId: product.userId
+      });
+      //console.log('owner %o', prodOwner);
+
+      Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
+          let address = result;
+          console.log('address', address);
+
+          // TODO: resolve address of seller
+          //var address = 'Bahnhofstrasse, Zürich, Switzerland';
+          var geocoder = new google.maps.Geocoder();
+
+          geocoder.geocode(
+            {
+              'address': address
+            },
+            function(results, status) {
+               if(status == google.maps.GeocoderStatus.OK) {
+                  new google.maps.Marker({
+                     position: results[0].geometry.location,
+                     map: map.instance,
+                     title: product.title
+                  });
+                  console.log("resolved location: "+results[0].geometry.location);
+                  //map.instance.setCenter(results[0].geometry.location);
+               }
+            }
+          );
+
+        }
+      );
+      // ### /copy ###
+
+      /*
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(prodLocation.latitude, prodLocation.longitude),
         map: map.instance,
         title: prodLocation.title,
         //icon: markerIcon
       });
+      */
     });
 
     google.maps.event.addListener(map.instance, 'click', function(event) {

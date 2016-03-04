@@ -50,11 +50,11 @@ Template.productMapSingle.onCreated(function() {
     let product = ReactionCore.Collections.Products.findOne({
       handle: handle
     });
-    console.log('prod %o', product);
+    //console.log('prod %o', product);
     let prodOwner = ReactionCore.Collections.Accounts.findOne({
       userId: product.userId
     });
-    console.log('owner %o', prodOwner);
+    //console.log('owner %o', prodOwner);
 
     Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
         let address = result;
