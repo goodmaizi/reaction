@@ -334,3 +334,7 @@ Template.productDetail.events({
     return $(".social-media-inputs > *").hide();
   }
 });
+
+Template.productDetail.onRendered(function(){
+  $('.rateit').rateit();
+});
