@@ -37,6 +37,7 @@ accounts-oauth
 
 reactioncommerce:core
 reactioncommerce:core-theme
+reactioncommerce:reaction-catalog
 reactioncommerce:reaction-layout
 reactioncommerce:launchdock-connect
 reactioncommerce:reaction-accounts
@@ -62,6 +63,8 @@ reactioncommerce:reaction-stripe
 reactioncommerce:reaction-auth-net
 reactioncommerce:reaction-braintree
 
+# Add on community packages
+# ramusus:reaction-filtration
 
 # Reaction Commerce Data
 

@@ -482,19 +482,16 @@ Meteor.methods({
    */
   "orders/inventoryAdjust": function (orderId) {
     check(orderId, String);
-    let order = ReactionCore.Collections.Orders.findOne(orderId);
-
-    _.each(order.items, function (product) {
+    const order = ReactionCore.Collections.Orders.findOne(orderId);
+    order.items.forEach(item => {
       ReactionCore.Collections.Products.update({
-        "_id": product.productId,
-        "variants._id": product.variants._id
+        _id: item.variants._id
       }, {
         $inc: {
-          "variants.$.inventoryQuantity": -product.quantity
+          inventoryQuantity: -item.quantity
         }
-      });
+      }, { selector: { type: "variant" } });
     });
-    return;
   },
 
   /**
@@ -583,6 +580,7 @@ Meteor.methods({
       if (error) {
         future.return(error);
       } else {
+        check(result, [ReactionCore.Schemas.Refund]);
         future.return(result);
       }
     });
