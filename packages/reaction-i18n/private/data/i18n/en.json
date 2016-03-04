@@ -8,7 +8,7 @@
       },
       "admin": {
         "shortcut": {
-          "dashboardLabel": "Dashboard ",
+          "dashboardLabel": "Dashboard",
           "ordersLabel": "Orders",
           "addProductLabel": "Add Product",
           "accountsLabel": "Accounts"
