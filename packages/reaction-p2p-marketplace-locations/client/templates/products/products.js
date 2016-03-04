@@ -1,13 +1,7 @@
 
 Template.products.onRendered(
   function() {
-    if ($('.product-map').length === 0) { // make sure its only injected once, not on every rendered event
-      Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
-        // inject template here
-        Blaze.renderWithData(Template.productMap, this.data, $(".container-main")[0])
-        console.log('injected map');
-      }, 100);
-    }
+
   }
 );
 
@@ -25,7 +19,12 @@ Template.products.events({
   "click #productMapView": function () {
     $(".product-list").hide();
     $(".product-grid").hide();
-    $(".map-container").css({ opacity: 1.0 }); // map was hidden with opacity, because with display:none; it wouldn't load contents
+
+    if ($('.product-map').length === 0) { // make sure its only injected once, not on every rendered event
+        // inject template here
+        Blaze.renderWithData(Template.productMap, this.data, $(".container-main")[0])
+        console.log('injected map');
+    }    
     return $(".product-map").show();
   },
   "click .product-list-item": function () {
