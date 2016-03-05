@@ -11,7 +11,7 @@ ReactionCore.registerPackage({
       template: "dashboardProductsList",
       name: "account/seller/products",
       label: "My Products",
-      icon: "fa fa-user",
+      icon: "fa fa-cutlery",
       provides: "userAccountDropdown"
     },
     {
@@ -19,7 +19,7 @@ ReactionCore.registerPackage({
       template: "sellerOrders",
       name: "account/seller/sellerorders",
       label: "My Orders",
-      icon: "fa fa-dropbox",
+      icon: "fa fa-shopping-bag",
       provides: "userAccountDropdown",
       permissions: [
         {
