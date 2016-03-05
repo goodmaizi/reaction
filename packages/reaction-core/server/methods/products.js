@@ -1141,6 +1141,15 @@ Meteor.methods({
     }
     this.unblock();
 
+    let account =  ReactionCore.Collections.Accounts.findOne({userId: Meteor.userId()});
+    ReactionCore.Log.info("address count", account.profile.addressBook.length);
+    if (account.profile.addressBook.length <= 0) {
+      ReactionCore.Log.info("throw error!");
+      throw new Meteor.Error(403, "Profile address required.");
+      //errorMsg += "Profile address required.";
+      //template.$(".title-edit-input").focus();
+    }
+
     let product = ReactionCore.Collections.Products.findOne(productId);
 
     if ((product !== null ? product.variants[0].price : void 0) && (
