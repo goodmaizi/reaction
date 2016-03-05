@@ -833,6 +833,10 @@ Meteor.methods({
       name: tagName
     });
 
+    if (!existingTag && !ReactionCore.hasAdminAccess()) {
+      throw new Meteor.Error(403, "Access Denied");
+    }
+
     if (existingTag) {
       let productCount = ReactionCore.Collections.Products.find({
         _id: productId,
