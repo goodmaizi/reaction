@@ -144,7 +144,12 @@ function copyMedia(newId, variantOldId, variantNewId) {
  * @return {Boolean}
  */
 function belongsToCurrentUser(productId) {
+  if (_.isArray(productId) === true) {
+    productId = productId[0];
+  }
+
   let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
+  ReactionCore.Log.info("product ",productId," belongs to user ",Meteor.userId());
   return productBelongingToCurrUser != null;
 }
 
@@ -689,7 +694,7 @@ Meteor.methods({
    * @return {String} return insert result
    */
   "products/createProduct": function (product) {
-    ReactionCore.Log.info("WAKKA createProduct ", "userId: ", Meteor.userId(), " prod: ",product);
+    ReactionCore.Log.info("createProduct ", "userId: ", Meteor.userId(), " prod: ",product);
     //return;
 
     check(product, Match.Optional(Object));
@@ -731,9 +736,10 @@ Meteor.methods({
     check(productId, Match.OneOf(Array, String));
 
     // must have admin permission to delete
-    ReactionCore.Log.info("WAKKA deleteProduct ", "userId: ", Meteor.userId(), " prod: ",productId);
+    ReactionCore.Log.info("deleteProduct ", "userId: ", Meteor.userId(), " prod: ",productId);
 
     if (!ReactionCore.hasAdminAccess() && !belongsToCurrentUser(productId)) {
+      ReactionCore.Log.info("missing perms for delete");
       throw new Meteor.Error(403, "Access Denied");
     }
     this.unblock();
