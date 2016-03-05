@@ -1,6 +1,10 @@
 <template name="sellerOrders">
   {{#if hasPermission 'orders'}}
     <div class="seller-orders container-fluid-sm">
+      <div class="panel-heading">
+        <h3 class="panel-title">Orders</h3>
+      </div>
+
       {{#each order in sellerOrders}}
         {{> sellerOrdersListItem order}}
       {{else}}
