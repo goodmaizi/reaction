@@ -1,34 +1,37 @@
 <template name="productTagDropdownInputForm">
-  {{#if ./tags}}
+
   <h3 data-i18n="productDetail.tags">Tags</h3>
-  {{/if}}
+
   <div class="tags">
     <ul class="list-inline tag-edit-list" id="tag-edit-list">
-    {{#each ./tags}}
-      <li data-tag-id="{{_id}}">
-        <div class="tag-input-group">
-          <span class="tag-input-group-handle">
-            <i class="fa fa-bars"></i>
-          </span>
-          <span class="tag-input">
-            <input type="text" class="tags-input-select" value="{{name}}" placeholder="Edit tags"/>
-          </span>
-          <span class="tag-input-hashtag">
-            <i class="fa {{hashtagMark}}"></i>
-          </span>
-          <span class="tag-input-group-remove">
-             <i class="fa fa-times-circle"></i>
-          </span>
-        </div>
-      </li>
-    {{/each}}
-      <li data-tag-id="{{_id}}">
-        <div class="tag-input-group">
-          <span class="tag-input">
-            <input type="text" class="tags-input-select tags-submit-new" value="{{name}}" placeholder="{{i18n 'productDetail.tagsAdd Wählen'}} Add tag" />
-          </span>
-        </div>
-      </li>
+      {{#each ./tags}}
+        <li data-tag-id="{{_id}}">
+          <div class="tag-input-group">
+            <span class="tag-input-group-handle">
+              <i class="fa fa-bars"></i>
+            </span>
+            <span class="tag-input">
+              <input type="text" class="tags-input-select" value="{{name}}" placeholder="Edit tags"/>
+            </span>
+            <span class="tag-input-hashtag">
+              <i class="fa {{hashtagMark}}"></i>
+            </span>
+            <span class="tag-input-group-remove">
+               <i class="fa fa-times-circle"></i>
+            </span>
+          </div>
+        </li>
+      {{/each}}
+
+      {{#unless ./tags}}
+        <li data-tag-id="{{_id}}">
+          <div class="tag-input-group">
+            <span class="tag-input">
+              <input type="text" class="tags-input-dropdown-select tags-submit-new" value="{{name}}" placeholder="{{i18n 'productDetail.tagsAdd'}} Wählen" />
+            </span>
+          </div>
+        </li>
+      {{/unless}}
     </ul>
 
   </div>

@@ -65,7 +65,7 @@ Template.productTagInputForm.events({
     return Meteor.call("products/removeProductTag", ReactionProduct.selectedProductId(),
       this._id);
   },
-  "click .tags-input-select": function (event) {
+  "click .tags-input-dropdown-select": function (event) {
     let autocorrect = $(event.currentTarget).autocomplete({
       delay: 0,
       autoFocus: true,
@@ -89,7 +89,7 @@ Template.productTagInputForm.events({
 
     return autocorrect;
   },
-  "focusout .tags-input-select": function (event, template) {
+  "focusout .tags-input-dropdown-select": function (event, template) {
     let val = $(event.currentTarget).val();
     if (val) {
       return Meteor.call("products/updateProductTags", ReactionProduct.selectedProductId(),
