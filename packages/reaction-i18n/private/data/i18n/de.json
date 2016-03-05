@@ -45,7 +45,8 @@
                     "addedToCart": "hinzugefügt",
                     "forSaleOnDate": "Verkaufsdatum",
                     "makeActive": "Aktivieren",
-                    "makeInactive": "Deaktivieren"
+                    "makeInactive": "Deaktivieren",
+                    "tagsAdd": "Add tag"
                 },
                 "productDetailEdit": {
                     "title": "Produkttitle",

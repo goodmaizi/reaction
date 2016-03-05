@@ -1,0 +1,50 @@
+<template name="productTagDropdownInputForm">
+  {{#if ./tags}}
+  <h3 data-i18n="productDetail.tags">Tags</h3> Category
+  {{/if}}
+  <div class="tags">
+    <ul class="list-inline tag-edit-list" id="tag-edit-list">
+    {{#each ./tags}}
+      <li data-tag-id="{{_id}}">
+        <div class="tag-input-group">
+          <span class="tag-input-group-handle">
+            <i class="fa fa-bars"></i>
+          </span>
+          <span class="tag-input">
+            <input type="text" class="tags-input-select" value="{{name}}" placeholder="Edit tags"/>
+          </span>
+          <span class="tag-input-hashtag">
+            <i class="fa {{hashtagMark}}"></i>
+          </span>
+          <span class="tag-input-group-remove">
+             <i class="fa fa-times-circle"></i>
+          </span>
+        </div>
+      </li>
+    {{/each}}
+      <li data-tag-id="{{_id}}">
+        <div class="tag-input-group">
+          <span class="tag-input">
+            <input type="text" class="tags-input-select tags-submit-new" value="{{name}}" placeholder="{{i18n 'productDetail.tagsAdd'}}" />
+          </span>
+        </div>
+      </li>
+    </ul>
+
+    <select>
+    {{#each tag in availableTags}}
+      <option value="{{tag._id}}">Some tag</option>
+      <div class="navbar-item {{navbarSelectedClassName tag}} {{hasDropdownClassName tag}}" data-id={{tag._id}}>
+        {{> tagItem (tagProps tag)}}
+
+        <div class="dropdown-container" data-tag={{tag._id}}>
+          {{> tagTree (tagTreeProps tag)}}
+        </div>
+      </div>
+    {{else}}
+      <div>No tags found</div>
+    {{/each}}
+    </select>
+
+  </div>
+</template>

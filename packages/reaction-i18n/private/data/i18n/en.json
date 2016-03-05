@@ -133,7 +133,8 @@
         "makeActive": "Activate",
         "makeInactive": "Deactivate",
         "notFoundTitle": "Oops!",
-        "notFoundError": "This is not the product you were looking for."
+        "notFoundError": "This is not the product you were looking for.",
+        "tagsAdd": "Add tag"
       },
       "tags": {
         "addTag": "Add Tag",
