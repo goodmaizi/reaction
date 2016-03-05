@@ -1,4 +1,8 @@
 
+Template.productTagDropdownInputForm.inheritsHelpersFrom(["productTagInputForm"]);
+Template.productTagDropdownInputForm.inheritsEventsFrom(["productTagInputForm"]);
+Template.productTagDropdownInputForm.inheritsHooksFrom(["productTagInputForm"]);
+
 Template.productTagDropdownInputForm.replaces("productTagInputForm");
 
 Template.productTagDropdownInputForm.helpers({

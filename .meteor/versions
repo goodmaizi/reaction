@@ -6,7 +6,7 @@ accounts-oauth@1.1.8
 accounts-password@1.1.4
 accounts-twitter@1.0.6
 accounts-weibo@1.0.6
-alanning:roles@1.2.14
+alanning:roles@1.2.15
 aldeed:autoform@5.8.1
 aldeed:collection2@2.8.0
 aldeed:collection2-core@1.0.0
@@ -54,7 +54,7 @@ cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.1.0
 coffeescript@1.0.11
-cosmos:browserify@0.9.3
+cosmos:browserify@0.10.0
 dandv:jquery-rateit@1.0.22_2
 dburles:google-maps@1.1.5
 ddp@1.2.2
@@ -100,7 +100,7 @@ localstorage@1.0.5
 logging@1.0.8
 matb33:collection-hooks@0.8.1
 mdg:validated-method@1.0.1
-mdg:validation-error@0.4.0
+mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
 meteorhacks:ssr@2.2.0
@@ -145,7 +145,7 @@ reaction-search@0.0.0
 reactioncommerce:core@0.12.0
 reactioncommerce:core-theme@2.0.1
 reactioncommerce:default-theme@1.0.4
-reactioncommerce:launchdock-connect@0.2.0
+reactioncommerce:launchdock-connect@0.2.1
 reactioncommerce:reaction-accounts@1.7.0
 reactioncommerce:reaction-analytics@1.2.3
 reactioncommerce:reaction-analytics-libs@1.1.0
@@ -167,7 +167,7 @@ reactioncommerce:reaction-sample-data@0.1.2
 reactioncommerce:reaction-schemas@2.0.0
 reactioncommerce:reaction-shipping@0.8.0
 reactioncommerce:reaction-social@0.4.3
-reactioncommerce:reaction-stripe@3.1.1
+reactioncommerce:reaction-stripe@3.1.2
 reactioncommerce:reaction-ui@0.5.0
 reactioncommerce:reaction-ui-navbar@0.1.0
 reactioncommerce:reaction-ui-tagnav@0.1.0
