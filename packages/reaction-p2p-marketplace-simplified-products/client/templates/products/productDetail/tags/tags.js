@@ -66,7 +66,7 @@ Template.productTagInputForm.events({
       this._id);
   },
   "click .tags-input-dropdown-select": function (event) {
-    let autocorrect = $(event.currentTarget).autocomplete({
+    let autocomplete = $(event.currentTarget).autocomplete({
       delay: 0,
       autoFocus: true,
       minLength: 0,
@@ -87,7 +87,7 @@ Template.productTagInputForm.events({
     // act like a drop down
     $(event.currentTarget).autocomplete( "search", "" );
 
-    return autocorrect;
+    return autocomplete;
   },
   "focusout .tags-input-dropdown-select": function (event, template) {
     let val = $(event.currentTarget).val();
