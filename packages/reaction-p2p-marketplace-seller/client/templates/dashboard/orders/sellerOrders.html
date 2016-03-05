@@ -1,20 +1,20 @@
-<template name="orders">
+<template name="sellerOrders">
   {{#if hasPermission 'orders'}}
-    <div class="container-fluid-sm">
-      {{#each order in orders}}
-        {{> ordersListItem order}}
+    <div class="seller-orders container-fluid-sm">
+      {{#each order in sellerOrders}}
+        {{> sellerOrdersListItem order}}
       {{else}}
 
         <div class="empty-view-message">
-            <i class="fa fa-sun-o"></i>
-            2<p data-i18n="order.ordersNotFound">No Orders Found</p>
+            <i class="fa fa-dropbox"></i>
+            3<p data-i18n="order.ordersNotFound">No Orders Found</p>
         </div>
       {{/each}}
     </div>
   {{/if}}
 </template>
 
-<template name="orderListFilters">
+<template name="sellerOrderListFilters">
   <ul class="nav nav-pills" role="tablist">
     {{#each filters}}
       <li role="presentation" class="{{activeClassname .}}">
@@ -34,7 +34,7 @@
   </ul>
 </template>
 
-<template name="ordersListItem">
+<template name="sellerOrdersListItem">
   <div class="rui card order {{activeClassname _id}}" data-event-action="selectOrder">
     <div class="content">
       <div class="order-details">
@@ -42,7 +42,7 @@
           {{> orderDetail}}
         </div>
         <div class="order-detail-item status">
-          {{> orderStatusDetail}}
+          {{> sellerOrderStatusDetail}}
         </div>
         <div class="order-detail-item summary">
           {{> ordersListSummary}}
@@ -54,6 +54,7 @@
 
     </div>
 
+    <!--
     <div class="controls">
       {{#if orderIsNew .}}
         <button class="btn btn-success" data-event-action="startProcessingOrder">Start</button>
@@ -61,11 +62,12 @@
         <button><i class="fa fa-angle-right fa-2x"></i></button>
       {{/if}}
     </div>
+  -->
   </div>
 </template>
 
 
-<template name="orderStatusDetail">
+<template name="sellerOrderStatusDetail">
   <div class="col-xs-8">
     <div data-i18n="orderDetail.created">Created {{orderAge}} {{dateFormat createdAt format="MMM D, YYYY hh:mm:ss A"}}</div>
     {{#if shipmentTracking}}
@@ -75,6 +77,6 @@
 </template>
 
 
-<template name="orderViewButton">
+<template name="sellerOrderViewButton">
   <button class="btn btn-success" type="button"><i class="fa fa-edit"></i></button>
 </template>
