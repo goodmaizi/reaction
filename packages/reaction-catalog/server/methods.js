@@ -159,6 +159,8 @@ function copyMedia(newId, variantOldId, variantNewId) {
  */
 function belongsToCurrentUser(productId) {
   let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
+  ReactionCore.Log.info("Product ",productId," belongs to ",Meteor.userId(),"?");
+  ReactionCore.Log.info("productBelongingToCurrUser ",productBelongingToCurrUser);
   return productBelongingToCurrUser != null;
 }
 
@@ -725,7 +727,7 @@ Meteor.methods({
     check(field, String);
     check(value, Match.OneOf(String, Object, Array, Boolean));
     // must have createProduct permission
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
 

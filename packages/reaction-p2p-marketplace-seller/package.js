@@ -46,8 +46,12 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/dashboard/orders/orders.html', 'client');
   api.addFiles('client/templates/dashboard/orders/orders.js', 'client');
 
-  api.addFiles('server/methods/accounts.js', 'server');
+  api.addFiles('common/schemas/products.js');
+  api.addFiles('common/collections/collections.js');
+
   api.addFiles('server/publications/orders.js', 'server');
+  api.addFiles('server/methods/accounts.js', 'server');
+  api.addFiles('server/methods/products.js', 'server');
   api.addFiles('server/register.js', 'server');
 
 });
