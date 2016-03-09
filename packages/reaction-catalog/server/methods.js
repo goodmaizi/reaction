@@ -206,12 +206,10 @@ function denormalize(id, field) {
       isLowQuantity: isLowQuantity(variants)
     });
     break;
-  default: // "price"
-    // set "0" if no variants in product. If all variants were removed.
-    const priceRange = ReactionCore.getProductPriceRange(id) || 0;
-    Object.assign(update, { price: priceRange });
+  default: // "price" is object with range, min, max
+    const priceObject = ReactionCore.getProductPriceRange(id);
+    Object.assign(update, {price: priceObject});
   }
-
   ReactionCore.Collections.Products.update(id, {
     $set: update
   }, { selector: { type: "simple" } });
@@ -736,13 +734,18 @@ Meteor.methods({
     let stringValue = EJSON.stringify(value);
     let update = EJSON.parse("{\"" + field + "\":" + stringValue + "}");
 
-    return ReactionCore.Collections.Products.update(_id, {
+    // we need to use sync mode here, to return correct error and result to UI
+    const result = ReactionCore.Collections.Products.update(_id, {
       $set: update
-    }, { selector: { type: type } }, (error, result) => {
-      if (result && type === "variant" && ~toDenormalize.indexOf(field)) {
+    }, { selector: { type: type } });
+
+    if (typeof result === "number") {
+      if (type === "variant" && ~toDenormalize.indexOf(field)) {
         denormalize(doc.ancestors[0], field);
       }
-    });
+    }
+
+    return result;
   },
 
   /**
