@@ -151,18 +151,6 @@ function copyMedia(newId, variantOldId, variantNewId) {
     });
   });
 }
-/**
- * @function belongsToCurrentUser
- * @description checks if product belongs to current user
- * @param {String} existing product _id
- * @return {Boolean}
- */
-function belongsToCurrentUser(productId) {
-  let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
-  ReactionCore.Log.info("Product ",productId," belongs to ",Meteor.userId(),"?");
-  ReactionCore.Log.info("productBelongingToCurrUser ",productBelongingToCurrUser);
-  return productBelongingToCurrUser != null;
-}
 
 /**
  * @function denormalize
@@ -668,7 +656,7 @@ Meteor.methods({
   "products/deleteProduct": function (productId) {
     check(productId, Match.OneOf(Array, String));
     // must have admin permission to delete
-    if (!ReactionCore.hasAdminAccess() && !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasAdminAccess()) {
       throw new Meteor.Error(403, "Access Denied");
     }
 
@@ -763,7 +751,7 @@ Meteor.methods({
     check(tagName, String);
     check(tagId, Match.OneOf(String, null));
     // must have createProduct permission
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
     this.unblock();
@@ -856,7 +844,7 @@ Meteor.methods({
   "products/setHandle": function (productId) {
     check(productId, String);
     // must have createProduct permission
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
 
@@ -884,7 +872,7 @@ Meteor.methods({
     check(productId, String);
     check(tagId, String);
     // must have createProduct permission
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
 
@@ -936,7 +924,7 @@ Meteor.methods({
     check(productId, String);
     check(positionData, Object);
 
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
     this.unblock();
@@ -1044,7 +1032,7 @@ Meteor.methods({
     check(updatedMeta, Object);
     check(meta, Match.OptionalOrNull(Object));
     // must have createProduct permission
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
 
@@ -1121,39 +1109,6 @@ Meteor.methods({
       }, { selector: { type: "simple" } }));
     }
     ReactionCore.Log.debug("invalid product visibility ", productId);
-    throw new Meteor.Error(400, "Bad Request");
-  },
-  /**
-   * products/activateProduct
-   * @summary owner controlled sctivation of product
-   * @param {String} productId - productId
-   * @return {String} return
-   */
-  "products/activateProduct": function (productId) {
-    check(productId, String);
-    if (!ReactionCore.hasPermission("createProduct") || !belongsToCurrentUser(productId)) {
-      throw new Meteor.Error(403, "Access Denied");
-    }
-    this.unblock();
-
-    let product = ReactionCore.Collections.Products.findOne(productId);
-
-    if ((product !== null ? product.variants[0].price : void 0) && (
-        product !== null ? product.variants[0].title : void 0) && (
-        product !==
-        null ? product.title : void 0)) {
-      // update product visibility
-      ReactionCore.Log.info("toggle product active state ", product._id, !
-        product.isVisible);
-
-      ReactionCore.Collections.Products.update(product._id, {
-        $set: {
-          isActive: !product.isActive
-        }
-      });
-      return ReactionCore.Collections.Products.findOne(product._id).isActive;
-    }
-    ReactionCore.Log.debug("invalid product active state ", productId);
     throw new Meteor.Error(400, "Bad Request");
   },
 });
