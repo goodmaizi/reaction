@@ -68,7 +68,7 @@ ReactionCore.Schemas.ProductVariant = new SimpleSchema({
   _id: {
     type: String,
     optional: true,
-    index: 0,
+    index: 1,
     label: "Variant ID"
   },
   ancestors: {
@@ -196,7 +196,7 @@ ReactionCore.Schemas.ProductVariant = new SimpleSchema({
   shopId: {
     type: String,
     autoValue: ReactionCore.shopIdAutoValue,
-    index: 0,
+    index: 1,
     label: "Variant ShopId"
   },
   sku: {
@@ -280,7 +280,7 @@ ReactionCore.Schemas.Product = new SimpleSchema({
   shopId: {
     type: String,
     autoValue: ReactionCore.shopIdAutoValue,
-    index: 0,
+    index: 1,
     label: "Product ShopId"
   },
   title: {
@@ -352,7 +352,7 @@ ReactionCore.Schemas.Product = new SimpleSchema({
   hashtags: {
     type: [String],
     optional: true,
-    index: 0
+    index: 1
   },
   twitterMsg: {
     type: String,
@@ -381,7 +381,7 @@ ReactionCore.Schemas.Product = new SimpleSchema({
   handle: {
     type: String,
     optional: true,
-    index: 0,
+    index: 1,
     autoValue: function () {
       let slug = this.value ||  getSlug(this.siblingField("title").value) ||
         this.siblingField("_id").value || "";
@@ -396,7 +396,7 @@ ReactionCore.Schemas.Product = new SimpleSchema({
   },
   isVisible: {
     type: Boolean,
-    index: 0,
+    index: 1,
     defaultValue: false
   },
   templateSuffix: {
@@ -424,11 +424,11 @@ ReactionCore.Schemas.Product = new SimpleSchema({
   },
   userId: {
     type: String,
-    index: 0
+    index: 1
   },
   isActive: {
     type: Boolean,
-    index: 0,
+    index: 1,
     defaultValue: false
   },
   latitude: {

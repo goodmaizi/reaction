@@ -8,12 +8,12 @@ ReactionCore.Schemas.CartItem = new SimpleSchema({
   },
   productId: {
     type: String,
-    index: 0
+    index: 1
   },
   shopId: {
     type: String,
     autoValue: ReactionCore.shopIdAutoValue,
-    index: 0,
+    index: 1,
     label: "Cart Item shopId",
     optional: true
   },
@@ -32,7 +32,7 @@ ReactionCore.Schemas.CartItem = new SimpleSchema({
   },
   sellerId: {
     type: String,
-    index: 0
+    index: 1
   },
 });
 
@@ -56,7 +56,7 @@ ReactionCore.Schemas.Cart = new SimpleSchema({
   shopId: {
     type: String,
     autoValue: ReactionCore.shopIdAutoValue,
-    index: 0,
+    index: 1,
     label: "Cart ShopId"
   },
   userId: {
@@ -74,12 +74,12 @@ ReactionCore.Schemas.Cart = new SimpleSchema({
   },
   sessionId: {
     type: String,
-    index: 0
+    index: 1
   },
   email: {
     type: String,
     optional: true,
-    index: 0,
+    index: 1,
     regEx: SimpleSchema.RegEx.Email
   },
   items: {

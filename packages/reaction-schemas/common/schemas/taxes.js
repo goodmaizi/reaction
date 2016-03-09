@@ -19,7 +19,7 @@ ReactionCore.Schemas.Taxes = new SimpleSchema({
   shopId: {
     type: String,
     autoValue: ReactionCore.shopIdAutoValue,
-    index: 0,
+    index: 1,
     label: "Taxes shopId"
   },
   cartMethod: {
