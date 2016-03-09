@@ -11,24 +11,22 @@ ReactionCore.registerPackage({
       template: "dashboardProductsList",
       name: "account/seller/products",
       label: "My Products",
-      icon: "fa fa-user",
+      icon: "fa fa-cutlery",
       provides: "userAccountDropdown"
     },
     {
-      route: "/account/seller/orders",
+      route: "/account/seller/sellerorders",
       template: "sellerOrders",
-      name: "account/seller/orders",
+      name: "account/seller/sellerorders",
       label: "My Orders",
-      icon: "fa fa-user",
-      provides: "userAccountDropdown"
+      icon: "fa fa-shopping-bag",
+      provides: "userAccountDropdown",
+      permissions: [
+        {
+          label: "Seller Orders",
+          permission: "account/seller/sellerorders"
+        },
+      ]
     },
   ],
-  /*
-  permissions: [
-    {
-      label: "Locations",
-      permission: "dashboard/locations",
-      group: "Locations Settings"
-    }
-  ]*/
 });

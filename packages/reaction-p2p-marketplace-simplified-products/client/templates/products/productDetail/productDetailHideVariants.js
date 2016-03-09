@@ -13,6 +13,10 @@ Template.productDetail.onRendered(
     }
     // seller
     else {
+      $('h3[data-i18n="productDetail.details"]').hide();
+      $('.pdp-left-column ul.list-group.product-detail-edit').hide();
+      console.log("hid details list");
+
       //var productTitle = $('.title-edit-input').val();
       $('.variant-edit-form [name=title]').val("Variante 1");
       $('.variant-edit-form [name=weight]').val('1');
