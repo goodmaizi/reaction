@@ -98,25 +98,6 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
         }
       }
 
-      // products are always visible to owners
-      if (!(Roles.userIsInRole(this.userId, ["owner"], shop._id) || shopAdmin)) {
-        selector.$or = [
-          {
-            userId: this.userId
-          },
-          {
-            $and: [
-              {
-                isVisible: true
-              },
-              {
-                isActive: true
-              }
-            ]
-          }
-        ]
-      }
-
       // filter by tags
       if (productFilters.tags) {
         _.extend(selector, {
@@ -160,39 +141,6 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
           }
         });
       }
-
-
-    let selector = {};
-    selector.isVisible = true;
-    selector.isActive = true;
-  
-    if (Roles.userIsInRole(this.userId, ["owner", "admin", "createProduct"],
-        shop._id) || Meteor.call("products/belongsToCurrentUser", productId)) {
-      selector.isVisible = {
-        $in: [true, false]
-      };
-      selector.isActive = {
-        $in: [true, false]
-      };
-    }
-    // TODO review for REGEX / DOS vulnerabilities.
-    if (productId.match(/^[A-Za-z0-9]{17}$/)) {
-      selector._id = productId;
-      // TODO try/catch here because we can have product handle passed by such regex
-      _id = productId;
-    } else {
-      selector.handle = {
-        $regex: productId,
-        $options: "i"
-      };
-      const products = ReactionCore.Collections.Products.find(selector).fetch();
-      if (products.length > 0) {
-        _id = products[0]._id;
-      } else {
-        return this.ready();
-      }
-    }
-    selector = { $or: [{ _id: _id }, { ancestors: { $in: [_id] }}] };
 
       // filter by visibility
       if (productFilters.visibility !== undefined) {
@@ -258,7 +206,6 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
           }]
         });
       }
-
     }
 
     // products are always visible to owners
