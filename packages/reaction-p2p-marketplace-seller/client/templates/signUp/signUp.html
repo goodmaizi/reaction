@@ -1,4 +1,4 @@
-<template name="loginFormSignUpView">
+<template name="loginFormSignUpViewMarketplace">
 
   <div class="loginForm-title">
     <h2 data-i18n="accountsUI.createAccount">Create an Account</h2>
@@ -45,6 +45,8 @@
       </span>
       {{/if}}
     </div>
+
+    {{> loginFormSignUpSellerFlag}}
 
     <div class="form-group">
       <button class="btn btn-primary btn-block" type="Submit" data-i18n="accountsUI.signUpButton"  data-event-category="accounts" data-event-action="register">Register</button>

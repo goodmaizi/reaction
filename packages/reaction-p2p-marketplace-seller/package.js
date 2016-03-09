@@ -45,6 +45,9 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/profile/profile.js', 'client');
   api.addFiles('client/templates/dashboard/orders/orders.html', 'client');
   api.addFiles('client/templates/dashboard/orders/orders.js', 'client');
+  api.addFiles('client/templates/signUp/sellerFlag.html', 'client');
+  api.addFiles('client/templates/signUp/signUp.html', 'client');
+  api.addFiles('client/templates/signUp/signUp.js', 'client');
 
   api.addFiles('common/schemas/products.js');
   api.addFiles('common/collections/collections.js');

@@ -1,0 +1,11 @@
+<template name="loginFormSignUpSellerFlag">
+  <div class="form-group form-group-isSeller {{hasError messages.errors.isSeller }}">
+    <label for="isSeller-{{uniqueId}}" class="control-label" data-i18n="accountsUI.isSeller">Do you want to sell products?</label>
+    <input id="isSeller-{{uniqueId}}" class="form-control login-input-isSeller" type="checkbox" value="{{isSeller}}" checked="{{checked}}">
+    {{#if hasError messages.errors.isSeller}}
+    <span class="help-block">
+      {{messages.errors.isSeller}}
+    </span>
+    {{/if}}
+  </div>
+</template>
