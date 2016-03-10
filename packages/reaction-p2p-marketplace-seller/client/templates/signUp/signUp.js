@@ -1,11 +1,11 @@
 
-Template.loginFormSignUpSellerFlag.inheritsHelpersFrom(["loginFormSignUpView"]);
+Template.loginFormSignUpSellerFlag.inheritsHelpersFrom(["loginFormSignUpView"]); // necessary or else helpers are missing
 //Template.loginFormSignUpSellerFlag.inheritsEventsFrom(["loginFormSignUpView"]);
-Template.loginFormSignUpSellerFlag.inheritsHooksFrom(["loginFormSignUpView"]);
+Template.loginFormSignUpSellerFlag.inheritsHooksFrom(["loginFormSignUpView"]); // necessary or else events don't work right
 
-Template.loginFormSignUpViewMarketplace.inheritsHelpersFrom(["loginFormSignUpView"]);
+Template.loginFormSignUpViewMarketplace.inheritsHelpersFrom(["loginFormSignUpView"]); // necessary or else helpers are missing
 //Template.loginFormSignUpViewMarketplace.inheritsEventsFrom(["loginFormSignUpView"]);
-Template.loginFormSignUpViewMarketplace.inheritsHooksFrom(["loginFormSignUpView"]);
+Template.loginFormSignUpViewMarketplace.inheritsHooksFrom(["loginFormSignUpView"]); // necessary or else events don't work right
 
 Template.loginFormSignUpViewMarketplace.replaces("loginFormSignUpView");
 
