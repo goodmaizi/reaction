@@ -3,7 +3,6 @@ Template.productDetailMarketplace.replaces("productDetail");
 
 Template.productDetail.events({ // for some strange reason our custom event needs to be speficied on the template that we override. doesn't work with our new template name.
   "click .toggle-product-isActive-link": function (event, template) {
-    console.log("click .toggle-product-isActive-link");
     let errorMsg = "";
     const self = this;
     if (!self.title) {
@@ -37,8 +36,4 @@ Template.productDetail.events({ // for some strange reason our custom event need
       });
     }
   },
-});
-
-Template.productDetail.onRendered(function(){
-  $('.rateit').rateit();
 });
