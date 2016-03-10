@@ -295,7 +295,7 @@ Template.productDetail.events({
         if (error) {
           return Alerts.add(error.reason, "danger", {
             placement: "productManagement",
-            id: self._id,
+            //id: self._id, // this doesn't work on existing prodcuts?
             i18nKey: "productDetail.errorMsg"
           });
         }
@@ -333,4 +333,8 @@ Template.productDetail.events({
     Session.set("editing-" + this.field, false);
     return $(".social-media-inputs > *").hide();
   }
+});
+
+Template.productDetail.onRendered(function(){
+  $('.rateit').rateit();
 });

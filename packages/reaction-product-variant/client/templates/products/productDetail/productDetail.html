@@ -7,7 +7,9 @@
         <div class="row">
           <span data-i18n="productDetail.productManagement">Product management:</span>
           {{#if isVisible}}
-            <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeInvisible">Make invisible</a> |
+            {{#if hasAdminAccess}}
+              <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeInvisible">Make invisible</a> |
+            {{/if}}
           {{/if}}
           {{#if isActive}}
             <a href="#" class="toggle-product-isActive-link" data-i18n="productDetail.makeInactive">Deactivate</a> |
@@ -15,16 +17,16 @@
           {{#unless isActive}}
             <a href="#" class="toggle-product-isActive-link" data-i18n="productDetail.makeActive">Activate</a> |
           {{/unless}}
-          {{#if hasAdminAccess}}
-            <a href="#" class="delete-product-link" data-i18n="app.delete">Delete</a>
-          {{/if}}
+          <a href="#" class="delete-product-link" data-i18n="app.delete">Delete</a>
         </div>
         {{#unless isVisible}}
         <div class="row">
           <div class="alert alert-warning">
             <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
-            <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeItVisible">You can make it visible</a>
-            <span data-i18n="productDetail.whenYouAreDone">when you're done editing.</span>
+            {{#if hasAdminAccess}}
+              <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeItVisible">You can make it visible</a>
+              <span data-i18n="productDetail.whenYouAreDone">when you're done editing.</span>
+            {{/if}}
           </div>
           <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
         </div>
@@ -47,6 +49,9 @@
           <!-- BEGIN Left Side -->
           <div class="col-sm-5 pdp-left-column">
             {{> productImageGallery}}
+            <!-- rating -->
+            <h3 data-i18n="productDetail.rating">Rating</h3>
+            <div class="rateit" id="1"></div>
             <!-- Product Tags -->
             {{>tagsComponent tags=tags}}
             <h3 data-i18n="productDetail.details">Details</h3>

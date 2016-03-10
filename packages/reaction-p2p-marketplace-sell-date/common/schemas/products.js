@@ -5,6 +5,9 @@ ReactionCore.Schemas.Product = new SimpleSchema([
     "forSaleOnDate": {
       type: Date,
       //defaultValue: true,
+      autoValue: function () {
+        return new Date;
+      },
       optional: false
     },
   }
