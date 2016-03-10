@@ -1,4 +1,4 @@
-<template name="productDetail">
+<template name="productDetailMarketplace">
   {{#with product}}
   <div class="container-main">
     <div class="container-fluid pdp-container">
@@ -7,18 +7,26 @@
         <div class="row">
           <span data-i18n="productDetail.productManagement">Product management:</span>
           {{#if isVisible}}
-            <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeInvisible">Make invisible</a>
+            {{#if hasAdminAccess}}
+              <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeInvisible">Make invisible</a> |
+            {{/if}}
           {{/if}}
-          {{#if hasAdminAccess}}
-            <a href="#" class="delete-product-link" data-i18n="app.delete">Delete</a>
+          {{#if isActive}}
+            <a href="#" class="toggle-product-isActive-link" data-i18n="productDetail.makeInactive">Deactivate</a> |
           {{/if}}
+          {{#unless isActive}}
+            <a href="#" class="toggle-product-isActive-link" data-i18n="productDetail.makeActive">Activate</a> |
+          {{/unless}}
+          <a href="#" class="delete-product-link" data-i18n="app.delete">Delete</a>
         </div>
         {{#unless isVisible}}
         <div class="row">
           <div class="alert alert-warning">
             <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
-            <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeItVisible">You can make it visible</a>
-            <span data-i18n="productDetail.whenYouAreDone">when you're done editing.</span>
+            {{#if hasAdminAccess}}
+              <a href="#" class="toggle-product-isVisible-link" data-i18n="productDetail.makeItVisible">You can make it visible</a>
+              <span data-i18n="productDetail.whenYouAreDone">when you're done editing.</span>
+            {{/if}}
           </div>
           <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
         </div>
@@ -103,6 +111,10 @@
                   <div class="add-to-cart-text" data-i18n="productDetail.addToCart">Add to cart</div>
                 </div>
               </div>
+
+              <!--
+              <span id="forSaleOnDate" itemprop="forSaleOnDate">{{>fieldComponent field="forSaleOnDate" value=forSaleOnDate}}</span>
+              -->
 
             </div>
             <!-- END Right Side -->

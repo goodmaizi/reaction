@@ -50,6 +50,8 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/signUp/signUp.html', 'client');
   api.addFiles('client/templates/signUp/signUp.js', 'client');
   api.addFiles('client/helpers/validation.js', 'client');
+  api.addFiles('client/templates/products/productDetail/productDetail.html', 'client');
+  api.addFiles('client/templates/products/productDetail/productDetail.js', 'client');
 
   api.addFiles('common/schemas/products.js');
   api.addFiles('common/collections/collections.js');
