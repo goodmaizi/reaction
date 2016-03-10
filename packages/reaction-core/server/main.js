@@ -89,7 +89,7 @@ _.extend(ReactionCore, {
     return this.hasPermission(ownerPermissions);
   },
   hasAdminAccess: function () {
-    let adminPermissions = ["admin"];
+    let adminPermissions = ["owner", "admin"];
     return this.hasPermission(adminPermissions);
   },
   hasDashboardAccess: function () {
