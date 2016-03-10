@@ -60,12 +60,6 @@ ReactionCore.Schemas.Accounts = new SimpleSchema({
     type: [ReactionCore.Schemas.Email],
     optional: true
   },
-  /*
-  "displayName": {
-    type: String,
-    //defaultValue: "",
-    optional: false
-  },*/
   acceptsMarketing: {
     type: Boolean,
     defaultValue: false,
