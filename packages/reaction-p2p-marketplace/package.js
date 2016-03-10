@@ -40,6 +40,7 @@ Package.onUse(function(api) {
 
   api.addFiles("client/templates/products/products.html", ["client"]);
   api.addFiles("client/templates/products/products.js", ["client"]);
+  api.addFiles("client/templates/products/products.less", ["client"]);
 
 });
 
