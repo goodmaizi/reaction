@@ -13,7 +13,7 @@
                     "submit": "Abschicken",
                     "delete": "Löschen",
                     "create": "Erstellen",
-                    "close": "Schließen",
+                    "close": "Schliessen",
                     "settings": "Einstellungen",
                     "loading": "Laden",
                     "toggle": "Umschalten",
@@ -46,7 +46,7 @@
                     "forSaleOnDate": "Verkaufsdatum",
                     "makeActive": "Aktivieren",
                     "makeInactive": "Deaktivieren",
-                    "tagsAdd": "Add tag"
+                    "tagsAdd": "Tag hinzufügen"
                 },
                 "productDetailEdit": {
                     "title": "Produkttitle",
@@ -122,23 +122,23 @@
                         "city": "Stadt",
                         "region": "Region",
                         "phone": "Telefon",
-                        "isShippingDefault": "Make this your default shipping address?",
-                        "isBillingDefault": "Make this your default billing address?",
-                        "isCommercial": "This is a commercial address."
+                        "isShippingDefault": "Soll das Ihre Standardadresse werden?",
+                        "isBillingDefault": "Soll das Ihre Standard-Rechnungsadresse werden?",
+                        "isCommercial": "Das ist eine Geschäftsadresse"
                     }
                 },
                 "address": {
                     "country": "Land",
-                    "fullName": "Vor- und Zuname",
-                    "address1": "Straße",
+                    "fullName": "Vor- und Nachname",
+                    "address1": "Strasse",
                     "address2": "zusätzliche Adressangaben",
-                    "postal": "Postleitzahl",
+                    "postal": "PLZ",
                     "city": "Stadt",
-                    "region": "Bundesland",
+                    "region": "Kanton",
                     "phone": "Telefonnummer",
                     "isShippingDefault": "Als Standard-Versandadresse festlegen?",
                     "isBillingDefault": "Als Standard-Rechnungsadresse festlegen?",
-                    "isCommercial": "Es handelt sich um eine kommerzielle Adresse."
+                    "isCommercial": "Das ist eine Geschäftsadresse"
                 },
                 "checkoutProgressBar": {
                     "login": "Konto",
@@ -199,7 +199,7 @@
                     "emailAddress": "E-Mail-Adresse",
                     "emailResetLink": "Senden",
                     "forgotPassword": "Passwort vergessen?",
-                    "ifYouAlreadyHaveAnAccount": "Falls Sie ein Konto haben, bitte hier",
+                    "ifYouAlreadyHaveAnAccount": "Falls Sie schon ein Konto haben, bitte hier",
                     "newPassword": "Neues Passwort",
                     "newPasswordAgain": "Neues Passwort (wiederholen)",
                     "optional": "Optional",
