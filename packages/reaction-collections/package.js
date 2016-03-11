@@ -30,7 +30,6 @@ Package.onUse(function (api) {
   api.use("alanning:roles@1.2.14");
   api.use("meteorhacks:subs-manager@1.6.3");
   api.use("alanning:roles@1.2.14");
-  api.use("aldeed:collection2@2.9.1");
 
   // ReactionCore declaration
   api.addFiles("common/globals.js");
