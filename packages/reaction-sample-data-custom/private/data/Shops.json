@@ -469,7 +469,7 @@
     },
     "countries": {
       "CH": {
-        "name": "SwitzerlandQ",
+        "name": "Switzerland TEST",
         "native": "Schweiz",
         "phone": "41",
         "continent": "EU",
@@ -479,7 +479,7 @@
       }
     }
   },
-  "name": "REACTION",
+  "name": "ScyDev RC Fork",
   "taxes": [{
     "taxesIncluded": null,
     "taxShipping": null,
@@ -1570,7 +1570,7 @@
         "languages": "fr,ln"
       },
       "CH": {
-        "name": "SwitzerlandQ",
+        "name": "Switzerland TEST",
         "native": "Schweiz",
         "phone": "41",
         "continent": "EU",
