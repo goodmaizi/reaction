@@ -65,7 +65,6 @@ reactioncommerce:reaction-braintree
 
 # Reaction Commerce Data
 
-reactioncommerce:reaction-sample-data   # default Reaction data
 
 # Themes
 reactioncommerce:default-theme          # default Reaction theme
@@ -89,3 +88,4 @@ scydev:reaction-p2p-marketplace-ratings
 scydev:reaction-p2p-marketplace
 scydev:reaction-p2p-marketplace-simplified-products
 scydev:reaction-p2p-marketplace-sell-date
+scydev:reaction-sample-data-custom
