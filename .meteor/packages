@@ -84,3 +84,8 @@ reactioncommerce:reaction-paymentmethod
 scydev:reaction-p2p-marketplace-seller
 aldeed:collection2@2.9.1
 aldeed:collection2-core@1.1.1
+scydev:reaction-p2p-marketplace-locations
+scydev:reaction-p2p-marketplace-ratings
+scydev:reaction-p2p-marketplace
+scydev:reaction-p2p-marketplace-simplified-products
+scydev:reaction-p2p-marketplace-sell-date
