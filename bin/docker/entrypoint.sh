@@ -12,15 +12,15 @@ set -e
 : ${ROOT_URL:="http://localhost"}
 : ${MONGO_URL:="mongodb://127.0.0.1:27017/meteor"}
 
+# set default node executable
+: ${NODE:="node"}
+
 #start mongodb (optional)
 if [[ "${MONGO_URL}" == *"127.0.0.1"* ]]; then
-  if [ "${INSTALL_MONGO}" = "false" ]; then
-    echo "ERROR: Mongo not installed inside container. Rebuild with INSTALL_MONGO=true"
-    exit 1
-  fi
-  # start mongodb
-  printf "\n[-] Starting local MongoDB...\n\n"
-  mongod --smallfiles --fork --logpath /var/log/mongodb.log
+  echo "Starting local MongoDB..."
+  # startup mongodb
+  /usr/bin/mongod --smallfiles --fork --logpath /var/log/mongodb.log
+
 fi
 
 if [[ "${REACTION_ENVIRONMENT}" == "dev" ]]; then
@@ -31,6 +31,6 @@ if [[ "${REACTION_ENVIRONMENT}" == "dev" ]]; then
 else
   # PROD
   # Run meteor
-  exec node ./main.js
+  exec $NODE ./main.js
 fi
 
