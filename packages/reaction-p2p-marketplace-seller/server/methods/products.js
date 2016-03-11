@@ -61,11 +61,11 @@ Meteor.methods({
  * Add userId to new products
  */
 ReactionCore.MethodHooks.after('products/createProduct', function(options) {
-  console.log("ReactionCore.MethodHooks.before('products/createProduct') options: ", options);
+  ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/createProduct') options: ", options);
 
   var productId = options.result;
   let product = ReactionCore.Collections.Products.findOne({_id: productId});
-  console.log("setting userId on prod: %o", product);
+  ReactionCore.Log.info("setting userId on prod: %o", product);
   //product.userId = Meteor.userId();
 
   const type = product.type;
@@ -78,103 +78,116 @@ ReactionCore.MethodHooks.after('products/createProduct', function(options) {
 });
 
 ReactionCore.MethodHooks.before('products/cloneVariant', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/cloneVariant') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/cloneVariant') options: ", options);
   var productId = options.arguments[0];
   var variantId = options.arguments[1];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/cloneVariant') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/cloneVariant') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/createVariant', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/createVariant') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/createVariant') options: ", options);
   var productId = options.arguments[0];
   var variantId = options.arguments[1];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/createVariant') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/createVariant') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
+  }
+  else {
+    ReactionCore.Log.info("creating Variant");
   }
 });
 
 ReactionCore.MethodHooks.before('products/deleteProduct', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/deleteProduct') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/deleteProduct') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/deleteProduct') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/deleteProduct') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/updateProductField', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/updateProductField') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/updateProductField') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/updateProductTags', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/updateProductTags') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductTags') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/updateProductTags') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductTags') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/removeProductTag', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/removeProductTag') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/removeProductTag') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/removeProductTag') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/removeProductTag') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/setHandle', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/setHandle') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/setHandle') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/setHandle') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/setHandle') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/setHandleTag', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/setHandleTag') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/setHandleTag') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/setHandleTag') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/setHandleTag') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/updateProductPosition', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/updateProductPosition') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductPosition') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/updateProductPosition') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductPosition') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
 
 ReactionCore.MethodHooks.before('products/updateMetaFields', function(options) {
-  //console.log("ReactionCore.MethodHooks.before('products/updateMetaFields') options: ", options);
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateMetaFields') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
-    console.log("ReactionCore.MethodHooks.before('products/updateMetaFields') Access Denied!");
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateMetaFields') Access Denied!");
+    throw new Meteor.Error(403, "Access Denied");
+  }
+});
+
+ReactionCore.MethodHooks.before('products/publishProduct', function(options) {
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/publishProduct') options: ", options);
+  var productId = options.arguments[0];
+
+  if (!ReactionCore.hasAdminAccess()) {
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/publishProduct') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
   }
 });
