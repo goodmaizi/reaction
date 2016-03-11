@@ -626,7 +626,6 @@ Meteor.methods({
 
     // if a product object was provided
     if (product) {
-      product.userId = Meteor.userId();
       return ReactionCore.Collections.Products.insert(product);
     }
 
@@ -923,7 +922,6 @@ Meteor.methods({
   "products/updateProductPosition": function (productId, positionData) {
     check(productId, String);
     check(positionData, Object);
-
     if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
@@ -1066,7 +1064,7 @@ Meteor.methods({
    */
   "products/publishProduct": function (productId) {
     check(productId, String);
-    if (!ReactionCore.hasAdminAccess()) {
+    if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
     }
 
@@ -1110,5 +1108,5 @@ Meteor.methods({
     }
     ReactionCore.Log.debug("invalid product visibility ", productId);
     throw new Meteor.Error(400, "Bad Request");
-  },
+  }
 });
