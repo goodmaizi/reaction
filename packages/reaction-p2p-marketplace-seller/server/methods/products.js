@@ -33,24 +33,44 @@ Meteor.methods({
     if (!belongsToCurrentUser(productId)) {
       throw new Meteor.Error(403, "Access Denied");
     }
-    this.unblock();
 
-    let product = ReactionCore.Collections.Products.findOne(productId);
+    const product = ReactionCore.Collections.Products.findOne(productId);
+    const variants = ReactionCore.Collections.Products.find({
+      ancestors: { $in: [productId] }
+    }).fetch();
+    let variantValidator = true;
 
-    if ((product !== null ? product.variants[0].price : void 0) && (
-        product !== null ? product.variants[0].title : void 0) && (
-        product !==
-        null ? product.title : void 0)) {
+    if (typeof product === "object" && product.title.length > 1) {
+      if (variants.length > 0) {
+        variants.map(variant => {
+          if (!(typeof variant.price === "number" && variant.price > 0 &&
+            typeof variant.title === "string" && variant.title.length > 1)) {
+            variantValidator = false;
+          }
+          if (typeof optionTitle === "string" && !(optionTitle.length > 0)) {
+            variantValidator = false;
+          }
+        });
+      } else {
+        ReactionCore.Log.debug("invalid product active state ", productId);
+        throw new Meteor.Error(403, "Forbidden", "Variant is required");
+      }
+
+      if (!variantValidator) {
+        ReactionCore.Log.debug("invalid product active state ", productId);
+        throw new Meteor.Error(403, "Forbidden",
+          "Some properties are missing.");
+      }
+
       // update product visibility
       ReactionCore.Log.info("toggle product active state ", product._id, !
-        product.isVisible);
+        product.isActive);
 
-      ReactionCore.Collections.Products.update(product._id, {
+      return Boolean(ReactionCore.Collections.Products.update(product._id, {
         $set: {
           isActive: !product.isActive
         }
-      });
-      return ReactionCore.Collections.Products.findOne(product._id).isActive;
+      }, { selector: { type: "simple" } }));
     }
     ReactionCore.Log.debug("invalid product active state ", productId);
     throw new Meteor.Error(400, "Bad Request");

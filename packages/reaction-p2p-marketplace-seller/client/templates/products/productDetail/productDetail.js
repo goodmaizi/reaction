@@ -6,30 +6,30 @@ Template.productDetail.events({ // for some strange reason our custom event need
     let errorMsg = "";
     const self = this;
     if (!self.title) {
-      errorMsg += "Product title is required. ";
+      errorMsg += `${i18next.t("error.isRequired", { field: i18next.t("productDetailEdit.title") })} `;
       template.$(".title-edit-input").focus();
     }
-    let variants = self.variants;
+    const variants = ReactionProduct.getVariants(self._id);
     for (let variant of variants) {
       let index = _.indexOf(variants, variant);
       if (!variant.title) {
-        errorMsg += "Variant " + (index + 1) + " label is required. ";
+        errorMsg += `${i18next.t("error.variantFieldIsRequired", { field: i18next.t("productVariant.title"), number: index + 1 })} `;
       }
       if (!variant.price) {
-        errorMsg += "Variant " + (index + 1) + " price is required. ";
+        errorMsg += `${i18next.t("error.variantFieldIsRequired", { field: i18next.t("productVariant.price"), number: index + 1 })} `;
       }
     }
     if (errorMsg.length > 0) {
-      Alerts.add(errorMsg, "danger", {
+      Alerts.inline(errorMsg, "warning", {
         placement: "productManagement",
         i18nKey: "productDetail.errorMsg"
       });
     } else {
       Meteor.call("products/activateProduct", self._id, function (error) {
         if (error) {
-          return Alerts.add(error.reason, "danger", {
+          return Alerts.inline(error.reason, "error", {
             placement: "productManagement",
-            //id: self._id, // this doesn't work on existing prodcuts?
+            id: self._id,
             i18nKey: "productDetail.errorMsg"
           });
         }
