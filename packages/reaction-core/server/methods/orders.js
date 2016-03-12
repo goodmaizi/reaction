@@ -483,7 +483,9 @@ Meteor.methods({
   "orders/inventoryAdjust": function (orderId) {
     check(orderId, String);
     const order = ReactionCore.Collections.Orders.findOne(orderId);
+    ReactionCore.Log.info("orders/inventoryAdjust ",orderId," ");
     order.items.forEach(item => {
+      ReactionCore.Log.info("orders/inventoryAdjust ",item.variants._id," ",-item.quantity," ");
       ReactionCore.Collections.Products.update({
         _id: item.variants._id
       }, {
