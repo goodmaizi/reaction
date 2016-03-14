@@ -628,14 +628,25 @@ Meteor.methods({
 
     if (orderId) {
       // TODO: check for successful orders/inventoryAdjust
-      Meteor.call("orders/inventoryAdjust", orderId);
+      ReactionCore.Log.info("cart/copyCartToOrder: calling orders/inventoryAdjust");
+      Meteor.call("orders/inventoryAdjust", orderId); // this call prevents the rest of this method from running?!
+      ReactionCore.Log.info("cart/copyCartToOrder: called orders/inventoryAdjust");
       ReactionCore.Collections.Cart.remove({
         _id: order.cartId
       });
+      ReactionCore.Log.info("cart/copyCartToOrder: removed by cartId");
+
+      ReactionCore.Log.info("cart/copyCartToOrder: removing cart by userId!");
+      ReactionCore.Collections.Cart.remove({
+        userId: order.userId
+      });
+      ReactionCore.Log.info("cart/copyCartToOrder: removed by userId");
+
       // create a new cart for the user
       // even though this should be caught by
       // subscription handler, it's not always working
       let newCartExists = ReactionCore.Collections.Cart.find(order.userId);
+      ReactionCore.Log.info("newCartExists ",newCartExists);
       if (newCartExists.count() === 0) {
         Meteor.call("cart/createCart", this.userId, sessionId);
         // after recreate new cart we need to make it looks like previous by
@@ -926,6 +937,8 @@ Meteor.methods({
    * @return {String} returns update result
    */
   "cart/submitPayment": function (paymentMethod) {
+    ReactionCore.Log.info("cart/submitPayment: ");
+
     check(paymentMethod, ReactionCore.Schemas.PaymentMethod);
     let checkoutCart = ReactionCore.Collections.Cart.findOne({
       userId: Meteor.userId()
