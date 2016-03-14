@@ -15,8 +15,10 @@ ReactionCore.Hooks.Events.add(
 
       // add additional data
       user.isSeller = options.isSeller;
-      user.profile = options.profile;
     }
+
+    // doing this not only for sellers. buyers have a name on their profile too.
+    user.profile = options.profile;
 
     return user;
   }
