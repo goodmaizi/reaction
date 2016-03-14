@@ -629,7 +629,13 @@ Meteor.methods({
     if (orderId) {
       // TODO: check for successful orders/inventoryAdjust
       ReactionCore.Log.info("cart/copyCartToOrder: calling orders/inventoryAdjust");
-      Meteor.call("orders/inventoryAdjust", orderId); // this call prevents the rest of this method from running?!
+
+      Meteor.defer(function(){
+        // this call prevents the rest of this method from running?!
+        // however with defer() it doesn't
+        Meteor.call("orders/inventoryAdjust", orderId);
+      });
+      
       ReactionCore.Log.info("cart/copyCartToOrder: called orders/inventoryAdjust");
       ReactionCore.Collections.Cart.remove({
         _id: order.cartId
