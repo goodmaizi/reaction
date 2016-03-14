@@ -6,21 +6,15 @@ let Media;
 Media = ReactionCore.Collections.Media;
 Template.productList.helpers({
   products: function () {
-    return ReactionProducts.getProductsByTag(this.tag);
+    return ReactionProduct.getProductsByTag(this.tag);
   },
   media: function () {
-    let defaultImage;
-    const variants = getTopVariants();
-    if (variants.length > 0) {
-      let variantId = variants[0]._id;
-      defaultImage = Media.findOne({
-        "metadata.variantId": variantId,
-        "metadata.priority": 0
-      });
-    }
-    if (defaultImage) {
-      return defaultImage;
-    }
-    return false;
-  }
+    const media = ReactionCore.Collections.Media.findOne({
+      "metadata.productId": this._id,
+      "metadata.priority": 0,
+      "metadata.toGrid": 1
+    }, { sort: { uploadedAt: 1 } });
+
+    return media instanceof FS.File ? media : false;
+  },
 });
