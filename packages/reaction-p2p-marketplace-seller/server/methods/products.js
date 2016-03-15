@@ -141,7 +141,8 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
     throw new Meteor.Error(403, "Access Denied");
   }
 
-  if (options.arguments[1] == "forSaleOnDate") {
+  // translate date to US format for saving
+  if (options.arguments.length >= 3 && options.arguments[1] == "forSaleOnDate") {
     //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') from:",options.arguments[2]);
     options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY").format('MM/DD/YYYY');
     //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
