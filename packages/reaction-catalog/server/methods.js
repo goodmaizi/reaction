@@ -186,7 +186,7 @@ function denormalize(id, field) {
   case "inventoryQuantity":
   case "inventoryManagement":
     ReactionCore.Log.info("denormalize() isSoldOut(variants): ",isSoldOut(variants),"doc.type:",doc.type,"id:",id,"variants:",variants);
-    
+
     Object.assign(update, {
       isSoldOut: isSoldOut(variants),
       isLowQuantity: isLowQuantity(variants),
@@ -715,7 +715,7 @@ Meteor.methods({
   "products/updateProductField": function (_id, field, value) {
     check(_id, String);
     check(field, String);
-    check(value, Match.OneOf(String, Object, Array, Boolean));
+    check(value, Match.OneOf(String, Object, Array, Boolean, Date));
     // must have createProduct permission
     if (!ReactionCore.hasPermission("createProduct")) {
       throw new Meteor.Error(403, "Access Denied");
@@ -725,6 +725,8 @@ Meteor.methods({
     const type = doc.type;
     let stringValue = EJSON.stringify(value);
     let update = EJSON.parse("{\"" + field + "\":" + stringValue + "}");
+
+    ReactionCore.Log.info("products/updateProductField() ",update," id",_id," type",type);
 
     // we need to use sync mode here, to return correct error and result to UI
     const result = ReactionCore.Collections.Products.update(_id, {
@@ -736,6 +738,9 @@ Meteor.methods({
         denormalize(doc.ancestors[0], field);
       }
     }
+
+    let olo = ReactionCore.Collections.Products.findOne(_id);
+    ReactionCore.Log.info("products/updateProductField() ",olo);
 
     return result;
   },

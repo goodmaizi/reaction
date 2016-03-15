@@ -51,6 +51,9 @@
             {{> productImageGallery}}
             <!-- Product Tags -->
             {{>tagsComponent tags=tags}}
+
+            {{> productDetailMarketplaceRating}}
+
             <h3 data-i18n="productDetail.details">Details</h3>
             {{> metaComponent }}
           </div>
@@ -110,6 +113,12 @@
               </div>
 
             </div>
+            
+            {{> productDetailDateField}}
+
+            {{> productDetailLocationField}}
+
+
             <!-- END Right Side -->
           </div>
         </div>

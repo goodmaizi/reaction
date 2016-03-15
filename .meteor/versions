@@ -99,8 +99,8 @@ livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
 matb33:collection-hooks@0.8.1
-mdg:validated-method@1.0.2
-mdg:validation-error@0.2.0
+mdg:validated-method@1.0.1
+mdg:validation-error@0.5.1
 meteor@1.1.10
 meteor-base@1.0.1
 meteorhacks:ssr@2.2.0
@@ -138,7 +138,7 @@ react-meteor-data@0.1.6
 react-runtime@0.14.4
 react-runtime-dev@0.14.4
 react-runtime-prod@0.14.4
-react-template-helper@0.2.6
+react-template-helper@0.2.5
 reaction-search@0.0.0
 reactioncommerce:core@0.12.0
 reactioncommerce:core-theme@2.0.1
