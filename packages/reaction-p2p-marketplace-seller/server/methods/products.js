@@ -144,7 +144,11 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
   // translate date to US format for saving
   if (options.arguments.length >= 3 && options.arguments[1] == "forSaleOnDate") {
     //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') from:",options.arguments[2]);
+
+    // this seems to provoke: Exception while invoking method 'products/updateProductField' Error: Did not check() all arguments during call to 'products/updateProductField'
+    // but the value is still saved...
     options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY").format('MM/DD/YYYY');
+
     //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
   }
 });
