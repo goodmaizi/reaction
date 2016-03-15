@@ -133,12 +133,18 @@ ReactionCore.MethodHooks.before('products/deleteProduct', function(options) {
 });
 
 ReactionCore.MethodHooks.before('products/updateProductField', function(options) {
-  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') options: ", options);
+  ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') options: ", options);
   var productId = options.arguments[0];
 
   if (!belongsToCurrentUser(productId)) {
     ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
+  }
+
+  if (options.arguments[1] == "forSaleOnDate") {
+    //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') from:",options.arguments[2]);
+    options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY").format('MM/DD/YYYY');
+    //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
   }
 });
 

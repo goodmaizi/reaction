@@ -15,3 +15,12 @@ Template.productDetailDateField.onRendered(
     }, 100);
   }
 );
+
+Template.productDetailDateField.helpers(
+  {
+    prettifyDate: function(inDate) {
+      //return new Date(inDate).toString('dd.mm.yyyy')
+      return moment(new Date(inDate)).format('DD.MM.YYYY');
+    }
+  }
+);
