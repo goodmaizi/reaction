@@ -8,7 +8,9 @@ Template.productDetailDateField.inheritsHooksFrom(["productDetail", "productDeta
 Template.productDetailDateField.onRendered(
   function() {
     Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
-      $(".forSaleOnDate-edit-input").datepicker();
+      $(".forSaleOnDate-edit-input").datepicker({
+        format: "dd.mm.yyyy"
+      });
       console.log("activated datepicker");
     }, 100);
   }
