@@ -398,7 +398,8 @@ Meteor.methods({
           productId: productId,
           quantity: quantity,
           variants: variant,
-          type: product.type
+          type: product.type,
+          sellerId: product.userId
         }
       }
     }, function (error, result) {
@@ -604,7 +605,8 @@ Meteor.methods({
             _id: itemClone._id,
             productId: itemClone.productId,
             shopId: itemClone.shopId,
-            variantId: itemClone.variants._id
+            variantId: itemClone.variants._id,
+            sellerId: itemClone.sellerId
           });
         }
       }
@@ -635,7 +637,7 @@ Meteor.methods({
         // however with defer() it doesn't
         Meteor.call("orders/inventoryAdjust", orderId);
       });
-      
+
       ReactionCore.Log.info("cart/copyCartToOrder: called orders/inventoryAdjust");
       ReactionCore.Collections.Cart.remove({
         _id: order.cartId
@@ -652,7 +654,7 @@ Meteor.methods({
       // even though this should be caught by
       // subscription handler, it's not always working
       let newCartExists = ReactionCore.Collections.Cart.find(order.userId);
-      ReactionCore.Log.info("newCartExists ",newCartExists);
+
       if (newCartExists.count() === 0) {
         Meteor.call("cart/createCart", this.userId, sessionId);
         // after recreate new cart we need to make it looks like previous by

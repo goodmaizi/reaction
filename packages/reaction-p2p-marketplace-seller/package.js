@@ -53,7 +53,10 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/products/productDetail/productDetail.html', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.js', 'client');
 
+  api.addFiles('common/schemas/accounts.js');
   api.addFiles('common/schemas/products.js');
+  api.addFiles('common/schemas/cart.js');
+  api.addFiles('common/schemas/orders.js');
   api.addFiles('common/collections/collections.js');
 
   api.addFiles('server/publications/orders.js', 'server');
@@ -61,6 +64,7 @@ Package.onUse(function(api) {
   api.addFiles('server/publications/product.js', 'server');
   api.addFiles('server/methods/accounts.js', 'server');
   api.addFiles('server/methods/products.js', 'server');
+  api.addFiles('server/methods/cart.js', 'server');
   api.addFiles('server/register.js', 'server');
 
 });
