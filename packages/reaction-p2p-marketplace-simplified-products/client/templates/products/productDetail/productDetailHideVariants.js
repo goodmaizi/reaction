@@ -23,9 +23,6 @@ Template.productDetail.onRendered(
       }
       // seller
       else {
-        //var productTitle = $('.title-edit-input').val();
-        //$('.variant-edit-form [name=title]').val("Variante 1");
-
         $('.variant-edit-form [name=weight]').val('1');
         if ($('.variant-edit-form [name=inventoryQuantity]').val() == '') {
           $('.variant-edit-form [name=inventoryQuantity]').val('1');
@@ -65,7 +62,7 @@ Template.productDetail.onRendered(
               $(this).show();
             }
             else {
-              //$(this).hide();
+              $(this).hide();
             }
           }
         );
