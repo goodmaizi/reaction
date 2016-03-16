@@ -211,7 +211,7 @@
         "toggleSize": "Toggle Size",
         "deleteProduct": "Delete Product",
         "publish": "Publish",
-        "moreOptions": "More Options"
+        "moreOptions": "More Options",
       },
       "productVariant": {
         "inventoryQuantity": "Quantity",
@@ -568,7 +568,8 @@
         "nameRequired": "Name is required.",
         "isRequired": "{{field}} is required.",
         "mustBeNumber": "{{field}} must be a number.",
-        "variantFieldIsRequired": "Variant {{number}} {{field}} is required."
+        "variantFieldIsRequired": "Variant {{number}} {{field}} is required.",
+        "noProfileAddress": "You need to save your address on your profile first"
       }
     }
   }

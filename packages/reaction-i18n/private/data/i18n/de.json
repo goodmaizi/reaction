@@ -273,6 +273,13 @@
                         "matchFailed": "Abgleich fehlgeschlagen",
                         "unknownError": "Unbekannter Fehler"
                     }
+                },
+                "error": {
+                  "nameRequired": "Name muss ausgefüllt sein.",
+                  "isRequired": "{{field}} muss ausgefüllt sein.",
+                  "mustBeNumber": "{{field}} muss eine Zahl sein.",
+                  "variantFieldIsRequired": "Option {{number}}: {{field}} muss ausgefüllt sein.",
+                  "noProfileAddress": "Sie müssen zuerst eine Adresse auf ihrem Profil speichern"
                 }
             }
         }

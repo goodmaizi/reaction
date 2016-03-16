@@ -27,9 +27,11 @@ Template.productDetail.events({ // for some strange reason our custom event need
     } else {
       Meteor.call("products/activateProduct", self._id, function (error) {
         if (error) {
-          return Alerts.inline(error.reason, "error", {
+          errorMsg = `${i18next.t("error.noProfileAddress")} `;
+
+          return Alerts.inline(errorMsg, "error", {
             placement: "productManagement",
-            id: self._id,
+            //id: self._id, // this doesn't work on existing prodcuts?
             i18nKey: "productDetail.errorMsg"
           });
         }

@@ -38,7 +38,7 @@ Meteor.methods({
     ReactionCore.Log.info("address count", account.profile.addressBook.length);
     if (account.profile.addressBook.length <= 0) {
       ReactionCore.Log.info("No address. throw error!");
-      throw new Meteor.Error(403, "Profile address required.");
+      throw new Meteor.Error(403, "error.noProfileAddress");
       //errorMsg += "Profile address required.";
       //template.$(".title-edit-input").focus();
     }
