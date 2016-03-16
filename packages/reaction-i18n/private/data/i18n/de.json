@@ -10,12 +10,14 @@
                 "admin": {
                   "shortcut": {
                     "dashboardLabel": "Übersicht",
-                    "profileLabel": "Mein Profil",
                     "ordersLabel": "Bestellungen",
                     "addProductLabel": "Mahlzeit hinzufügen",
-                    "myProductsLabel": "Meine Mahlzeiten",
-                    "myOrdersLabel": "Meine Bestellungen",
                     "accountsLabel": "Accounts"
+                  },
+                  "userAccountDropdown": {
+                    "profileLabel": "Mein Profil",
+                    "myProductsLabel": "Meine Mahlzeiten",
+                    "myOrdersLabel": "Meine Bestellungen"
                   },
                   "dashboard": {
                     "accountsLabel": "Accounts",

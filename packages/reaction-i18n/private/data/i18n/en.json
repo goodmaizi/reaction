@@ -9,12 +9,14 @@
       "admin": {
         "shortcut": {
           "dashboardLabel": "Dashboard",
-          "profileLabel": "Profile",
           "ordersLabel": "Orders",
           "addProductLabel": "Add Product",
-          "myProductsLabel": "My Products",
-          "myOrdersLabel": "My Orders",
           "accountsLabel": "Accounts"
+        },
+        "userAccountDropdown": {
+          "profileLabel": "Profile",
+          "myProductsLabel": "My Products",
+          "myOrdersLabel": "My Orders"
         },
         "dashboard": {
           "accountsLabel": "Accounts",
