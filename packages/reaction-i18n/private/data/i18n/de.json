@@ -175,6 +175,7 @@
                     "guestMessage": "Sie können ohne Benutzerkonto fortfahren. Auch später haben Sie noch die Möglichkeit, ein Benutzerkonto anzulegen."
                 },
                 "addressBookGrid": {
+                    "addressBook": "Adressen",
                     "chooseAddress": "Bitte wählen Sie die Versandadresse",
                     "createDefault": "Standardadresse festlegen",
                     "selectShippingAddress": "Bitte Versandadresse wählen",
