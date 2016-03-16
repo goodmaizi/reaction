@@ -9,8 +9,11 @@
       "admin": {
         "shortcut": {
           "dashboardLabel": "Dashboard",
+          "profileLabel": "Profile",
           "ordersLabel": "Orders",
           "addProductLabel": "Add Product",
+          "myProductsLabel": "My Products",
+          "myOrdersLabel": "My Orders",
           "accountsLabel": "Accounts"
         },
         "dashboard": {
@@ -211,7 +214,7 @@
         "toggleSize": "Toggle Size",
         "deleteProduct": "Delete Product",
         "publish": "Publish",
-        "moreOptions": "More Options",
+        "moreOptions": "More Options"
       },
       "productVariant": {
         "inventoryQuantity": "Quantity",
@@ -505,6 +508,7 @@
         "with": "with",
         "checkoutAsGuest": "Checkout without user account",
         "role": "Role",
+        "isSeller": "I want to sell products",
         "info": {
           "emailSent": "Email Sent",
           "emailVerified": "Email verified",
