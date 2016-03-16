@@ -142,15 +142,41 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
   }
 
   // translate date to US format for saving
-  if (options.arguments.length >= 3 && options.arguments[1] == "forSaleOnDate") {
-    //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') from:",options.arguments[2]);
+  if (options.arguments.length >= 3) {
+    if (options.arguments[1] == "forSaleOnDate") {
+      //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') from:",options.arguments[2]);
 
-    // this seems to provoke: Exception while invoking method 'products/updateProductField' Error: Did not check() all arguments during call to 'products/updateProductField'
-    // but the value is still saved...
-    options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY").format('MM/DD/YYYY');
+      // this seems to provoke: Exception while invoking method 'products/updateProductField' Error: Did not check() all arguments during call to 'products/updateProductField'
+      // but the value is still saved...
+      options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY").format('MM/DD/YYYY');
 
-    //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
+      //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
+    }
   }
+});
+
+ReactionCore.MethodHooks.after('products/updateProductField', function(options) {
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') options: ", options);
+  var productId = options.arguments[0];
+
+  const product = ReactionCore.Collections.Products.findOne(productId);
+  const variants = ReactionCore.Collections.Products.find({
+    ancestors: { $in: [productId] }
+  }).fetch();
+  let variantValidator = true;
+
+  if (typeof product === "object" && product.title.length > 1) {
+    for (let variant of variants) {
+      ReactionCore.Collections.Products.update(variant._id,
+        {$set: {title: product.title}},
+        {selector: {type: "variant"}}
+      );
+      ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set variant title to :", product.title);
+    }
+  }
+
+  // To be safe, return the options.result in an after hook.
+  return options.result;
 });
 
 ReactionCore.MethodHooks.before('products/updateProductTags', function(options) {
