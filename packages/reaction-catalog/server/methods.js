@@ -658,7 +658,7 @@ Meteor.methods({
   "products/deleteProduct": function (productId) {
     check(productId, Match.OneOf(Array, String));
     // must have admin permission to delete
-    if (!ReactionCore.hasAdminAccess()) {
+    if (!ReactionCore.hasAdminAccess() && !Meteor.call("products/belongsToCurrentUser", productId)) {
       throw new Meteor.Error(403, "Access Denied");
     }
 
