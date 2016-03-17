@@ -167,7 +167,7 @@
                     "yourOrderIsNow": "Im Warenkorb",
                     "summaryMessage": "Vielen Dank für Ihren Einkauf.",
                     "submitted": "gesendet",
-                    "registerGuest": "Bei Eingabe Ihrer E-Mail-Adresse benachrichtigen wir Sie über Artikelupdates.",
+                    "registerGuest": "Bei Eingabe Ihrer E-Mail-Adresse benachrichtigen wir Sie über Artikelle updates.",
                     "trackYourDelivery": "Ihre Bestellung wird verschickt an",
                     "noOrdersFound": "Keine Bestellung vorhanden."
                 },
@@ -180,6 +180,7 @@
                 },
                 "addressBookGrid": {
                     "addressBook": "Adressen",
+                  	"addAddress": "Adresse hinzufügen",
                     "chooseAddress": "Bitte wählen Sie die Versandadresse",
                     "createDefault": "Standardadresse festlegen",
                     "selectShippingAddress": "Bitte Versandadresse wählen",
@@ -190,17 +191,17 @@
                     "createAddress": "Standardadresse festlegen"
                 },
                 "addressBookEdit": {
-                    "editAddress": "Adresse editieren"
+                    "editAddress": "Adresse ändern"
                 },
                 "shop": {
                     "addressBook": {
                         "country": "Land",
-                        "fullName": "Vor- und Zuname",
+                        "fullName": "Vor- und Nachname",
                         "address1": "Adresse 1",
                         "address2": "Adresse 2",
                         "postal": "PLZ",
                         "city": "Stadt",
-                        "region": "Region",
+                        "region": "Kanton",
                         "phone": "Telefon",
                         "isShippingDefault": "Soll das Ihre Standardadresse werden?",
                         "isBillingDefault": "Soll das Ihre Standard-Rechnungsadresse werden?",
@@ -301,6 +302,7 @@
                     "signUpWithYourEmailAddress": "Mit E-Mail registrieren",
                     "terms": "Geschäftsbedingungen",
                     "updateYourPassword": "Passwort aktualisieren",
+                    "updatePasswordAndContinue": "Speichern und fortfahren",
                     "username": "Benutzername",
                     "usernameOrEmail": "Benutzername oder E-Mail",
                     "with": "mit",
@@ -315,7 +317,8 @@
                     "error": {
                         "emailRequired": "Es muss eine E-Mail-Adressen angegeben werden.",
                         "passwordMustBeAtLeast6CharactersLong": "Das Passwort muss mindestens aus 6 Zeichen bestehen.",
-                        "minChar": "Das Passwort muss mindesten 6 Zeichen lang sein.",
+                        "passwordMustContainRequirements": "Das Passwort muss mindestens eine Zahl oder Symbol enthalten.",
+                        "minChar": "Das Passwort muss mindestens 6 Zeichen lang sein.",
                         "pwdsDontMatch": "Die Passwörter stimmen nicht überein.",
                         "pwOneDigit": "Das Passwort muss mindestens eine Ziffer enthalten.",
                         "pwOneLetter": "Das Passwort muss mindestens einen Buchstaben enthalten.",
