@@ -88,7 +88,7 @@
                     "yourOrderIsNow": "Im Warenkorb",
                     "summaryMessage": "Vielen Dank für Ihren Einkauf.",
                     "submitted": "gesendet",
-                    "registerGuest": "Bei Eingabe Ihrer E-Mail-Adresse benachrichtigen wir Sie über Artikelupdates.",
+                    "registerGuest": "Bei Eingabe Ihrer E-Mail-Adresse benachrichtigen wir Sie über Artikelle updates.",
                     "trackYourDelivery": "Ihre Bestellung wird verschickt an",
                     "noOrdersFound": "Keine Bestellung vorhanden."
                 },
@@ -100,6 +100,7 @@
                     "guestMessage": "Sie können ohne Benutzerkonto fortfahren. Auch später haben Sie noch die Möglichkeit, ein Benutzerkonto anzulegen."
                 },
                 "addressBookGrid": {
+                  "addAddress": "Adresse hinzhufügen",
                     "chooseAddress": "Bitte wählen Sie die Versandadresse",
                     "createDefault": "Standardadresse festlegen",
                     "selectShippingAddress": "Bitte Versandadresse wählen",
@@ -110,17 +111,17 @@
                     "createAddress": "Standardadresse festlegen"
                 },
                 "addressBookEdit": {
-                    "editAddress": "Adresse editieren"
+                    "editAddress": "Adresse ändern"
                 },
                 "shop": {
                     "addressBook": {
                         "country": "Land",
-                        "fullName": "Vor- und Zuname",
+                        "fullName": "Vor- und Nachname",
                         "address1": "Adresse 1",
                         "address2": "Adresse 2",
                         "postal": "PLZ",
                         "city": "Stadt",
-                        "region": "Region",
+                        "region": "Kanton",
                         "phone": "Telefon",
                         "isShippingDefault": "Soll das Ihre Standardadresse werden?",
                         "isBillingDefault": "Soll das Ihre Standard-Rechnungsadresse werden?",
@@ -221,6 +222,7 @@
                     "signUpWithYourEmailAddress": "Mit E-Mail registrieren",
                     "terms": "Geschäftsbedingungen",
                     "updateYourPassword": "Passwort aktualisieren",
+                    "updatePasswordAndContinue": "Speichern und fortfahren",
                     "username": "Benutzername",
                     "usernameOrEmail": "Benutzername oder E-Mail",
                     "with": "mit",
