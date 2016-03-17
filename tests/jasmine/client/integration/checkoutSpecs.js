@@ -22,7 +22,6 @@ describe("Checkout", function () {
     Tracker.afterFlush(done);
   });
 
-  beforeEach(waitForRouter);
 
   describe("checkoutLogin", function () {
     it("should go to checkout route", function (done) {
@@ -90,7 +89,7 @@ describe("Checkout", function () {
 
       if (thisStep === true && thisWorkflow === false) {
         expect(cartWorkflow.status).toEqual("checkoutAddressBook");
-        let fakeAddress = faker.reaction.address();
+        let fakeAddress = ReactionFaker.address();
 
         $("*[data-event-action='addNewAddress']").trigger("click");
 
@@ -120,7 +119,7 @@ describe("Checkout", function () {
       // if addressbook has succeeded at least once
       if (thisWorkflow && cartWorkflow.workflow.indexOf("checkoutAddressBook") > 1) {
         ReactionCore.Log.info("add secondary addressBook: ", cartWorkflow.status);
-        let fakeAddress = faker.reaction.address();
+        let fakeAddress = ReactionFaker.address();
 
         $("*[data-event-action='addNewAddress']").trigger("click");
         expect($("*[data-event-action='addNewAddress']")).toHandle("click");

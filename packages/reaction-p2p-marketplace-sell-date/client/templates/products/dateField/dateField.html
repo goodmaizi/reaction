@@ -2,7 +2,8 @@
   {{#with product}}
   <div class="row col-md-11">
     <h2><span class="forSaleOnDate-text" data-i18n="productDetail.forSaleOnDate">For sale on date</span></h2>
-    <span id="forSaleOnDate" itemprop="forSaleOnDate">{{>fieldComponent field="forSaleOnDate" value=forSaleOnDate}}</span>
+    <!--{{ prettifyDate forSaleOnDate }}-->
+    <span id="forSaleOnDate" itemprop="forSaleOnDate">{{>fieldComponent field="forSaleOnDate" value=(prettifyDate forSaleOnDate) }}</span>
   </div>
   {{/with}}
 </template>

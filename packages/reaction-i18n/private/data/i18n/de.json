@@ -7,6 +7,85 @@
                 "languages": {
                     "select": "Sprache auswählen"
                 },
+                "admin": {
+                  "shortcut": {
+                    "dashboardLabel": "Übersicht",
+                    "ordersLabel": "Bestellungen",
+                    "addProductLabel": "Mahlzeit hinzufügen",
+                    "accountsLabel": "Accounts"
+                  },
+                  "userAccountDropdown": {
+                    "profileLabel": "Mein Profil",
+                    "myProductsLabel": "Meine Mahlzeiten",
+                    "myOrdersLabel": "Meine Bestellungen"
+                  },
+                  "dashboard": {
+                    "accountsLabel": "Accounts",
+                    "accountsDescription": "Manage how members sign into your shop",
+                    "analyticsLabel": "Analytics",
+                    "analyticsDescription": "Analytics and tracking integrations",
+                    "authorizenetLabel": "Authorize.net",
+                    "authorizenetDescription": "Authorize.net payments",
+                    "shippingLabel": "Shipping",
+                    "shippingDescription": "Provide shipping rates",
+                    "braintreeLabel": "Braintree",
+                    "braintreeDescription": "Braintree payments",
+                    "catalogLabel": "Catalog",
+                    "catalogDescription": "Allows to create simple products",
+                    "coreLabel": "Core",
+                    "coreDescription": "Reaction core shop configuration",
+                    "genericPaymentLabel": "Generic Payment",
+                    "genericPaymentDescription": "Generic Payment Method",
+                    "i18NLabel": "i18n",
+                    "i18NDescription": "Internationalization utilities",
+                    "inventoryLabel": "Inventory",
+                    "inventoryDescription": "Inventory utilities",
+                    "connectLabel": "Connect",
+                    "connectDescription": "Connect Reaction as a deployed service",
+                    "ordersLabel": "Orders",
+                    "sellerOrdersLabel": "Meine Bestellungen",
+                    "sellerProductsLabel": "Meine Mahlzeiten",
+                    "ordersDescription": "Fulfill your orders",
+                    "paypalLabel": "PayPal",
+                    "paypalDescription": "PayPal payments",
+                    "socialLabel": "Social",
+                    "socialDescription": "Social Channel configuration",
+                    "stripeLabel": "Stripe",
+                    "stripeDescription": "Stripe payments",
+                    "filtrationLabel": "Filtration",
+                    "filtrationDescription": "Products filtration for Reaction"
+                  },
+                  "groups": {
+                    "appearance": "Appearance",
+                    "connect": "Connect",
+                    "core": "Core",
+                    "dashboard": "Dashboard",
+                    "misc": "Misc",
+                    "paymentMethod": "Payment Providers",
+                    "utilities": "Utilities"
+                  },
+                  "settings": {
+                    "accountSettingsLabel": "Account Settings",
+                    "addShopMemberLabel": "Add Shop Member",
+                    "authorizenetSettingsLabel": "Authorize.net Settings",
+                    "permissionsSettingsLabel": "Permissions",
+                    "braintreeSettingsLabel": "Braintree Settings",
+                    "localizationAndI18NLabel": "Localization and i18n",
+                    "shopSettingsLabel": "Shop Settings",
+                    "socialSettingsLabel": "Social Settings",
+                    "shippingSettingsLabel": "Shipping Settings",
+                    "stripeSettingsLabel": "Stripe Settings",
+                    "inventorySettingsLabel": "Inventory Settings",
+                    "analyticsSettingsLabel": "Analytics Settings",
+                    "paypalSettingsLabel": "PayPal Settings",
+                    "genericPaymentSettingsLabel": "Generic Payment Settings"
+                  }
+                },
+                "accounts": {
+                  "addMember": "Add Member",
+                  "shopMembers": "Shop Members",
+                  "guests": "Guests"
+                },
                 "app": {
                     "saveAndContinue": "Speichern und fortfahren",
                     "cancel": "Abbrechen",
@@ -100,6 +179,7 @@
                     "guestMessage": "Sie können ohne Benutzerkonto fortfahren. Auch später haben Sie noch die Möglichkeit, ein Benutzerkonto anzulegen."
                 },
                 "addressBookGrid": {
+                    "addressBook": "Adressen",
                     "chooseAddress": "Bitte wählen Sie die Versandadresse",
                     "createDefault": "Standardadresse festlegen",
                     "selectShippingAddress": "Bitte Versandadresse wählen",
@@ -225,6 +305,7 @@
                     "usernameOrEmail": "Benutzername oder E-Mail",
                     "with": "mit",
                     "checkoutAsGuest": "Ohne Benutzerkonto bestellen",
+                    "isSeller": "Ich will Mahlzeiten verkaufen",
                     "info": {
                         "emailSent": "E-Mail gesendet",
                         "emailVerified": "E-Mail verifiziert",
@@ -273,6 +354,13 @@
                         "matchFailed": "Abgleich fehlgeschlagen",
                         "unknownError": "Unbekannter Fehler"
                     }
+                },
+                "error": {
+                  "nameRequired": "Name muss ausgefüllt sein.",
+                  "isRequired": "{{field}} muss ausgefüllt sein.",
+                  "mustBeNumber": "{{field}} muss eine Zahl sein.",
+                  "variantFieldIsRequired": "Option {{number}}: {{field}} muss ausgefüllt sein.",
+                  "noProfileAddress": "Sie müssen zuerst eine Adresse auf ihrem Profil speichern"
                 }
             }
         }

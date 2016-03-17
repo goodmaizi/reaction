@@ -16,16 +16,6 @@
 
     {{> loginFormMessages messages=messages}}
 
-    <div class="form-group form-group-name {{hasError messages.errors.name}}">
-      <label for="name-{{uniqueId}}" class="control-label" data-i18n="accountsUI.name">Name</label>
-      <input id="name-{{uniqueId}}" class="form-control login-input-name" type="string" value="{{name}}">
-      {{#if hasError messages.errors.name}}
-      <span class="help-block">
-        {{messages.errors.name}}
-      </span>
-      {{/if}}
-    </div>
-
     <div class="form-group form-group-email {{hasError messages.errors.email}}">
       <label for="email-{{uniqueId}}" class="control-label" data-i18n="accountsUI.emailAddress">Email</label>
       <input id="email-{{uniqueId}}" class="form-control login-input-email" type="email" value="{{credentials.email}}"> {{#if hasError messages.errors.email}}
@@ -46,18 +36,8 @@
       {{/if}}
     </div>
 
-    <div class="form-group form-group-isSeller {{hasError messages.errors.isSeller }}">
-      <label for="isSeller-{{uniqueId}}" class="control-label" data-i18n="accountsUI.isSeller">Do you want to sell products?</label>
-      <input id="isSeller-{{uniqueId}}" class="form-control login-input-isSeller" type="checkbox" value="{{isSeller}}" checked="{{checked}}">
-      {{#if hasError messages.errors.isSeller}}
-      <span class="help-block">
-        {{messages.errors.isSeller}}
-      </span>
-      {{/if}}
-    </div>
-
     <div class="form-group">
-      <button class="btn btn-primary btn-block" type="Submit" data-i18n="accountsUI.signUp"  data-event-category="accounts" data-event-action="register">Register</button>
+      <button class="btn btn-primary btn-block" type="Submit" data-i18n="accountsUI.signUpButton"  data-event-category="accounts" data-event-action="register">Register</button>
     </div>
 
     <div class="form-group">

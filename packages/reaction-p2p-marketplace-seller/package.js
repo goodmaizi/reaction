@@ -42,13 +42,32 @@ Package.onUse(function(api) {
 
   api.addFiles('client/templates/dashboard/products/list/productsList.html', 'client');
   api.addFiles('client/templates/dashboard/products/list/productsList.js', 'client');
+  api.addFiles('client/templates/dashboard/products/list/productsList.less', 'client');
   api.addFiles('client/templates/profile/profile.js', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.html', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.js', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.less', 'client');
+  api.addFiles('client/templates/signUp/sellerFlag.html', 'client');
+  api.addFiles('client/templates/signUp/signUp.html', 'client');
+  api.addFiles('client/templates/signUp/signUp.js', 'client');
+  api.addFiles('client/helpers/validation.js', 'client');
+  api.addFiles('client/templates/products/productDetail/productDetail.html', 'client');
+  api.addFiles('client/templates/products/productDetail/productDetail.js', 'client');
+  api.addFiles('client/templates/addressBook/addressBook.html', 'client');
+  api.addFiles('client/templates/addressBook/addressBook.js', 'client');
 
-  api.addFiles('server/methods/accounts.js', 'server');
+  api.addFiles('common/schemas/accounts.js');
+  api.addFiles('common/schemas/products.js');
+  api.addFiles('common/schemas/cart.js');
+  api.addFiles('common/schemas/orders.js');
+  api.addFiles('common/collections/collections.js');
+
   api.addFiles('server/publications/orders.js', 'server');
+  api.addFiles('server/publications/products.js', 'server');
+  api.addFiles('server/publications/product.js', 'server');
+  api.addFiles('server/methods/accounts.js', 'server');
+  api.addFiles('server/methods/products.js', 'server');
+  api.addFiles('server/methods/cart.js', 'server');
   api.addFiles('server/register.js', 'server');
 
 });

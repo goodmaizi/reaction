@@ -24,7 +24,6 @@ Template.accountProfile.helpers({
     return Template.instance().userHasPassword.get();
   },
 
-
   /**
    * User's order history
    * @return {Array|null} an array of available orders for the user
@@ -42,7 +41,6 @@ Template.accountProfile.helpers({
       });
     }
   },
-
 
   /**
    * User's account profile
