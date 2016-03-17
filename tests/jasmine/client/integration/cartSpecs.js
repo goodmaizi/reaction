@@ -1,11 +1,9 @@
 /* Product Detail Page Specs*/
 describe("Cart", function () {
   beforeEach(function (done) {
-    ReactionRouter.go("product" {"handle:" "example-product"});
+    ReactionRouter.go("product", {handle: "example-product"});
     Tracker.afterFlush(done);
   });
-
-  beforeEach(waitForRouter);
 
   // add to cart from pdp
   describe("Add to cart", function () {

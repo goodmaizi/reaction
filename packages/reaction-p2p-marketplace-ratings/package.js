@@ -38,6 +38,10 @@ Package.onUse(function(api) {
   api.use("dandv:jquery-rateit");
 
   api.addFiles('reaction-p2p-marketplace-ratings.js');
+
+  api.addFiles('client/templates/products/productDetail/productDetailMarketplaceRating.html', 'client');
+  api.addFiles('client/templates/products/productDetail/productDetailMarketplaceRating.js', 'client');
+
 });
 
 Package.onTest(function(api) {

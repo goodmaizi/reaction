@@ -7,13 +7,92 @@
                 "languages": {
                     "select": "Sprache auswählen"
                 },
+                "admin": {
+                  "shortcut": {
+                    "dashboardLabel": "Übersicht",
+                    "ordersLabel": "Bestellungen",
+                    "addProductLabel": "Mahlzeit hinzufügen",
+                    "accountsLabel": "Accounts"
+                  },
+                  "userAccountDropdown": {
+                    "profileLabel": "Mein Profil",
+                    "myProductsLabel": "Meine Mahlzeiten",
+                    "myOrdersLabel": "Meine Bestellungen"
+                  },
+                  "dashboard": {
+                    "accountsLabel": "Accounts",
+                    "accountsDescription": "Manage how members sign into your shop",
+                    "analyticsLabel": "Analytics",
+                    "analyticsDescription": "Analytics and tracking integrations",
+                    "authorizenetLabel": "Authorize.net",
+                    "authorizenetDescription": "Authorize.net payments",
+                    "shippingLabel": "Shipping",
+                    "shippingDescription": "Provide shipping rates",
+                    "braintreeLabel": "Braintree",
+                    "braintreeDescription": "Braintree payments",
+                    "catalogLabel": "Catalog",
+                    "catalogDescription": "Allows to create simple products",
+                    "coreLabel": "Core",
+                    "coreDescription": "Reaction core shop configuration",
+                    "genericPaymentLabel": "Generic Payment",
+                    "genericPaymentDescription": "Generic Payment Method",
+                    "i18NLabel": "i18n",
+                    "i18NDescription": "Internationalization utilities",
+                    "inventoryLabel": "Inventory",
+                    "inventoryDescription": "Inventory utilities",
+                    "connectLabel": "Connect",
+                    "connectDescription": "Connect Reaction as a deployed service",
+                    "ordersLabel": "Orders",
+                    "sellerOrdersLabel": "Meine Bestellungen",
+                    "sellerProductsLabel": "Meine Mahlzeiten",
+                    "ordersDescription": "Fulfill your orders",
+                    "paypalLabel": "PayPal",
+                    "paypalDescription": "PayPal payments",
+                    "socialLabel": "Social",
+                    "socialDescription": "Social Channel configuration",
+                    "stripeLabel": "Stripe",
+                    "stripeDescription": "Stripe payments",
+                    "filtrationLabel": "Filtration",
+                    "filtrationDescription": "Products filtration for Reaction"
+                  },
+                  "groups": {
+                    "appearance": "Appearance",
+                    "connect": "Connect",
+                    "core": "Core",
+                    "dashboard": "Dashboard",
+                    "misc": "Misc",
+                    "paymentMethod": "Payment Providers",
+                    "utilities": "Utilities"
+                  },
+                  "settings": {
+                    "accountSettingsLabel": "Account Settings",
+                    "addShopMemberLabel": "Add Shop Member",
+                    "authorizenetSettingsLabel": "Authorize.net Settings",
+                    "permissionsSettingsLabel": "Permissions",
+                    "braintreeSettingsLabel": "Braintree Settings",
+                    "localizationAndI18NLabel": "Localization and i18n",
+                    "shopSettingsLabel": "Shop Settings",
+                    "socialSettingsLabel": "Social Settings",
+                    "shippingSettingsLabel": "Shipping Settings",
+                    "stripeSettingsLabel": "Stripe Settings",
+                    "inventorySettingsLabel": "Inventory Settings",
+                    "analyticsSettingsLabel": "Analytics Settings",
+                    "paypalSettingsLabel": "PayPal Settings",
+                    "genericPaymentSettingsLabel": "Generic Payment Settings"
+                  }
+                },
+                "accounts": {
+                  "addMember": "Add Member",
+                  "shopMembers": "Shop Members",
+                  "guests": "Guests"
+                },
                 "app": {
                     "saveAndContinue": "Speichern und fortfahren",
                     "cancel": "Abbrechen",
                     "submit": "Abschicken",
                     "delete": "Löschen",
                     "create": "Erstellen",
-                    "close": "Schließen",
+                    "close": "Schliessen",
                     "settings": "Einstellungen",
                     "loading": "Laden",
                     "toggle": "Umschalten",
@@ -46,7 +125,7 @@
                     "forSaleOnDate": "Verkaufsdatum",
                     "makeActive": "Aktivieren",
                     "makeInactive": "Deaktivieren",
-                    "tagsAdd": "Add tag"
+                    "tagsAdd": "Tag hinzufügen"
                 },
                 "productDetailEdit": {
                     "title": "Produkttitle",
@@ -100,6 +179,7 @@
                     "guestMessage": "Sie können ohne Benutzerkonto fortfahren. Auch später haben Sie noch die Möglichkeit, ein Benutzerkonto anzulegen."
                 },
                 "addressBookGrid": {
+                    "addressBook": "Adressen",
                     "chooseAddress": "Bitte wählen Sie die Versandadresse",
                     "createDefault": "Standardadresse festlegen",
                     "selectShippingAddress": "Bitte Versandadresse wählen",
@@ -122,23 +202,23 @@
                         "city": "Stadt",
                         "region": "Region",
                         "phone": "Telefon",
-                        "isShippingDefault": "Make this your default shipping address?",
-                        "isBillingDefault": "Make this your default billing address?",
-                        "isCommercial": "This is a commercial address."
+                        "isShippingDefault": "Soll das Ihre Standardadresse werden?",
+                        "isBillingDefault": "Soll das Ihre Standard-Rechnungsadresse werden?",
+                        "isCommercial": "Das ist eine Geschäftsadresse"
                     }
                 },
                 "address": {
                     "country": "Land",
-                    "fullName": "Vor- und Zuname",
-                    "address1": "Straße",
+                    "fullName": "Vor- und Nachname",
+                    "address1": "Strasse",
                     "address2": "zusätzliche Adressangaben",
-                    "postal": "Postleitzahl",
+                    "postal": "PLZ",
                     "city": "Stadt",
-                    "region": "Bundesland",
+                    "region": "Kanton",
                     "phone": "Telefonnummer",
                     "isShippingDefault": "Als Standard-Versandadresse festlegen?",
                     "isBillingDefault": "Als Standard-Rechnungsadresse festlegen?",
-                    "isCommercial": "Es handelt sich um eine kommerzielle Adresse."
+                    "isCommercial": "Das ist eine Geschäftsadresse"
                 },
                 "checkoutProgressBar": {
                     "login": "Konto",
@@ -199,7 +279,7 @@
                     "emailAddress": "E-Mail-Adresse",
                     "emailResetLink": "Senden",
                     "forgotPassword": "Passwort vergessen?",
-                    "ifYouAlreadyHaveAnAccount": "Falls Sie ein Konto haben, bitte hier",
+                    "ifYouAlreadyHaveAnAccount": "Falls Sie schon ein Konto haben, bitte hier",
                     "newPassword": "Neues Passwort",
                     "newPasswordAgain": "Neues Passwort (wiederholen)",
                     "optional": "Optional",
@@ -225,6 +305,7 @@
                     "usernameOrEmail": "Benutzername oder E-Mail",
                     "with": "mit",
                     "checkoutAsGuest": "Ohne Benutzerkonto bestellen",
+                    "isSeller": "Ich will Mahlzeiten verkaufen",
                     "info": {
                         "emailSent": "E-Mail gesendet",
                         "emailVerified": "E-Mail verifiziert",
@@ -273,6 +354,13 @@
                         "matchFailed": "Abgleich fehlgeschlagen",
                         "unknownError": "Unbekannter Fehler"
                     }
+                },
+                "error": {
+                  "nameRequired": "Name muss ausgefüllt sein.",
+                  "isRequired": "{{field}} muss ausgefüllt sein.",
+                  "mustBeNumber": "{{field}} muss eine Zahl sein.",
+                  "variantFieldIsRequired": "Option {{number}}: {{field}} muss ausgefüllt sein.",
+                  "noProfileAddress": "Sie müssen zuerst eine Adresse auf ihrem Profil speichern"
                 }
             }
         }

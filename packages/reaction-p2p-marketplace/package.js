@@ -38,8 +38,10 @@ Package.onUse(function(api) {
 
   api.addFiles('reaction-p2p-marketplace.js');
 
-  api.addFiles("client/templates/products/products.html", ["client"]);
-  api.addFiles("client/templates/products/products.js", ["client"]);
+  api.addFiles("client/templates/products/productsViewSwitcher.html", ["client"]);
+  api.addFiles("client/templates/products/productsMarketplace.html", ["client"]);
+  api.addFiles("client/templates/products/productsMarketplace.js", ["client"]);
+  api.addFiles("client/templates/products/products.less", ["client"]);
 
 });
 
