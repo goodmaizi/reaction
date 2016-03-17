@@ -36,6 +36,8 @@ Package.onUse(function(api) {
 
   api.use("aldeed:template-extension");
 
+  api.use("scydev:reaction-p2p-marketplace-seller");
+
   api.addFiles([
                 'reaction-p2p-marketplace-simplified-products.js',
                 'client/templates/products/productDetail/productDetailHideVariants.js',

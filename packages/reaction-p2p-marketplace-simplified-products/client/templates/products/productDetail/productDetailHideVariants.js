@@ -1,6 +1,7 @@
 
-Template.productDetail.onRendered(
-  function() {
+let simplifyProductPage = function() {
+    console.log("setting simplifyProductPageInterval.");
+
     let simplifyProductPageInterval = Meteor.setInterval(function(){
       // buyer
       if (!ReactionCore.hasPermission("createProduct")) {
@@ -84,9 +85,16 @@ Template.productDetail.onRendered(
       $('.pdp-left-column ul.list-group.product-detail-edit').hide();
       console.log("hid details list");
 
-    }, 100);
+    }, 10);
   }
-);
+
+  Template.productDetail.onRendered(
+      simplifyProductPage
+  );
+
+  Template.productDetailEdit.onRendered( // to simplify page after only fields are reloaded without full page reload
+      simplifyProductPage
+  );
 
 /*
 Template.productDetail.events({
