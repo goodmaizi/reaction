@@ -10,13 +10,4 @@ Template.dashboardProductsList.helpers({
       return ReactionCore.Collections.Products.find({userId: Meteor.userId()});
     }
   },
-  media: function () {
-    const media = ReactionCore.Collections.Media.findOne({
-      "metadata.productId": this._id,
-      "metadata.priority": 0,
-      "metadata.toGrid": 1
-    }, { sort: { uploadedAt: 1 } });
-
-    return media instanceof FS.File ? media : false;
-  },
 });
