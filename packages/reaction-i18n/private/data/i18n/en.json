@@ -42,6 +42,8 @@
           "connectLabel": "Connect",
           "connectDescription": "Connect Reaction as a deployed service",
           "ordersLabel": "Orders",
+          "sellerOrdersLabel": "My Orders",
+          "sellerProductsLabel": "My Products",
           "ordersDescription": "Fulfill your orders",
           "paypalLabel": "PayPal",
           "paypalDescription": "PayPal payments",
