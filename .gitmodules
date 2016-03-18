@@ -9,7 +9,7 @@
 	url = https://github.com/ScyDev/meteor-collection2-core
 [submodule "packages/reaction-braintree"]
 	path = packages/reaction-braintree
-	url = ../reaction-braintree
+	url = https://github.com/ScyDev/reaction-braintree
 [submodule "packages/reaction-search"]
 	path = packages/reaction-search
-	url = ../reaction-search
+	url = https://github.com/ScyDev/reaction-search
