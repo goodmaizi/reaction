@@ -12,3 +12,13 @@ Meteor.publish("ProfileAccount", function (userId) {
 
   return ReactionCore.Collections.Accounts.find({_id: userId});
 });
+
+Meteor.publish("ProfileUser", function (userId) {
+  check(userId, Match.OptionalOrNull(String));
+  if (!userId) {
+    ReactionCore.Log.info("ignoring null request on ProfileUser subscription");
+    return this.ready();
+  }
+
+  return Meteor.users.find({_id: userId});
+});
