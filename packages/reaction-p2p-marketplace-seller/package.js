@@ -43,7 +43,6 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/dashboard/products/list/productsList.html', 'client');
   api.addFiles('client/templates/dashboard/products/list/productsList.js', 'client');
   api.addFiles('client/templates/dashboard/products/list/productsList.less', 'client');
-  api.addFiles('client/templates/profile/profile.js', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.html', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.js', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.less', 'client');

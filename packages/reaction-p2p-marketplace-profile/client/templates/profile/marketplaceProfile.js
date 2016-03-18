@@ -1,5 +1,5 @@
 
-Template.accountProfile.onRendered(
+Template.marketplaceProfile.onRendered(
   function() {
     /*
     Meteor.setTimeout(function() {
@@ -11,5 +11,16 @@ Template.accountProfile.onRendered(
       console.log('injected products list');
     }, 100);
     */
+  }
+);
+
+Template.marketplaceProfile.helpers(
+  {
+    profileUser: function(userId) {
+      let profileUser = ReactionCore.Collections.Accounts.findOne({userId: userId});
+      console.log("profileUser: %o",profileUser);
+
+      return profileUser;
+    }
   }
 );
