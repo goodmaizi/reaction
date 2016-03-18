@@ -18,7 +18,11 @@
             <div>{{{description}}}</div>
           </td>
           <td>
+            <!-- price from list. not working? -->
             <div><h3>{{formatPrice variants.[0].price}}</h3></div>
+            <!-- using price from grid. -->
+            <div class="currency-symbol"><h3>{{formatPrice displayPrice}}</h3></div>
+            
             {{#if cart.showItemLowInventoryWarning variants.[0]}}
             <div class="badge badge-low-inv-warning">{{variants.[0].inventoryQuantity}} Left!</div>
             {{/if}}

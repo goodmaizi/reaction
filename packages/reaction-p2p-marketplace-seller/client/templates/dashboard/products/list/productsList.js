@@ -1,6 +1,7 @@
 
 Template.dashboardProductsList.inheritsHelpersFrom("productList"); // for media
 Template.dashboardProductsList.inheritsHooksFrom("productList"); // needed to make products show up
+Template.dashboardProductsList.inheritsHelpersFrom("gridContent"); // for price
 
 Template.dashboardProductsList.helpers({
   products: function (data) { // override to show only this users products

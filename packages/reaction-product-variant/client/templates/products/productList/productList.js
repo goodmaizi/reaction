@@ -17,4 +17,7 @@ Template.productList.helpers({
 
     return media instanceof FS.File ? media : false;
   },
+  displayPrice: function () {
+    return this._id && this.price.range;
+  },
 });
