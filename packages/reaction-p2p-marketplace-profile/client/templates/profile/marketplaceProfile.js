@@ -17,10 +17,15 @@ Template.marketplaceProfile.onRendered(
 Template.marketplaceProfile.helpers(
   {
     profileUser: function(userId) {
-      let profileUser = ReactionCore.Collections.Accounts.findOne({userId: userId});
-      console.log("profileUser: %o",profileUser);
+      ReactionCore.Subscriptions.ProfileAccount = ReactionSubscriptions.subscribe("ProfileAccount", userId);
+      if (ReactionCore.Subscriptions.ProfileAccount.ready()) {
+        let profileUser = ReactionCore.Collections.Accounts.findOne({_id: userId});
+        console.log("profileUser: %o",profileUser);
 
-      return profileUser;
+        return profileUser;
+
+        //return ReactionCore.Collections.Products.find({userId: Meteor.userId()});
+      }
     }
   }
 );

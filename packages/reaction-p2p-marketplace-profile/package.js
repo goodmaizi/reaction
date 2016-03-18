@@ -42,6 +42,8 @@ Package.onUse(function(api) {
 
   api.addFiles('client/routing/routing.js', 'client');
 
+  api.addFiles('server/publications/account.js', 'server');
+
   api.addFiles('reaction-p2p-marketplace-profile.js');
 });
 
