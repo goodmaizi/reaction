@@ -41,6 +41,7 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/profile/marketplaceProfile.js', 'client');
   api.addFiles('client/templates/profile/marketplaceProfileWidget.html', 'client');
   api.addFiles('client/templates/profile/marketplaceProfileWidget.js', 'client');
+  api.addFiles('client/templates/profile/marketplaceProfileWidget.less', 'client');
 
   api.addFiles('client/routing/routing.js', 'client');
 
