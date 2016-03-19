@@ -37,10 +37,6 @@
       <div class="row" itemscope itemtype="http://schema.org/Product">
         <!-- Titles -->
         <div class="row">
-            <div>
-              Seller: <a href="{{ getProfileUrl userId }}">Seller Profile</a>
-              {{> marketplaceProfileWidget data=product }}
-            </div>
             <div class="title">
               <h1 id="title" itemprop="name">{{>fieldComponent field="title" value=title}}</h1>
             </div>
@@ -53,6 +49,9 @@
           <!-- BEGIN Left Side -->
           <div class="col-sm-5 pdp-left-column">
             {{> productImageGallery}}
+
+            {{> marketplaceProfileWidget data=product }}
+
             <!-- Product Tags -->
             {{>tagsComponent tags=tags}}
 
@@ -66,9 +65,10 @@
             <div class="row social-pricing">
               <div class="col-xs-8">
                 {{!-- Price Fixation --}}
-                <span class="price">
+                <div class="price">
                   <span id="price" itemprop="price">{{formatPrice actualPrice}}</span>
-                </span>
+                </div>
+
                 {{>fieldComponent field="vendor" value=vendor}}
               </div>
               <div class="col-xs-3 col-xs-offset-1">
