@@ -15,11 +15,13 @@
 
           </div>
           <div class="panel-content">
+            {{> productDetailMarketplaceRating}}
+          </div>
+          <div class="panel-content">
             {{#with getProfileUser profileAccount.userId}}
               {{profile.description}}
             {{/with}}
           </div>
-
         </div>
       </div>
 
