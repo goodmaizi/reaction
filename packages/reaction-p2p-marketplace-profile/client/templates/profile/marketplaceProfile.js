@@ -21,3 +21,7 @@ Template.marketplaceProfile.helpers(
 
   }
 );
+
+Template.registerHelper("getProfileUrl", function (userId) {
+  return "/profile/"+userId;
+});
