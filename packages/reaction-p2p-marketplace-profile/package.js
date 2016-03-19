@@ -44,6 +44,9 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/accountProfile/marketplaceAccountProfile.html', 'client');
   api.addFiles('client/templates/accountProfile/marketplaceAccountProfile.js', 'client');
   api.addFiles('client/templates/accountProfile/marketplaceAccountProfile.less', 'client');
+  api.addFiles('client/templates/accountProfile/images/profileImageGallery.html', 'client');
+  api.addFiles('client/templates/accountProfile/images/profileImageGallery.js', 'client');
+
   api.addFiles('client/templates/publicProfile/marketplaceProfile.html', 'client');
   api.addFiles('client/templates/publicProfile/marketplaceProfile.js', 'client');
   api.addFiles('client/templates/publicProfile/marketplaceProfileWidget.html', 'client');
