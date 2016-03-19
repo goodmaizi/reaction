@@ -14,14 +14,17 @@
               </div>
 
           </div>
-          <div class="panel-content">
-            {{> productDetailMarketplaceRating}}
-          </div>
-          <div class="panel-content">
-            {{#with getProfileUser profileAccount.userId}}
+          {{#with getProfileUser profileAccount.userId}}
+            <div class="panel-content">
+              {{> profileImageGallery userId=_id }}
+            </div>
+            <div class="panel-content">
+              {{> productDetailMarketplaceRating}}
+            </div>
+            <div class="panel-content">
               {{profile.description}}
-            {{/with}}
-          </div>
+            </div>
+          {{/with}}
         </div>
       </div>
 

@@ -62,13 +62,26 @@ function updateImagePriorities() {
  */
 
 Template.profileImageGallery.helpers({
-  media: function () {
+  media: function (userId) {
     let mediaArray = [];
-    let profile = Meteor.user().profile;
+    userId = userId.hash.userId;
 
-    if (profile) {
+    let profileUser;
+    if (userId) {
+      //profileUser = Meteor.users.findOne({_id: userId});
+      ReactionCore.Subscriptions.ProfileUser = ReactionSubscriptions.subscribe("ProfileUser", userId);
+      if (ReactionCore.Subscriptions.ProfileUser.ready()) {
+        profileUser = Meteor.users.findOne({_id: userId});
+      }
+    }
+    else {
+      profileUser = Meteor.user();
+    }
+    console.log("Template.profileImageGallery.helpers.media() userId: ",userId," profileUser: %o", profileUser);
+
+    if (profileUser.profile) {
       mediaArray = Media.find({
-        "metadata.userId": Meteor.userId()
+        "metadata.userId": profileUser._id
       }, {
         sort: {
           "metadata.priority": 1
@@ -77,8 +90,17 @@ Template.profileImageGallery.helpers({
     }
     return mediaArray;
   },
-  profile: function () {
-    return Meteor.user().profile;
+  profile: function (userId) {
+    let profileUser;
+    if (userId) {
+      profileUser = Meteor.users.find({_id: userId});
+    }
+    else {
+      profileUser = Meteor.user();
+    }
+    console.log("Template.profileImageGallery.helper: %o", profileUser);
+
+    return profileUser.profile;
   }
 });
 
@@ -115,7 +137,7 @@ Template.profileImageGallery.onRendered(function () {
  */
 
 Template.profileImageGallery.events({
-  "mouseenter .gallery > li": function (event) {
+  "click .gallery > li": function (event) {
     event.stopImmediatePropagation();
     let first = $(".gallery li:nth-child(1)");
     let target = $(event.currentTarget);
