@@ -64,7 +64,7 @@ function updateImagePriorities() {
 Template.profileImageGallery.helpers({
   media: function (userId) {
     let mediaArray = [];
-    userId = userId.hash.userId;
+    userId = userId.hash.userId; // something strange by the way we pass the userId from template
 
     let profileUser;
     if (userId) {
@@ -91,14 +91,20 @@ Template.profileImageGallery.helpers({
     return mediaArray;
   },
   profile: function (userId) {
+    userId = userId.hash.userId; // something strange by the way we pass the userId from template
+
     let profileUser;
     if (userId) {
-      profileUser = Meteor.users.find({_id: userId});
+      //profileUser = Meteor.users.findOne({_id: userId});
+      ReactionCore.Subscriptions.ProfileUser = ReactionSubscriptions.subscribe("ProfileUser", userId);
+      if (ReactionCore.Subscriptions.ProfileUser.ready()) {
+        profileUser = Meteor.users.findOne({_id: userId});
+      }
     }
     else {
       profileUser = Meteor.user();
     }
-    console.log("Template.profileImageGallery.helper: %o", profileUser);
+    console.log("Template.profileImageGallery.helpers.profile() profileUser: %o", profileUser);
 
     return profileUser.profile;
   }
