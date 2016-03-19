@@ -34,14 +34,21 @@ Package.onUse(function(api) {
   api.use("less");
   api.use("reactioncommerce:core@0.10.0");
 
+  api.use("reactive-var");
+  api.use("reactive-dict");
+
   api.use("reactioncommerce:reaction-router");
   api.use("kadira:blaze-layout@2.3.0");
 
-  api.addFiles('client/templates/profile/marketplaceProfile.html', 'client');
-  api.addFiles('client/templates/profile/marketplaceProfile.js', 'client');
-  api.addFiles('client/templates/profile/marketplaceProfileWidget.html', 'client');
-  api.addFiles('client/templates/profile/marketplaceProfileWidget.js', 'client');
-  api.addFiles('client/templates/profile/marketplaceProfileWidget.less', 'client');
+  api.addFiles('client/helpers/validation.js', 'client');
+  api.addFiles('client/templates/accountProfile/marketplaceAccountProfile.html', 'client');
+  api.addFiles('client/templates/accountProfile/marketplaceAccountProfile.js', 'client');
+  api.addFiles('client/templates/accountProfile/marketplaceAccountProfile.less', 'client');
+  api.addFiles('client/templates/publicProfile/marketplaceProfile.html', 'client');
+  api.addFiles('client/templates/publicProfile/marketplaceProfile.js', 'client');
+  api.addFiles('client/templates/publicProfile/marketplaceProfileWidget.html', 'client');
+  api.addFiles('client/templates/publicProfile/marketplaceProfileWidget.js', 'client');
+  api.addFiles('client/templates/publicProfile/marketplaceProfileWidget.less', 'client');
 
   api.addFiles('client/routing/routing.js', 'client');
 
