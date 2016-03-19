@@ -15,7 +15,9 @@
 
           </div>
           <div class="panel-content">
-            User Desc ...
+            {{#with getProfileUser profileAccount.userId}}
+              {{profile.description}}
+            {{/with}}
           </div>
 
         </div>
