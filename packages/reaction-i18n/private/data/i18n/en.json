@@ -505,6 +505,7 @@
         "signupCode": "Registration Code",
         "signUpWithYourEmailAddress": "Register with your email address",
         "terms": "Terms of Use",
+        "updateYourInfo": "Update your info",
         "updateYourPassword": "Update your password",
         "updatePasswordAndContinue": "Update and continue",
         "updatedServiceConfiguration": "Updated service configuration for {{service}}",
