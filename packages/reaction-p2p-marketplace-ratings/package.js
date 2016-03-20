@@ -45,8 +45,8 @@ Package.onUse(function(api) {
   api.addFiles('common/schemas/ratings.js');
   api.addFiles('common/collections/collections.js');
 
-  //api.addFiles('server/publications/ratings.js', 'server');
   api.addFiles('server/security/ratings.js', 'server');
+  api.addFiles('server/publications/ratings.js', 'server');
 });
 
 Package.onTest(function(api) {

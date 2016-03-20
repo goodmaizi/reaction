@@ -19,14 +19,37 @@ Template.productDetailMarketplaceRating.onRendered(function(){
     $('.rateit').bind('rated', function() {
       console.log('rating: ' + $(this).rateit('value'));
 
-      ReactionCore.Collections.Ratings.insert(
-        {
-          raterId: Meteor.userId(),
-          rateeId: "rated users Id",
-          value: $(this).rateit('value')
+      let rateeId = "rated users Id";
+      ReactionCore.Subscriptions.Ratings = ReactionSubscriptions.subscribe("Ratings");
+      if (ReactionCore.Subscriptions.Ratings.ready()) {
+        let rating = ReactionCore.Collections.Ratings.findOne({raterId: Meteor.userId(), rateeId: rateeId});
+        console.log("rating: %o",rating);
+
+        if (rating == null) {
+          ReactionCore.Collections.Ratings.insert(
+            {
+              raterId: Meteor.userId(),
+              rateeId: rateeId,
+              value: $(this).rateit('value')
+            }
+          );
+          console.log('inserted rating');
         }
-      );
-      console.log('saved rating'); 
+        else {
+          ReactionCore.Collections.Ratings.update(
+            {
+              _id: rating._id
+            },
+            {
+              $set: {
+                value: $(this).rateit('value')
+              }
+            }
+          );
+          console.log('updated rating');
+        }
+      }
+
     });
 
   }, 100);

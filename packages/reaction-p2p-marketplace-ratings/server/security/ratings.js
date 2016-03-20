@@ -6,17 +6,17 @@ ReactionCore.Collections.Ratings.allow({
     }
     return false
   },
-  /*
-  update: function(userId, analyticsEvent, fields, modifier) {
-    if (modifier.$set && modifier.$set.shopId) {
+  update: function(userId, rating, fields, modifier) {
+    ReactionCore.Log.info("ReactionCore.Collections.Ratings.allow.update() ",rating);
+    if (userId != rating.raterId) {
       return false;
     }
     return true;
   },
-  remove: function(userId, analyticsEvent) {
-    if (analyticsEvent.shopId !== ReactionCore.getShopId()) {
+  remove: function(userId, rating) {
+    if (rating.shopId !== ReactionCore.getShopId()) {
       return false;
     }
     return true;
-  }*/
+  }
 });
