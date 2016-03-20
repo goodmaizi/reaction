@@ -15,5 +15,19 @@ Template.productDetail.onCreated(
 Template.productDetailMarketplaceRating.onRendered(function(){
   Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
     $('.rateit').rateit();
+
+    $('.rateit').bind('rated', function() {
+      console.log('rating: ' + $(this).rateit('value'));
+
+      ReactionCore.Collections.Ratings.insert(
+        {
+          raterId: Meteor.userId(),
+          rateeId: "rated users Id",
+          value: $(this).rateit('value')
+        }
+      );
+      console.log('saved rating'); 
+    });
+
   }, 100);
 });
