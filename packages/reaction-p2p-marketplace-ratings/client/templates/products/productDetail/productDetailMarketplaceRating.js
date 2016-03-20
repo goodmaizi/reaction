@@ -16,10 +16,26 @@ Template.productDetailMarketplaceRating.onRendered(function(){
   Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
     $('.rateit').rateit();
 
+    let rateeId = "rated users Id";
+
+    ReactionCore.Subscriptions.Ratings = ReactionSubscriptions.subscribe("Ratings");
+    if (ReactionCore.Subscriptions.Ratings.ready()) {
+      let ratings = ReactionCore.Collections.Ratings.find({rateeId: rateeId}).fetch();
+      console.log("ratings: %o",ratings);
+
+      let cumulatedRatings = 0;
+      for (let i = 0; i < ratings.length; i++) {
+        cumulatedRatings += ratings[i].value;
+      }
+      let averageRating = cumulatedRatings/ratings.length;
+
+      $('.rateit').rateit('value', averageRating);
+    }
+
+    // user input
     $('.rateit').bind('rated', function() {
       console.log('rating: ' + $(this).rateit('value'));
 
-      let rateeId = "rated users Id";
       ReactionCore.Subscriptions.Ratings = ReactionSubscriptions.subscribe("Ratings");
       if (ReactionCore.Subscriptions.Ratings.ready()) {
         let rating = ReactionCore.Collections.Ratings.findOne({raterId: Meteor.userId(), rateeId: rateeId});
