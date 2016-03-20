@@ -13,15 +13,17 @@ Template.productDetail.onCreated(
 );
 
 Template.productDetailMarketplaceRating.onRendered(function(){
-  Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
-    $('.rateit').rateit();
+  //Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
+    $('.rateit').rateit({resetable: false});
 
-    let rateeId = "rated users Id";
+    //console.log("data: %o",this.data);
+    let rateeId = this.data._id;
 
+    // display average rating
     ReactionCore.Subscriptions.Ratings = ReactionSubscriptions.subscribe("Ratings");
     if (ReactionCore.Subscriptions.Ratings.ready()) {
       let ratings = ReactionCore.Collections.Ratings.find({rateeId: rateeId}).fetch();
-      console.log("ratings: %o",ratings);
+      //console.log("ratings: %o",ratings);
 
       let cumulatedRatings = 0;
       for (let i = 0; i < ratings.length; i++) {
@@ -34,12 +36,12 @@ Template.productDetailMarketplaceRating.onRendered(function(){
 
     // user input
     $('.rateit').bind('rated', function() {
-      console.log('rating: ' + $(this).rateit('value'));
+      //console.log('rating: ' + $(this).rateit('value'));
 
       ReactionCore.Subscriptions.Ratings = ReactionSubscriptions.subscribe("Ratings");
       if (ReactionCore.Subscriptions.Ratings.ready()) {
         let rating = ReactionCore.Collections.Ratings.findOne({raterId: Meteor.userId(), rateeId: rateeId});
-        console.log("rating: %o",rating);
+        //console.log("rating: %o",rating);
 
         if (rating == null) {
           ReactionCore.Collections.Ratings.insert(
@@ -49,7 +51,7 @@ Template.productDetailMarketplaceRating.onRendered(function(){
               value: $(this).rateit('value')
             }
           );
-          console.log('inserted rating');
+          //console.log('inserted rating');
         }
         else {
           ReactionCore.Collections.Ratings.update(
@@ -62,11 +64,11 @@ Template.productDetailMarketplaceRating.onRendered(function(){
               }
             }
           );
-          console.log('updated rating');
+          //console.log('updated rating');
         }
       }
 
     });
 
-  }, 100);
+  //}, 100);
 });
