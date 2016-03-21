@@ -309,6 +309,7 @@
                     "with": "mit",
                     "checkoutAsGuest": "Ohne Benutzerkonto bestellen",
                     "isSeller": "Ich will Mahlzeiten verkaufen",
+                    "boughtOrders": "Meine Käufe",
                     "info": {
                         "emailSent": "E-Mail gesendet",
                         "emailVerified": "E-Mail verifiziert",
