@@ -62,6 +62,11 @@
 
 
     <div class="flex-item">
+      {{> addressBookPanel}}
+    </div>
+
+
+    <div class="flex-item">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title" data-i18n="accountsUI.boughtOrders">My purchases</h3>
@@ -71,11 +76,6 @@
           {{> dashboardOrdersList data=userOrders}}
         </div>
       </div>
-    </div>
-
-
-    <div class="flex-item">
-      {{> addressBookPanel}}
     </div>
 
   </div>
