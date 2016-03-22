@@ -1,9 +1,16 @@
 <template name="productDetailDateField">
   {{#with product}}
-  <div class="row col-md-11">
-    <h2><span class="forSaleOnDate-text" data-i18n="productDetail.forSaleOnDate">For sale on date</span></h2>
-    <!--{{ prettifyDate forSaleOnDate }}-->
-    <span id="forSaleOnDate" itemprop="forSaleOnDate">{{>fieldComponent field="forSaleOnDate" value=(prettifyDate forSaleOnDate) }}</span>
-  </div>
+    <div class="row col-md-11">
+      <h2><span class="forSaleOnDate-text" data-i18n="productDetail.forSaleOnDate">For sale on date</span></h2>
+      <!--{{ prettifyDate forSaleOnDate }}-->
+      <span id="forSaleOnDate" itemprop="forSaleOnDate">{{>fieldComponent field="forSaleOnDate" value=(prettifyDate forSaleOnDate) }}</span>
+    </div>
+
+    <div class="row col-md-11">
+      <h2><span class="pickupTime-text" data-i18n="productDetail.pickupTime">Pickup time</span></h2>
+
+      <span class="pickupTime-label"><span data-i18n="productDetail.pickupTimeFrom">From</span>: </span><span id="pickupTimeFrom" itemprop="pickupTimeFrom">{{>fieldComponent field="pickupTimeFrom" value=pickupTimeFrom }}</span>
+      <span class="pickupTime-label"><span data-i18n="productDetail.pickupTimeTo">To</span>: </span><span id="pickupTimeTo" itemprop="pickupTimeTo">{{>fieldComponent field="pickupTimeTo" value=pickupTimeTo }}</span>
+    </div>
   {{/with}}
 </template>

@@ -123,6 +123,9 @@
                     "selectOption": "Es muss eine Produktoption ausgewählt werden, bevor es in den Warenkorb gelegt werden kann.",
                     "addedToCart": "hinzugefügt",
                     "forSaleOnDate": "Verkaufsdatum",
+                    "pickupTime": "Abholzeit",
+                    "pickupTimeFrom": "Von",
+                    "pickupTimeTo": "Bis",
                     "makeActive": "Aktivieren",
                     "makeInactive": "Deaktivieren",
                     "tagsAdd": "Tag hinzufügen"

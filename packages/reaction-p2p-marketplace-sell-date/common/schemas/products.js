@@ -11,5 +11,15 @@ ReactionCore.Schemas.Product = new SimpleSchema([
       },*/
       optional: false
     },
+    "pickupTimeFrom": {
+      type: String,
+      defaultValue: "12:00",
+      optional: false
+    },
+    "pickupTimeTo": {
+      type: String,
+      defaultValue: "12:30",
+      optional: false
+    }
   }
 ]);
