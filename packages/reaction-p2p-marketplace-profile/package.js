@@ -53,9 +53,9 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/publicProfile/marketplaceProfileWidget.js', 'client');
   api.addFiles('client/templates/publicProfile/marketplaceProfileWidget.less', 'client');
 
-  api.addFiles('client/routing/routing.js', 'client');
-
   api.addFiles('server/publications/account.js', 'server');
+  api.addFiles('server/methods/accounts.js', 'server');
+  api.addFiles('server/register.js', 'server');
 
   api.addFiles('reaction-p2p-marketplace-profile.js');
 });
