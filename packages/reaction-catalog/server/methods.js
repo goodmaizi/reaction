@@ -838,7 +838,7 @@ Meteor.methods({
     }).count();
 
     if (productCount === 0 && relatedTagsCount === 0) {
-      return ReactionCore.Collections.Tags.remove(tagId);
+      //return ReactionCore.Collections.Tags.remove(tagId);
     }
   },
 
