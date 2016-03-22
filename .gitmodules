@@ -10,6 +10,3 @@
 [submodule "packages/reaction-braintree"]
 	path = packages/reaction-braintree
 	url = https://github.com/ScyDev/reaction-braintree
-[submodule "packages/reaction-search"]
-	path = packages/reaction-search
-	url = https://github.com/ScyDev/reaction-search
