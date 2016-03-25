@@ -9,6 +9,8 @@ ReactionCore.Hooks.Events.add(
     ReactionCore.Log.info("Adding profile permissions.");
 
     user.roles[shopId].push("/profile/:userId");
+    //user.roles[shopId].push("profile/:userId");
+    user.roles[shopId].push("marketplaceProfile");
 
     return user;
   }
