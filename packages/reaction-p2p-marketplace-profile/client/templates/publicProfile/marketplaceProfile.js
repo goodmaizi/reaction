@@ -39,10 +39,11 @@ Template.marketplaceProfile.helpers(
   }
 );
 
+/*
 Template.registerHelper("getProfileUrl", function (userId) {
   const instance = Template.instance();
   if (instance.subscriptionsReady()) {
     console.log("Template.registerHelper(getProfileUrl) ",userId);
-    return "/reaction/profile/"+userId;
+    return "profile/"+userId;
   }
-});
+});*/

@@ -1,6 +1,6 @@
 ReactionCore.registerPackage({
   label: "Marketplace Profile",
-  name: "product/",
+  name: "reaction-p2p-marketplace-profile",
   icon: "fa fa-cubes",
   autoEnable: true,
   registry: [{
