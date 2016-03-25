@@ -12,4 +12,4 @@
 	url = https://github.com/ScyDev/reaction-braintree
 [submodule "packages/reaction-search"]
 	path = packages/reaction-search
-	url = ../reaction-search
+	url = https://github.com/ScyDev/reaction-search
