@@ -9,8 +9,7 @@ ReactionCore.Hooks.Events.add(
     ReactionCore.Log.info("Adding profile permissions.");
 
     user.roles[shopId].push("/profile/:userId");
-    //user.roles[shopId].push("profile/:userId");
-    user.roles[shopId].push("marketplaceProfile");
+    user.roles[shopId].push("marketplaceProfile"); // this seems to work while the above does not if main path (shop name) is something different than /reaction ?
 
     return user;
   }
