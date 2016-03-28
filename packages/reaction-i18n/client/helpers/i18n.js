@@ -8,14 +8,20 @@
  * @return {String} language code
  */
 const getLang = () => {
+  return "de";
+  
   if (typeof navigator.languages !== "undefined") {
     if (~navigator.languages[0].indexOf("-")) {
+      console.log("getLang() ",navigator.languages[0].split("-")[0]);
       return navigator.languages[0].split("-")[0];
     } else if (~navigator.languages[0].indexOf("_")) {
+      console.log("getLang() ",navigator.languages[0].split("_")[0]);
       return navigator.languages[0].split("_")[0];
     }
+    console.log("getLang() ",navigator.languages[0]);
     return navigator.languages[0];
   }
+  console.log("getLang() ",navigator.language," || ",navigator.browserLanguage);
   return navigator.language || navigator.browserLanguage;
 };
 
