@@ -156,7 +156,6 @@ reactioncommerce:reaction-catalog@0.2.1
 reactioncommerce:reaction-checkout@1.0.0
 reactioncommerce:reaction-collections@2.0.1
 reactioncommerce:reaction-dashboard@1.0.0
-reactioncommerce:reaction-email-templates@0.2.0
 reactioncommerce:reaction-i18n@2.0.0
 reactioncommerce:reaction-inventory@0.2.3
 reactioncommerce:reaction-layout@1.0.0
@@ -179,6 +178,7 @@ reload@1.1.4
 retry@1.0.4
 risul:moment-timezone@0.5.0_5
 routepolicy@1.0.6
+scydev:reaction-email-templates-custom@0.2.0
 scydev:reaction-p2p-marketplace@0.0.1
 scydev:reaction-p2p-marketplace-locations@0.0.1
 scydev:reaction-p2p-marketplace-profile@0.0.1
