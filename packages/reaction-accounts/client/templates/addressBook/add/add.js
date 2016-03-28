@@ -56,6 +56,14 @@ Template.addressBookAdd.events({
   // }
 });
 
+
+// this is only used because Template.instance() doesn't work in AutoForm.hooks() below
+var theAddressBookAddTemplate = null;
+Template.addressBookAdd.onCreated(function() {
+  var self = this;
+  theAddressBookAddTemplate = self;
+});
+
 /**
  * addressBookAddForm form handling
  * @description gets accountId and calls addressBookAdd method
@@ -74,8 +82,14 @@ AutoForm.hooks({
           return false;
         }
         if (result) {
+          console.log("address added! %o",result);
           this.done();
-          addressBook.trigger($.Event("showMainView"));
+
+          //const instance = Template.instance(); // doesn't work, so we use theAddressBookAddTemplate
+          if (theAddressBookAddTemplate.subscriptionsReady()) {
+            console.log(" trigger showMainView");
+            addressBook.trigger($.Event("showMainView"));
+          }
         }
       });
     }

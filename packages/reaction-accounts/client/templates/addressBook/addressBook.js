@@ -106,9 +106,11 @@ Template.addressBook.events({
   },
 
   "click [data-event-action=cancelAddressEdit], form submit, showMainView": function (event) {
+    console.log("fired: click [data-event-action=cancelAddressEdit], form submit, showMainView");
     event.preventDefault();
     event.stopPropagation();
 
-    Template.instance().currentViewTemplate.set("addressBookGrid");
+    Template.instance().currentViewTemplate.set("addressBookGrid"); // replaces address form with address grid
+    console.log('Template.instance().currentViewTemplate.set("addressBookGrid");');
   }
 });
