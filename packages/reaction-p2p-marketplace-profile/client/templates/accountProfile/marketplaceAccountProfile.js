@@ -61,7 +61,7 @@ Template.accountProfile.helpers( // for some strange reason our custom heleprs n
 );
 
 Template.accountProfile.events({ // for some strange reason our custom event needs to be speficied on the template that we override. doesn't work with our new template name.
-  "submit form": function (event, template) {
+  "submit form#profile-form": function (event, template) {
     console.log("Template.marketplaceAccountProfile.events(submit form)");
     event.preventDefault();
 
