@@ -45,7 +45,10 @@ Template.productGrid.onCreated(function () {
     if (tag) {
       tags = {tags: [tag._id]};
     }
-    const queryParams = Object.assign({}, tags, ReactionRouter.current().queryParams);
+
+    let dateFilter = {forSaleOnDate: Session.get('productFilters/forSaleOnDate')}
+
+    const queryParams = Object.assign({}, tags, ReactionRouter.current().queryParams, dateFilter);
     Meteor.subscribe("Products", Session.get("productScrollLimit"), queryParams);
   });
 

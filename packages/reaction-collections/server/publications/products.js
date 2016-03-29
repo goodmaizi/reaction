@@ -11,6 +11,10 @@ const filters = new SimpleSchema({
     type: [String],
     optional: true
   },
+  "forSaleOnDate": {
+    type: Date,
+    optional: true
+  },
   "query": {
     type: String,
     optional: true
@@ -65,7 +69,7 @@ const filters = new SimpleSchema({
  */
 Meteor.publish("Products", function (productScrollLimit = 24, productFilters, sort = {}) {
   check(productScrollLimit, Number);
-  check(productFilters, Match.OneOf(undefined, filters));
+  check(productFilters, Match.OneOf(undefined, filters, Date));
 
   let shopAdmin;
   const shop = ReactionCore.getCurrentShop();
@@ -103,6 +107,19 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
         _.extend(selector, {
           hashtags: {
             $in: productFilters.tags
+          }
+        });
+      }
+
+      // filter by date
+      if (productFilters.forSaleOnDate) {
+        let basicDate = moment(new Date(productFilters.forSaleOnDate)).format('YYYY-MM-DD');
+        ReactionCore.Log.info("filtering products by date: ",basicDate, " ",new Date(basicDate+"T00:00:00.000Z")," ",new Date(basicDate+"T23:59:59.000Z"));
+
+        _.extend(selector, {
+          forSaleOnDate: {
+            "$gte": new Date(basicDate+"T00:00:00.000Z"),
+            "$lte": new Date(basicDate+"T23:59:59.000Z")
           }
         });
       }
