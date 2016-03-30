@@ -139,10 +139,23 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
       if (productFilters.location) {
         ReactionCore.Log.info("filtering products by location: ",productFilters.location);
         let filterLocation = productFilters.location.split("/");
+        let filterLat = parseFloat(filterLocation[0]);
+        let filterLong = parseFloat(filterLocation[1])
+
+        // http://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters
+        let oneKilometerLat = 1.0/111.111;
+        let oneKilometerLong = 1.0/(111.111 * Math.cos(filterLat));
+        let searchDistanceMultiplier = 10;
 
         let usersSelector = {
-          "profile.latitude": parseFloat(filterLocation[0]),
-          "profile.longitude": parseFloat(filterLocation[1])
+          "profile.latitude": {
+            "$gte": filterLat - (oneKilometerLat * searchDistanceMultiplier),
+            "$lte": filterLat + (oneKilometerLat * searchDistanceMultiplier),
+          },
+          "profile.longitude": {
+            "$gte": filterLong + (oneKilometerLong * searchDistanceMultiplier), // ATTENTION!!! for Long, +/- is reversed
+            "$lte": filterLong - (oneKilometerLong * searchDistanceMultiplier),
+          },
         };
         ReactionCore.Log.info("with selector: ",usersSelector);
         let usersForLocation = Meteor.users.find(
