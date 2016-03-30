@@ -401,8 +401,10 @@
 					"isCommercial": "Das ist eine Geschäftsadresse"
 				},
 				"search": {
-          "searchBoxDate": "Zu verkaufen am",
-          "searchBoxLocation": "Ort"
+          "searchBoxDateLabel": "Zu verkaufen am",
+					"searchBoxDatePlaceholder": "Datum wählen...",
+          "searchBoxLocationLabel": "Ort",
+          "searchBoxLocationPlaceholder": "Stadt eingeben..."
         }
 
 			},

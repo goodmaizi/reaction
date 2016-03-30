@@ -401,8 +401,10 @@
           "isCommercial": "This is a commercial address."
         },
         "search": {
-          "searchBoxDate": "Date",
-          "searchBoxLocation": "Place"
+          "searchBoxDateLabel": "Date",
+          "searchBoxDatePlaceholder": "Choose date...",
+          "searchBoxLocationLabel": "Place",
+          "searchBoxLocationPlaceholder": "City name..."
         }
       },
       "address": {
