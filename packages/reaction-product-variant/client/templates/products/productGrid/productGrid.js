@@ -46,8 +46,14 @@ Template.productGrid.onCreated(function () {
       tags = {tags: [tag._id]};
     }
 
-    let dateFilter = {forSaleOnDate: Session.get('productFilters/forSaleOnDate')}
-    let locationFilter = {location: Session.get('productFilters/location')}
+    let dateFilter = { forSaleOnDate: Session.get('productFilters/forSaleOnDate') }
+    if (dateFilter.forSaleOnDate == null || dateFilter.forSaleOnDate.toString() == "Invalid Date") {
+      dateFilter = {};
+    }
+    let locationFilter = { location: Session.get('productFilters/location') }
+    if (locationFilter.location == null || locationFilter.location.trim() == "") {
+      locationFilter = {};
+    }
 
     const queryParams = Object.assign({}, tags, ReactionRouter.current().queryParams, dateFilter, locationFilter);
     Meteor.subscribe("Products", Session.get("productScrollLimit"), queryParams);
