@@ -76,7 +76,6 @@ Template.productMapSingle.onCreated(function() {
                    title: "This product"
                 });
                 let location = results[0].geometry.location;
-                console.log("resolved location: ",location);
                 console.log("resolved location: "+location.lat()+"/"+location.lng());
                 map.instance.setCenter(location);
 

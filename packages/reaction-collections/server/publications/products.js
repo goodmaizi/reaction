@@ -15,6 +15,10 @@ const filters = new SimpleSchema({
     type: Date,
     optional: true
   },
+  "location": {
+    type: String,
+    optional: true
+  },
   "query": {
     type: String,
     optional: true
@@ -120,6 +124,35 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
           forSaleOnDate: {
             "$gte": new Date(basicDate+"T00:00:00.000Z"),
             "$lte": new Date(basicDate+"T23:59:59.000Z")
+          }
+        });
+      }
+
+      // filter by location
+      if (productFilters.location) {
+        ReactionCore.Log.info("filtering products by location: ",productFilters.location);
+        let filterLocation = productFilters.location.split("/");
+
+        let usersSelector = {
+          "profile.latitude": parseFloat(filterLocation[0]),
+          "profile.longitude": parseFloat(filterLocation[1])
+        };
+        ReactionCore.Log.info("with selector: ",usersSelector);
+        let usersForLocation = Meteor.users.find(
+          usersSelector
+        );
+
+        let userIds = usersForLocation.map(function(p)
+          {
+            ReactionCore.Log.info("map user: ",p);
+            return p._id
+          }
+        );
+        ReactionCore.Log.info("found users for lat/long: ",userIds);
+
+        _.extend(selector, {
+          userId: {
+            "$in": userIds,
           }
         });
       }
