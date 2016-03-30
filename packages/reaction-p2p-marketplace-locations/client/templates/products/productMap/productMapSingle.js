@@ -75,9 +75,27 @@ Template.productMapSingle.onCreated(function() {
                    map: map.instance,
                    title: "This product"
                 });
-                console.log("resolved location: "+results[0].geometry.location);
-                map.instance.setCenter(results[0].geometry.location);
-             }
+                let location = results[0].geometry.location;
+                console.log("resolved location: ",location);
+                console.log("resolved location: "+location.lat()+"/"+location.lng());
+                map.instance.setCenter(location);
+
+                if (product.userId == Meteor.userId()) {
+                  Meteor.users.update(
+                    {
+                      _id: Meteor.userId() // from client, updates always need to reference _id
+                    },
+                    {
+                      $set: {
+                        "profile.latitude": location.lat(),
+                        "profile.longitude": location.lng()
+                      }
+                    }
+                  );
+
+                  console.log("updated profile lat/long");
+                }
+              }
           }
         );
 
