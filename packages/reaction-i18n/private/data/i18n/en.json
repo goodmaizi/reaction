@@ -399,6 +399,10 @@
           "isShippingDefault": "Make this your default shipping address?",
           "isBillingDefault": "Make this your default billing address?",
           "isCommercial": "This is a commercial address."
+        },
+        "search": {
+          "searchBoxDate": "Date",
+          "searchBoxLocation": "Place"
         }
       },
       "address": {

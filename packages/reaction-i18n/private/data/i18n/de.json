@@ -399,7 +399,12 @@
 					"isShippingDefault": "Soll das Ihre Standardadresse werden?",
 					"isBillingDefault": "Soll das Ihre Standard-Rechnungsadresse werden?",
 					"isCommercial": "Das ist eine Geschäftsadresse"
-				}
+				},
+				"search": {
+          "searchBoxDate": "Zu verkaufen am",
+          "searchBoxLocation": "Ort"
+        }
+
 			},
 			"address": {
 				"country": "Land",
