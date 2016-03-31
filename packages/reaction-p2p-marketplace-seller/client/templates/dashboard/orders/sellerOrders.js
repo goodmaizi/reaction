@@ -114,7 +114,20 @@ Template.sellerOrders.helpers({
     if (ReactionCore.Subscriptions.SellerOrders.ready()) {
       const template = Template.instance();
       const queryParams = ReactionRouter.getQueryParam("filter");
-      template.orders = getSellerOrders(queryParams);
+      template.orders = getSellerOrders(queryParams).fetch();
+
+      console.log("Template.sellerOrders.helpers.sellerOrders() orders: ",template.orders);
+      for (let order of template.orders) {
+        for (let item of order.items) {
+          if (item.sellerId != Meteor.userId())
+          {
+            console.log("ignoring item: ",item);
+            let itemIndex = order.items.indexOf(item);
+            order.items.splice(itemIndex, 1);
+          }
+        }
+      }
+
       return template.orders;
     }
   },
