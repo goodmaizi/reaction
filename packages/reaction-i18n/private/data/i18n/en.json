@@ -404,7 +404,8 @@
           "searchBoxDateLabel": "Date",
           "searchBoxDatePlaceholder": "Choose date...",
           "searchBoxLocationLabel": "Place",
-          "searchBoxLocationPlaceholder": "City name..."
+          "searchBoxLocationPlaceholder": "City name...",
+          "noProductsFound": "No products found"
         }
       },
       "address": {

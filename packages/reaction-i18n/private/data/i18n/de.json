@@ -404,7 +404,8 @@
           "searchBoxDateLabel": "Zu verkaufen am",
 					"searchBoxDatePlaceholder": "Datum wählen...",
           "searchBoxLocationLabel": "Ort",
-          "searchBoxLocationPlaceholder": "Stadt eingeben..."
+          "searchBoxLocationPlaceholder": "Stadt eingeben...",
+          "noProductsFound": "Keine Produkte gefunden"
         }
 
 			},

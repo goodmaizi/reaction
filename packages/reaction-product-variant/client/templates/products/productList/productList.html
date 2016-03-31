@@ -22,11 +22,19 @@
             <div><h3>{{formatPrice variants.[0].price}}</h3></div>
             <!-- using price from grid. -->
             <div class="currency-symbol"><h3>{{formatPrice displayPrice}}</h3></div>
-            
+
             {{#if cart.showItemLowInventoryWarning variants.[0]}}
             <div class="badge badge-low-inv-warning">{{variants.[0].inventoryQuantity}} Left!</div>
             {{/if}}
           </td>
+        </tr>
+        {{else}}
+        <tr>
+          <div class="no-products-found">
+            <h3>
+              <i class="fa fa-cutlery"></i> <span data-i18n="shop.search.noProductsFound">No products found</span>
+            </h3>
+          </div>
         </tr>
         {{/each}}
       </tbody>

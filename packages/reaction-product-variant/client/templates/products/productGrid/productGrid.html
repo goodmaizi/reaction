@@ -4,6 +4,12 @@
     <ul class="product-grid-list list-unstyled" id="product-grid-list">
     {{#each products}}
       {{> productGridItems}}
+    {{else}}
+      <div class="no-products-found">
+        <h3>
+          <i class="fa fa-cutlery"></i> <span data-i18n="shop.search.noProductsFound">No products found</span>
+        </h3>
+      </div>
     {{/each}}
     </ul>
   </div>
