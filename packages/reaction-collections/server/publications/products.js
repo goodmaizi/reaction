@@ -73,7 +73,7 @@ const filters = new SimpleSchema({
  */
 Meteor.publish("Products", function (productScrollLimit = 24, productFilters, sort = {}) {
   check(productScrollLimit, Number);
-  check(productFilters, Match.OneOf(undefined, filters, Date));
+  check(productFilters, Match.OneOf(undefined, filters, String));
 
   let shopAdmin;
   const shop = ReactionCore.getCurrentShop();
