@@ -78,17 +78,20 @@ AutoForm.hooks({
       Meteor.call("accounts/addressBookAdd", insertDoc, (error, result) => {
         if (error) {
           Alerts.toast(`Failed to add address: ${error.message}`, "error");
-          this.done(new Error("Failed to add address: ", error));
+          this.done(new Error("AutoForm.hooks addressBookAddForm Failed to add address: ", error));
           return false;
         }
         if (result) {
-          console.log("address added! %o",result);
+          console.log("AutoForm.hooks addressBookAddForm address added! %o",result);
           this.done();
 
           //const instance = Template.instance(); // doesn't work, so we use theAddressBookAddTemplate
           if (theAddressBookAddTemplate.subscriptionsReady()) {
-            console.log(" trigger showMainView");
-            addressBook.trigger($.Event("showMainView"));
+            console.log("AutoForm.hooks addressBookAddForm subscriptions ready");
+            Meteor.setTimeout(function() {
+              console.log("AutoForm.hooks addressBookAddForm trigger showMainView");
+              addressBook.trigger($.Event("showMainView"));
+            }, 1000);
           }
         }
       });
