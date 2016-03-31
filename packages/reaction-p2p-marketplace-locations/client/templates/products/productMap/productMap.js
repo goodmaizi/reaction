@@ -11,31 +11,6 @@ Template.productMap.onRendered(function() {
 let Media;
 Media = ReactionCore.Collections.Media;
 Template.productMap.helpers({
-  /*
-  products: function () {
-    return ReactionProduct.getProductsByTag(this.tag);
-  },
-  media: function () {
-    let defaultImage;
-    let variants = [];
-    for (let variant of this.variants) {
-      if (!variant.parentId) {
-        variants.push(variant);
-      }
-    }
-    if (variants.length > 0) {
-      let variantId = variants[0]._id;
-      defaultImage = Media.findOne({
-        "metadata.variantId": variantId,
-        "metadata.priority": 0
-      });
-    }
-    if (defaultImage) {
-      return defaultImage;
-    }
-    return false;
-  },
-  */
   mapOptions: function() {
     if (GoogleMaps.loaded()) {
       return {
@@ -119,16 +94,6 @@ Template.productMap.onCreated(function() {
 
 
   GoogleMaps.ready('map', function(map) {
-    /*
-    let products = ReactionCore.Collections.Products.find({}).fetch();
-    products.forEach(function(product){
-      let prodOwner = ReactionCore.Collections.Accounts.findOne({
-        userId: product.userId
-      });
-
-      //addMarker(map, product);
-    });*/
-
     ReactionCore.Collections.Products.find().observe({
       added: function(product) {
         // Create a marker for this document
