@@ -52,6 +52,7 @@ Package.onUse(function(api) {
   api.addFiles('client/helpers/validation.js', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.html', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.js', 'client');
+  api.addFiles('client/templates/products/productDetail/productDetail.less', 'client');
   api.addFiles('client/templates/addressBook/addressBook.html', 'client');
   api.addFiles('client/templates/addressBook/addressBook.js', 'client');
 

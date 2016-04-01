@@ -104,16 +104,16 @@ ReactionProduct.maybeDeleteProduct = function (productOrArray) {
   let confirmTitle;
   if (products.length === 1) {
     title = products[0].title || "the product";
-    confirmTitle = "Delete this product?";
+    confirmTitle = i18next.t("productDetail.deletedProductConfirm");
   } else {
     title = "the selected products";
-    confirmTitle = "Delete selected products?";
+    confirmTitle = i18next.t("productDetail.deletedProductsConfirm");
   }
 
   if (confirm(confirmTitle)) {
     Meteor.call("products/deleteProduct", productIds, function (error, result) {
       if (error !== undefined || !result) {
-        Alerts.toast(`There was an error deleting ${title}`, "error", {
+        Alerts.toast(i18next.t("productDetail.deletedProductFailed")+" "+title, "error", {
           i18nKey: "productDetail.productDeleteError"
         });
         throw new Meteor.Error("Error deleting " + title, error);
