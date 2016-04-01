@@ -2,13 +2,27 @@
 // overriding product schema with extended version
 ReactionCore.Schemas.Product = new SimpleSchema([
   ReactionCore.Schemas.Product, {
+    "lastOrderDate": {
+      type: Date,
+      autoValue: function() {
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow;
+      },
+      optional: false
+    },
+    "lastOrderTime": {
+      type: String,
+      defaultValue: "08:00",
+      optional: false
+    },
     "forSaleOnDate": {
       type: Date,
-      defaultValue: new Date,
-      /*
-      autoValue: function () { // BAD BAD BAD auto value!! not the same as a default value!
-        return new Date;
-      },*/
+      autoValue: function() {
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow;
+      },
       optional: false
     },
     "pickupTimeFrom": {

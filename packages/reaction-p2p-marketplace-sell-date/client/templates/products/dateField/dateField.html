@@ -12,5 +12,13 @@
       <span class="pickupTime-label"><span data-i18n="productDetail.pickupTimeFrom">From</span>: </span><span id="pickupTimeFrom" itemprop="pickupTimeFrom">{{>fieldComponent field="pickupTimeFrom" value=pickupTimeFrom }}</span>
       <span class="pickupTime-label"><span data-i18n="productDetail.pickupTimeTo">To</span>: </span><span id="pickupTimeTo" itemprop="pickupTimeTo">{{>fieldComponent field="pickupTimeTo" value=pickupTimeTo }}</span>
     </div>
+
+    <div class="row col-md-11">
+      <h2><span class="lastOrderDate-text" data-i18n="productDetail.lastOrderDate">Last order until</span></h2>
+      <!--{{ prettifyDate forSaleOnDate }}-->
+      <span id="lastOrderDate" itemprop="lastOrderDate">{{>fieldComponent field="lastOrderDate" value=(prettifyDate lastOrderDate) }}</span>
+      <span class="lastOrderTime-label"><span data-i18n="productDetail.lastOrderTime">At</span>: </span><span id="pickupTimeFrom" itemprop="pickupTimeFrom">{{>fieldComponent field="lastOrderTime" value=lastOrderTime }}</span>
+    </div>
+
   {{/with}}
 </template>

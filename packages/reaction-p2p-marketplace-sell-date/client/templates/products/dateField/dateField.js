@@ -11,6 +11,9 @@ Template.productDetailDateField.onRendered(
       $(".forSaleOnDate-edit-input").datepicker({
         format: "dd.mm.yyyy"
       });
+      $(".lastOrderDate-edit-input").datepicker({
+        format: "dd.mm.yyyy"
+      });
       console.log("activated datepicker");
     }, 100);
   }
