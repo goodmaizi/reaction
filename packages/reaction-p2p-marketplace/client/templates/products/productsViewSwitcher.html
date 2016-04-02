@@ -1,7 +1,13 @@
 <template name="productsViewSwitcher">
   <div class="viewSwitch">
     <h2>
-      <div> | <span id="productGridView">Grid</span> | <span id="productListView">List</span> | <span id="productMapView">Map</span> | </div>
+      <div>
+        <span id="productGridView">{{i18n 'products.gridView' 'Grid'}}</span>
+        <i class="fa fa-cutlery"></i>
+        <span id="productListView">{{i18n 'products.listView' 'List'}}</span>
+        <i class="fa fa-cutlery"></i>
+        <span id="productMapView">{{i18n 'products.mapView' 'Map'}}</span>
+      </div>
     </h2>
   </div>
 </template>

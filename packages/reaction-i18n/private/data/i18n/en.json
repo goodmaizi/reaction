@@ -202,6 +202,11 @@
         "notFoundError": "This is not the product you were looking for.",
         "tagsAdd": "Add tag"
       },
+      "products": {
+        "gridView": "Grid",
+        "listView": "List",
+        "mapView": "Map"
+      },
       "tags": {
         "addTag": "Add Tag",
         "addGroupTag": "Add Group Tag",
