@@ -19,11 +19,11 @@ Template.productDetailDateField.onRendered(
       //$('.datetimepicker').data("DateTimePicker").change(function(event) {
       $('.datetimepicker').on("dp.change", function(event) {
         console.log("datetimepicker changed");
-        $('.lastOrderDate-edit-input').val(event.date.format("DD.MM.YYYY hh:mm"));
-        $('.lastOrderDate-edit-input').trigger("change");
+        $('.latestOrderDate-edit-input').val(event.date.format("DD.MM.YYYY hh:mm"));
+        $('.latestOrderDate-edit-input').trigger("change");
       });
       // set date from real input field
-      $('.lastOrderDate-dummy-input').val($('.lastOrderDate-edit-input').val());
+      $('.latestOrderDate-dummy-input').val($('.latestOrderDate-edit-input').val());
 
       console.log("activated datepicker");
     }, 100);

@@ -161,6 +161,15 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
 
       //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
     }
+    if (options.arguments[1] == "latestOrderDate") {
+      //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') from:",options.arguments[2]);
+
+      // this seems to provoke: Exception while invoking method 'products/updateProductField' Error: Did not check() all arguments during call to 'products/updateProductField'
+      // but the value is still saved...
+      options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY hh:mm").format('MM/DD/YYYY hh:mm');
+
+      //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductField') to:",options.arguments[2]);
+    }
   }
 });
 

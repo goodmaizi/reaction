@@ -14,17 +14,17 @@
     </div>
 
     <div class="row col-md-11">
-      <h2><span class="lastOrderDate-text" data-i18n="productDetail.lastOrderDate">Last order until</span></h2>
+      <h2><span class="latestOrderDate-text" data-i18n="productDetail.latestOrderDate">Last order until</span></h2>
 
             <div class="input-group datetimepicker">
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               <!-- just dumm field for calendar -->
-              <input class="lastOrderDate-dummy-input form-control" type="text"/>
+              <input class="latestOrderDate-dummy-input form-control" type="text"/>
             </div>
 
             <!-- this is the real, invisible input field -->
-            <span id="lastOrderDate" itemprop="lastOrderDate" style="display:none;">
-              {{>fieldComponent field="lastOrderDate" value=(prettifyDateTime lastOrderDate) }}
+            <span id="latestOrderDate" itemprop="latestOrderDate" sty__le="display:none;">
+              {{>fieldComponent field="latestOrderDate" value=(prettifyDateTime latestOrderDate) }}
             </span>
     </div>
 

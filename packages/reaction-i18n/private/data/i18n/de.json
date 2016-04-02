@@ -194,7 +194,7 @@
 				"pickupTime": "Abholzeit",
 				"pickupTimeFrom": "Von",
 				"pickupTimeTo": "Bis",
-				"lastOrderDate": "Letzte Bestellung",
+				"latestOrderDate": "Letzte Bestellung",
 				"lastOrderTime": "Um",
 				"makeActive": "Aktivieren",
 				"makeInactive": "Deaktivieren",
