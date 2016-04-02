@@ -115,7 +115,17 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
         });
       }
 
-      // filter by date
+      // filter by latest order date
+      let currentDate = new Date(moment().format('MM/DD/YYYY hh:mm'));
+      ReactionCore.Log.info("filtering products by latest order date: ",currentDate);
+
+      _.extend(selector, {
+        latestOrderDate: {
+          "$gte": currentDate
+        },
+      });
+
+      // filter by sale date
       if (productFilters.forSaleOnDate) {
         let filterDate = new Date(moment(productFilters.forSaleOnDate, "DD.MM.YYYY").format('MM/DD/YYYY'));
 				if (filterDate.toString() == "Invalid Date") {
