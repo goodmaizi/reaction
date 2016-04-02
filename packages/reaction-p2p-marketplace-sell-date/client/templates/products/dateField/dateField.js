@@ -14,12 +14,14 @@ Template.productDetailDateField.onRendered(
 
       $('.datetimepicker').datetimepicker({
         format: "DD.MM.YYYY hh:mm", //
+        locale: moment.locale("de"),
         //sideBySide: true
       });
       //$('.datetimepicker').data("DateTimePicker").change(function(event) {
       $('.datetimepicker').on("dp.change", function(event) {
-        console.log("datetimepicker changed");
-        $('.latestOrderDate-edit-input').val(event.date.format("DD.MM.YYYY hh:mm"));
+        console.log("datetimepicker changed: ",event.date);
+        let fixedDatetime = event.date.subtract(2, 'hours'); // for some reason the event.date is 2 hours diffwerent from what we choose and see in the input field
+        $('.latestOrderDate-edit-input').val(fixedDatetime.format("DD.MM.YYYY hh:mm"));
         $('.latestOrderDate-edit-input').trigger("change");
       });
       // set date from real input field
