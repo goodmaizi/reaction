@@ -11,9 +11,20 @@ Template.productDetailDateField.onRendered(
       $(".forSaleOnDate-edit-input").datepicker({
         format: "dd.mm.yyyy"
       });
-      $(".lastOrderDate-edit-input").datepicker({
-        format: "dd.mm.yyyy"
+
+      $('.datetimepicker').datetimepicker({
+        format: "DD.MM.YYYY hh:mm", //
+        //sideBySide: true
       });
+      //$('.datetimepicker').data("DateTimePicker").change(function(event) {
+      $('.datetimepicker').on("dp.change", function(event) {
+        console.log("datetimepicker changed");
+        $('.lastOrderDate-edit-input').val(event.date.format("DD.MM.YYYY hh:mm"));
+        $('.lastOrderDate-edit-input').trigger("change");
+      });
+      // set date from real input field
+      $('.lastOrderDate-dummy-input').val($('.lastOrderDate-edit-input').val());
+
       console.log("activated datepicker");
     }, 100);
   }
@@ -24,6 +35,10 @@ Template.productDetailDateField.helpers(
     prettifyDate: function(inDate) {
       //return new Date(inDate).toString('dd.mm.yyyy')
       return moment(new Date(inDate)).format('DD.MM.YYYY');
+    },
+    prettifyDateTime: function(inDate) {
+      //return new Date(inDate).toString('dd.mm.yyyy')
+      return moment(new Date(inDate)).format('DD.MM.YYYY hh:mm');
     }
   }
 );

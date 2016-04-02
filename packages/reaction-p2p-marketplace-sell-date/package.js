@@ -36,7 +36,7 @@ Package.onUse(function(api) {
 
   api.use("aldeed:template-extension");
   api.use("rajit:bootstrap3-datepicker");
-
+  api.use("tsega:bootstrap3-datetimepicker");
 
   api.addFiles([
                 'reaction-p2p-marketplace-sell-date.js',

@@ -15,9 +15,17 @@
 
     <div class="row col-md-11">
       <h2><span class="lastOrderDate-text" data-i18n="productDetail.lastOrderDate">Last order until</span></h2>
-      <!--{{ prettifyDate forSaleOnDate }}-->
-      <span id="lastOrderDate" itemprop="lastOrderDate">{{>fieldComponent field="lastOrderDate" value=(prettifyDate lastOrderDate) }}</span>
-      <span class="lastOrderTime-label"><span data-i18n="productDetail.lastOrderTime">At</span>: </span><span id="pickupTimeFrom" itemprop="pickupTimeFrom">{{>fieldComponent field="lastOrderTime" value=lastOrderTime }}</span>
+
+            <div class="input-group datetimepicker">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <!-- just dumm field for calendar -->
+              <input class="lastOrderDate-dummy-input form-control" type="text"/>
+            </div>
+
+            <!-- this is the real, invisible input field -->
+            <span id="lastOrderDate" itemprop="lastOrderDate" style="display:none;">
+              {{>fieldComponent field="lastOrderDate" value=(prettifyDateTime lastOrderDate) }}
+            </span>
     </div>
 
   {{/with}}
