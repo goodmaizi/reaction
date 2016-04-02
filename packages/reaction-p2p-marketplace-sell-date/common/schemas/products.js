@@ -13,11 +13,6 @@ ReactionCore.Schemas.Product = new SimpleSchema([
       defaultValue: new Date,
       optional: false
     },
-    "lastOrderTime": {
-      type: String,
-      defaultValue: "08:00",
-      optional: false
-    },
     "forSaleOnDate": {
       type: Date,
       /*
