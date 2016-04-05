@@ -65,7 +65,7 @@ Template.registerHelper("getGravatar", function (currentUser, size) {
  * registerHelper displayName
  */
 Template.registerHelper("displayName", function (displayUser) {
-  ReactionCore.Log.error("displayName: ",displayUser);
+  //ReactionCore.Log.error("displayName: ",displayUser);
 
   const user = displayUser || Accounts.user();
   if (user) {
