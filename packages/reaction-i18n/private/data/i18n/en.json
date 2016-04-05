@@ -203,6 +203,7 @@
         "tagsAdd": "Add tag"
       },
       "products": {
+        "all": "ALL",
         "gridView": "Grid",
         "listView": "List",
         "mapView": "Map"
