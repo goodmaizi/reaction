@@ -53,6 +53,8 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/products/productDetail/productDetail.html', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.js', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.less', 'client');
+  api.addFiles('client/templates/products/productDetail/variants/variantForm/variantForm.html', 'client');
+  api.addFiles('client/templates/products/productDetail/variants/variantForm/variantForm.js', 'client');
   api.addFiles('client/templates/addressBook/addressBook.html', 'client');
   api.addFiles('client/templates/addressBook/addressBook.js', 'client');
 
