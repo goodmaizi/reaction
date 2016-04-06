@@ -92,8 +92,8 @@
 				"auto": "Auto",
 				"save": "Save",
 				"saveAndContinue": "Speichern und fortfahren",
-				"saveChanges": "Save Changes",
-				"selectOne": "(Select One)",
+				"saveChanges": "Änderungen speichern",
+				"selectOne": "(eines auswählen)",
 				"cancel": "Abbrechen",
 				"submit": "Abschicken",
 				"delete": "Löschen",
@@ -104,7 +104,7 @@
 				"toggle": "Umschalten",
 				"toggleEditMode": "Toggle Edit Mode",
 				"warning": "Ups!",
-				"unauthorizedMessage": "Ihnen fehlen die Rechte, um die Seite anzuzeigen.",
+				"unauthorizedMessage": "Dir fehlt die Berechtigung, um die Seite anzuzeigen.",
 				"updateSettings": "Update Settings",
 				"monthOptions": "Choose month",
 				"yearOptions": "Choose year",
@@ -149,14 +149,14 @@
 			"productDetail": {
 				"productManagement": "Produkte verwalten",
 				"makeInvisible": "Unsichtbar machen",
-				"isNotVisible": "Dieses Produkt ist für den Kunden nicht sichtbar.",
-				"makeItVisible": "Dieses Produkt kann sichtbar gemacht werden",
-				"whenYouAreDone": "wenn Sie mit editieren fertig sind.",
+				"isNotVisible": "Diese Mahlzeit ist für den Kunden nicht sichtbar (inaktiv).",
+				"makeItVisible": "Dieses Mahlzeit für den Kunden sichtbar machen (aktiv)",
+				"whenYouAreDone": "wenn Du mit editieren fertig bist.",
 				"tags": "Kategorie",
 				"tagsAdd": "Tag hinzufügen",
-				"tagsEdit": "Edit tags",
+				"tagsEdit": "Tags editieren",
 				"tagExists": "Tag already exists, or is empty.",
-				"dropFiles": "Drop files to upload",
+				"dropFiles": "Bild hinzufügen",
 				"addInventory": "Add Inventory",
 				"barcode": "Barcode",
 				"confirmDeleteBarcode": "Are you sure you want to delete barcode",
@@ -189,7 +189,7 @@
 				"startTracking": "Start Tracking",
 				"addBarcode": "Add Barcode",
 				"quantity": "Quantity",
-				"quantityGreaterThanZero": "Error: Quantity must be greater than zero",
+				"quantityGreaterThanZero": "Menge muss grösser null sein.",
 				"forSaleOnDate": "Verkaufsdatum",
 				"pickupTime": "Abholzeit",
 				"pickupTimeFrom": "Von",
@@ -216,7 +216,7 @@
 				"createTag": "Create Tag"
 			},
 			"productDetailEdit": {
-				"title": "Produkttitle",
+				"title": "Produkttitel",
 				"pageTitle": "Produkt Seitentitel",
 				"vendor": "Hersteller",
 				"description": "Produktbeschreibung hinzufügen",
@@ -235,7 +235,7 @@
 				"moreOptions": "More Options"
 			},
 			"productVariant": {
-				"inventoryQuantity": "Quantity",
+				"inventoryQuantity": "Menge",
 				"title": "Label",
 				"price": "Price",
 				"optionTitle": "Option",
@@ -249,7 +249,7 @@
 				"lowInventoryWarningThreshold": "Warn @"
 			},
 			"variantList": {
-				"moreOptions": "Für diese Auswahl gibt's noch weitere Optionen.",
+				"moreOptions": "Für diese Auswahl gibt es noch weitere Optionen.",
 				"createVariant": "Produktvariante erzeugen"
 			},
 			"gridPackage": {
@@ -263,12 +263,12 @@
 				"pkgDisabled": " wurde deaktiviert."
 			},
 			"cartDrawer": {
-				"empty": "Ihr Warenkorb ist leer.",
+				"empty": "Du hast noch keine Mahlzeit ausgewählt.",
 				"keepShopping": "Zurück zum Shop",
 				"checkout": "Zur Kasse"
 			},
 			"cartSubTotals": {
-				"head": "Ihr Warenkorb",
+				"head": "Dein Warenkorb",
 				"items": "Warenkorbartikel",
 				"subtotal": "Zwischensumme",
 				"shipping": "Versand",
@@ -282,7 +282,7 @@
 				"created": "Created",
 				"reference": "Reference",
 				"invoice": "Invoice",
-				"ordersNotFound": "No orders found",
+				"ordersNotFound": "Keine Bestellungen gefunden",
 				"approveInvoice": "Approve",
 				"makeAdjustments": "Make Adjustments",
 				"capturePayment": "Capture Payment",
@@ -322,25 +322,25 @@
 				"thankYou": "Vielen Dank!",
 				"itemsFrom": "Artikel von",
 				"yourOrderIsNow": "Im Warenkorb",
-				"summaryMessage": "Vielen Dank für Ihren Einkauf.",
+				"summaryMessage": "En guete!",
 				"submitted": "gesendet",
-				"registerGuest": "Bei Eingabe Ihrer E-Mail-Adresse benachrichtigen wir Sie über Artikelle updates.",
-				"trackYourDelivery": "Ihre Bestellung wird verschickt an",
+				"registerGuest": "Bitte gib uns Deine E-Mail-Adresse an, damit wir Dich über neue Köche und Mahlzeiten informieren können.",
+				"trackYourDelivery": "Deine Bestellung wird verschickt an",
 				"noOrdersFound": "Keine Bestellung vorhanden.",
 				"adminMessage": "You are viewing orders as an administrator"
 			},
 			"checkoutLogin": {
 				"welcome": "Welcome, it's so good to see you.",
-				"loginCompleted": "Benutzerkonte abgeschlossen",
+				"loginCompleted": "Benutzerkonto abgeschlossen",
 				"createOrLogin": "Benutzerkonto anlegen oder anmelden",
 				"guestOrLogin": "Anmelden oder als Gast fortfahren",
 				"continueAsGuest": "Als Gast fortfahren",
-				"guestMessage": "Sie können ohne Benutzerkonto fortfahren. Auch später haben Sie noch die Möglichkeit, ein Benutzerkonto anzulegen."
+				"guestMessage": "Du kannst ohne Benutzerkonto fortfahren. Auch später hast Du noch die Möglichkeit, ein Benutzerkonto anzulegen."
 			},
 			"addressBookGrid": {
 				"addressBook": "Adressen",
 				"addAddress": "Adresse hinzufügen",
-				"chooseAddress": "Bitte wählen Sie die Versandadresse",
+				"chooseAddress": "Bitte wähle die Versandadresse",
 				"createDefault": "Standardadresse festlegen",
 				"selectShippingAddress": "Bitte Versandadresse wählen",
 				"selectBillingAddress": "Bitte Rechnungsadresse wählen"
@@ -378,7 +378,7 @@
 				"defaultPaymentMethod": "Default Payment Method",
 				"name": "Name",
 				"namePlaceholder": "Shop Name",
-				"description": "Description",
+				"description": "Beschreibung",
 				"descriptionPlaceholder": "Describe your shop for SEO",
 				"descriptionTooltip": "This field used by meta description tag. It is allow to search engines to describe your shop",
 				"email": "Email",
@@ -407,16 +407,16 @@
 					"city": "Stadt",
 					"region": "Kanton",
 					"phone": "Telefon",
-					"isShippingDefault": "Soll das Ihre Standardadresse werden?",
-					"isBillingDefault": "Soll das Ihre Standard-Rechnungsadresse werden?",
+					"isShippingDefault": "Soll das Deine Standardadresse werden?",
+					"isBillingDefault": "Soll das Deine Standard-Rechnungsadresse werden?",
 					"isCommercial": "Das ist eine Geschäftsadresse"
 				},
 				"search": {
-          "searchBoxDateLabel": "Zu verkaufen am",
-					"searchBoxDatePlaceholder": "Datum wählen...",
+          "searchBoxDateLabel": "Wann möchtest Du essen?",
+					"searchBoxDatePlaceholder": "Wähle den Tag...",
           "searchBoxLocationLabel": "Ort",
-          "searchBoxLocationPlaceholder": "Stadt eingeben...",
-          "noProductsFound": "Keine Produkte gefunden"
+          "searchBoxLocationPlaceholder": "Gib deine PLZ oder Ort ein...",
+          "noProductsFound": "Leider keine Mahlzeiten gefunden, probier doch einen anderen Tag."
         }
 
 			},
@@ -502,7 +502,7 @@
 				"back": "zurück",
 				"changePassword": "Passwort ändern",
 				"choosePassword": "Passwort auswählen",
-				"clickAgree": "Durch die Registrierung akzeptieren Sie unsere",
+				"clickAgree": "Durch die Registrierung akzeptierst Du unsere",
 				"configure": "Einstellungen",
 				"createAccount": "Konto anlegen",
 				"currentPassword": "Aktuelles Passwort",
@@ -511,7 +511,7 @@
 				"emailAddress": "E-Mail-Adresse",
 				"emailResetLink": "Senden",
 				"forgotPassword": "Passwort vergessen?",
-				"ifYouAlreadyHaveAnAccount": "Falls Sie schon ein Konto haben, bitte hier",
+				"ifYouAlreadyHaveAnAccount": "Falls Du schon ein Konto hast, bitte hier",
 				"name": "Name",
 				"newPassword": "Neues Passwort",
 				"newPasswordAgain": "Neues Passwort (wiederholen)",
@@ -529,7 +529,7 @@
 				"signin": "anmelden",
 				"signInWith": "Anmelden mit",
 				"signUpWith": "Sign up with",
-				"signedIn": "Sie sind angemeldet.",
+				"signedIn": "Du bist angemeldet.",
 				"signOut": "Abmelden",
 				"signUp": "Registrieren",
 				"signUpButton": "Register",
@@ -566,7 +566,7 @@
 					"pwdsDontMatch": "Die Passwörter stimmen nicht überein.",
 					"pwOneDigit": "Das Passwort muss mindestens eine Ziffer enthalten.",
 					"pwOneLetter": "Das Passwort muss mindestens einen Buchstaben enthalten.",
-					"signInRequired": "Sie müssen sich anmelden.",
+					"signInRequired": "Du musst Dich anmelden.",
 					"signupCodeIncorrect": "Registrierungscode ungültig.",
 					"signupCodeRequired": "Registrierungscode benötigt.",
 					"usernameIsEmail": "Benutzername darf keine E-Mail-Adresse sein.",
@@ -583,15 +583,15 @@
 					"unrecognizedOptionsForLoginRequest": "Unbekannte Login Aktion",
 					"userValidationFailed": "Die Benutzerdaten sind nicht korrekt",
 					"usernameAlreadyExists": "Der Benutzername ist schon vergeben.",
-					"youAreNotLoggedIn": "Sie sind nicht eingeloggt.",
-					"youveBeenLoggedOutByTheServer": "Die Sitzung wurde vom Server beendet. Bitte melden Sie sich erneut an.",
-					"yourSessionHasExpired": "Die Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+					"youAreNotLoggedIn": "Du bist nicht angemeldet.",
+					"youveBeenLoggedOutByTheServer": "Die Sitzung wurde vom Server beendet. Bitte melde Dich erneut an.",
+					"yourSessionHasExpired": "Die Sitzung ist abgelaufen. Bitte melde Dich sich erneut an.",
 					"noMatchingLoginAttemptFound": "Kein passender Login-Vorgang gefunden.",
-					"passWordIsOld": "Das Passwort ist abgelaufen, bitte vergeben Sie es erneut.",
+					"passWordIsOld": "Das Passwort ist abgelaufen, bitte gib ein neues ein.",
 					"incorrectPassword": "Das Passwort ist nicht korrekt.",
 					"invalidEmail": "E-Mail-Adresse ist ungültig.",
 					"addressMustBeAValidEMailAddress": "Ungültige E-Mail-Adresse",
-					"mustBeLoggedIn": "Bitte melden Sie sich zuerst an",
+					"mustBeLoggedIn": "Bitte melde Dich zuerst an",
 					"needToSetUsernameOrEmail": "Bitte Benutzernamen oder E-Mail-Adresse angeben",
 					"oldPasswordFormat": "Altes Passwort-Format",
 					"passwordMayNotBeEmpty": "Das Passwort darf nicht leer sein",
@@ -611,7 +611,7 @@
 				"isRequired": "{{field}} muss ausgefüllt sein.",
 				"mustBeNumber": "{{field}} muss eine Zahl sein.",
 				"variantFieldIsRequired": "Option {{number}}: {{field}} muss ausgefüllt sein.",
-				"noProfileAddress": "Sie müssen zuerst eine Adresse auf ihrem Profil speichern"
+				"noProfileAddress": "Du musst zuerst eine Adresse auf Deinem Profil speichern."
 			}
 		}
 	}
