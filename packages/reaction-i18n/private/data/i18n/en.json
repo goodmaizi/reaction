@@ -200,7 +200,8 @@
         "makeInactive": "Deactivate",
         "notFoundTitle": "Oops!",
         "notFoundError": "This is not the product you were looking for.",
-        "tagsAdd": "Add tag"
+        "tagsAdd": "Add tag",
+        "location": "Location"
       },
       "products": {
         "all": "ALL",

@@ -147,7 +147,7 @@
 				"search": "Suche in Produkten..."
 			},
 			"productDetail": {
-				"productManagement": "Produkte verwalten",
+				"productManagement": "Produkt verwalten",
 				"makeInvisible": "Unsichtbar machen",
 				"isNotVisible": "Diese Mahlzeit ist für den Kunden nicht sichtbar (inaktiv).",
 				"makeItVisible": "Dieses Mahlzeit für den Kunden sichtbar machen (aktiv)",
@@ -200,7 +200,8 @@
 				"makeInactive": "Deaktivieren",
 				"notFoundTitle": "Oops!",
 				"notFoundError": "This is not the product you were looking for.",
-				"tagsAdd": "Tag hinzufügen"
+				"tagsAdd": "Tag hinzufügen",
+        "location": "Standort"
 			},
 			"products": {
 				"all": "ALLE",
@@ -237,10 +238,10 @@
 			"productVariant": {
 				"inventoryQuantity": "Menge",
 				"title": "Label",
-				"price": "Price",
+				"price": "Preis",
 				"optionTitle": "Option",
 				"barcode": "Barcode",
-				"compareAtPrice": "Price (MSRP)",
+				"compareAtPrice": "Preis (MSRP)",
 				"fulfillmentService": "Fulfillment service",
 				"weight": "Weight",
 				"taxable": "Taxable",
