@@ -15,7 +15,7 @@
 
     <div class="row col-md-11">
       <h2><span class="latestOrderDate-text" data-i18n="productDetail.latestOrderDate">Last order until</span></h2>
-        {{#if hasPermission "createProduct"}}
+        {{#if belongsToCurrentUser _id }}
           <div class="input-group datetimepicker">
             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
             <!-- just dumm field for calendar -->

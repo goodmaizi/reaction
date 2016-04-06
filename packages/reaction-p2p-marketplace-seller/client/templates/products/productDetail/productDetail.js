@@ -39,3 +39,14 @@ Template.productDetail.events({ // for some strange reason our custom event need
     }
   },
 });
+
+Template.registerHelper("belongsToCurrentUser", function (productId) {
+  if (_.isArray(productId) === true) {
+    productId = productId[0];
+  }
+
+  let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
+  console.log("Template.helpers.belongsToCurrentUser() Product ",productId," belongs to ",Meteor.userId(),"?");
+  //console.log("Template.helpers.belongsToCurrentUser() productBelongingToCurrUser ",productBelongingToCurrUser);
+  return productBelongingToCurrUser != null;
+});
