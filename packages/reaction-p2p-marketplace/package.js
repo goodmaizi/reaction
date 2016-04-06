@@ -42,6 +42,7 @@ Package.onUse(function(api) {
   api.addFiles("client/templates/products/productsMarketplace.html", ["client"]);
   api.addFiles("client/templates/products/productsMarketplace.js", ["client"]);
   api.addFiles("client/templates/products/products.less", ["client"]);
+  api.addFiles("client/templates/products/productList/productList.less", ["client"]);
 
 });
 
