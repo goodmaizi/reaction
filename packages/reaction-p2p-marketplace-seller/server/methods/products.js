@@ -90,7 +90,7 @@ Meteor.methods({
  * Add userId to new products
  */
 ReactionCore.MethodHooks.after('products/createProduct', function(options) {
-  ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/createProduct') options: ", options);
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/createProduct') options: ", options);
 
   var productId = options.result;
   let product = ReactionCore.Collections.Products.findOne({_id: productId});
