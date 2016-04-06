@@ -38,15 +38,22 @@ Package.onUse(function(api) {
 
   api.use("scydev:reaction-p2p-marketplace-seller");
 
+  api.addFiles('client/templates/products/productDetail/simplifiedProductBuyer.less', 'client', {isAsset: true});
+  api.addFiles('client/templates/products/productDetail/simplifiedProductSeller.css', 'client', {isAsset: true});
+
   api.addFiles([
                 'reaction-p2p-marketplace-simplified-products.js',
                 'client/templates/products/productDetail/productDetailHideVariants.js',
+                'client/templates/products/productDetail/simplifiedProduct.html',
+                'client/templates/products/productDetail/simplifiedProduct.js',
                 'client/templates/cart/checkout/shipping/shipping.js',
                 'client/templates/products/productDetail/tags/tags.html',
                 'client/templates/products/productDetail/tags/tags.js',
               ],
               'client'
               );
+
+  api.addFiles('server/methods/products.js', 'server');
 
 });
 
