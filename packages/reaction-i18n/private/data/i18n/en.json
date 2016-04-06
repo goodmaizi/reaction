@@ -156,6 +156,7 @@
         "tagsAdd": "Add tag",
         "tagsEdit": "Edit tags",
         "tagExists": "Tag already exists, or is empty.",
+        "dropFile": "Drop file to upload",
         "dropFiles": "Drop files to upload",
         "addInventory": "Add Inventory",
         "barcode": "Barcode",
