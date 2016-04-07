@@ -2,8 +2,24 @@
 // inherit helpers from template productDetail so we can use fieldComponent in this here template
 
 function initDatepickers() {
+
+  // api.use("rajit:bootstrap3-datepicker-de"); didn't change anything, so we define DE here
+	$.fn.datepicker.dates['de'] = {
+		days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+		daysShort: ["Son", "Mon", "Die", "Mit", "Don", "Fre", "Sam"],
+		daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+		months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+		monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+		today: "Heute",
+		monthsTitle: "Monate",
+		clear: "Löschen",
+		weekStart: 1,
+		format: "dd.mm.yyyy"
+	};
+
   $(".forSaleOnDate-edit-input").datepicker({
-    format: "dd.mm.yyyy"
+    format: "dd.mm.yyyy",
+    language: "de"
   });
 
   $('.datetimepicker').datetimepicker({
