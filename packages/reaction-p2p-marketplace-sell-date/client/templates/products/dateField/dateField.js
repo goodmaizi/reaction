@@ -139,16 +139,15 @@ Template.productDetailDateField.onRendered(
     Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
       initDatepickers();
     }, 100);
+
     Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
-      if (!$.isFunction($('.datetimepicker').daysOfWeekDisabled)) {
-        initDatepickers();
-      }
+      initDatepickers();
     }, 1000);
+
     Meteor.setTimeout(function() { // what the?!? document doesn't seem to be ready immediately when this event is fired...
       initDatepickers();
     }, 2000);
-    /*
-    */
+
   }
 );
 
