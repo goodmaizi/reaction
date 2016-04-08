@@ -721,6 +721,14 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access Denied");
     }
 
+    // translate date to US format for saving
+    if (field == "forSaleOnDate") {
+      value = moment(value, "DD.MM.YYYY").format('MM/DD/YYYY');
+    }
+    if (field == "latestOrderDate") {
+      value = moment(value, "DD.MM.YYYY HH:mm").format('MM/DD/YYYY HH:mm');
+    }
+
     const doc = ReactionCore.Collections.Products.findOne(_id);
     const type = doc.type;
     let stringValue = EJSON.stringify(value);

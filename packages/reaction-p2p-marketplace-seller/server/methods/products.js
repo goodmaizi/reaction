@@ -150,6 +150,10 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
     throw new Meteor.Error(403, "Access Denied");
   }
 
+/*
+  unfortunately, this gives error:  Exception while invoking method 'products/updateProductField' Error: Did not check() all arguments during call to 'products/updateProductField'
+  moving this to core for the time being.
+
   // translate date to US format for saving
   if (options.arguments.length >= 3) {
     if (options.arguments[1] == "forSaleOnDate") {
@@ -167,6 +171,10 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
       options.arguments[2] = moment(options.arguments[2], "DD.MM.YYYY HH:mm").format('MM/DD/YYYY HH:mm');
     }
   }
+  check(options.arguments[0], String);
+  check(options.arguments[1], String);
+  check(options.arguments[2], Match.OneOf(String, Object, Array, Boolean, Date));
+*/
 });
 
 ReactionCore.MethodHooks.after('products/updateProductField', function(options) {
