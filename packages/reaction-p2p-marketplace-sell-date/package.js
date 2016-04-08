@@ -35,7 +35,7 @@ Package.onUse(function(api) {
   api.use("reactioncommerce:core@0.10.0");
 
   api.use("aldeed:template-extension");
-  api.use("rajit:bootstrap3-datepicker-de");
+  api.use("rajit:bootstrap3-datepicker");
   api.use("tsega:bootstrap3-datetimepicker");
 
   api.addFiles([
