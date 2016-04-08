@@ -108,8 +108,12 @@ function initDatepickers() {
   $('.datetimepicker').off();
   $('.datetimepicker').on("dp.change", function(event) {
     console.log("datetimepicker changed: ",event.date);
-    let fixedDatetime = event.date.subtract(2, 'hours'); // for some reason the event.date is 2 hours diffwerent from what we choose and see in the input field
-    $('.latestOrderDate-edit-input').val(fixedDatetime.format("DD.MM.YYYY hh:mm"));
+
+    // the event.date is 2 hours different from what we choose and see in the input field
+    // because it is GMT+2 in browser. but in server log it is the correct time.
+    let fixedDatetime = event.date;//.subtract(2, 'hours');
+
+    $('.latestOrderDate-edit-input').val(fixedDatetime.format("DD.MM.YYYY HH:mm"));
     $('.latestOrderDate-edit-input').trigger("change");
   });
   // set date from real input field
@@ -156,11 +160,11 @@ Template.productDetailDateField.helpers(
     },*/
     prettifyDate: function(inDate) {
       //return new Date(inDate).toString('dd.mm.yyyy')
-      return moment(new Date(inDate)).format('DD.MM.YYYY');
+      return moment(inDate).format('DD.MM.YYYY');
     },
     prettifyDateTime: function(inDate) {
       //return new Date(inDate).toString('dd.mm.yyyy')
-      return moment(new Date(inDate)).format('DD.MM.YYYY hh:mm');
+      return moment(inDate).utcOffset('+0000').format('DD.MM.YYYY HH:mm'); // UTC+0000 corresponds to GMT+0200 ?
     }
   }
 );
