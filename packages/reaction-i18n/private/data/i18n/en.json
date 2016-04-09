@@ -208,7 +208,8 @@
         "all": "ALL",
         "gridView": "Grid",
         "listView": "List",
-        "mapView": "Map"
+        "mapView": "Map",
+        "noLocationFound": "No location found"
       },
       "tags": {
         "addTag": "Add Tag",

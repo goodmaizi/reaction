@@ -208,7 +208,8 @@
 				"all": "ALLE",
         "gridView": "Kacheln",
         "listView": "Liste",
-        "mapView": "Karte"
+        "mapView": "Karte",
+				"noLocationFound": "Kein Ort gefunden"				
       },
 			"tags": {
 				"addTag": "Add Tag",
