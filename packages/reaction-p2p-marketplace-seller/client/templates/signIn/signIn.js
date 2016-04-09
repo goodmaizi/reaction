@@ -1,2 +1,2 @@
 
-Template.loginFormSignInViewMarketplace.replaces("loginFormSignInView");
+//Template.loginFormSignInViewMarketplace.replaces("loginFormSignInView");

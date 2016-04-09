@@ -538,7 +538,10 @@
         "with": "with",
         "checkoutAsGuest": "Checkout without user account",
         "role": "Role",
+        "userDecision": "You decide!",
+        "userDecisionDesc": "Decide if you want to sell or buy.",
         "isSeller": "I want to sell products",
+        "isBuyer": "I want to buy products",
         "boughtOrders": "My purchases",
         "info": {
           "emailSent": "Email Sent",

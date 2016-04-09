@@ -51,6 +51,9 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/signUp/signUp.js', 'client');
   api.addFiles('client/templates/signIn/signIn.html', 'client');
   api.addFiles('client/templates/signIn/signIn.js', 'client');
+  api.addFiles('client/templates/userDecision/userDecision.html', 'client');
+  api.addFiles('client/templates/userDecision/userDecision.js', 'client');
+  api.addFiles('client/templates/userDecision/userDecision.less', 'client');
   api.addFiles('client/helpers/validation.js', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.html', 'client');
   api.addFiles('client/templates/products/productDetail/productDetail.js', 'client');

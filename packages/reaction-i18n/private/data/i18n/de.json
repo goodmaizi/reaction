@@ -209,7 +209,7 @@
         "gridView": "Kacheln",
         "listView": "Liste",
         "mapView": "Karte",
-				"noLocationFound": "Kein Ort gefunden"				
+				"noLocationFound": "Kein Ort gefunden"
       },
 			"tags": {
 				"addTag": "Add Tag",
@@ -548,7 +548,10 @@
 				"with": "mit",
 				"checkoutAsGuest": "Ohne Benutzerkonto bestellen",
 				"role": "Role",
-				"isSeller": "Ich will Mahlzeiten verkaufen",
+				"userDecision": "Deine Entscheidung!",
+				"userDecisionDesc": "Entscheide ob du Mahlzeiten kaufen oder verkaufen willst.",
+				"isSeller": "Ich will kochen!",
+				"isBuyer": "Ich will essen!",
 				"boughtOrders": "Meine Käufe",
 				"info": {
 					"emailSent": "E-Mail gesendet",
