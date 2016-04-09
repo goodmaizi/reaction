@@ -379,7 +379,7 @@
 			},
 			"shop": {
 				"defaultPaymentMethod": "Default Payment Method",
-				"name": "Name",
+				"name": "Benutzername",
 				"namePlaceholder": "Shop Name",
 				"description": "Beschreibung",
 				"descriptionPlaceholder": "Describe your shop for SEO",
@@ -407,7 +407,7 @@
 					"address2": "Adresse 2",
 					"address2Placeholder": "Additional address",
 					"postal": "PLZ",
-					"city": "Stadt",
+					"city": "Ort",
 					"region": "Kanton",
 					"phone": "Telefon",
 					"isShippingDefault": "Soll das Deine Standardadresse werden?",
@@ -427,9 +427,9 @@
 				"country": "Land",
 				"fullName": "Vor- und Nachname",
 				"address1": "Strasse",
-				"address2": "zusätzliche Adressangaben",
+				"address2": "Zusatz z.B. Stockwerk",
 				"postal": "PLZ",
-				"city": "Stadt",
+				"city": "Ort",
 				"region": "Kanton",
 				"phone": "Telefonnummer",
 				"isShippingDefault": "Als Standard-Versandadresse festlegen?",
@@ -515,9 +515,11 @@
 				"emailResetLink": "Senden",
 				"forgotPassword": "Passwort vergessen?",
 				"ifYouAlreadyHaveAnAccount": "Falls Du schon ein Konto hast, bitte hier",
-				"name": "Name",
+				"name": "Benutzername",
+				"description": "Beschreibe Dich",
 				"newPassword": "Neues Passwort",
 				"newPasswordAgain": "Neues Passwort (wiederholen)",
+				"oldPassword": "Current Password",
 				"optional": "Optional",
 				"or": "oder",
 				"password": "Passwort",
@@ -535,7 +537,7 @@
 				"signedIn": "Du bist angemeldet.",
 				"signOut": "Abmelden",
 				"signUp": "Registrieren",
-				"signUpButton": "Register",
+				"signUpButton": "Registrieren",
 				"signupCode": "Registrierungscode",
 				"signUpWithYourEmailAddress": "Mit E-Mail registrieren",
 				"terms": "Geschäftsbedingungen",
@@ -550,17 +552,17 @@
 				"role": "Role",
 				"userDecision": "Deine Entscheidung!",
 				"userDecisionDesc": "Entscheide ob du Mahlzeiten kaufen oder verkaufen willst.",
-				"isSeller": "Ich will kochen!",
-				"isBuyer": "Ich will essen!",
+				"isSeller": "Ich möchte kochen",
+				"isBuyer": "Ich möchte essen",
 				"boughtOrders": "Meine Käufe",
 				"info": {
 					"emailSent": "E-Mail gesendet",
 					"emailVerified": "E-Mail verifiziert",
 					"PasswordChanged": "Das Passwort wurde geändert",
 					"PasswordReset": "Das Passwort wurde zurückgesetzt",
-					"passwordResetSend": "Email with password reset link has been sent.",
-					"invitationSent": "Invitation Sent",
-					"sendInvitation": "Send invitation"
+					"passwordResetSend": "Email zum Zurücksetzen des Passworts versendet.",
+					"invitationSent": "Einladung gesendet",
+					"sendInvitation": "Einladung senden"
 				},
 				"error": {
 					"emailRequired": "Es muss eine E-Mail-Adressen angegeben werden.",
@@ -619,7 +621,12 @@
 				"mustBeNumber": "{{field}} muss eine Zahl sein.",
 				"variantFieldIsRequired": "Option {{number}}: {{field}} muss ausgefüllt sein.",
 				"noProfileAddress": "Du musst zuerst eine Adresse auf Deinem Profil speichern."
-			}
+			},
+      "profile": {
+          "products": {
+            "noProductsFound": "Keine Mahlzeiten vorhanden."
+          }
+      }
 		}
 	}
 }]

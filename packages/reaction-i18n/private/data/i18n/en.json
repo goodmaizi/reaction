@@ -506,8 +506,10 @@
         "forgotPassword": "Reset password",
         "ifYouAlreadyHaveAnAccount": "If you already have an account",
         "name": "Name",
+        "description": "Description",
         "newPassword": "New Password",
         "newPasswordAgain": "New Password (again)",
+        "oldPassword": "Current Password",
         "optional": "Optional",
         "or": "or",
         "password": "Password",
@@ -609,6 +611,12 @@
         "mustBeNumber": "{{field}} must be a number.",
         "variantFieldIsRequired": "Variant {{number}} {{field}} is required.",
         "noProfileAddress": "You need to save your address on your profile first"
+      },
+      "profile": {
+          "products": {
+            "noProductsFound": "No products found."
+          }
+      }
       }
     }
   }
