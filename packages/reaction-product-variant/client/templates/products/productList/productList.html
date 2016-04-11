@@ -26,6 +26,10 @@
             {{#if cart.showItemLowInventoryWarning variants.[0]}}
             <div class="badge badge-low-inv-warning">{{variants.[0].inventoryQuantity}} Left!</div>
             {{/if}}
+
+            <div class="for-sale-on-date">{{ prettifyDate forSaleOnDate }}</div>
+            <div class="location-text">{{> locationFieldDisplay }}</div>
+
           </td>
         </tr>
         {{else}}
