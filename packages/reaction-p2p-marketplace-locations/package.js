@@ -34,6 +34,7 @@ Package.onUse(function(api) {
   api.use('templating');
   api.use("less");
   api.use("reactioncommerce:core@0.10.0");
+  api.use("reactive-var");
 
   api.use("dburles:google-maps");
 
@@ -53,6 +54,8 @@ Package.onUse(function(api) {
                 'client/templates/products/productMap/productMapSingle.js',
                 'client/templates/products/locationField/locationField.html',
                 'client/templates/products/locationField/locationField.js',
+                'client/templates/products/locationFieldDisplay/locationFieldDisplay.html',
+                'client/templates/products/locationFieldDisplay/locationFieldDisplay.js',
                 'client/templates/products/productDetail/productDetail.js',
               ],
               'client');

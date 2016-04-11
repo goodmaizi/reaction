@@ -731,10 +731,6 @@ Meteor.methods({
     if (field == "latestOrderDate") {
       value = moment(value, "DD.MM.YYYY HH:mm").format('MM/DD/YYYY HH:mm');
     }
-    /*
-    if (field == "forSaleOnDate" && !(value instanceof Date)) {
-      throw new Meteor.Error(403, "Fail000r!");
-    }*/
 
     const doc = ReactionCore.Collections.Products.findOne(_id);
     const type = doc.type;

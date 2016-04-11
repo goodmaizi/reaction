@@ -151,7 +151,7 @@ Template.productDetailDateField.onRendered(
   }
 );
 
-Template.productDetailDateField.helpers(
+Template.registerHelpers(
   {
     /*
     initDatepickers: function() {
