@@ -723,11 +723,18 @@ Meteor.methods({
 
     // translate date to US format for saving
     if (field == "forSaleOnDate") {
+      if (value == null || value == "") {
+        throw new Meteor.Error(403, "accountsUI.error.forSaleOnDateIsNoDate");
+      }
       value = moment(value, "DD.MM.YYYY").format('MM/DD/YYYY');
     }
     if (field == "latestOrderDate") {
       value = moment(value, "DD.MM.YYYY HH:mm").format('MM/DD/YYYY HH:mm');
     }
+    /*
+    if (field == "forSaleOnDate" && !(value instanceof Date)) {
+      throw new Meteor.Error(403, "Fail000r!");
+    }*/
 
     const doc = ReactionCore.Collections.Products.findOne(_id);
     const type = doc.type;
@@ -746,9 +753,6 @@ Meteor.methods({
         denormalize(doc.ancestors[0], field);
       }
     }
-
-    let olo = ReactionCore.Collections.Products.findOne(_id);
-    ReactionCore.Log.info("products/updateProductField() ",olo);
 
     return result;
   },

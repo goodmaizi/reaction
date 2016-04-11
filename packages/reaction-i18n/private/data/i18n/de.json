@@ -609,7 +609,8 @@
 					"verifyEmailLinkExpired": "Das Token zur Verifizierung der E-Mail ist abgelaufen",
 					"verifyEmailLinkIsForUnknownAddress": "Verifizierung des Tokens fehlgeschlagen. (Das Token gehört zu einer unbekannten E-Mail-Adresse.)",
 					"matchFailed": "Abgleich fehlgeschlagen",
-					"unknownError": "Unbekannter Fehler"
+					"unknownError": "Unbekannter Fehler",
+          "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum"
 				}
 			},
 			"error": {

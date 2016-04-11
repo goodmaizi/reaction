@@ -25,7 +25,7 @@ Template.productDetailEdit.events({
       $(event.currentTarget).val(),
       (error, result) => {
         if (error) {
-          return Alerts.inline(error.reason, "error", {
+          return Alerts.inline(`${i18next.t(error.reason)} `, "error", {
             placement: "productManagement",
             i18nKey: "productDetail.errorMsg",
             id: self._id
