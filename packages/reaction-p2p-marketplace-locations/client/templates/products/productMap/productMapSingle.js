@@ -60,10 +60,7 @@ Template.productMapSingle.onCreated(function() {
         let address = result;
         console.log('address', address);
 
-        // TODO: resolve address of seller
-        //var address = 'Bahnhofstrasse, Zürich, Switzerland';
         var geocoder = new google.maps.Geocoder();
-
         geocoder.geocode(
           {
             'address': address
@@ -73,7 +70,8 @@ Template.productMapSingle.onCreated(function() {
                 new google.maps.Marker({
                    position: results[0].geometry.location,
                    map: map.instance,
-                   title: "This product"
+                   title: product.title,
+                   animation: google.maps.Animation.DROP,
                 });
                 let location = results[0].geometry.location;
                 console.log("resolved location: "+location.lat()+"/"+location.lng());

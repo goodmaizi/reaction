@@ -29,10 +29,7 @@ function addMarker(map, product) {
       let address = result;
       console.log('address', address);
 
-      // TODO: resolve address of seller
-      //var address = 'Bahnhofstrasse, Zürich, Switzerland';
       var geocoder = new google.maps.Geocoder();
-
       geocoder.geocode(
         {
           'address': address
@@ -41,10 +38,19 @@ function addMarker(map, product) {
            if(status == google.maps.GeocoderStatus.OK) {
               console.log("resolved location: "+results[0].geometry.location);
 
+              var infowindow = new google.maps.InfoWindow({
+                content: "OLO" //contentString
+              });
+
               var marker = new google.maps.Marker({
                  position: results[0].geometry.location,
                  map: map.instance,
-                 title: product.title
+                 title: product.title,
+                 animation: google.maps.Animation.DROP,
+                 icon: getProductImage(product._id).url({store: "thumbnail"})
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, this);
               });
 
               markers[product._id] = marker;
@@ -56,6 +62,19 @@ function addMarker(map, product) {
 
     }
   );
+}
+
+function getProductImage(productId) {
+  const media = ReactionCore.Collections.Media.findOne({
+    "metadata.productId": productId,
+    //"metadata.priority": 0,
+    //"metadata.toGrid": 1
+  }, { sort: { uploadedAt: 1 } });
+
+  //console.log("media for product ",productId," ",media);
+  //console.log("thumbnail for product ",productId," ",media.getCopyInfo("thumbnail"));
+
+  return media;// instanceof FS.File ? media : false;
 }
 
 Template.productMap.onCreated(function() {
