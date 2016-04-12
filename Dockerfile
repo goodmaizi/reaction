@@ -1,1 +1,1 @@
-docker/reaction.dev.src.docker
+docker/reaction.prod.docker
