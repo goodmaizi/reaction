@@ -300,6 +300,9 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
       selector.isVisible = true;
     }
 
+    // only products enabled by their owner
+    selector.isActive = true;
+
     // check quantity
     _.extend(selector, {
       isSoldOut: false
