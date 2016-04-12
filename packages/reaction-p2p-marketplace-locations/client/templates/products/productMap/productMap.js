@@ -26,7 +26,7 @@ var markers = {};
 
 function addMarker(map, product) {
   Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
-      let address = result;
+      let address = result.replace("undefined", "").replace("  ", " ");
       console.log('address', address);
 
       var geocoder = new google.maps.Geocoder();
@@ -38,19 +38,21 @@ function addMarker(map, product) {
            if(status == google.maps.GeocoderStatus.OK) {
               console.log("resolved location: "+results[0].geometry.location);
 
-              var infowindow = new google.maps.InfoWindow({
-                content: "OLO" //contentString
-              });
-
               var marker = new google.maps.Marker({
                  position: results[0].geometry.location,
                  map: map.instance,
-                 title: product.title,
+                 title: product.title+"\n"+address,
                  animation: google.maps.Animation.DROP,
                  icon: getProductImage(product._id).url({store: "thumbnail"})
               });
+
+              var infowindow = new google.maps.InfoWindow({
+                content: "Test Info Win" //contentString
+              });
               marker.addListener('click', function() {
-                infowindow.open(map, this);
+                console.log("clicked marker: ",map," ",marker);
+                //infowindow.open(map, marker);
+                ReactionRouter.go("product", {handle: product.handle});
               });
 
               markers[product._id] = marker;
