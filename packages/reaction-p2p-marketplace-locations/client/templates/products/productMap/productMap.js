@@ -56,8 +56,6 @@ function addMarker(map, product) {
               });
 
               markers[product._id] = marker;
-
-              //map.instance.setCenter(results[0].geometry.location);
            }
         }
       );
@@ -69,14 +67,53 @@ function addMarker(map, product) {
 function getProductImage(productId) {
   const media = ReactionCore.Collections.Media.findOne({
     "metadata.productId": productId,
-    //"metadata.priority": 0,
-    //"metadata.toGrid": 1
+    "metadata.priority": 0,
+    "metadata.toGrid": 1
   }, { sort: { uploadedAt: 1 } });
 
   //console.log("media for product ",productId," ",media);
   //console.log("thumbnail for product ",productId," ",media.getCopyInfo("thumbnail"));
 
-  return media;// instanceof FS.File ? media : false;
+  return media;
+}
+
+function centerMapToMeaningfulPlace(map) {
+  let locationSearchResult = Session.get('productFilters/location');
+  if (locationSearchResult != null && locationSearchResult != "") {
+    locationSearchResult = locationSearchResult.split("/");
+    console.log("center map to location search result: ",locationSearchResult);
+    map.instance.setCenter(new google.maps.LatLng(locationSearchResult[0], locationSearchResult[1]));
+  }
+  else {
+    console.log("HTML5 geolocation: ",navigator.geolocation);
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        console.log("getCurrentPositionn: ",position);
+
+        //infoWindow.setPosition(pos);
+        //infoWindow.setContent('Location found.');
+        map.setCenter(pos);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  }
+
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
 }
 
 Template.productMap.onCreated(function() {
@@ -115,10 +152,14 @@ Template.productMap.onCreated(function() {
 
 
   GoogleMaps.ready('map', function(map) {
+    //var infoWindow = new google.maps.InfoWindow({map: map});
+
     ReactionCore.Collections.Products.find().observe({
       added: function(product) {
         // Create a marker for this document
         addMarker(map, product);
+        
+        centerMapToMeaningfulPlace(map);
       },
       changed: function(newDocument, oldDocument) {
         markers[newDocument._id].setPosition({ latitude: newDocument.latitude, longitude: newDocument.longitude });
@@ -133,9 +174,12 @@ Template.productMap.onCreated(function() {
 
         // Remove the reference to this marker instance
         delete markers[oldDocument._id];
+
+        centerMapToMeaningfulPlace(map);
       }
     });
 
+    centerMapToMeaningfulPlace(map.instance);
   });
 
 });
