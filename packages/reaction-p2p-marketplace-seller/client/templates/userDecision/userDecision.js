@@ -5,7 +5,7 @@ Template.marketplaceUserDecision.events(
     {
       console.log("seller desu!");
       Meteor.call("accounts/userDecide", true, function(error, result) {
-        $('#main').fadeOut();
+        $('#main').css("visibility", "hidden");
         window.location.reload(true); // this is necessary to ensure users new permissions are in effect
 
 
