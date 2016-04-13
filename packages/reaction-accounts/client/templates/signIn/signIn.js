@@ -61,6 +61,8 @@ Template.loginFormSignInView.events({
     Meteor.loginWithPassword(username, password, (error) => {
       if (error) {
         // Show some error messages above the form fields
+        console.log("login fail: ",error);
+        error.reason = T9n.get('error.accounts.'+error.reason);
         templateInstance.formMessages.set({
           alerts: [error]
         });
