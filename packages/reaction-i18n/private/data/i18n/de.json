@@ -606,6 +606,7 @@
 					"tokenHasInvalidEmailAddress": "E-Mail-Adresse stimmt nicht mit dem Token überein.",
 					"userHasNoPasswordSet": "Kein Passwort für den Benutzer angegeben",
 					"userNotFound": "Benutzer nicht gefunden",
+					"User not found": "Benutzer nicht gefunden",
 					"verifyEmailLinkExpired": "Das Token zur Verifizierung der E-Mail ist abgelaufen",
 					"verifyEmailLinkIsForUnknownAddress": "Verifizierung des Tokens fehlgeschlagen. (Das Token gehört zu einer unbekannten E-Mail-Adresse.)",
 					"matchFailed": "Abgleich fehlgeschlagen",

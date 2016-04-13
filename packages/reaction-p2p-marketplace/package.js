@@ -34,7 +34,6 @@ Package.onUse(function(api) {
   api.use("less");
   api.use("reactioncommerce:core@0.10.0");
 
-  api.use("softwarerero:accounts-t9n");
   api.use("scydev:reaction-search@0.0.2");
 
   api.addFiles('reaction-p2p-marketplace.js');
