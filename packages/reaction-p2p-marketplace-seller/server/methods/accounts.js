@@ -18,7 +18,7 @@ Meteor.methods({
   "accounts/userDecide": function (isSeller) {
     check(isSeller, Boolean);
 
-    let user = Meteor.users.findOne(Meteor.userId());
+    let user = Meteor.user();
     ReactionCore.Log.info("Meteor.methods.accounts/userDecide() user: ",user," isSeller: ",isSeller);
 
     const shop = ReactionCore.getCurrentShop();
@@ -28,9 +28,9 @@ Meteor.methods({
       ReactionCore.Log.info("Adding seller permissions.");
 
       user.roles[shopId].push("createProduct");
+
       user.roles[shopId].push("account/seller/products"); // for access to our own products route
       user.roles[shopId].push("account/seller/sellerorders"); // for access to our own orders route
-
     }
 
     Meteor.users.update(Meteor.userId(),
@@ -42,5 +42,7 @@ Meteor.methods({
         }
       }
     );
+
+    ReactionCore.Log.info("Meteor.methods.accounts/userDecide() user after update: ",Meteor.user());
   },
 });
