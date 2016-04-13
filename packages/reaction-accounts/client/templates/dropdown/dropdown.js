@@ -25,7 +25,10 @@ Template.loginDropdown.events({
         ReactionCore.Log.warn("Failed to logout.", error);
       }
       // go home on logout
+      //console.log("ReactionCore.Subscriptions.SellerProducts: ",ReactionCore.Subscriptions.SellerProducts);
+
       ReactionSubscriptions.reset();
+      ReactionSubscriptions.clear(); // making sure the SellerProducts subscription is cleared on logout
       ReactionRouter.reload();
       ReactionRouter.go("/");
     });
