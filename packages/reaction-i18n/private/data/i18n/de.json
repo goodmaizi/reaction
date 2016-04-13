@@ -427,7 +427,7 @@
 				"country": "Land",
 				"fullName": "Vor- und Nachname",
 				"address1": "Strasse",
-				"address2": "zusätzliche Adressangaben",
+				"address2": "Hausnummer",
 				"postal": "PLZ",
 				"city": "Stadt",
 				"region": "Kanton",
