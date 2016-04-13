@@ -8,6 +8,8 @@ Template.marketplaceUserDecision.events(
         $('#main').css("visibility", "hidden");
         window.location.reload(true); // this is necessary to ensure users new permissions are in effect
 
+        //ReactionRouter.reload(); // doesn't help
+        //ReactionRouter.go("/");
 
         /* // this doesn't work, even with timeout
         Meteor.setTimeout(function(){
