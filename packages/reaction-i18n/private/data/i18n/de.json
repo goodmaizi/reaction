@@ -449,7 +449,7 @@
 			"checkoutPayment": {
 				"addPaymentToCompleteOrder": "Add payment to complete order",
 				"processingError": "There was a problem with your payment.",
-				"completeYourOrder": "Complete your order",
+				"completeYourOrder": "Bestellung abschliessen",
 				"addPaymentToCompleteOrder": "Bitte Zahlungsart festlegen um den Einkauf abzuschließen.",
 				"configureNow": "Configure now."
 			},
