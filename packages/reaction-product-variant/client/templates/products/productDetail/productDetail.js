@@ -31,7 +31,7 @@ Template.productDetail.helpers({
     }
   },
   tagsComponent: function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       return Template.productTagInputForm;
     }
     return Template.productDetailTags;
@@ -47,13 +47,13 @@ Template.productDetail.helpers({
     }
   },
   fieldComponent: function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       return Template.productDetailEdit;
     }
     return Template.productDetailField;
   },
   metaComponent: function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       return Template.productMetaFieldForm;
     }
     return Template.productMetaField;
@@ -67,7 +67,7 @@ Template.productDetail.helpers({
 Template.productDetail.events({
   "click #price": function () {
     let formName;
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       let variant = ReactionProduct.selectedVariant();
       if (!variant) {
         return;
@@ -236,25 +236,25 @@ Template.productDetail.events({
     ReactionProduct.maybeDeleteProduct(this);
   },
   "click .fa-facebook": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".facebookMsg-edit").fadeIn();
       return $(".facebookMsg-edit-input").focus();
     }
   },
   "click .fa-twitter": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".twitterMsg-edit").fadeIn();
       return $(".twitterMsg-edit-input").focus();
     }
   },
   "click .fa-pinterest": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".pinterestMsg-edit").fadeIn();
       return $(".pinterestMsg-edit-input").focus();
     }
   },
   "click .fa-google-plus": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".googleplusMsg-edit").fadeIn();
       return $(".googleplusMsg-edit-input").focus();
     }

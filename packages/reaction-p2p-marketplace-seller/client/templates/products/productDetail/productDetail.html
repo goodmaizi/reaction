@@ -7,7 +7,22 @@
   <div class="container-main">
     <div class="container-fluid pdp-container">
       {{!-- Product Visibility Admin Block --}}
-      {{#if hasPermission "createProduct"}}
+      {{#if hasAdminAccess}}
+        <div class="row">
+        {{#if isVisible}}
+          <div class="btn btn-default btn-block btn-product-management">
+            <a href="#" class="toggle-product-isVisible-link">{{i18n 'productDetail.makeInvisible' 'Make invisible'}}</a>
+          </div>
+        {{/if}}
+        {{#unless isVisible}}
+          <div class="btn btn-default btn-block btn-product-management">
+            <a href="#" class="toggle-product-isVisible-link">{{i18n 'productDetail.makeItVisible' 'You can make it visible'}}</a>
+          </div>
+        {{/unless}}
+        </div>
+      {{/if}}
+
+      {{#if belongsToCurrentUser _id }}
         <div class="row">
           <div><span data-i18n="productDetail.productManagement">Product management</span>:</div>
           {{#if isActive}}
@@ -24,18 +39,6 @@
             <a href="#" class="delete-product-link">{{i18n 'app.delete' 'Delete'}}</a>
           </div>
 
-          {{#if hasAdminAccess}}
-            {{#if isVisible}}
-              <div class="btn btn-default btn-block btn-product-management">
-                <a href="#" class="toggle-product-isVisible-link">{{i18n 'productDetail.makeInvisible' 'Make invisible'}}</a>
-              </div>
-            {{/if}}
-            {{#unless isVisible}}
-              <div class="btn btn-default btn-block btn-product-management">
-                <a href="#" class="toggle-product-isVisible-link">{{i18n 'productDetail.makeItVisible' 'You can make it visible'}}</a>
-              </div>
-            {{/unless}}
-          {{/if}}
         </div>
 
         {{#unless isVisible}}
@@ -49,6 +52,7 @@
         <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
       {{/if}}
       {{!-- END Product Visibility Admin Block --}}
+      
        <!-- Product Detail Page -->
       <div class="row" itemscope itemtype="http://schema.org/Product">
         <!-- Titles -->

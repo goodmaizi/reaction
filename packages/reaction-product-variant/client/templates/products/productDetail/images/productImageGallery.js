@@ -8,39 +8,42 @@ let Media = ReactionCore.Collections.Media;
  * uploadHandler method
  */
 function uploadHandler(event) {
-  let productId = ReactionProduct.selectedProductId();
-  const variant = ReactionProduct.selectedVariant();
-  if (typeof variant !== "object") {
-    return Alerts.add("Please, create new Variant first.", "danger", {
-      autoHide: true
-    });
-  }
-  const variantId = variant._id;
-  let shopId = ReactionProduct.selectedProduct().shopId || ReactionCore.getShopId();
-  let userId = Meteor.userId();
-  let count = Media.find({
-    "metadata.variantId": variantId
-  }).count();
-  // TODO: we need to mark the first variant images somehow for productGrid.
-  // But how do we know that this is the first, not second or other variant?
-  // Question is open. For now if product has more than 1 top variant, everyone
-  // will have a chance to be displayed
-  const toGrid = variant.ancestors.length === 1;
+  if (Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
+    let productId = ReactionProduct.selectedProductId();
+    const variant = ReactionProduct.selectedVariant();
+    if (typeof variant !== "object") {
+      return Alerts.add("Please, create new Variant first.", "danger", {
+        autoHide: true
+      });
+    }
+    const variantId = variant._id;
+    let shopId = ReactionProduct.selectedProduct().shopId || ReactionCore.getShopId();
+    let userId = Meteor.userId();
+    let count = Media.find({
+      "metadata.variantId": variantId
+    }).count();
+    // TODO: we need to mark the first variant images somehow for productGrid.
+    // But how do we know that this is the first, not second or other variant?
+    // Question is open. For now if product has more than 1 top variant, everyone
+    // will have a chance to be displayed
+    const toGrid = variant.ancestors.length === 1;
 
-  return FS.Utility.eachFile(event, function (file) {
-    let fileObj;
-    fileObj = new FS.File(file);
-    fileObj.metadata = {
-      ownerId: userId,
-      productId: productId,
-      variantId: variantId,
-      shopId: shopId,
-      priority: count,
-      toGrid: +toGrid // we need number
-    };
-    Media.insert(fileObj);
-    return count++;
-  });
+    return FS.Utility.eachFile(event, function (file) {
+      let fileObj;
+      fileObj = new FS.File(file);
+      fileObj.metadata = {
+        ownerId: userId,
+        productId: productId,
+        variantId: variantId,
+        shopId: shopId,
+        priority: count,
+        toGrid: +toGrid // we need number
+      };
+      Media.insert(fileObj);
+      return count++;
+    });
+
+  }
 }
 
 /**
@@ -146,8 +149,10 @@ Template.productImageGallery.events({
     }
   },
   "click .remove-image": function () {
-    this.remove();
-    updateImagePriorities();
+    if (Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
+      this.remove();
+      updateImagePriorities();
+    }
   },
   "dropped #galleryDropPane": uploadHandler
 });
