@@ -577,7 +577,7 @@
 					"signupCodeRequired": "Registrierungscode benötigt.",
 					"usernameIsEmail": "Benutzername darf keine E-Mail-Adresse sein.",
 					"usernameRequired": "Benutzername muss angegeben werden.",
-					"usernameTooShort": "Name must be at least 3 characters long.",
+					"usernameTooShort": "Name muss mindestens 3 Zeichen lang sein.",
 					"emailAlreadyExists": "E-Mail-Adresse schon vorhanden.",
 					"emailDoesntMatchTheCriteria": "Das Format der E-Mail-Adresse ist falsch.",
 					"errorSendingEmail": "Error sending email, possible configuration issue.",
@@ -610,7 +610,9 @@
 					"verifyEmailLinkIsForUnknownAddress": "Verifizierung des Tokens fehlgeschlagen. (Das Token gehört zu einer unbekannten E-Mail-Adresse.)",
 					"matchFailed": "Abgleich fehlgeschlagen",
 					"unknownError": "Unbekannter Fehler",
-          "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum"
+          "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
+					"description": "Beschreibung",
+          "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen."
 				}
 			},
 			"error": {

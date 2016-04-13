@@ -85,7 +85,7 @@ Template.accountProfile.events({ // for some strange reason our custom event nee
       errors.name = validatedName.reason;
     }
     if (validatedDescription !== true) {
-      errors.description = validatedName.reason;
+      errors.description = validatedDescription.reason;
     }
 
     if ($.isEmptyObject(errors) === false) {

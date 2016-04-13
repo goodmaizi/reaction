@@ -9,7 +9,7 @@ window.ProfileFormValidation = {
     // Invalid
     return {
       "error": "INVALID_NAME",
-      "reason": i18n.t('accountsUI.error.usernameTooShort')
+      "reason": i18next.t("accountsUI.error.usernameTooShort", {defaultValue: "Name too short"})//i18n.t('accountsUI.error.usernameTooShort', "OLO")
     };
   },
   description: function(description) {
@@ -21,7 +21,7 @@ window.ProfileFormValidation = {
     // Invalid
     return {
       "error": "INVALID_DESCRIPTION",
-      "reason": i18n.t('accountsUI.error.invalidDescription')
+      "reason": i18next.t("accountsUI.error.invalidDescription", {defaultValue: "Dscription too long"})//i18n.t('accountsUI.error.invalidDescription', "OLO")
     };
   },
 };
