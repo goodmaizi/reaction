@@ -613,7 +613,8 @@
 					"unknownError": "Unbekannter Fehler",
           "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
 					"description": "Beschreibung",
-          "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen."
+          "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen.",
+					"noProductsFound": "Keine Mahlzeiten gefunden"
 				}
 			},
 			"error": {

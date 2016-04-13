@@ -602,7 +602,8 @@
           "unknownError": "Unknown error",
           "forSaleOnDateIsNoDate": "For sale ate is not a date",
           "description": "Description",
-          "invalidDescription": "Description too long. Max 1000 characters."
+          "invalidDescription": "Description too long. Max 1000 characters.",
+					"noProductsFound": "No products found"
         }
       },
       "error": {
