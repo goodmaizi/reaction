@@ -558,9 +558,9 @@
 					"emailVerified": "E-Mail verifiziert",
 					"PasswordChanged": "Das Passwort wurde geändert",
 					"PasswordReset": "Das Passwort wurde zurückgesetzt",
-					"passwordResetSend": "Email with password reset link has been sent.",
-					"invitationSent": "Invitation Sent",
-					"sendInvitation": "Send invitation"
+					"passwordResetSend": "Email zum zurücksetzen des Passworts wurde geschickt.",
+					"invitationSent": "Einladung geschickt",
+					"sendInvitation": "Einladung schicken"
 				},
 				"error": {
 					"emailRequired": "Es muss eine E-Mail-Adressen angegeben werden.",
