@@ -101,24 +101,31 @@ function initDatepickers() {
         nextDecade: 'Nächste Dekade',
         prevCentury: 'Vorheriges Jahrhundert',
         nextCentury: 'Nächstes Jahrhundert'
-    }
+    },
+		keepInvalid: true
   });
 
-  console.log("initializedDTP: ",initializedDTP);
+  //console.log("initializedDTP: ",initializedDTP);
 
   $('.datetimepicker').off();
   $('.datetimepicker').on("dp.change", function(event) {
-    console.log("datetimepicker changed: ",event.date);
+    //console.log("datetimepicker changed: ",event.date);
 
-    // the event.date is 2 hours different from what we choose and see in the input field
-    // because it is GMT+2 in browser. but in server log it is the correct time.
-    let fixedDatetime = event.date;//.subtract(2, 'hours');
+    let fixedDatetime = event.date;
 
     $('.latestOrderDate-edit-input').val(fixedDatetime.format("DD.MM.YYYY HH:mm"));
     $('.latestOrderDate-edit-input').trigger("change");
   });
   // set date from real input field
   $('.latestOrderDate-dummy-input').val($('.latestOrderDate-edit-input').val());
+
+	// also save manual changes to date and time
+	$('.latestOrderDate-dummy-input').on("keyup", function(event) {
+    //console.log("latestOrderDate-dummy-input changed: ",event);
+
+		$('.latestOrderDate-edit-input').val(event.target.value);
+    $('.latestOrderDate-edit-input').trigger("change");
+  });
 
   console.log("activated datepicker");
 }
