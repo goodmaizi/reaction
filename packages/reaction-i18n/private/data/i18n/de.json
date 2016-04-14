@@ -519,7 +519,7 @@
 				"description": "Beschreibe Dich",
 				"newPassword": "Neues Passwort",
 				"newPasswordAgain": "Neues Passwort (wiederholen)",
-				"oldPassword": "Current Password",
+				"oldPassword": "Aktuelles Password",
 				"optional": "Optional",
 				"or": "oder",
 				"password": "Passwort",
