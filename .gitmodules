@@ -13,6 +13,9 @@
 [submodule "packages/reaction-search"]
 	path = packages/reaction-search
 	url = https://github.com/ScyDev/reaction-search
+[submodule "packages/reaction-email-templates-custom"]
+	path = packages/reaction-email-templates-custom
+	url = https://github.com/ScyDev/reaction-email-templates-custom
 [submodule "packages/meteor-bootstrap3-datetimepicker"]
 	path = packages/meteor-bootstrap3-datetimepicker
 	url = https://github.com/ScyDev/meteor-bootstrap3-datetimepicker
