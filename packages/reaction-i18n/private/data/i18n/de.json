@@ -519,7 +519,7 @@
 				"description": "Beschreibe Dich",
 				"newPassword": "Neues Passwort",
 				"newPasswordAgain": "Neues Passwort (wiederholen)",
-				"oldPassword": "Aktuelles Password",
+				"oldPassword": "Aktuelles Passwort",
 				"optional": "Optional",
 				"or": "oder",
 				"password": "Passwort",
@@ -558,8 +558,8 @@
 				"info": {
 					"emailSent": "E-Mail gesendet",
 					"emailVerified": "E-Mail verifiziert",
-					"PasswordChanged": "Das Passwort wurde geändert",
-					"PasswordReset": "Das Passwort wurde zurückgesetzt",
+					"passwordChanged": "Das Passwort wurde geändert",
+					"passwordReset": "Das Passwort wurde zurückgesetzt",
 					"passwordResetSend": "Email zum Zurücksetzen des Passworts versendet.",
 					"invitationSent": "Einladung gesendet",
 					"sendInvitation": "Einladung senden"
