@@ -19,7 +19,8 @@ function initDatepickers() {
 
   $(".forSaleOnDate-edit-input").datepicker({
     format: "dd.mm.yyyy",
-    language: "de"
+    language: "de",
+		autoclose: true
   });
 
   function processRelativeTime(number, withoutSuffix, key, isFuture) {
