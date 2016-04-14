@@ -571,6 +571,7 @@
           "usernameRequired": "Username is required.",
           "usernameTooShort": "Name must be at least 3 characters long.",
           "emailAlreadyExists": "Email already exists.",
+          "Email already exists": "Email already exists",
           "emailDoesntMatchTheCriteria": "Email doesn't match the criteria.",
           "errorSendingEmail": "Error sending email, possible configuration issue.",
           "unableToSendInvitationEmail": "Unable to send invitation email.",
@@ -598,6 +599,7 @@
           "tokenHasInvalidEmailAddress": "Token has invalid email address",
           "userHasNoPasswordSet": "User has no password set",
           "userNotFound": "User not found",
+          "User not found": "User not found",
           "verifyEmailLinkExpired": "Verify email link expired",
           "verifyEmailLinkIsForUnknownAddress": "Verify email link is for unknown address",
           "matchFailed": "Match failed",
@@ -619,7 +621,6 @@
           "products": {
             "noProductsFound": "No products found."
           }
-      }
       }
     }
   }

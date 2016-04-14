@@ -581,6 +581,7 @@
 					"usernameRequired": "Benutzername muss angegeben werden.",
 					"usernameTooShort": "Name muss mindestens 3 Zeichen lang sein.",
 					"emailAlreadyExists": "E-Mail-Adresse schon vorhanden.",
+					"Email already exists": "E-Mail-Adresse schon vorhanden",
 					"emailDoesntMatchTheCriteria": "Das Format der E-Mail-Adresse ist falsch.",
 					"errorSendingEmail": "Mail konnte nicht geschickt werden, möglicherweise falsch konfiguriert.",
 					"unableToSendInvitationEmail": "Unable to send invitation email.",
