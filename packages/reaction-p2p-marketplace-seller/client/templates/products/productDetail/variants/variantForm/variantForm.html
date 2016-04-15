@@ -40,9 +40,9 @@
             <div class="col-xs-3 col-sm-3 form-group {{#if afFieldIsInvalid name='price'}} has-error{{/if}}">
               <h2><label class="control-label">{{afFieldLabelText name='price'}}</label></h2>
               {{#if hasChildVariants}}
-                {{>afFieldInput name='price' value="N/A" disabled=hasChildVariants}}
+                {{>afFieldInput name='price' type='text' validation='none' novalidate='novalidate' value="N/A" disabled=hasChildVariants}}
               {{else}}
-                {{>afFieldInput name='price'}}
+                {{>afFieldInput name='price' type='text' validation='none' novalidate='novalidate' }}
                 {{#if afFieldIsInvalid name='price'}}
                 <span class="help-block">{{afFieldMessage name='price'}}</span>
                 {{/if}}
