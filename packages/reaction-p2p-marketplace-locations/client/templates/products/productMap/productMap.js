@@ -26,6 +26,7 @@ var markers = {};
 
 function addMarker(map, product) {
   Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
+    if (!error && result) {
       let address = result.replace("undefined", "").replace("  ", " ");
       console.log('address', address);
 
@@ -59,9 +60,8 @@ function addMarker(map, product) {
            }
         }
       );
-
     }
-  );
+  });
 }
 
 function getProductImage(productId) {
@@ -158,7 +158,7 @@ Template.productMap.onCreated(function() {
       added: function(product) {
         // Create a marker for this document
         addMarker(map, product);
-        
+
         centerMapToMeaningfulPlace(map);
       },
       changed: function(newDocument, oldDocument) {
@@ -169,8 +169,7 @@ Template.productMap.onCreated(function() {
         markers[oldDocument._id].setMap(null);
 
         // Clear the event listener
-        google.maps.event.clearInstanceListeners(
-          markers[oldDocument._id]);
+        google.maps.event.clearInstanceListeners(markers[oldDocument._id]);
 
         // Remove the reference to this marker instance
         delete markers[oldDocument._id];
