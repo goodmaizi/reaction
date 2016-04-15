@@ -28,6 +28,18 @@ ReactionCore.MethodHooks.after('products/createProduct', function(options) {
           selector: {type: "variant"}
         }
       );
+
+      ReactionCore.Collections.Products.update(productId,
+        {
+          $set:
+          {
+            isSoldOut: false
+          }
+        },
+        {
+          selector: {type: "simple"}
+        }
+      );
       ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set variant default values on "+variant._id);
     }
   }
