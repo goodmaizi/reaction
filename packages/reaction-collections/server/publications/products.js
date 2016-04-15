@@ -299,13 +299,13 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
       }
     }
 
-    // products are always visible to owners
+    // products are always visible to owners and admins
     if (!(Roles.userIsInRole(this.userId, ["owner"], shop._id) || shopAdmin)) {
       selector.isVisible = true;
+      // only products enabled by their owner
+      selector.isActive = true;
     }
 
-    // only products enabled by their owner
-    selector.isActive = true;
 
     // check quantity
     _.extend(selector, {
