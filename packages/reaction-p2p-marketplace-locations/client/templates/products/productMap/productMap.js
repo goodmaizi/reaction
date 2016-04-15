@@ -79,7 +79,9 @@ function getProductImage(productId) {
 
 function centerMapToMeaningfulPlace(map) {
   let locationSearchResult = Session.get('productFilters/location');
-  if (locationSearchResult != null && locationSearchResult != "") {
+  let locationSearchUserInput = Session.get('productFilters/locationUserInput');
+
+  if (locationSearchUserInput != null && locationSearchResult != null && locationSearchResult != "") {
     locationSearchResult = locationSearchResult.split("/");
     console.log("center map to location search result: ",locationSearchResult);
     map.instance.setCenter(new google.maps.LatLng(locationSearchResult[0], locationSearchResult[1]));
