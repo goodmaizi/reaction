@@ -92,10 +92,12 @@ AutoForm.hooks({
               console.log("AutoForm.hooks addressBookAddForm trigger showMainView");
               addressBook.trigger($.Event("showMainView"));
 
+              //$('.address-book').html("OLOLOLOL:");
               Meteor.setTimeout(function() {
                 if ($('.address-book .address-list').length === 0) {
                   console.log("AutoForm.hooks addressBookAddForm still no .address-list found. reloading page!");
                   window.location.reload(true);
+                  //ReactionRouter.go("account/profile");
                 }
               }, 500);
 
