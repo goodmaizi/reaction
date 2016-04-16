@@ -17,6 +17,7 @@ ReactionCore.Hooks.Events.add(
 Meteor.methods({
   "accounts/userDecide": function (isSeller, acceptedTerms) {
     check(isSeller, Boolean);
+    check(acceptedTerms, Boolean);
 
     let user = Meteor.user();
     ReactionCore.Log.info("Meteor.methods.accounts/userDecide() user: ",user," isSeller: ",isSeller);
