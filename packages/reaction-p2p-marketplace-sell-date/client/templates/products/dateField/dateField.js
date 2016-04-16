@@ -3,6 +3,8 @@
 
 function initDatepickers() {
 
+	//$(".forSaleOnDate-edit-input").val(moment().add(1, 'days').format('DD.MM.YYYY'));
+
   // api.use("rajit:bootstrap3-datepicker-de"); didn't change anything, so we define DE here
 	$.fn.datepicker.dates['de'] = {
 		days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
@@ -36,6 +38,18 @@ function initDatepickers() {
       };
       return withoutSuffix ? format[key][0] : format[key][1];
   }
+
+	// set date from real input field
+  let dateTimePickerDefaultDate = $('.latestOrderDate-edit-input').val();
+	console.log("read dateTimePickerDefaultDate: ",dateTimePickerDefaultDate);
+	if (dateTimePickerDefaultDate == null || dateTimePickerDefaultDate == "") {
+		//dateTimePickerDefaultDate = moment().add(1, 'days').hour(8)
+	}
+	else {
+		dateTimePickerDefaultDate = moment(dateTimePickerDefaultDate, "DD.MM.YYYY HH:mm")
+	}
+	console.log("new dateTimePickerDefaultDate: ",dateTimePickerDefaultDate);
+
 
   let initializedDTP = $('.datetimepicker').datetimepicker({
     format: "DD.MM.YYYY HH:mm", //
@@ -102,7 +116,9 @@ function initDatepickers() {
         prevCentury: 'Vorheriges Jahrhundert',
         nextCentury: 'Nächstes Jahrhundert'
     },
-		keepInvalid: true
+		keepInvalid: true,
+		useCurrent: false,
+		defaultDate: dateTimePickerDefaultDate
   });
 
   //console.log("initializedDTP: ",initializedDTP);
@@ -116,8 +132,6 @@ function initDatepickers() {
     $('.latestOrderDate-edit-input').val(fixedDatetime.format("DD.MM.YYYY HH:mm"));
     $('.latestOrderDate-edit-input').trigger("change");
   });
-  // set date from real input field
-  $('.latestOrderDate-dummy-input').val($('.latestOrderDate-edit-input').val());
 
 	// also save manual changes to date and time
 	$('.latestOrderDate-dummy-input').on("keyup", function(event) {

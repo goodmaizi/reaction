@@ -2,17 +2,6 @@
 // overriding product schema with extended version
 ReactionCore.Schemas.Product = new SimpleSchema([
   ReactionCore.Schemas.Product, {
-    "latestOrderDate": {
-      type: Date,
-      /*
-      autoValue: function() { // too bad, autoValue can not be overwritten with input value
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        return tomorrow;
-      },*/
-      defaultValue: new Date,
-      optional: false
-    },
     "forSaleOnDate": {
       type: Date,
       /*
@@ -21,7 +10,7 @@ ReactionCore.Schemas.Product = new SimpleSchema([
         tomorrow.setDate(tomorrow.getDate() + 1);
         return tomorrow;
       },*/
-      defaultValue: new Date,
+      defaultValue: new Date(new Date().getTime() + 1000*60*60*24),
       optional: false
     },
     "pickupTimeFrom": {
@@ -33,6 +22,17 @@ ReactionCore.Schemas.Product = new SimpleSchema([
       type: String,
       defaultValue: "12:30",
       optional: false
-    }
+    },
+    "latestOrderDate": {
+      type: Date,
+      /*
+      autoValue: function() { // too bad, autoValue can not be overwritten with input value
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow;
+      },*/
+      defaultValue: new Date(new Date(new Date().toDateString()+" 08:00:00").getTime() + 1000*60*60*24),
+      optional: false
+    },
   }
 ]);
