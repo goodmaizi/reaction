@@ -545,6 +545,8 @@
         "isSeller": "I want to sell products",
         "isBuyer": "I want to buy products",
         "boughtOrders": "My purchases",
+        "readTerms": "Read the terms and conditions",
+        "acceptingTerms": "I accept the terms and conditions",
         "info": {
           "emailSent": "Email Sent",
           "emailVerified": "Email verified",
@@ -607,7 +609,8 @@
           "forSaleOnDateIsNoDate": "For sale ate is not a date",
           "description": "Description",
           "invalidDescription": "Description too long. Max 1000 characters.",
-					"noProductsFound": "No products found"
+					"noProductsFound": "No products found",
+          "mustAcceptTerms": "You must accept the terms and conditions"
         }
       },
       "error": {

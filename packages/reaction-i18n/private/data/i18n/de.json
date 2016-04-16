@@ -555,6 +555,8 @@
 				"isSeller": "Ich möchte kochen",
 				"isBuyer": "Ich möchte essen",
 				"boughtOrders": "Meine Käufe",
+				"readTerms": "Jetzt die AGB lesen",
+				"acceptingTerms": "Ich akzeptiere die AGB",
 				"info": {
 					"emailSent": "E-Mail gesendet",
 					"emailVerified": "E-Mail verifiziert",
@@ -617,7 +619,8 @@
           "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
 					"description": "Beschreibung",
           "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen.",
-					"noProductsFound": "Keine Mahlzeiten gefunden"
+					"noProductsFound": "Keine Mahlzeiten gefunden",
+					"mustAcceptTerms": "Du musst die AGB akzeptieren"
 				}
 			},
 			"error": {

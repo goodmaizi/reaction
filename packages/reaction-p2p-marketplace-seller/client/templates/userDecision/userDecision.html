@@ -1,5 +1,7 @@
 <template name="marketplaceUserDecision">
 
+  <div class="user-decision-page">
+
     <div class="flex flex-column flex-align-center flex-2x container-lg">
 
       <div class="flex-item">
@@ -18,6 +20,26 @@
 
       <div class="flex-item">
 
+        <div class="terms-alerts-container">
+          <span id="terms-alerts">{{> inlineAlerts placement="terms"}}</span>
+        </div>
+
+      </div>
+      <div class="flex-item terms-block">
+
+        <div class="form-group form-group-acceptedTerms">
+          <a href="http://www.snaxter.ch/agb" target="_blank">{{ i18n 'accountsUI.readTerms' 'Read the terms and conditions' }}</a>
+          <br/>
+          <br/>
+
+          <label for="acceptedTerms-{{uniqueId}}" class="control-label">{{ i18n 'accountsUI.acceptingTerms' 'I accept the terms and conditions' }}</label>
+          <input id="acceptedTerms-{{uniqueId}}" class="form-control login-input-acceptedTerms" type="checkbox" value="{{acceptedTerms}}" checked="{{checked}}">
+        </div>
+
+      </div>
+
+      <div class="flex-item decision-block" style="display: none;">
+
         <div class="form-group form-group-isSeller">
           <label for="isSeller-{{uniqueId}}" class="control-label" data-i18n="accountsUI.isSeller">Do you want to sell products?</label>
           <input id="isSeller-{{uniqueId}}" class="form-control login-input-isSeller" type="checkbox" value="{{isSeller}}" checked="{{checked}}">
@@ -31,5 +53,7 @@
       </div>
 
     </div>
+
+  </div>
 
 </template>

@@ -15,7 +15,7 @@ ReactionCore.Hooks.Events.add(
 );
 
 Meteor.methods({
-  "accounts/userDecide": function (isSeller) {
+  "accounts/userDecide": function (isSeller, acceptedTerms) {
     check(isSeller, Boolean);
 
     let user = Meteor.user();
@@ -37,6 +37,7 @@ Meteor.methods({
       {
         "$set": {
           isSeller: isSeller,
+          acceptedTerms: acceptedTerms,
           "profile.isDecided": true,
           "roles": user.roles
         }
