@@ -621,7 +621,12 @@
           "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen.",
 					"noProductsFound": "Keine Mahlzeiten gefunden",
 					"mustAcceptTerms": "Du musst die AGB akzeptieren"
-				}
+				},
+        "mails": {
+          "welcome": {
+            "subject": "Willkommen bei {{shopName}}"
+          }
+        }
 			},
 			"error": {
 				"nameRequired": "Name muss ausgefüllt sein.",

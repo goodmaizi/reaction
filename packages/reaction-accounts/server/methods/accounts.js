@@ -1,3 +1,4 @@
+
 /**
  * Reaction Accounts handlers
  * creates a login type "anonymous"
@@ -521,13 +522,17 @@ Meteor.methods({
       ReactionCore.Log.info(`Mail not configured: suppressing welcome email output`);
       return true;
     }
+
+    ReactionCore.i18nextInitForServer(i18next);
+    ReactionCore.Log.info("sendWelcomeEmail: i18n server test:", i18next.t('accountsUI.mails.welcome.subject'));
+
     // fetch and send templates
     SSR.compileTemplate("accounts/sendWelcomeEmail", ReactionEmailTemplate("accounts/sendWelcomeEmail"));
     try {
       return Email.send({
         to: userEmail,
         from: `${shop.name} <${shopEmail}>`,
-        subject: `Welcome to ${shop.name}!`,
+        subject: i18next.t('accountsUI.mails.welcome.subject', {shopName: shop.name, defaultValue: `Welcome to ${shop.name}!`}),
         html: SSR.render("accounts/sendWelcomeEmail", {
           homepage: Meteor.absoluteUrl(),
           shop: shop,

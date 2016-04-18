@@ -606,11 +606,16 @@
           "verifyEmailLinkIsForUnknownAddress": "Verify email link is for unknown address",
           "matchFailed": "Match failed",
           "unknownError": "Unknown error",
-          "forSaleOnDateIsNoDate": "For sale ate is not a date",
+          "forSaleOnDateIsNoDate": "For sale date is not a date",
           "description": "Description",
           "invalidDescription": "Description too long. Max 1000 characters.",
 					"noProductsFound": "No products found",
           "mustAcceptTerms": "You must accept the terms and conditions"
+        },
+        "mails": {
+          "welcome": {
+            "subject": "Welcome to {{shopName}}"
+          }
         }
       },
       "error": {

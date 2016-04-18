@@ -36,6 +36,8 @@ Package.onUse(function(api) {
   api.use("reactioncommerce:core@0.10.0");
   api.use("reactive-var");
 
+  api.use("scydev:reaction-p2p-marketplace");
+
   api.use("dburles:google-maps");
 
   // common files
