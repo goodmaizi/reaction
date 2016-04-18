@@ -741,8 +741,14 @@ Meteor.methods({
 
     // we need to use sync mode here, to return correct error and result to UI
     const result = ReactionCore.Collections.Products.update(_id, {
-      $set: update
-    }, { selector: { type: type } });
+        $set: update
+      },
+      { selector: { type: type } },
+      function (error, num) {
+        ReactionCore.Log.info("products/updateProductField() update error",error);
+        throw new Meteor.Error(403, error.sanitizedError.reason);
+      }
+    );
 
     if (typeof result === "number") {
       if (type === "variant" && ~toDenormalize.indexOf(field)) {

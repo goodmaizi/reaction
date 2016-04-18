@@ -649,7 +649,8 @@
 			"Menge is required": "Menge muss ausgefüllt sein",
 			"Menge must be an integer": "Menge muss eine Ganzzahl sein",
 			"Preis is required": "Preis muss ausgefüllt sein",
-			"Preis must be a number": "Preis muss eine Zahl sein"
+			"Preis must be a number": "Preis muss eine Zahl sein",
+			"Latest order date must be a Date": "Letzte Bestellung muss ein Datum sein"
 		}
 	}
 }]
