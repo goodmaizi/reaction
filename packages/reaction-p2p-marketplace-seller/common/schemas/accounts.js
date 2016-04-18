@@ -9,7 +9,7 @@ ReactionCore.Schemas.Accounts = new SimpleSchema([
     acceptedTerms: {
       type: Boolean,
       defaultValue: false,
-      optional: false
+      optional: true
     },
   }
 ]);
