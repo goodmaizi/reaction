@@ -20,7 +20,7 @@ Template.productDetail.events({ // for some strange reason our custom event need
       }
     }
     if (errorMsg.length > 0) {
-      Alerts.inline(errorMsg, "warning", {
+      Alerts.inline(errorMsg, "error", {
         placement: "productManagement",
         i18nKey: "productDetail.errorMsg"
       });
