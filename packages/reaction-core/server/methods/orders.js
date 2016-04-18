@@ -267,7 +267,7 @@ Meteor.methods({
         return Email.send({
           to: order.email,
           from: `${shop.name} <${shop.emails[0].address}>`,
-          subject: i18next.t('accountsUI.mails.orderUpdate.subject', {shopName: shop.name, defaultValue: `Order update from ${shop.name}`})
+          subject: i18next.t('accountsUI.mails.orderUpdate.subject', {shopName: shop.name, defaultValue: `Order update from ${shop.name}`}),
           html: SSR.render(tpl, {
             homepage: Meteor.absoluteUrl(),
             shop: shop,
