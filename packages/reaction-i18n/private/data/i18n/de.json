@@ -625,6 +625,12 @@
         "mails": {
           "welcome": {
             "subject": "Willkommen bei {{shopName}}"
+          },
+          "invited": {
+            "subject": "Du wurdest eingeladen bei {{shopName}} mitzumachen"
+          },
+          "orderUpdate": {
+            "subject": "Bestellung bei {{shopName}}"
           }
         }
 			},

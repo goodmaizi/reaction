@@ -424,6 +424,8 @@ Meteor.methods({
         "emails.address": email
       });
 
+      ReactionCore.i18nextInitForServer(i18next);
+
       if (!user) {
         userId = Accounts.createUser({
           email: email,
@@ -443,12 +445,13 @@ Meteor.methods({
             }
           }
         });
+
         SSR.compileTemplate("accounts/inviteShopMember", ReactionEmailTemplate("accounts/inviteShopMember"));
         try {
           return Email.send({
             to: email,
             from: `${shop.name} <${shop.emails[0].address}>`,
-            subject: `You have been invited to join ${shop.name}`,
+            subject: i18next.t('accountsUI.mails.invited.subject', {shopName: shop.name, defaultValue: `You have been invited to join ${shop.name}`}),
             html: SSR.render("accounts/inviteShopMember", {
               homepage: Meteor.absoluteUrl(),
               shop: shop,
@@ -466,7 +469,7 @@ Meteor.methods({
           return Email.send({
             to: email,
             from: `${shop.name} <${shop.emails[0].address}>`,
-            subject: `You have been invited to join the ${shop.name}`,
+            subject: i18next.t('accountsUI.mails.invited.subject', {shopName: shop.name, defaultValue: `You have been invited to join ${shop.name}`}),
             html: SSR.render("accounts/inviteShopMember", {
               homepage: Meteor.absoluteUrl(),
               shop: shop,
