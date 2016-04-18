@@ -25,7 +25,7 @@
               <h2><label class="control-label">{{afFieldLabelText name='inventoryQuantity'}}</label></h2>
               {{>afFieldInput name='inventoryQuantity' disabled=hasChildVariants}}
               {{#if afFieldIsInvalid name='inventoryQuantity'}}
-              <span class="help-block">{{afFieldMessage name='inventoryQuantity'}}</span>
+              <span class="help-block">{{i18n (afFieldMessage name='inventoryQuantity') (afFieldMessage name='inventoryQuantity') }}</span>
               {{/if}}
             </div>
 
@@ -44,7 +44,7 @@
               {{else}}
                 {{>afFieldInput name='price' type='text' validation='none' novalidate='novalidate' }}
                 {{#if afFieldIsInvalid name='price'}}
-                <span class="help-block">{{afFieldMessage name='price'}}</span>
+                <span class="help-block">{{i18n (afFieldMessage name='price') (afFieldMessage name='price') }}</span>
                 {{/if}}
               {{/if}}
             </div>
