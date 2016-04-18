@@ -745,7 +745,7 @@ Meteor.methods({
       },
       { selector: { type: type } },
       function (error, num) {
-        ReactionCore.Log.info("products/updateProductField() update error",error);
+        //ReactionCore.Log.info("products/updateProductField() update error",error);
         throw new Meteor.Error(403, error.sanitizedError.reason);
       }
     );

@@ -646,6 +646,7 @@
             "noProductsFound": "Keine Mahlzeiten vorhanden."
           }
       },
+			"Title is required": "Titel muss ausgefüllt sein",
 			"Menge is required": "Menge muss ausgefüllt sein",
 			"Menge must be an integer": "Menge muss eine Ganzzahl sein",
 			"Preis is required": "Preis muss ausgefüllt sein",
