@@ -38,6 +38,9 @@ Package.onUse(function(api) {
 
   api.use("aldeed:template-extension");
 
+  //api.use("gwendall:autoform-i18n");
+  //api.use("gwendall:simple-schema-i18n");
+
   api.addFiles('reaction-p2p-marketplace-seller.js');
 
   api.addFiles('client/templates/dashboard/products/list/productsList.html', 'client');

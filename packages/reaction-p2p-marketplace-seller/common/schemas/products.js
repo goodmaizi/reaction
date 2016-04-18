@@ -13,3 +13,5 @@ ReactionCore.Schemas.Product = new SimpleSchema([
     },
   }
 ]);
+
+//ReactionCore.Schemas.Product.i18n("schemas.products");
