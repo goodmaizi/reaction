@@ -547,6 +547,7 @@
         "boughtOrders": "My purchases",
         "readTerms": "Read the terms and conditions",
         "acceptingTerms": "I accept the terms and conditions",
+        "inventoryUnit": "pieces",
         "info": {
           "emailSent": "Email Sent",
           "emailVerified": "Email verified",

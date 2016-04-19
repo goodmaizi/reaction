@@ -557,6 +557,7 @@
 				"boughtOrders": "Meine Käufe",
 				"readTerms": "Jetzt die AGB lesen",
 				"acceptingTerms": "Ich akzeptiere die AGB",
+				"inventoryUnit": "Stk verfügbar",
 				"info": {
 					"emailSent": "E-Mail gesendet",
 					"emailVerified": "E-Mail verifiziert",

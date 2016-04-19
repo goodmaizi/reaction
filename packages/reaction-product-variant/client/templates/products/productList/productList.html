@@ -31,6 +31,7 @@
 
               <div class="for-sale-on-date">{{ prettifyDate forSaleOnDate }}</div>
               <div class="location-text">{{> locationFieldDisplay }}</div>
+              <div class="location-text">{{ copiedInventoryQuantity }} {{ i18n 'accountsUI.inventoryUnit' 'pieces' }}</div>
             </div>
             <div class="product-desc">
               {{{description}}}

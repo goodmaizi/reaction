@@ -42,7 +42,7 @@ function addMarker(map, product) {
               var marker = new google.maps.Marker({
                  position: results[0].geometry.location,
                  map: map.instance,
-                 title: product.title+"\n"+address,
+                 title: product.title+"\n"+address+"\n"+product.copiedInventoryQuantity+" "+i18next.t('accountsUI.inventoryUnit', {defaultValue: 'pieces'}),
                  animation: google.maps.Animation.DROP,
                  icon: getProductImage(product._id).url({store: "thumbnail"})
               });
