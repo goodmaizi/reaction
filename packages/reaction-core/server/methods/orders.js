@@ -492,23 +492,22 @@ Meteor.methods({
       ReactionCore.Log.info("orders/inventoryAdjust item.inventoryQuantity: ",item.variants.inventoryQuantity," ");
 
       let currVariant = ReactionCore.Collections.Products.findOne({_id: item.variants._id, type: "variant"});
-      ReactionCore.Log.info("orders/inventoryAdjust OLO 1 ",);
-      if (currVariant) {
-        ReactionCore.Log.info("orders/inventoryAdjust OLO 2 currVariant.inventoryQuantity ",currVariant.inventoryQuantity);
-        if (currVariant.inventoryQuantity - item.quantity < 1) {
-          ReactionCore.Log.info("orders/inventoryAdjust OLO 2.1 ",);
-          ReactionCore.Collections.Products.update({
-            _id: item.productId
-          }, {
-            $set: {
-              isSoldOut: true
-            }
-          }, { selector: { type: "simple" } });
-          ReactionCore.Log.info("orders/inventoryAdjust OLO 2.2 ",);
-        }
-      }
       ReactionCore.Log.info("orders/inventoryAdjust OLO 3 ",);
+      if (currVariant) {
+        let isSoldOut = false;
+        if (currVariant.inventoryQuantity - item.quantity < 1) {
+          isSoldOut = true;
+        }
 
+        ReactionCore.Collections.Products.update({
+          _id: item.productId
+        }, {
+          $set: {
+            isSoldOut: isSoldOut,
+            copiedInventoryQuantity: currVariant.inventoryQuantity - item.quantity
+          }
+        }, { selector: { type: "simple" } });
+      }
       ReactionCore.Log.info("orders/inventoryAdjust OLO 4 ",);
 
       ReactionCore.Collections.Products.update({

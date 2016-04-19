@@ -11,6 +11,11 @@ ReactionCore.Schemas.Product = new SimpleSchema([
       index: 1,
       defaultValue: false
     },
+    copiedInventoryQuantity: {
+      type: Number,
+      label: "Quantity",
+      optional: true
+    },
   }
 ]);
 
