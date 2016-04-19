@@ -122,16 +122,17 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
       // filter by latest order date
       ReactionCore.Log.info("shopAdmin: ",shopAdmin);
       if (!shopAdmin) {
-        let currentDate = new Date(moment().format('MM/DD/YYYY hh:mm'));
-        ReactionCore.Log.info("filtering products by latest order date: ",currentDate);
-        ReactionCore.Log.info("and forSaleOnDate: ",currentDate);
+        let currentDate = new Date(moment().utcOffset("+02:00").format('MM/DD/YYYY HH:mm')); // Date is necessary, moment won't work for query
+        let basicDate = new Date(moment().utcOffset("+02:00").format('MM/DD/YYYY'));
+        ReactionCore.Log.info("filtering products by lastOrderDate: ",currentDate);
+        ReactionCore.Log.info("and forSaleOnDate: ",basicDate);
 
         _.extend(selector, {
           latestOrderDate: {
             "$gte": currentDate
           },
           forSaleOnDate: {
-            "$gte": currentDate
+            "$gte": basicDate
           }
         });
       }
