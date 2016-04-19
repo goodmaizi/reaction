@@ -16,6 +16,9 @@
 }
 
 .viewSwitchItem {
+  float: left;
+  width: 33.33%;
+
   white-space: nowrap;
 }
 
@@ -23,6 +26,16 @@
   .viewSwitchItem {
     margin-bottom: 10px;
   }
+
+  .view-switcher-icon {
+    clear: both;
+    display:block
+  }
+
+  .viewSwitchItem span {
+    font-size: 14px;
+  }
+
 }
 @media screen and (min-width: 480px) and (max-width: 600px) {
   .viewSwitchItem {
@@ -31,12 +44,10 @@
 }
 @media screen and (min-width: 480px) {
   .viewSwitchItem {
-    float: left;
-    width: 33.33%;
   }
 }
 
-.viewSwitch .viewSwitchItem:hover {
+.viewSwitch .viewSwitchItem:hover span {
   text-decoration: underline overline;
 }
 
