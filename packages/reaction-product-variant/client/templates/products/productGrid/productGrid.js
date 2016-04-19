@@ -158,7 +158,7 @@ Template.productGrid.helpers({
       }
     }
 
-    const products = gridProducts.sort(compare);
+    const products = gridProducts;//gridProducts.sort(compare);
     Template.instance().products = products;
     return products;
   }

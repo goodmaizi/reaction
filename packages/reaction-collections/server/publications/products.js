@@ -119,6 +119,14 @@ Meteor.publish("Products", function (productScrollLimit = 24, productFilters, so
         });
       }
 
+      // default sort
+      if (_.isEmpty(sort)) {
+        sort = {
+          latestOrderDate: 1
+        }
+        ReactionCore.Log.info("sort by: ",sort);
+      }
+
       // filter by latest order date
       ReactionCore.Log.info("shopAdmin: ",shopAdmin);
       if (!shopAdmin) {
