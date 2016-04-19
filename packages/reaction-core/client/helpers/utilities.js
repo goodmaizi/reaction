@@ -263,7 +263,7 @@ Template.registerHelper("nl2br", function (text) {
 Template.registerHelper("dateFormat", function (context, block) {
   let f;
   if (window.moment) {
-    f = block.hash.format || "MMM DD, YYYY hh:mm:ss A";
+    f = block.hash.format || "MMM DD, YYYY HH:mm:ss A";
     return moment(context).format(f);
   }
   return context;
