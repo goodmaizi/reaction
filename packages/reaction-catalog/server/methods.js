@@ -746,7 +746,14 @@ Meteor.methods({
       { selector: { type: type } },
       function (error, num) {
         //ReactionCore.Log.info("products/updateProductField() update error",error);
-        throw new Meteor.Error(403, error.sanitizedError.reason);
+        let reason = "Reason for error not found";
+        if (error.sanitizedError != null) {
+          reason = error.sanitizedError.reason;
+        }
+        else if (error.reason != null) {
+          reason = error.reason;
+        }
+        throw new Meteor.Error(403, reason);
       }
     );
 
