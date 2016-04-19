@@ -44,7 +44,8 @@ function addMarker(map, product) {
                  map: map.instance,
                  title: product.title+"\n"+address+"\n"+product.copiedInventoryQuantity+" "+i18next.t('accountsUI.inventoryUnit', {defaultValue: 'pieces'}),
                  animation: google.maps.Animation.DROP,
-                 icon: getProductImage(product._id).url({store: "thumbnail"})
+                 icon: "/packages/scydev_reaction-p2p-marketplace-locations/public/images/icon.png",
+                 //icon: getProductImage(product._id).url({store: "thumbnail"})
               });
 
               var infowindow = new google.maps.InfoWindow({

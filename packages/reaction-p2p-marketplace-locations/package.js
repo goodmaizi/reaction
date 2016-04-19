@@ -67,6 +67,8 @@ Package.onUse(function(api) {
 
   api.addFiles("client/templates/products/products.js", ["client"]);
 
+  api.addFiles("public/images/icon.png", ["client"], {isAsset: true});
+
   // server files
   api.addFiles("server/register.js", ["server"]);
   api.addFiles([
