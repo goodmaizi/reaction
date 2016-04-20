@@ -178,7 +178,7 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
 });
 
 ReactionCore.MethodHooks.after('products/updateProductField', function(options) {
-  //ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') options: ", options);
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') options: ", options);
   var productId = options.arguments[0];
 
   const product = ReactionCore.Collections.Products.findOne(productId);
@@ -196,6 +196,26 @@ ReactionCore.MethodHooks.after('products/updateProductField', function(options) 
       ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set variant title to :", product.title);
     }
   }
+
+  // To be safe, return the options.result in an after hook.
+  return options.result;
+});
+
+ReactionCore.MethodHooks.after('products/updateVariant', function(options) {
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateVariant') options: ", options);
+  var variant = options.arguments[0];
+
+  let fullVariant = ReactionCore.Collections.Products.findOne({_id: variant._id});
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateVariant') fullVariant: ", fullVariant);
+
+  // copy variant quantity to product for easy display
+  ReactionCore.Collections.Products.update({
+    _id: fullVariant.ancestors[0]
+  }, {
+    $set: {
+      copiedInventoryQuantity: variant.inventoryQuantity
+    }
+  }, { selector: { type: "simple" } });
 
   // To be safe, return the options.result in an after hook.
   return options.result;
