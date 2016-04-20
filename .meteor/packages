@@ -48,7 +48,7 @@ reactioncommerce:reaction-dashboard
 reactioncommerce:reaction-orders
 reactioncommerce:reaction-analytics-libs
 reactioncommerce:reaction-analytics
-reactioncommerce:reaction-inventory
+#reactioncommerce:reaction-inventory # disabling because it published 10k inventory items to all sellers, cause it thinks they are admins...
 reactioncommerce:reaction-shipping
 reactioncommerce:reaction-social
 reactioncommerce:reaction-checkout
@@ -90,5 +90,5 @@ scydev:reaction-p2p-marketplace-sell-date
 scydev:reaction-sample-data-custom
 ramusus:reaction-filtration
 scydev:reaction-p2p-marketplace-profile
-scydev:snaxter-template
 scydev:reaction-p2p-marketplace-seller
+scydev:snaxter-template
