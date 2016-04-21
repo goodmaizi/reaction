@@ -601,7 +601,7 @@
 					"noMatchingLoginAttemptFound": "Kein passender Login-Vorgang gefunden.",
 					"passWordIsOld": "Das Passwort ist abgelaufen, bitte gib ein neues ein.",
 					"incorrectPassword": "Das Passwort ist nicht korrekt.",
-					"errorTooManyRequestsPleaseSlowDown": "Zuviele Anfragen. Bitte etwas langsamer.",
+					"errorTooManyRequestsPleaseSlowDownYouMustWaitSecondsBeforeTryingAgain": "Zuviele Anfragen. Bitte mach etwas langsamer und warte eine Weile.",
 					"invalidEmail": "E-Mail-Adresse ist ungültig.",
 					"addressMustBeAValidEMailAddress": "Ungültige E-Mail-Adresse",
 					"mustBeLoggedIn": "Bitte melde Dich zuerst an",

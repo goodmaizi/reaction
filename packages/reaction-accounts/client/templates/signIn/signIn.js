@@ -70,7 +70,7 @@ Template.loginFormSignInView.events({
       if (error) {
         // Show some error messages above the form fields
         console.log("login fail: ",error);
-        let i18nKey = camelize(error.reason).replace(".", "").replace(",", "").replace("'", "").replace("\"", "").replace("!", "").replace("?", "").replace("(", "").replace(")", "");
+        let i18nKey = camelize(error.reason.replace(/[0-9]/g,'').replace(/\./g,'').replace(",", "").replace("'", "").replace("\"", "").replace("!", "").replace("?", "").replace("(", "").replace(")", ""));
         error.reason = i18next.t("accountsUI.error."+i18nKey);
         templateInstance.formMessages.set({
           alerts: [error]
