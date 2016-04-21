@@ -18,27 +18,7 @@
         </div>
       </div>
 
-      <div class="flex-item">
-
-        <div class="terms-alerts-container">
-          <span id="terms-alerts">{{> inlineAlerts placement="terms"}}</span>
-        </div>
-
-      </div>
-      <div class="flex-item terms-block">
-
-        <div class="form-group form-group-acceptedTerms">
-          <a href="http://www.snaxter.ch/agb.html" target="_blank">{{ i18n 'accountsUI.readTerms' 'Read the terms and conditions' }}</a>
-          <br/>
-          <br/>
-
-          <label for="acceptedTerms-{{uniqueId}}" class="control-label">{{ i18n 'accountsUI.acceptingTerms' 'I accept the terms and conditions' }}</label>
-          <input id="acceptedTerms-{{uniqueId}}" class="form-control login-input-acceptedTerms" type="checkbox" value="{{acceptedTerms}}" checked="{{checked}}">
-        </div>
-
-      </div>
-
-      <div class="flex-item decision-block" style="display: none;">
+      <div class="flex-item decision-block">
 
         <div class="form-group form-group-isSeller">
           <label for="isSeller-{{uniqueId}}" class="control-label" data-i18n="accountsUI.isSeller">Do you want to sell products?</label>
@@ -48,6 +28,28 @@
         <div class="form-group form-group-isBuyer">
           <label for="isBuyer-{{uniqueId}}" class="control-label" data-i18n="accountsUI.isBuyer">Do you want to buy products?</label>
           <input id="isBuyer-{{uniqueId}}" class="form-control login-input-isBuyer" type="checkbox" value="{{isBuyer}}" checked="{{checked}}">
+        </div>
+
+      </div>
+
+      <div class="flex-item">
+
+        <div class="terms-alerts-container">
+          <span id="terms-alerts">{{> inlineAlerts placement="terms"}}</span>
+        </div>
+
+      </div>
+
+      <div class="flex-item terms-block" style="display: none;">
+
+        <div class="form-group form-group-acceptedTerms">
+          <a id="agb-link-seller" style="display: none;" href="http://www.snaxter.ch/agbS.html" target="_blank">{{ i18n 'accountsUI.readTerms' 'Read the terms and conditions' }}</a>
+          <a id="agb-link-buyer" style="display: none;" href="http://www.snaxter.ch/agbB.html" target="_blank">{{ i18n 'accountsUI.readTerms' 'Read the terms and conditions' }}</a>
+          <br/>
+          <br/>
+
+          <label for="acceptedTerms-{{uniqueId}}" class="control-label">{{ i18n 'accountsUI.acceptingTerms' 'I accept the terms and conditions' }}</label>
+          <input id="acceptedTerms-{{uniqueId}}" class="form-control login-input-acceptedTerms" type="checkbox" value="{{acceptedTerms}}" checked="{{checked}}">
         </div>
 
       </div>

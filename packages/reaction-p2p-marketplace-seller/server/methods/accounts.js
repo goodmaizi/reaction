@@ -22,29 +22,38 @@ Meteor.methods({
     let user = Meteor.user();
     ReactionCore.Log.info("Meteor.methods.accounts/userDecide() user: ",user," isSeller: ",isSeller);
 
-    const shop = ReactionCore.getCurrentShop();
-    const shopId = shop._id;
+    if (acceptedTerms) {
+      const shop = ReactionCore.getCurrentShop();
+      const shopId = shop._id;
 
-    if (isSeller) {
-      ReactionCore.Log.info("Adding seller permissions.");
+      if (isSeller) {
+        ReactionCore.Log.info("Adding seller permissions.");
 
-      user.roles[shopId].push("createProduct");
+        user.roles[shopId].push("createProduct");
 
-      user.roles[shopId].push("account/seller/products"); // for access to our own products route
-      user.roles[shopId].push("account/seller/sellerorders"); // for access to our own orders route
+        user.roles[shopId].push("account/seller/products"); // for access to our own products route
+        user.roles[shopId].push("account/seller/sellerorders"); // for access to our own orders route
+      }
+
+      Meteor.users.update(Meteor.userId(),
+        {
+          "$set": {
+            isSeller: isSeller,
+            acceptedTerms: acceptedTerms,
+            "profile.isDecided": true,
+            "roles": user.roles
+          }
+        }
+      );
+
+      //ReactionCore.Log.info("Meteor.methods.accounts/userDecide() user after update: ",Meteor.user());
+
+      return {isSeller: isSeller, acceptedTerms: acceptedTerms};
+    }
+    else {
+      ReactionCore.Log.info("Meteor.methods.accounts/userDecide() Terms not accepted! ");
+      throw new Meteor.Error(403, "Access Denied");
     }
 
-    Meteor.users.update(Meteor.userId(),
-      {
-        "$set": {
-          isSeller: isSeller,
-          acceptedTerms: acceptedTerms,
-          "profile.isDecided": true,
-          "roles": user.roles
-        }
-      }
-    );
-
-    ReactionCore.Log.info("Meteor.methods.accounts/userDecide() user after update: ",Meteor.user());
   },
 });

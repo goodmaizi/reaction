@@ -16,50 +16,63 @@ function checkTermsAndConditions() {
 }
 
 Template.marketplaceUserDecision.events(
-  {
+{
     "click .login-input-acceptedTerms": function (event, template)
     {
       if ($('.login-input-acceptedTerms').prop('checked') == true) {
-        $('.terms-block').hide();
-        $('.decision-block').fadeIn();
+        let isSeller = $('.login-input-isSeller').prop('checked');
+        let acceptedTerms = $('.login-input-acceptedTerms').prop('checked');
+
+        Meteor.call("accounts/userDecide", isSeller, acceptedTerms, function(error, result) {
+          console.log("result: ",result);
+          if (result && !error) {
+            if (result.isSeller) {
+              $('#main').css("visibility", "hidden");
+              // this is necessary to ensure users new permissions are in effect
+              //window.location.reload(true);
+              window.location.href = "/snaxter/account/profile";
+
+              //ReactionRouter.reload(); // doesn't help
+              //ReactionRouter.go("/");
+
+              /* // this doesn't work, even with timeout
+              Meteor.setTimeout(function(){
+                ReactionRouter.go("/");
+              }, 500);*/
+            }
+            else {
+              ReactionRouter.go("/");
+            }
+          }
+          else if (error) {
+            Alerts.inline(i18next.t('accountsUI.error.mustAcceptTerms', {defaultValue: "You must accept the terms and conditions"}), "error", {
+              placement: "terms",
+              //i18nKey: "productDetail.outOfStock",
+              autoHide: 10000
+            });
+          }
+        });
       }
     },
     "click .login-input-isSeller": function (event, template)
     {
-      if (checkTermsAndConditions()) {
-        console.log("seller desu!");
-        let acceptedTerms = $('.login-input-acceptedTerms').prop('checked');
-        
-        Meteor.call("accounts/userDecide", true, acceptedTerms, function(error, result) {
-          $('#main').css("visibility", "hidden");
-          window.location.reload(true); // this is necessary to ensure users new permissions are in effect
+      console.log("seller desu!");
 
-          //ReactionRouter.reload(); // doesn't help
-          //ReactionRouter.go("/");
+      $('#agb-link-seller').show();
+      $('.decision-block').hide();
+      $('.terms-block').fadeIn();
 
-          /* // this doesn't work, even with timeout
-          Meteor.setTimeout(function(){
-            ReactionRouter.go("/");
-          }, 500);*/
-        });
-      }
-      else {
-        $('.login-input-isSeller').prop('checked', false);
-      }
+      $('.login-input-isBuyer').prop('checked', false);
     },
     "click .login-input-isBuyer": function (event, template)
     {
-      if (checkTermsAndConditions()) {
-        console.log("buyer desu!");
-        let acceptedTerms = $('.login-input-acceptedTerms').prop('checked');
+      console.log("buyer desu!");
 
-        Meteor.call("accounts/userDecide", false, acceptedTerms, function(error, result) {
-          ReactionRouter.go("/");
-        });
-      }
-      else {
-        $('.login-input-isBuyer').prop('checked', false);
-      }
+      $('#agb-link-buyer').show();
+      $('.decision-block').hide();
+      $('.terms-block').fadeIn();
+
+      $('.login-input-isSeller').prop('checked', false);
     },
   }
 );
