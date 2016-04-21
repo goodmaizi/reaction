@@ -591,6 +591,7 @@
           "noMatchingLoginAttemptFound": "No matching login attempt found",
           "passwordIsOld": "Password is old. Please reset your password.",
           "incorrectPassword": "Incorrect password",
+          "Incorrect password": "Incorrect password",
           "invalidEmail": "Invalid email",
           "addressMustBeAValidEMailAddress": "Invalid Email",
           "mustBeLoggedIn": "Must be logged in",
