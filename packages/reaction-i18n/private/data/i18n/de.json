@@ -416,10 +416,10 @@
 				},
 				"search": {
           "searchBoxDateLabel": "Wann möchtest Du essen?",
-					"searchBoxDatePlaceholder": "Wähle den Tag...",
-          "searchBoxLocationLabel": "Ort",
-          "searchBoxLocationPlaceholder": "Gib deine PLZ oder Ort ein...",
-          "noProductsFound": "Leider keine Mahlzeiten gefunden, probier doch einen anderen Tag."
+					"searchBoxDatePlaceholder": "Tag auswählen...",
+          "searchBoxLocationLabel": "Wo möchtest Du essen",
+          "searchBoxLocationPlaceholder": "PLZ oder Ort...",
+          "noProductsFound": "Leider keine Mahlzeiten gefunden, probier es mit anderen Suchkriterien."
         }
 
 			},
