@@ -103,7 +103,7 @@ ReactionProduct.maybeDeleteProduct = function (productOrArray) {
   let title;
   let confirmTitle;
   if (products.length === 1) {
-    title = products[0].title || "the product";
+    title = products[0].title || i18next.t("accountsUI.theProduct", 'the product');
     confirmTitle = i18next.t("productDetail.deletedProductConfirm");
   } else {
     title = "the selected products";

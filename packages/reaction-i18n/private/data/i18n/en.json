@@ -548,6 +548,7 @@
         "readTerms": "Read the terms and conditions",
         "acceptingTerms": "I accept the terms and conditions",
         "inventoryUnit": "pieces",
+        "theProduct": "unnamed product",
         "info": {
           "emailSent": "Email Sent",
           "emailVerified": "Email verified",
