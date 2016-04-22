@@ -49,6 +49,7 @@ Package.onUse(function(api) {
                 'client/templates/cart/checkout/shipping/shipping.js',
                 'client/templates/products/productDetail/tags/tags.html',
                 'client/templates/products/productDetail/tags/tags.js',
+                'client/templates/products/productDetail/tags/tags.less',
               ],
               'client'
               );
