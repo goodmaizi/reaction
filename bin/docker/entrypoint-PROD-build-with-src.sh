@@ -27,6 +27,9 @@ if [[ "${REACTION_ENVIRONMENT}" == "dev" ]]; then
   echo "Running Reaction in DEV mode ..."
   # DEV
   # run reaction from source
+  cd /var/www/src
+  apt-get update
+  apt-get install curl
   /var/www/src/reaction reset
   /var/www/src/reaction
 else
