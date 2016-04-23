@@ -155,7 +155,7 @@
 				"tags": "Kategorie",
 				"tagsAdd": "Tag hinzufügen",
 				"tagsEdit": "Tags editieren",
-				"tagExists": "Tag already exists, or is empty.",
+				"tagExists": "Du kannst keine neuen Kategorien erfinden. Wähle eine bestehende.",
 				"dropFile": "Bild hinzufügen",
 				"dropFiles": "Bilder hinzufügen",
 				"addInventory": "Add Inventory",

@@ -47,3 +47,18 @@ ReactionCore.MethodHooks.after('products/createProduct', function(options) {
   // To be safe, return the options.result in an after hook.
   return options.result;
 });
+
+ReactionCore.MethodHooks.before('products/updateProductTags', function(options) {
+  //ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductTags') options: ", options);
+  var tagName = options.arguments[1];
+
+  let existingTag = ReactionCore.Collections.Tags.findOne({
+    name: tagName
+  });
+
+  if (!existingTag) {
+    ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/updateProductTags') Access Denied!");
+    throw new Meteor.Error(403, "Access Denied");
+  }
+
+});
