@@ -50,3 +50,22 @@ Template.registerHelper("belongsToCurrentUser", function (productId) {
   //console.log("Template.helpers.belongsToCurrentUser() productBelongingToCurrUser ",productBelongingToCurrUser);
   return productBelongingToCurrUser != null;
 });
+
+Template.productDetail.onDestroyed(function(){
+  console.log("Template productDetail destroyed! showing ReactionProduct: ",ReactionProduct);
+
+  let productId = ReactionProduct.selectedProductId();
+  let media = ReactionCore.Collections.Media.findOne({
+    "metadata.productId": productId,
+    "metadata.priority": 0,
+    "metadata.toGrid": 1
+  }, { sort: { uploadedAt: 1 } });
+  console.log("product media: ",media);
+
+  if ($('.product-detail-edit .title-edit-input').val() == ""
+      && $('.product-detail-edit.description-edit .description-edit-input').val() == ""
+      && media == null) {
+    console.log("delete empty product!");
+    ReactionCore.Collections.Products.remove({_id: productId});
+  }
+});
