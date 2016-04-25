@@ -200,6 +200,7 @@
         "pickupTimeTo": "To",
         "latestOrderDate": "Order before",
         "lastOrderTime": "At",
+        "changeSaved": "Product saved",
         "makeActive": "Activate",
         "makeInactive": "Deactivate",
         "notFoundTitle": "Oops!",

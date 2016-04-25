@@ -4,54 +4,16 @@
 
   {{>simplifiedProductCssInclude}}
 
+  <div cla_ss="flex-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"> {{i18n 'productDetail.productManagement' 'Edit product'}}</h3>
+      </div>
+    </div>
+  </div>
+
   <div class="container-main">
     <div class="container-fluid pdp-container">
-      {{!-- Product Visibility Admin Block --}}
-      {{#if hasAdminAccess}}
-        <div class="row">
-        {{#if isVisible}}
-          <div class="">
-            <a href="#" class="toggle-product-isVisible-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeInvisible' 'Make invisible'}}</a>
-          </div>
-        {{/if}}
-        {{#unless isVisible}}
-          <div class="">
-            <a href="#" class="toggle-product-isVisible-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeItVisible' 'You can make it visible'}}</a>
-          </div>
-        {{/unless}}
-        </div>
-      {{/if}}
-
-      {{#if belongsToCurrentUser _id }}
-        <div class="row">
-          <div><span data-i18n="productDetail.productManagement">Product management</span>:</div>
-          {{#if isActive}}
-            <div class="">
-              <a href="#" class="toggle-product-isActive-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeInactive' 'Deactivate'}}</a>
-            </div>
-          {{/if}}
-          {{#unless isActive}}
-            <div class="">
-              <a href="#" class="toggle-product-isActive-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeActive' 'Activate'}}</a>
-            </div>
-          {{/unless}}
-          <div class="">
-            <a href="#" class="delete-product-link btn btn-default btn-block btn-product-management">{{i18n 'app.delete' 'Delete'}}</a>
-          </div>
-
-        </div>
-
-        {{#unless isVisible}}
-          <div class="row">
-            <div class="alert alert-warning">
-              <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
-                <span data-i18n="productDetail.whenYouAreDone">Admin can make it visible when you're done editing.</span>
-            </div>
-          </div>
-        {{/unless}}
-        <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
-      {{/if}}
-      {{!-- END Product Visibility Admin Block --}}
 
        <!-- Product Detail Page -->
       <div class="row" itemscope itemtype="http://schema.org/Product">
@@ -150,6 +112,63 @@
           </div>
 
           <div class="double-column">
+
+            <div class="product-container-management">
+            {{!-- Product Visibility Admin Block --}}
+            {{#if hasAdminAccess}}
+              <div class="row">
+              {{#if isVisible}}
+                <div class="">
+                  <a href="#" class="toggle-product-isVisible-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeInvisible' 'Make invisible'}}</a>
+                </div>
+              {{/if}}
+              {{#unless isVisible}}
+                <div class="">
+                  <a href="#" class="toggle-product-isVisible-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeItVisible' 'You can make it visible'}}</a>
+                </div>
+              {{/unless}}
+              </div>
+            {{/if}}
+
+            {{#if belongsToCurrentUser _id }}
+
+              <div class="row">
+                <!-- has no function yet, template is in autosave mode, but to avoid user confusion, a placebo save button is shown-->
+                <div class="">
+                  <a href="#" class="save-product-link btn btn-default btn-block btn-product-management">{{i18n 'app.saveAndContinue' 'Save and continue'}}</a>
+                </div>
+
+                <!-- for style reasons,  <div><span data-i18n="productDetail.productManagement">Product management</span>:</div> -->
+                {{#if isActive}}
+                  <div class="">
+                    <a href="#" class="toggle-product-isActive-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeInactive' 'Deactivate'}}</a>
+                  </div>
+                {{/if}}
+                {{#unless isActive}}
+                  <div class="">
+                    <a href="#" class="toggle-product-isActive-link btn btn-default btn-block btn-product-management">{{i18n 'productDetail.makeActive' 'Activate'}}</a>
+                  </div>
+                {{/unless}}
+                <div class="">
+                  <a href="#" class="delete-product-link btn btn-default btn-block btn-product-management">{{i18n 'app.delete' 'Delete'}}</a>
+                </div>
+              </div>
+
+              {{#unless isVisible}}
+                <div class="row">
+                  <div class="alert alert-warning">
+                    <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
+                      <span data-i18n="productDetail.whenYouAreDone">Admin can make it visible when you're done editing.</span>
+                  </div>
+                </div>
+              {{/unless}}
+              <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
+            {{/if}}
+            {{!-- END Product Visibility Admin Block --}}
+
+          </div>
+
+
             {{> productDetailLocationField}}
           </div>
 
