@@ -200,6 +200,7 @@
 				"pickupTimeTo": "Bis",
 				"latestOrderDate": "Letzte Bestellung",
 				"lastOrderTime": "Um",
+				"changeSaved": "Änderung gespeichert",
 				"makeActive": "Aktivieren",
 				"makeInactive": "Deaktivieren",
 				"notFoundTitle": "Oops!",
