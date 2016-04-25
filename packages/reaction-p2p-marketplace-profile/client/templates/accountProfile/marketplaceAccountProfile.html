@@ -2,20 +2,18 @@
 
   <div class="profile-edit-page">
 
+    <div cla_ss="flex-item">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{i18n 'admin.userAccountDropdown.profileLabel' 'Profile'}}</h3>
+        </div>
+      </div>
+    </div>
+
   <div class="flex flex-column flex-align-center flex-2x container-lg">
 
     <div class="flex-item">
       <div class="panel panel-lg">
-
-        <div class="panel-heading  panel-title-center">
-
-            <div class="profile-image">
-              {{!--> avatar user=currentUser class="circular-icon" size="large" shape="circle"--}}
-              <img class="circular-icon" src="{{getGravatar currentUser 80}}" style="width: 80px;border-radius: 50%;" />
-              <span class="profile-image-display-name">{{displayName}}</span>
-            </div>
-
-        </div>
 
         <div class="panel-content">
           {{> profileImageGallery}}
