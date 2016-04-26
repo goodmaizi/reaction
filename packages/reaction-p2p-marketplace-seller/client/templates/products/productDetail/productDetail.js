@@ -38,6 +38,10 @@ Template.productDetail.events({ // for some strange reason our custom event need
       });
     }
   },
+  "click .save-product-link": function (event, template) {
+    Alerts.toast(i18next.t("productDetail.changeSaved", "Product saved"), "info");
+    $(".save-product-link").blur();
+  },
 });
 
 Template.productDetail.events({

@@ -27,9 +27,9 @@ if [[ "${REACTION_ENVIRONMENT}" == "dev" ]]; then
   echo "Running Reaction in DEV mode ..."
   # DEV
   # run reaction from source
-  cd /var/www/src
+  cd /var/www/src # because PROD build starts in /var/www/bundle
   apt-get update
-  apt-get install curl
+  apt-get --assume-yes install curl ## because it is missing in PROD build
   /var/www/src/reaction reset
   /var/www/src/reaction
 else
