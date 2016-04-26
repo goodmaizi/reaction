@@ -113,5 +113,9 @@ Template.accountProfile.events({ // for some strange reason our custom event nee
 
     console.log("updated profile info ");
 
+  },
+  "click #passwordChangeButton": function (event, template) {
+    $('#passwordChangeContainer').fadeIn();
+    $('#passwordChangeButton').hide();
   }
 });

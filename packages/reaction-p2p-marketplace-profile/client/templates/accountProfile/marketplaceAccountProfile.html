@@ -52,9 +52,17 @@
         </div>
 
         <div class="panel-content">
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" id="passwordChangeButton">{{ i18n 'accountsUI.changePassword' 'Change password' }}</button>
+          </div>
+
+          <div id="passwordChangeContainer" style="display: none;">
           {{#if userHasPassword}}
             {{> loginFormChangePassword}}
           {{/if}}
+          </div>
+
         </div>
 
       </div>
