@@ -208,7 +208,10 @@
         "tagsAdd": "Add tag",
         "location": "Location",
 				"pickupTimeFromIsRequired": "Pickup time 'from' is required",
-				"pickupTimeToIsRequired": "Pickup time 'to' is required"
+				"pickupTimeToIsRequired": "Pickup time 'to' is required",
+        "forSaleOnDateIsNoDate": "For sale date is not a date",
+  			"latestOrderDateMustBeADate": "Latest order date must be a date"
+
       },
       "products": {
         "all": "ALL",
@@ -614,7 +617,6 @@
           "verifyEmailLinkIsForUnknownAddress": "Verify email link is for unknown address",
           "matchFailed": "Match failed",
           "unknownError": "Unknown error",
-          "forSaleOnDateIsNoDate": "For sale date is not a date",
           "description": "Description",
           "invalidDescription": "Description too long. Max 1000 characters.",
 					"noProductsFound": "No products found",
