@@ -210,8 +210,9 @@
 				"pickupTimeFromIsRequired": "Pickup time 'from' is required",
 				"pickupTimeToIsRequired": "Pickup time 'to' is required",
         "forSaleOnDateIsNoDate": "For sale date is not a date",
-  			"latestOrderDateMustBeADate": "Latest order date must be a date"
-
+  			"latestOrderDateMustBeADate": "Latest order date must be a date",
+        "notLoggedIn": "Not logged in",
+				"youNeedToLogIn": "You need to log in or register."
       },
       "products": {
         "all": "ALL",

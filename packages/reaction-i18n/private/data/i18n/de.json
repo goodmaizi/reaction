@@ -210,7 +210,9 @@
 				"pickupTimeFromIsRequired": "Abholzeit 'Von' wird benötigt",
 				"pickupTimeToIsRequired": "Abholzeit 'Bis' wird benötigt",
 				"forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
-				"latestOrderDateMustBeADate": "Letzte Bestellung muss ein Datum sein"
+				"latestOrderDateMustBeADate": "Letzte Bestellung muss ein Datum sein",
+				"notLoggedIn": "Nicht angemeldet",
+				"youNeedToLogIn": "Du musst Dich zuerst anmelden."
 			},
 			"products": {
 				"all": "ALLE",
