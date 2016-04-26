@@ -206,7 +206,9 @@
 				"notFoundTitle": "Oops!",
 				"notFoundError": "This is not the product you were looking for.",
 				"tagsAdd": "Tag hinzufügen",
-        "location": "Standort"
+        "location": "Standort",
+				"pickupTimeFromIsRequired": "Abholzeit 'Von' wird benötigt",
+				"pickupTimeToIsRequired": "Abholzeit 'Bis' wird benötigt"
 			},
 			"products": {
 				"all": "ALLE",

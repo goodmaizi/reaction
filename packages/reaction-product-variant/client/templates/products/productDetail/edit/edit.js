@@ -25,7 +25,8 @@ Template.productDetailEdit.events({
       $(event.currentTarget).val(),
       (error, result) => {
         if (error) {
-          return Alerts.inline(`${i18next.t(error.reason)} `, "error", {
+          Alerts.removeSeen();
+          return Alerts.inline(`${i18next.t("productDetail."+ReactionCore.toI18nKey(error.reason))} `, "error", {
             placement: "productManagement",
             i18nKey: "productDetail.errorMsg",
             id: self._id
@@ -37,6 +38,7 @@ Template.productDetailEdit.events({
             Meteor.call("products/setHandle", productId,
               (err, res) => {
                 if (err) {
+                  Alerts.removeSeen();
                   Alerts.inline(err.reason, "error", {
                     placement: "productManagement",
                     i18nKey: "productDetail.errorMsg",
