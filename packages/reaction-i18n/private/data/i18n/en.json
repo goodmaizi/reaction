@@ -147,6 +147,7 @@
         "search": "Search products..."
       },
       "productDetail": {
+        "productDetail": "Product detail",
         "productManagement": "Product management",
         "makeInvisible": "Make invisible",
         "isNotVisible": "This product is not visible to customers.",
