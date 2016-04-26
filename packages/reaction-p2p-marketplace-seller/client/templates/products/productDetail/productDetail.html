@@ -4,6 +4,9 @@
 
   {{>simplifiedProductCssInclude}}
 
+
+{{#if belongsToCurrentUser _id }}
+
   <div cla_ss="flex-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -11,6 +14,26 @@
       </div>
     </div>
   </div>
+    {{#unless isVisible}}
+      <div class="row">
+        <div class="alert alert-warning">
+          <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
+            <span data-i18n="productDetail.whenYouAreDone">Admin can make it visible when you're done editing.</span>
+        </div>
+      </div>
+    {{/unless}}
+    <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
+  {{else}}
+  <div cla_ss="flex-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"> {{i18n 'productDetail.productDetail' 'Product detail'}}</h3>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+
 
   <div class="container-main">
     <div class="container-fluid pdp-container">
@@ -154,15 +177,6 @@
                 </div>
               </div>
 
-              {{#unless isVisible}}
-                <div class="row">
-                  <div class="alert alert-warning">
-                    <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
-                      <span data-i18n="productDetail.whenYouAreDone">Admin can make it visible when you're done editing.</span>
-                  </div>
-                </div>
-              {{/unless}}
-              <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
             {{/if}}
             {{!-- END Product Visibility Admin Block --}}
 
