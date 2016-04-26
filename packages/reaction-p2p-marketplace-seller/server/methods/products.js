@@ -180,6 +180,7 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
 ReactionCore.MethodHooks.after('products/updateProductField', function(options) {
   ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') options: ", options);
   var productId = options.arguments[0];
+  var productField = options.arguments[1];
 
   const product = ReactionCore.Collections.Products.findOne(productId);
   const variants = ReactionCore.Collections.Products.find({
@@ -195,6 +196,14 @@ ReactionCore.MethodHooks.after('products/updateProductField', function(options) 
       );
       ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set variant title to :", product.title);
     }
+  }
+
+  if (productField == "title" || productField == "description") {
+    ReactionCore.Collections.Products.update(productId,
+      {$set: {isVisible: false}},
+      {selector: {type: "simple"}}
+    );
+    ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set simple isVisible to : false");
   }
 
   // To be safe, return the options.result in an after hook.

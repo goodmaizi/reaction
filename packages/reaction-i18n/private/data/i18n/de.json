@@ -205,7 +205,8 @@
 				"notFoundTitle": "Oops!",
 				"notFoundError": "This is not the product you were looking for.",
 				"tagsAdd": "Tag hinzufügen",
-        "location": "Standort"
+        "location": "Standort",
+				"needsReview": "Mahlzeit wurde verändert und muss von einem Administrator sichtbar gemacht werden."
 			},
 			"products": {
 				"all": "ALLE",

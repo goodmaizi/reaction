@@ -205,7 +205,8 @@
         "notFoundTitle": "Oops!",
         "notFoundError": "This is not the product you were looking for.",
         "tagsAdd": "Add tag",
-        "location": "Location"
+        "location": "Location",
+        "needsReview": "Product has been updated and needs to be reviewed."
       },
       "products": {
         "all": "ALL",
