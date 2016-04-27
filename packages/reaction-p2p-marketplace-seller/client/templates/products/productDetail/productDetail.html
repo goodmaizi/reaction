@@ -14,15 +14,32 @@
       </div>
     </div>
   </div>
-    {{#unless isVisible}}
+    {{#if isVisible}}
       <div class="row">
-        <div class="alert alert-warning">
-          <span data-i18n="productDetail.isNotVisible">This product is not visible to customers.</span>
-            <span data-i18n="productDetail.whenYouAreDone">Admin can make it visible when you're done editing.</span>
+        <div class="success alert-success">
+          <span> {{i18n 'productDetail.isVisible' 'This product is visible to customers.'}}</span>
         </div>
       </div>
+    {{/if}}
+    {{#unless isVisible}}
+      {{#if isActive}}
+        <div class="row">
+          <div class="info alert-info">
+            <span> {{i18n 'productDetail.isActive' 'This product is under review. It will be visible soon.'}}</span>
+          </div>
+        </div>
+      {{else}}
+        <div class="row">
+          <div class="alert alert-warning">
+            <span> {{i18n 'productDetail.isNotVisible' 'This product is not visible to customers.'}}</span>
+              <span> {{i18n 'productDetail.whenYouAreDone' 'Admin can set it visible when you are done editing.'}}</span>
+          </div>
+        </div>
+      {{/if}}
     {{/unless}}
+
     <span id="product-management-alerts">{{> inlineAlerts placement="productManagement"}}</span>
+
   {{else}}
   <div cla_ss="flex-item">
     <div class="panel panel-default">
