@@ -66,6 +66,8 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/addressBook/addressBook.html', 'client');
   api.addFiles('client/templates/addressBook/addressBook.js', 'client');
 
+  api.addFiles("public/images/decision_deco.jpg", ["client"], {isAsset: true});
+
   api.addFiles('common/schemas/accounts.js');
   api.addFiles('common/schemas/products.js');
   api.addFiles('common/schemas/cart.js');
