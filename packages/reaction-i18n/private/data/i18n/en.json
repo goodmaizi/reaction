@@ -631,6 +631,9 @@
           "invited": {
             "subject": "You have been invited to join {{shopName}}"
           },
+          "productReview": {
+						"subject": "New product to be reviewed from {{userName}}"
+					},
           "orderUpdate": {
             "subject": "Order update from {{shopName}}"
           }

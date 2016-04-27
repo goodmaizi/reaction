@@ -95,14 +95,67 @@ Meteor.methods({
       ReactionCore.Log.info("toggle product active state ", product._id, !
         product.isActive);
 
-      return Boolean(ReactionCore.Collections.Products.update(product._id, {
+      let updateResult = Boolean(ReactionCore.Collections.Products.update(product._id, {
         $set: {
           isActive: !product.isActive
         }
       }, { selector: { type: "simple" } }));
+      Meteor.call("products/sendProductReviewEmail", ReactionCore.getCurrentShop()._id, Meteor.userId(), productId);
+      return updateResult;
     }
     ReactionCore.Log.debug("invalid product active state ", productId);
     throw new Meteor.Error(400, "Bad Request");
+  },
+  /**
+   * accounts/sendProductReviewEmail
+   * send an email to the administrator for product review/make visible
+   * @param {String} shopId - shopId of new User
+   * @param {String} userId - new userId to welcome
+   * @param {String} productId - productId to be reviewed
+   * @returns {Boolean} returns boolean
+   */
+  "products/sendProductReviewEmail": function (shopId, userId, productId) {
+    check(shopId, String);
+    check(userId, String);
+    check(productId, String);
+    this.unblock();
+    const user = ReactionCore.Collections.Accounts.findOne(userId);
+    const shop = ReactionCore.Collections.Shops.findOne(shopId);
+    //const product = ReactionCore.Collections.Products.findOne(productId);
+    let adminEmail = process.env.REACTION_EMAIL;
+
+    if (!adminEmail || !adminEmail.length > 0) {
+      return true;
+    }
+
+    // configure email
+    ReactionCore.configureMailUrl();
+    // don't send account emails unless email server configured
+    if (!process.env.MAIL_URL) {
+      ReactionCore.Log.info(`Mail not configured: suppressing welcome email output`);
+      return true;
+    }
+
+    ReactionCore.i18nextInitForServer(i18next);
+    ReactionCore.Log.info("sendProductReviewEmail: i18n server test:", i18next.t('accountsUI.mails.productReview.subject'));
+
+    // fetch and send templates
+    SSR.compileTemplate("products/reviewProduct", ReactionEmailTemplate("products/reviewProduct"));
+    try {
+      return Email.send({
+        to: adminEmail,
+        from: `${shop.name} <${adminEmail}>`,
+        subject: i18next.t('accountsUI.mails.productReview.subject', {userName: Meteor.user().profile.name, defaultValue: `New product to be reviewed from {userName}`}),
+        html: SSR.render("products/reviewProduct", {
+          homepage: Meteor.absoluteUrl(),
+          shop: shop,
+          user: Meteor.user(),
+          productId: productId
+        })
+      });
+    } catch (e) {
+      ReactionCore.Log.warn("Unable to send email, check configuration and port.", e);
+    }
   },
 });
 

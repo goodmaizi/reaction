@@ -642,6 +642,9 @@
           "invited": {
             "subject": "Du wurdest eingeladen bei {{shopName}} mitzumachen"
           },
+					"productReview": {
+						"subject": "Neue Mahlzeit zum Überprüfen/Sichtbarmachen von {{userName}}"
+					},
           "orderUpdate": {
             "subject": "Bestellung bei {{shopName}}"
           }
