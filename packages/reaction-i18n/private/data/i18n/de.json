@@ -206,8 +206,14 @@
 				"notFoundTitle": "Oops!",
 				"notFoundError": "This is not the product you were looking for.",
 				"tagsAdd": "Tag hinzufügen",
-        "location": "Standort",
-				"needsReview": "Mahlzeit ist geändert, sie muss wieder aktiviert werden."
+				"location": "Standort",
+				"needsReview": "Mahlzeit ist geändert, sie muss wieder aktiviert werden.",
+				"pickupTimeFromIsRequired": "Abholzeit 'Von' wird benötigt",
+				"pickupTimeToIsRequired": "Abholzeit 'Bis' wird benötigt",
+				"forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
+				"latestOrderDateMustBeADate": "Letzte Bestellung muss ein Datum sein",
+				"notLoggedIn": "Nicht angemeldet",
+				"youNeedToLogIn": "Du musst Dich zuerst anmelden."
 			},
 			"products": {
 				"all": "ALLE",
@@ -624,7 +630,6 @@
 					"verifyEmailLinkIsForUnknownAddress": "Verifizierung des Tokens fehlgeschlagen. (Das Token gehört zu einer unbekannten E-Mail-Adresse.)",
 					"matchFailed": "Abgleich fehlgeschlagen",
 					"unknownError": "Unbekannter Fehler",
-          "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
 					"description": "Beschreibung",
           "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen.",
 					"noProductsFound": "Keine Mahlzeiten gefunden",
@@ -658,8 +663,7 @@
 			"Menge is required": "Menge muss ausgefüllt sein",
 			"Menge must be an integer": "Menge muss eine Ganzzahl sein",
 			"Preis is required": "Preis muss ausgefüllt sein",
-			"Preis must be a number": "Preis muss eine Zahl sein",
-			"Latest order date must be a Date": "Letzte Bestellung muss ein Datum sein"
+			"Preis must be a number": "Preis muss eine Zahl sein"
 		}
 	}
 }]

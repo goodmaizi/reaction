@@ -113,6 +113,20 @@ Template.productDetail.events({
     let currentVariant = ReactionProduct.selectedVariant();
     let currentProduct = ReactionProduct.selectedProduct();
 
+
+    if (!Blaze._globalHelpers.isLoggedIn()) {
+      Alerts.alert({
+        title: i18next.t("productDetail.notLoggedIn", "Not logged in"),
+        text: i18next.t("productDetail.youNeedToLogIn", "You need to log in or register."),
+        type: "info",
+      },
+      function() {
+      }
+      );
+
+      return;
+    }
+
     if (currentVariant) {
       if (currentVariant.ancestors.length === 1) {
         const options = ReactionProduct.getVariants(currentVariant._id);

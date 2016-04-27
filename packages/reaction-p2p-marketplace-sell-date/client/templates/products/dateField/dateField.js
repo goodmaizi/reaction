@@ -134,6 +134,7 @@ function initDatepickers() {
   });
 
 	// also save manual changes to date and time
+	$('.latestOrderDate-dummy-input').off("keyup");
 	$('.latestOrderDate-dummy-input').on("keyup", function(event) {
     //console.log("latestOrderDate-dummy-input changed: ",event);
 

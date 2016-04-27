@@ -207,7 +207,13 @@
         "notFoundError": "This is not the product you were looking for.",
         "tagsAdd": "Add tag",
         "location": "Location",
-        "needsReview": "Product changed, it needs to be activated again."
+        "needsReview": "Product changed, it needs to be activated again.",
+		"pickupTimeFromIsRequired": "Pickup time 'from' is required",
+		"pickupTimeToIsRequired": "Pickup time 'to' is required",
+        "forSaleOnDateIsNoDate": "For sale date is not a date",
+		"latestOrderDateMustBeADate": "Latest order date must be a date",
+        "notLoggedIn": "Not logged in",
+		"youNeedToLogIn": "You need to log in or register."
       },
       "products": {
         "all": "ALL",
@@ -613,7 +619,6 @@
           "verifyEmailLinkIsForUnknownAddress": "Verify email link is for unknown address",
           "matchFailed": "Match failed",
           "unknownError": "Unknown error",
-          "forSaleOnDateIsNoDate": "For sale date is not a date",
           "description": "Description",
           "invalidDescription": "Description too long. Max 1000 characters.",
 					"noProductsFound": "No products found",

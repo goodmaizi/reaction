@@ -724,7 +724,7 @@ Meteor.methods({
     // translate date to US format for saving
     if (field == "forSaleOnDate") {
       if (value == null || value == "") {
-        throw new Meteor.Error(403, "accountsUI.error.forSaleOnDateIsNoDate");
+        throw new Meteor.Error(403, "forSaleOnDateIsNoDate");
       }
       value = moment(value, "DD.MM.YYYY").format('MM/DD/YYYY');
     }
