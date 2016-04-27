@@ -1,18 +1,36 @@
 
-// "cart/addToCart": function (productId, variantId, itemQty) {
-ReactionCore.MethodHooks.after('cart/addToCart', function(options) {
+ReactionCore.MethodHooks.before('cart/addToCart', function(options) {
   ReactionCore.Log.info("ReactionCore.MethodHooks.before('cart/addToCart') options: ", options);
 
+  // allow only logged in user to do that
+  const shopId = ReactionCore.getShopId();
+  const user = Accounts.user();
+  const isAnonymous = Roles.userIsInRole(user, "anonymous", shopId);
+
+  ReactionCore.Log.info("ReactionCore.MethodHooks.before('cart/addToCart') shopId: ",shopId," user:",user," isAnonymous:",isAnonymous);
+
+  if (isAnonymous) {
+    Log.error("Not logged in.");
+    throw new Meteor.Error(403, "Not logged in",
+      "Anonymous users can't do that.");
+  }
+
+});
+
+// "cart/addToCart": function (productId, variantId, itemQty) {
+ReactionCore.MethodHooks.after('cart/addToCart', function(options) {
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('cart/addToCart') options: ", options);
+
   const cart = ReactionCore.Collections.Cart.findOne({ userId: Meteor.userId() });
-  ReactionCore.Log.info("ReactionCore.MethodHooks.before('cart/addToCart') cart: ",cart," for user: ",Meteor.userId());
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('cart/addToCart') cart: ",cart," for user: ",Meteor.userId());
 
   var productId = options.arguments[0];
   var variantId = options.arguments[1];
 
-  ReactionCore.Log.info("ReactionCore.MethodHooks.before('cart/addToCart') productId: ",productId," for variantId: ",variantId);
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('cart/addToCart') productId: ",productId," for variantId: ",variantId);
   let product = ReactionCore.Collections.Products.findOne({_id: productId});
 
-  ReactionCore.Log.info("ReactionCore.MethodHooks.before('cart/addToCart') items.variants: ",cart.items[0].variants);
+  ReactionCore.Log.info("ReactionCore.MethodHooks.after('cart/addToCart') items.variants: ",cart.items[0].variants);
   const cartVariantExists = cart.items && cart.items
     .some(item => item.variants._id === variantId);
 

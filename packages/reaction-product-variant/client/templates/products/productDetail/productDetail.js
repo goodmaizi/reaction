@@ -113,17 +113,8 @@ Template.productDetail.events({
     let currentVariant = ReactionProduct.selectedVariant();
     let currentProduct = ReactionProduct.selectedProduct();
 
-
-    if (!Blaze._globalHelpers.isLoggedIn()) {
-      Alerts.alert({
-        title: i18next.t("productDetail.notLoggedIn", "Not logged in"),
-        text: i18next.t("productDetail.youNeedToLogIn", "You need to log in or register."),
-        type: "info",
-      },
-      function() {
-      }
-      );
-
+    // allow only logged in users to do that
+    if (!Blaze._globalHelpers.isLoggedIn(true)) {
       return;
     }
 
