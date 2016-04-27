@@ -32,6 +32,7 @@ Package.onUse(function(api) {
   api.use('ecmascript');
   api.use('templating');
   api.use("less");
+  api.use("email");
   api.use("reactioncommerce:core@0.10.0");
 
   api.use("reactioncommerce:reaction-product-variant");

@@ -209,7 +209,8 @@
 				"notFoundTitle": "Oops!",
 				"notFoundError": "This is not the product you were looking for.",
 				"tagsAdd": "Tag hinzufügen",
-        "location": "Standort",
+				"location": "Standort",
+				"needsReview": "Mahlzeit ist geändert, sie muss wieder aktiviert werden.",
 				"pickupTimeFromIsRequired": "Abholzeit 'Von' wird benötigt",
 				"pickupTimeToIsRequired": "Abholzeit 'Bis' wird benötigt",
 				"forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
@@ -646,6 +647,9 @@
           "invited": {
             "subject": "Du wurdest eingeladen bei {{shopName}} mitzumachen"
           },
+					"productReview": {
+						"subject": "Neue Mahlzeit zum Überprüfen/Sichtbarmachen von {{userName}}"
+					},
           "orderUpdate": {
             "subject": "Bestellung bei {{shopName}}"
           }
