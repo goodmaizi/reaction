@@ -28,6 +28,10 @@ function uploadHandler(event) {
     // will have a chance to be displayed
     const toGrid = variant.ancestors.length === 1;
 
+    if(ReactionProduct.selectedProduct().isActive) {
+      Alerts.toast(i18next.t("productDetail.needsReview", "Product changed, it needs to be activated again."), "info");
+    }
+
     return FS.Utility.eachFile(event, function (file) {
       let fileObj;
       fileObj = new FS.File(file);

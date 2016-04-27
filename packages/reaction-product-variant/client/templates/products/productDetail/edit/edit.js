@@ -21,6 +21,11 @@ Template.productDetailEdit.events({
   "change input,textarea": function (event) {
     const self = this;
     const productId = ReactionProduct.selectedProductId();
+
+    if((self.field == "title" || self.field == "description") && ReactionProduct.selectedProduct().isActive) {
+      Alerts.toast(i18next.t("productDetail.needsReview", "Product changed, it needs to be activated again."), "info");
+    }
+
     Meteor.call("products/updateProductField", productId, self.field,
       $(event.currentTarget).val(),
       (error, result) => {

@@ -16,6 +16,26 @@ function belongsToCurrentUser(productId) {
   return productBelongingToCurrUser != null;
 }
 
+/**
+ * @function setProductInvisibleAndInactive
+ * @description set the product insvisible and inactive
+ * @param {String} existing product _id
+ * @return {Boolean}
+ */
+function setProductInvisibleAndInactive(productId) {
+  let updateProduct = Boolean(ReactionCore.Collections.Products.update(productId,
+    {
+      $set: {
+        isActive: false,
+        isVisible: false
+      }
+    },
+    {selector: {type: "simple"}}
+  ));
+  ReactionCore.Log.info("Product " + productId + " set isActive & isVisible to : false");
+  return updateProduct;
+}
+
 Meteor.methods({
   "products/belongsToCurrentUser": function (productId) {
     check(productId, Match.OneOf(Array, String));
@@ -199,11 +219,7 @@ ReactionCore.MethodHooks.after('products/updateProductField', function(options) 
   }
 
   if (productField == "title" || productField == "description") {
-    ReactionCore.Collections.Products.update(productId,
-      {$set: {isVisible: false}},
-      {selector: {type: "simple"}}
-    );
-    ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set simple isVisible to : false");
+    setProductInvisibleAndInactive(productId);
   }
 
   // To be safe, return the options.result in an after hook.
@@ -297,5 +313,14 @@ ReactionCore.MethodHooks.before('products/publishProduct', function(options) {
   if (!ReactionCore.hasAdminAccess()) {
     ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/publishProduct') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
+  }
+});
+
+ReactionCore.Collections.Media.on('uploaded', function (fileObj) {
+  ReactionCore.Log.info("ReactionCore.Collections.Media.on('uploaded') fileObj: ", fileObj);
+  var productId = fileObj.metadata.productId;
+
+  if(productId != undefined) {
+    setProductInvisibleAndInactive(productId);
   }
 });

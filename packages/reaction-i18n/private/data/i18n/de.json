@@ -207,7 +207,7 @@
 				"notFoundError": "This is not the product you were looking for.",
 				"tagsAdd": "Tag hinzufügen",
         "location": "Standort",
-				"needsReview": "Mahlzeit wurde verändert und muss von einem Administrator sichtbar gemacht werden."
+				"needsReview": "Mahlzeit ist geändert, sie muss wieder aktiviert werden."
 			},
 			"products": {
 				"all": "ALLE",

@@ -44,12 +44,6 @@ Template.productDetail.events({ // for some strange reason our custom event need
   },
 });
 
-Template.productDetail.events({
-  "change .title,.description-edit,#files": function (event) {
-    Alerts.toast(i18next.t("productDetail.needsReview", "Product has been updated and needs to be rewed."), "info");
-  }
-});
-
 Template.registerHelper("belongsToCurrentUser", function (productId) {
   if (_.isArray(productId) === true) {
     productId = productId[0];
