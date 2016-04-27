@@ -316,7 +316,9 @@
 					"completed": "Completed",
 					"canceled": "Canceled",
 					"refunded": "Refunded"
-				}
+				},
+				"outOfStock": "Nicht mehr verfügbar",
+				"productInventoryHasChanged": "Sorry. Jemand hat dieses Produkt gekauft während Du am shoppen warst. Passe Deinen Warenkorb an."
 			},
 			"orderShipping": {
 				"shipTo": "Ship To",

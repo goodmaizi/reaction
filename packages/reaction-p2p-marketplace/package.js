@@ -46,6 +46,8 @@ Package.onUse(function(api) {
   api.addFiles("client/templates/products/products.less", ["client"]);
   api.addFiles("client/templates/products/productList/productList.less", ["client"]);
 
+  api.addFiles("server/methods/cart.js", ["server"]);
+
 });
 
 Package.onTest(function(api) {
