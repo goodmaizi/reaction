@@ -334,8 +334,8 @@
 				"resendNotification": "Resend Shipment Notification"
 			},
 			"cartCheckout": {
-				"surprise": "Woah!",
-				"emptyCheckoutCart": "looks like your cart is empty!"
+				"surprise": "Hoppla!",
+				"emptyCheckoutCart": "Sieht aus als wäre Dein Warenkorb leer."
 			},
 			"cartCompleted": {
 				"thankYou": "Vielen Dank!",
