@@ -147,8 +147,11 @@
         "search": "Search products..."
       },
       "productDetail": {
+        "productDetail": "Product detail",
         "productManagement": "Product management",
         "makeInvisible": "Make invisible",
+        "isActive": "This product is under review. It will be visible soon.",
+        "isVisible": "This product is visible to customers.",
         "isNotVisible": "This product is not visible to customers.",
         "makeItVisible": "You can make it visible",
         "whenYouAreDone": "when you're done editing.",
