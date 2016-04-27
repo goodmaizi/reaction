@@ -46,7 +46,7 @@ Package.onUse(function(api) {
                 'client/templates/products/productDetail/productDetailHideVariants.js',
                 'client/templates/products/productDetail/simplifiedProduct.html',
                 'client/templates/products/productDetail/simplifiedProduct.js',
-                'client/templates/cart/checkout/shipping/shipping.js',
+                'client/templates/cart/checkout/checkout.less',
                 'client/templates/products/productDetail/tags/tags.html',
                 'client/templates/products/productDetail/tags/tags.js',
                 'client/templates/products/productDetail/tags/tags.less',
