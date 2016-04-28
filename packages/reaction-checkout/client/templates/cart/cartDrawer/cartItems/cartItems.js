@@ -6,9 +6,9 @@ Template.cartDrawerItems.onRendered(function () {
   return $(function () {
       var cartSwiper = $(".cart-drawer-swiper-container").swiper({
       autoplayStopOnLast : true,
-      autoplay: 3000,
+      autoplay: 2000,
       mode: "horizontal",
-      loop: false,
+      loop: true,
       setWrapperSize: true,
       grabCursor: true,
       slidesPerView: 4,
