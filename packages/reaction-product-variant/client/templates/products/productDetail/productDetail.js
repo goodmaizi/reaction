@@ -113,6 +113,11 @@ Template.productDetail.events({
     let currentVariant = ReactionProduct.selectedVariant();
     let currentProduct = ReactionProduct.selectedProduct();
 
+    // allow only logged in users to do that
+    if (!Blaze._globalHelpers.isLoggedIn(true)) {
+      return;
+    }
+
     if (currentVariant) {
       if (currentVariant.ancestors.length === 1) {
         const options = ReactionProduct.getVariants(currentVariant._id);

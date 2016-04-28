@@ -30,7 +30,7 @@ Template.dashboardProductsList.onCreated(function() {
       }, { sort: { uploadedAt: 1 } });
       console.log("product media: ",media);
 
-      if ( (product.title == null|| product.title == "")
+      if ( (product.title == null || product.title == "")
           && (product.description == null || product.description == "")
           && media == null) {
         console.log("delete empty product!");

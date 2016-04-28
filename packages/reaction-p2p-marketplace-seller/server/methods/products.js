@@ -16,6 +16,26 @@ function belongsToCurrentUser(productId) {
   return productBelongingToCurrUser != null;
 }
 
+/**
+ * @function setProductInvisibleAndInactive
+ * @description set the product insvisible and inactive
+ * @param {String} existing product _id
+ * @return {Boolean}
+ */
+function setProductInvisibleAndInactive(productId) {
+  let updateProduct = Boolean(ReactionCore.Collections.Products.update(productId,
+    {
+      $set: {
+        isActive: false,
+        isVisible: false
+      }
+    },
+    {selector: {type: "simple"}}
+  ));
+  ReactionCore.Log.info("Product " + productId + " set isActive & isVisible to : false");
+  return updateProduct;
+}
+
 Meteor.methods({
   "products/belongsToCurrentUser": function (productId) {
     check(productId, Match.OneOf(Array, String));
@@ -75,14 +95,67 @@ Meteor.methods({
       ReactionCore.Log.info("toggle product active state ", product._id, !
         product.isActive);
 
-      return Boolean(ReactionCore.Collections.Products.update(product._id, {
+      let updateResult = Boolean(ReactionCore.Collections.Products.update(product._id, {
         $set: {
           isActive: !product.isActive
         }
       }, { selector: { type: "simple" } }));
+      Meteor.call("products/sendProductReviewEmail", ReactionCore.getCurrentShop()._id, Meteor.userId(), productId);
+      return updateResult;
     }
     ReactionCore.Log.debug("invalid product active state ", productId);
     throw new Meteor.Error(400, "Bad Request");
+  },
+  /**
+   * accounts/sendProductReviewEmail
+   * send an email to the administrator for product review/make visible
+   * @param {String} shopId - shopId of new User
+   * @param {String} userId - new userId to welcome
+   * @param {String} productId - productId to be reviewed
+   * @returns {Boolean} returns boolean
+   */
+  "products/sendProductReviewEmail": function (shopId, userId, productId) {
+    check(shopId, String);
+    check(userId, String);
+    check(productId, String);
+    this.unblock();
+    const user = ReactionCore.Collections.Accounts.findOne(userId);
+    const shop = ReactionCore.Collections.Shops.findOne(shopId);
+    //const product = ReactionCore.Collections.Products.findOne(productId);
+    let adminEmail = process.env.REACTION_EMAIL;
+
+    if (!adminEmail || !adminEmail.length > 0) {
+      return true;
+    }
+
+    // configure email
+    ReactionCore.configureMailUrl();
+    // don't send account emails unless email server configured
+    if (!process.env.MAIL_URL) {
+      ReactionCore.Log.info(`Mail not configured: suppressing welcome email output`);
+      return true;
+    }
+
+    ReactionCore.i18nextInitForServer(i18next);
+    ReactionCore.Log.info("sendProductReviewEmail: i18n server test:", i18next.t('accountsUI.mails.productReview.subject'));
+
+    // fetch and send templates
+    SSR.compileTemplate("products/reviewProduct", ReactionEmailTemplate("products/reviewProduct"));
+    try {
+      return Email.send({
+        to: adminEmail,
+        from: `${shop.name} <${adminEmail}>`,
+        subject: i18next.t('accountsUI.mails.productReview.subject', {userName: Meteor.user().profile.name, defaultValue: `New product to be reviewed from {userName}`}),
+        html: SSR.render("products/reviewProduct", {
+          homepage: Meteor.absoluteUrl(),
+          shop: shop,
+          user: Meteor.user(),
+          productId: productId
+        })
+      });
+    } catch (e) {
+      ReactionCore.Log.warn("Unable to send email, check configuration and port.", e);
+    }
   },
 });
 
@@ -180,6 +253,7 @@ ReactionCore.MethodHooks.before('products/updateProductField', function(options)
 ReactionCore.MethodHooks.after('products/updateProductField', function(options) {
   ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') options: ", options);
   var productId = options.arguments[0];
+  var productField = options.arguments[1];
 
   const product = ReactionCore.Collections.Products.findOne(productId);
   const variants = ReactionCore.Collections.Products.find({
@@ -195,6 +269,10 @@ ReactionCore.MethodHooks.after('products/updateProductField', function(options) 
       );
       ReactionCore.Log.info("ReactionCore.MethodHooks.after('products/updateProductField') set variant title to :", product.title);
     }
+  }
+
+  if (productField == "title" || productField == "description") {
+    setProductInvisibleAndInactive(productId);
   }
 
   // To be safe, return the options.result in an after hook.
@@ -288,5 +366,14 @@ ReactionCore.MethodHooks.before('products/publishProduct', function(options) {
   if (!ReactionCore.hasAdminAccess()) {
     ReactionCore.Log.info("ReactionCore.MethodHooks.before('products/publishProduct') Access Denied!");
     throw new Meteor.Error(403, "Access Denied");
+  }
+});
+
+ReactionCore.Collections.Media.on('uploaded', function (fileObj) {
+  ReactionCore.Log.info("ReactionCore.Collections.Media.on('uploaded') fileObj: ", fileObj);
+  var productId = fileObj.metadata.productId;
+
+  if(productId != undefined) {
+    setProductInvisibleAndInactive(productId);
   }
 });

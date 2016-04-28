@@ -147,8 +147,11 @@
         "search": "Search products..."
       },
       "productDetail": {
+        "productDetail": "Product detail",
         "productManagement": "Product management",
         "makeInvisible": "Make invisible",
+        "isActive": "This product is under review. It will be visible soon.",
+        "isVisible": "This product is visible to customers.",
         "isNotVisible": "This product is not visible to customers.",
         "makeItVisible": "You can make it visible",
         "whenYouAreDone": "when you're done editing.",
@@ -206,7 +209,14 @@
         "notFoundTitle": "Oops!",
         "notFoundError": "This is not the product you were looking for.",
         "tagsAdd": "Add tag",
-        "location": "Location"
+        "location": "Location",
+        "needsReview": "Product changed, it needs to be activated again.",
+		"pickupTimeFromIsRequired": "Pickup time 'from' is required",
+		"pickupTimeToIsRequired": "Pickup time 'to' is required",
+        "forSaleOnDateIsNoDate": "For sale date is not a date",
+		"latestOrderDateMustBeADate": "Latest order date must be a date",
+        "notLoggedIn": "Not logged in",
+		"youNeedToLogIn": "You need to log in or register."
       },
       "products": {
         "all": "ALL",
@@ -307,7 +317,9 @@
           "completed": "Completed",
           "canceled": "Canceled",
           "refunded": "Refunded"
-        }
+        },
+        "outOfStock": "No longer available",
+				"productInventoryHasChanged": "We're sorry. Somebody bought this product while you were shopping."
       },
       "orderShipping": {
         "shipTo": "Ship To",
@@ -612,7 +624,6 @@
           "verifyEmailLinkIsForUnknownAddress": "Verify email link is for unknown address",
           "matchFailed": "Match failed",
           "unknownError": "Unknown error",
-          "forSaleOnDateIsNoDate": "For sale date is not a date",
           "description": "Description",
           "invalidDescription": "Description too long. Max 1000 characters.",
 					"noProductsFound": "No products found",
@@ -625,6 +636,9 @@
           "invited": {
             "subject": "You have been invited to join {{shopName}}"
           },
+          "productReview": {
+						"subject": "New product to be reviewed from {{userName}}"
+					},
           "orderUpdate": {
             "subject": "Order update from {{shopName}}"
           }

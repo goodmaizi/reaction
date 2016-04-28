@@ -20,7 +20,7 @@ ReactionCore.Collections.Media = new FS.Collection("Media", {
       chunkSize: 1 * 1024 * 1024,
       transformWrite: function (fileObj, readStream, writeStream) {
         if (gm.isAvailable) {
-          gm(readStream, fileObj.name).resize("1000", "1000").stream()
+          gm(readStream, fileObj.name).autoOrient().resize("1000", "1000").stream()
             .pipe(writeStream);
         } else {
           readStream.pipe(writeStream);
@@ -30,7 +30,7 @@ ReactionCore.Collections.Media = new FS.Collection("Media", {
       chunkSize: 1 * 1024 * 1024,
       transformWrite: function (fileObj, readStream, writeStream) {
         if (gm.isAvailable) {
-          gm(readStream, fileObj.name).resize("600", "600").stream().pipe(
+          gm(readStream, fileObj.name).autoOrient().resize("600", "600").stream().pipe(
             writeStream);
         } else {
           readStream.pipe(writeStream);
@@ -40,7 +40,7 @@ ReactionCore.Collections.Media = new FS.Collection("Media", {
       chunkSize: 1 * 1024 * 1024,
       transformWrite: function (fileObj, readStream, writeStream) {
         if (gm.isAvailable) {
-          gm(readStream).resize("235", "235" + "^").gravity("Center")
+          gm(readStream).autoOrient().resize("235", "235" + "^").gravity("Center")
             .extent("235", "235").stream("PNG").pipe(writeStream);
         } else {
           readStream.pipe(writeStream);
@@ -50,7 +50,7 @@ ReactionCore.Collections.Media = new FS.Collection("Media", {
       chunkSize: 1 * 1024 * 1024,
       transformWrite: function (fileObj, readStream, writeStream) {
         if (gm.isAvailable) {
-          gm(readStream).resize("100", "100" + "^").gravity("Center")
+          gm(readStream).autoOrient().resize("100", "100" + "^").gravity("Center")
             .extent("100", "100").stream("PNG").pipe(writeStream);
         } else {
           readStream.pipe(writeStream);

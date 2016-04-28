@@ -8,7 +8,6 @@ function checkTermsAndConditions() {
     console.log("terms not accepted!");
     Alerts.inline(i18next.t('accountsUI.error.mustAcceptTerms', {defaultValue: "You must accept the terms and conditions"}), "error", {
       placement: "terms",
-      //i18nKey: "productDetail.outOfStock",
       autoHide: 10000
     });
   }
@@ -47,7 +46,6 @@ Template.marketplaceUserDecision.events(
           else if (error) {
             Alerts.inline(i18next.t('accountsUI.error.mustAcceptTerms', {defaultValue: "You must accept the terms and conditions"}), "error", {
               placement: "terms",
-              //i18nKey: "productDetail.outOfStock",
               autoHide: 10000
             });
           }

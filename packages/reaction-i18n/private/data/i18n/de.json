@@ -147,11 +147,14 @@
 				"search": "Suche in Produkten..."
 			},
 			"productDetail": {
-				"productManagement": "Produkt verwalten",
+				"productDetail": "Mahlzeit Detail",
+				"productManagement": "Mahlzeit verwalten",
 				"makeInvisible": "Unsichtbar machen",
-				"isNotVisible": "Diese Mahlzeit ist für den Kunden nicht sichtbar (inaktiv).",
-				"makeItVisible": "Diese Mahlzeit für den Kunden sichtbar machen (aktiv)",
-				"whenYouAreDone": "Der Administrator macht sie sichtbar wenn Du mit editieren fertig bist und sie aktiviert hast.",
+				"isActive": "Diese Mahlzeit wird gerade von Snaxter geprüft. Bitte habe etwas Geduld.",
+				"isVisible": "Diese Mahlzeit ist für jeden sichtbar und kann bestellt werden.",
+				"isNotVisible": "Diese Mahlzeit ist nicht sichtbar und kann noch nicht bestellt werden.",
+				"makeItVisible": "Diese Mahlzeit sichtbar machen",
+				"whenYouAreDone": "Snaxter gibt die Mahlzeit frei, sobald Du mit editieren fertig bist und sie aktiviert hast.",
 				"tags": "Kategorie",
 				"tagsAdd": "Tag hinzufügen",
 				"tagsEdit": "Tags editieren",
@@ -168,7 +171,7 @@
 				"generateBarcodes": "Generate Barcodes",
 				"hideBarcodes": "Hide Barcodes",
 				"options": "Optionen",
-				"addToCart": "Zum Warenkorb hinzufügen",
+				"addToCart": "Bestellen",
 				"chooseOptions": "Es muss eine Produktoption ausgewählt werden, bevor es in den Warenkorb gelegt werden kann.",
 				"outOfStock": "Dieses Produkt ist leider vergriffen und kann nicht geordert werden!",
 				"productDeleteError": "Fehler beim Löschen von ",
@@ -198,7 +201,7 @@
 				"pickupTime": "Abholzeit",
 				"pickupTimeFrom": "Von",
 				"pickupTimeTo": "Bis",
-				"latestOrderDate": "Letzte Bestellung",
+				"latestOrderDate": "Letzter Bestellzeitpunkt",
 				"lastOrderTime": "Um",
 				"changeSaved": "Änderung gespeichert",
 				"makeActive": "Aktivieren",
@@ -206,7 +209,14 @@
 				"notFoundTitle": "Oops!",
 				"notFoundError": "This is not the product you were looking for.",
 				"tagsAdd": "Tag hinzufügen",
-        "location": "Standort"
+				"location": "Standort",
+				"needsReview": "Mahlzeit ist geändert, sie muss wieder aktiviert werden.",
+				"pickupTimeFromIsRequired": "Abholzeit 'Von' wird benötigt",
+				"pickupTimeToIsRequired": "Abholzeit 'Bis' wird benötigt",
+				"forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
+				"latestOrderDateMustBeADate": "Letzte Bestellung muss ein Datum sein",
+				"notLoggedIn": "Nicht angemeldet",
+				"youNeedToLogIn": "Du musst Dich zuerst anmelden."
 			},
 			"products": {
 				"all": "ALLE",
@@ -307,7 +317,9 @@
 					"completed": "Completed",
 					"canceled": "Canceled",
 					"refunded": "Refunded"
-				}
+				},
+				"outOfStock": "Nicht mehr verfügbar",
+				"productInventoryHasChanged": "Sorry. Jemand hat dieses Produkt gekauft während Du am shoppen warst. Passe Deinen Warenkorb an."
 			},
 			"orderShipping": {
 				"shipTo": "Ship To",
@@ -322,8 +334,8 @@
 				"resendNotification": "Resend Shipment Notification"
 			},
 			"cartCheckout": {
-				"surprise": "Woah!",
-				"emptyCheckoutCart": "looks like your cart is empty!"
+				"surprise": "Hoppla!",
+				"emptyCheckoutCart": "Sieht aus als wäre Dein Warenkorb leer."
 			},
 			"cartCompleted": {
 				"thankYou": "Vielen Dank!",
@@ -555,8 +567,8 @@
 				"with": "mit",
 				"checkoutAsGuest": "Ohne Benutzerkonto bestellen",
 				"role": "Role",
-				"userDecision": "Deine Entscheidung!",
-				"userDecisionDesc": "Entscheide ob du Mahlzeiten kaufen oder verkaufen willst.",
+				"userDecision": "Bist Du bereit für snaxter?",
+				"userDecisionDesc": "Leidenschaftlicher Koch oder Bärenhunger?",
 				"isSeller": "Ich möchte kochen",
 				"isBuyer": "Ich möchte essen",
 				"boughtOrders": "Meine Käufe",
@@ -623,7 +635,6 @@
 					"verifyEmailLinkIsForUnknownAddress": "Verifizierung des Tokens fehlgeschlagen. (Das Token gehört zu einer unbekannten E-Mail-Adresse.)",
 					"matchFailed": "Abgleich fehlgeschlagen",
 					"unknownError": "Unbekannter Fehler",
-          "forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
 					"description": "Beschreibung",
           "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen.",
 					"noProductsFound": "Keine Mahlzeiten gefunden",
@@ -636,6 +647,9 @@
           "invited": {
             "subject": "Du wurdest eingeladen bei {{shopName}} mitzumachen"
           },
+					"productReview": {
+						"subject": "Neue Mahlzeit zum Überprüfen/Sichtbarmachen von {{userName}}"
+					},
           "orderUpdate": {
             "subject": "Bestellung bei {{shopName}}"
           }
@@ -657,8 +671,7 @@
 			"Menge is required": "Menge muss ausgefüllt sein",
 			"Menge must be an integer": "Menge muss eine Ganzzahl sein",
 			"Preis is required": "Preis muss ausgefüllt sein",
-			"Preis must be a number": "Preis muss eine Zahl sein",
-			"Latest order date must be a Date": "Letzte Bestellung muss ein Datum sein"
+			"Preis must be a number": "Preis muss eine Zahl sein"
 		}
 	}
 }]

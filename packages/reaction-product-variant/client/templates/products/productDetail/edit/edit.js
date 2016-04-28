@@ -21,11 +21,17 @@ Template.productDetailEdit.events({
   "change input,textarea": function (event) {
     const self = this;
     const productId = ReactionProduct.selectedProductId();
+
+    if((self.field == "title" || self.field == "description") && ReactionProduct.selectedProduct().isActive) {
+      Alerts.toast(i18next.t("productDetail.needsReview", "Product changed, it needs to be activated again."), "info");
+    }
+
     Meteor.call("products/updateProductField", productId, self.field,
       $(event.currentTarget).val(),
       (error, result) => {
         if (error) {
-          return Alerts.inline(`${i18next.t(error.reason)} `, "error", {
+          Alerts.removeSeen();
+          return Alerts.inline(`${i18next.t("productDetail."+ReactionCore.toI18nKey(error.reason))} `, "error", {
             placement: "productManagement",
             i18nKey: "productDetail.errorMsg",
             id: self._id
@@ -37,6 +43,7 @@ Template.productDetailEdit.events({
             Meteor.call("products/setHandle", productId,
               (err, res) => {
                 if (err) {
+                  Alerts.removeSeen();
                   Alerts.inline(err.reason, "error", {
                     placement: "productManagement",
                     i18nKey: "productDetail.errorMsg",
