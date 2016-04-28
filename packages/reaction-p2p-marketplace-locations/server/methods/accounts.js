@@ -51,7 +51,7 @@ ReactionCore.MethodHooks.after("accounts/addressBookUpdate",
 Meteor.methods(
   {
     "accounts/getUserAddress": function (userId) {
-      check(userId, String);
+      check(userId, Match.Optional(String, null));
 
       let account =  ReactionCore.Collections.Accounts.findOne({userId: userId});
       //ReactionCore.Log.info("User address book: ",account.profile.addressBook);
