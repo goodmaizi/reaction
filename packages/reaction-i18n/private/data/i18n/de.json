@@ -27,7 +27,7 @@
 					"authorizenetDescription": "Authorize.net payments",
 					"shippingLabel": "Shipping",
 					"shippingDescription": "Provide shipping rates",
-					"braintreeLabel": "Braintree",
+					"braintreeLabel": "Kreditkarte",
 					"braintreeDescription": "Braintree payments",
 					"catalogLabel": "Catalog",
 					"catalogDescription": "Allows to create simple products",
@@ -352,7 +352,7 @@
 				"seller": "Verkäufer"
 			},
 			"checkoutLogin": {
-				"welcome": "Welcome, it's so good to see you.",
+				"welcome": "Hallo, schön Dich zu sehen!",
 				"loginCompleted": "Benutzerkonto abgeschlossen",
 				"createOrLogin": "Benutzerkonto anlegen oder anmelden",
 				"guestOrLogin": "Anmelden oder als Gast fortfahren",
@@ -362,7 +362,7 @@
 			"addressBookGrid": {
 				"addressBook": "Adressen",
 				"addAddress": "Adresse hinzufügen",
-				"chooseAddress": "Bitte wähle die Versandadresse",
+				"chooseAddress": "Deine Adresse",
 				"createDefault": "Standardadresse festlegen",
 				"selectShippingAddress": "Bitte Versandadresse wählen",
 				"selectBillingAddress": "Bitte Rechnungsadresse wählen"
@@ -473,7 +473,7 @@
 				"configureNow": "Configure now."
 			},
 			"checkoutReview": {
-				"review": "Durchsicht"
+				"review": "Zusammenfassung"
 			},
 			"checkoutShipping": {
 				"selectShippingOption": "Bitte Versandmethode wählen.",
