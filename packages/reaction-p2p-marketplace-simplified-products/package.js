@@ -50,6 +50,8 @@ Package.onUse(function(api) {
                 'client/templates/products/productDetail/tags/tags.html',
                 'client/templates/products/productDetail/tags/tags.js',
                 'client/templates/products/productDetail/tags/tags.less',
+                'client/templates/cart/cartDrawer/cartSubTotals/cartSubTotals.html',
+                'client/templates/cart/cartDrawer/cartSubTotals/cartSubTotals.js'
               ],
               'client'
               );
