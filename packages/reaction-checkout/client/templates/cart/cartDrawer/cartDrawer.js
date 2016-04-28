@@ -50,10 +50,10 @@ Template.openCartDrawer.events({
     // allow only logged in users to do that
     if (!Blaze._globalHelpers.isLoggedIn(true)) {
       return;
-    }    
+    }
 
-    $("#cart-drawer-container").fadeOut();
-    Session.set("displayCart", false);
+    //$("#cart-drawer-container").fadeOut();
+    //Session.set("displayCart", false);
     return ReactionRouter.go("cart/checkout");
   },
   "click .remove-cart-item": function (event) {
