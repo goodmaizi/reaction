@@ -340,13 +340,16 @@
       "cartCompleted": {
         "thankYou": "Thank you!",
         "itemsFrom": "item(s) from",
-        "yourOrderIsNow": "Your order is now",
+        "yourOrderIsNow": "Your order number is:",
         "summaryMessage": "Thank you for your order.",
         "submitted": "submitted",
         "registerGuest": "Hello! Add an email and receive order updates.",
-        "trackYourDelivery": "Order updates will be sent to",
+        "trackYourDelivery": "Order confirmation has been sent to:",
         "noOrdersFound": "No orders found.",
-        "adminMessage": "You are viewing orders as an administrator"
+        "adminMessage": "You are viewing orders as an administrator",
+        "ordered": "Ordered",
+        "on": "on",
+        "seller": "Seller"
       },
       "checkoutLogin": {
         "welcome": "Welcome, it's so good to see you.",

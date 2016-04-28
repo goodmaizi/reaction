@@ -340,13 +340,16 @@
 			"cartCompleted": {
 				"thankYou": "Vielen Dank!",
 				"itemsFrom": "Artikel von",
-				"yourOrderIsNow": "Im Warenkorb",
+				"yourOrderIsNow": "Ihre Bestellnummer lautet:",
 				"summaryMessage": "En guete!",
 				"submitted": "gesendet",
 				"registerGuest": "Bitte gib uns Deine E-Mail-Adresse an, damit wir Dich über neue Köche und Mahlzeiten informieren können.",
-				"trackYourDelivery": "Deine Bestellung wird verschickt an",
+				"trackYourDelivery": "Die Bestellungsbestätigung wurde verschickt an:",
 				"noOrdersFound": "Keine Bestellung vorhanden.",
-				"adminMessage": "You are viewing orders as an administrator"
+				"adminMessage": "You are viewing orders as an administrator",
+				"ordered": "Bestellt",
+				"on": "am",
+				"seller": "Verkäufer"
 			},
 			"checkoutLogin": {
 				"welcome": "Welcome, it's so good to see you.",
