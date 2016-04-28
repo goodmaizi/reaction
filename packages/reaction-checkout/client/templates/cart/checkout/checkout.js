@@ -27,6 +27,9 @@ Template.cartCheckout.onCreated(function () {
     // this will transition to review
     // make all checkout steps active immediately. don't force address and shipping.
     Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "coreCheckoutShipping");
+
+    // always show cart on checkout
+    Session.set("displayCart", true);
   }
 });
 

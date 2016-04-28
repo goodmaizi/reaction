@@ -52,8 +52,8 @@ Template.openCartDrawer.events({
       return;
     }
 
-    //$("#cart-drawer-container").fadeOut();
-    //Session.set("displayCart", false);
+    $("#cart-drawer-container").fadeOut();
+    Session.set("displayCart", false);
     return ReactionRouter.go("cart/checkout");
   },
   "click .remove-cart-item": function (event) {
