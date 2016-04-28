@@ -38,7 +38,8 @@ Package.onUse(function(api) {
 
   api.use("scydev:reaction-p2p-marketplace-seller");
 
-  api.addFiles('client/templates/products/productDetail/simplifiedProductBuyer.less', 'client', {isAsset: true});
+  api.addFiles('client/templates/products/productDetail/simplifiedProductBuyer.css', 'client', {isAsset: true});
+  
   api.addFiles('client/templates/products/productDetail/simplifiedProductSeller.css', 'client', {isAsset: true});
 
   api.addFiles([

@@ -2,7 +2,6 @@
 <template name="simplifiedProductCssInclude">
     {{#if belongsToCurrentUser _id }}
       <!-- why doesn't this linked css get applied? -->
-      <link rel="stylesheet" href="{{ urlFor 'simplifiedProductSeller.css' }}">
       <style>
 
         .variant-detail,
@@ -25,7 +24,6 @@
       </style>
     {{else}}
       <!-- why doesn't this linked css get applied? -->
-      <link rel="stylesheet" href="{{ urlFor 'simplifiedProductBuyer.less' }}">
       <style>
 
         .product-detail-field.pageTitle,
