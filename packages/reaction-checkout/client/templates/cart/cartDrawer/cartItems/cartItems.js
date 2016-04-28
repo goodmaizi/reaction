@@ -8,7 +8,7 @@ Template.cartDrawerItems.onRendered(function () {
       autoplayStopOnLast : true,
       autoplay: 2000,
       mode: "horizontal",
-      loop: true,
+      loop: false,
       setWrapperSize: true,
       grabCursor: true,
       slidesPerView: 4,
