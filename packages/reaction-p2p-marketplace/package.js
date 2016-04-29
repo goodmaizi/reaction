@@ -48,6 +48,10 @@ Package.onUse(function(api) {
   api.addFiles("client/templates/products/productsMarketplace.js", ["client"]);
   api.addFiles("client/templates/products/products.less", ["client"]);
   api.addFiles("client/templates/products/productList/productList.less", ["client"]);
+  api.addFiles("client/templates/cart/checkout/header/header.html", ["client"]);
+  api.addFiles("client/templates/cart/checkout/header/header.js", ["client"]);
+
+  api.addFiles("server/methods/cart.js", ["server"]);
 
   api.addFiles("client/templates/cart/checkout/completed/completed.html", "client");
   api.addFiles("client/templates/cart/checkout/completed/completed.js", "client");

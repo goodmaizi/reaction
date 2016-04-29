@@ -27,7 +27,7 @@
 					"authorizenetDescription": "Authorize.net payments",
 					"shippingLabel": "Shipping",
 					"shippingDescription": "Provide shipping rates",
-					"braintreeLabel": "Braintree",
+					"braintreeLabel": "Kreditkarte",
 					"braintreeDescription": "Braintree payments",
 					"catalogLabel": "Catalog",
 					"catalogDescription": "Allows to create simple products",
@@ -147,11 +147,14 @@
 				"search": "Suche in Produkten..."
 			},
 			"productDetail": {
-				"productManagement": "Produkt verwalten",
+				"productDetail": "Mahlzeit Detail",
+				"productManagement": "Mahlzeit verwalten",
 				"makeInvisible": "Unsichtbar machen",
-				"isNotVisible": "Diese Mahlzeit ist für den Kunden nicht sichtbar (inaktiv).",
-				"makeItVisible": "Diese Mahlzeit für den Kunden sichtbar machen (aktiv)",
-				"whenYouAreDone": "Der Administrator macht sie sichtbar wenn Du mit editieren fertig bist und sie aktiviert hast.",
+				"isActive": "Diese Mahlzeit wird gerade von Snaxter geprüft. Bitte habe etwas Geduld.",
+				"isVisible": "Diese Mahlzeit ist für jeden sichtbar und kann bestellt werden.",
+				"isNotVisible": "Diese Mahlzeit ist nicht sichtbar und kann noch nicht bestellt werden.",
+				"makeItVisible": "Diese Mahlzeit sichtbar machen",
+				"whenYouAreDone": "Snaxter gibt die Mahlzeit frei, sobald Du mit editieren fertig bist und sie aktiviert hast.",
 				"tags": "Kategorie",
 				"tagsAdd": "Tag hinzufügen",
 				"tagsEdit": "Tags editieren",
@@ -168,7 +171,7 @@
 				"generateBarcodes": "Generate Barcodes",
 				"hideBarcodes": "Hide Barcodes",
 				"options": "Optionen",
-				"addToCart": "Zum Warenkorb hinzufügen",
+				"addToCart": "Bestellen",
 				"chooseOptions": "Es muss eine Produktoption ausgewählt werden, bevor es in den Warenkorb gelegt werden kann.",
 				"outOfStock": "Dieses Produkt ist leider vergriffen und kann nicht geordert werden!",
 				"productDeleteError": "Fehler beim Löschen von ",
@@ -198,7 +201,7 @@
 				"pickupTime": "Abholzeit",
 				"pickupTimeFrom": "Von",
 				"pickupTimeTo": "Bis",
-				"latestOrderDate": "Letzte Bestellung",
+				"latestOrderDate": "Letzter Bestellzeitpunkt",
 				"lastOrderTime": "Um",
 				"changeSaved": "Änderung gespeichert",
 				"makeActive": "Aktivieren",
@@ -315,7 +318,9 @@
 					"completed": "Completed",
 					"canceled": "Canceled",
 					"refunded": "Refunded"
-				}
+				},
+				"outOfStock": "Nicht mehr verfügbar",
+				"productInventoryHasChanged": "Sorry. Jemand hat dieses Produkt gekauft während Du am shoppen warst. Passe Deinen Warenkorb an."
 			},
 			"orderShipping": {
 				"shipTo": "Ship To",
@@ -330,8 +335,8 @@
 				"resendNotification": "Resend Shipment Notification"
 			},
 			"cartCheckout": {
-				"surprise": "Woah!",
-				"emptyCheckoutCart": "looks like your cart is empty!"
+				"surprise": "Hoppla!",
+				"emptyCheckoutCart": "Sieht aus als wäre Dein Warenkorb leer."
 			},
 			"cartCompleted": {
 				"thankYou": "Vielen Dank!",
@@ -348,7 +353,7 @@
 				"seller": "Verkäufer"
 			},
 			"checkoutLogin": {
-				"welcome": "Welcome, it's so good to see you.",
+				"welcome": "Hallo, schön Dich zu sehen!",
 				"loginCompleted": "Benutzerkonto abgeschlossen",
 				"createOrLogin": "Benutzerkonto anlegen oder anmelden",
 				"guestOrLogin": "Anmelden oder als Gast fortfahren",
@@ -358,7 +363,7 @@
 			"addressBookGrid": {
 				"addressBook": "Adressen",
 				"addAddress": "Adresse hinzufügen",
-				"chooseAddress": "Bitte wähle die Versandadresse",
+				"chooseAddress": "Deine Adresse",
 				"createDefault": "Standardadresse festlegen",
 				"selectShippingAddress": "Bitte Versandadresse wählen",
 				"selectBillingAddress": "Bitte Rechnungsadresse wählen"
@@ -469,7 +474,7 @@
 				"configureNow": "Configure now."
 			},
 			"checkoutReview": {
-				"review": "Durchsicht"
+				"review": "Zusammenfassung"
 			},
 			"checkoutShipping": {
 				"selectShippingOption": "Bitte Versandmethode wählen.",
@@ -566,8 +571,8 @@
 				"with": "mit",
 				"checkoutAsGuest": "Ohne Benutzerkonto bestellen",
 				"role": "Role",
-				"userDecision": "Deine Entscheidung!",
-				"userDecisionDesc": "Entscheide ob du Mahlzeiten kaufen oder verkaufen willst.",
+				"userDecision": "Bist Du bereit für snaxter?",
+				"userDecisionDesc": "Leidenschaftlicher Koch oder Bärenhunger?",
 				"isSeller": "Ich möchte kochen",
 				"isBuyer": "Ich möchte essen",
 				"boughtOrders": "Meine Käufe",

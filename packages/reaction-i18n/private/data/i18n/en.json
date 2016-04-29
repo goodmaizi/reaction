@@ -93,7 +93,7 @@
         "save": "Save",
         "saveAndContinue": "Save and continue",
         "saveChanges": "Save Changes",
-        "selectOne": "(Select One)",
+        "selectOne": "(Select one)",
         "cancel": "Cancel",
         "submit": "Submit",
         "delete": "Delete",
@@ -147,8 +147,11 @@
         "search": "Search products..."
       },
       "productDetail": {
+        "productDetail": "Product detail",
         "productManagement": "Product management",
         "makeInvisible": "Make invisible",
+        "isActive": "This product is under review. It will be visible soon.",
+        "isVisible": "This product is visible to customers.",
         "isNotVisible": "This product is not visible to customers.",
         "makeItVisible": "You can make it visible",
         "whenYouAreDone": "when you're done editing.",
@@ -315,7 +318,9 @@
           "completed": "Completed",
           "canceled": "Canceled",
           "refunded": "Refunded"
-        }
+        },
+        "outOfStock": "No longer available",
+				"productInventoryHasChanged": "We're sorry. Somebody bought this product while you were shopping."
       },
       "orderShipping": {
         "shipTo": "Ship To",
