@@ -638,7 +638,8 @@
 						"subject": "New product to be reviewed from {{userName}}"
 					},
           "orderUpdate": {
-            "subject": "Order update from {{shopName}}"
+            "subject": "Order from {{shopName}}",
+            "subjectSeller": "New order from {{shopName}}"
           }
         }
       },

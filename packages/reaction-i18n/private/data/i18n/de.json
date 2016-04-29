@@ -335,7 +335,7 @@
 			"cartCompleted": {
 				"thankYou": "Vielen Dank!",
 				"itemsFrom": "Artikel von",
-				"yourOrderIsNow": "Ihre Bestellnummer lautet:",
+				"yourOrderIsNow": "Deine Bestellnummer lautet:",
 				"summaryMessage": "En guete!",
 				"submitted": "gesendet",
 				"registerGuest": "Bitte gib uns Deine E-Mail-Adresse an, damit wir Dich über neue Köche und Mahlzeiten informieren können.",
@@ -649,7 +649,8 @@
 						"subject": "Neue Mahlzeit zum Überprüfen/Sichtbarmachen von {{userName}}"
 					},
           "orderUpdate": {
-            "subject": "Bestellung bei {{shopName}}"
+            "subject": "Bestellung bei {{shopName}}",
+						"subjectSeller": "Bestellung von {{shopName}}"
           }
         }
 			},
