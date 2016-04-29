@@ -242,6 +242,7 @@ Meteor.methods({
     this.unblock();
     if (order) {
       let shop = ReactionCore.Collections.Shops.findOne(order.shopId);
+      let user = ReactionCore.Collections.Accounts.findOne(order.userId);
       let shipment = order.shipping[0];
 
       ReactionCore.configureMailUrl();
@@ -262,21 +263,88 @@ Meteor.methods({
 
       ReactionCore.i18nextInitForServer(i18next);
 
+      var compiledItemList = [];
+      var index;
+      for (index = 0; index < order.items.length; ++index) {
+        compiledItemList[index] = new Object();
+        compiledItemList[index].product = ReactionCore.Collections.Products.findOne(order.items[index].productId);
+        compiledItemList[index].account = ReactionCore.Collections.Accounts.findOne(order.items[index].sellerId);
+        compiledItemList[index].address = compiledItemList[index].account.profile.addressBook[0];
+        compiledItemList[index].forSaleOnDate = moment(compiledItemList[index].product.forSaleOnDate).format("DD.MM.YYYY");
+      }
+
+      // sort items per sellerId
+      var sellerSortedItemList = [];
+      var index2;
+      for (index = 0; index < compiledItemList.length; ++index) {
+        var isNewSeller = true;
+        var indexNew = 0;
+        for (index2 = 0; index2 < sellerSortedItemList.length; ++index2) {
+          indexNew = indexNew + 1;
+          if(compiledItemList[index].product.userId == sellerSortedItemList[index2].sellerId) {
+            sellerSortedItemList[index2].items[sellerSortedItemList[index2].items.length + 1] = compiledItemList[index];
+            isNewSeller = false;
+            break;
+          }
+        }
+        if(isNewSeller)
+        {
+          sellerSortedItemList[indexNew] = new Object();
+          sellerSortedItemList[indexNew].sellerId = compiledItemList[index].product.userId;
+          sellerSortedItemList[indexNew].items = [];
+          sellerSortedItemList[indexNew].items[0] = compiledItemList[index];
+        }
+      }
+      //ReactionCore.Log.info("orders/sendNotification sellerSortedItemList1", sellerSortedItemList);
+
       SSR.compileTemplate(tpl, ReactionEmailTemplate(tpl));
       try {
-        return Email.send({
+        ReactionCore.Log.info("orders/sendNotification to buyer:", order.email);
+        Email.send({
           to: order.email,
           from: `${shop.name} <${shop.emails[0].address}>`,
-          subject: i18next.t('accountsUI.mails.orderUpdate.subject', {shopName: shop.name, defaultValue: `Order update from ${shop.name}`}),
+          subject: i18next.t('accountsUI.mails.orderUpdate.subject', {shopName: shop.name, defaultValue: `Order from ${shop.name}`}),
           html: SSR.render(tpl, {
             homepage: Meteor.absoluteUrl(),
             shop: shop,
             order: order,
-            shipment: shipment
+            shipment: shipment,
+            items: compiledItemList,
+            transactionId: order.billing[0].paymentMethod.transactionId,
+            buyerAddress: order.billing[0].address,
+            userName: user.userName
           })
         });
       } catch (error) {
-        throw new Meteor.Error(403, "Unable to send shipment notification email.", error);
+        throw new Meteor.Error(403, "Unable to send order notification email to buyer.", error);
+      }
+
+      // change template to seller
+      tpl = `orders/${order.workflow.status}SellerNotification`;
+
+      // send out order notification for each seller
+      for (index = 0; index < sellerSortedItemList.length; ++index) {
+        ReactionCore.Log.info("orders/sendNotification to seller:", sellerSortedItemList[index].items[0].account.emails[0].address);
+        SSR.compileTemplate(tpl, ReactionEmailTemplate(tpl));
+        try {
+          Email.send({
+            to: sellerSortedItemList[index].items[0].account.emails[0].address,
+            from: `${shop.name} <${shop.emails[0].address}>`,
+            subject: i18next.t('accountsUI.mails.orderUpdate.subjectSeller', {shopName: shop.name, defaultValue: `Order from ${shop.name}`}),
+            html: SSR.render(tpl, {
+              homepage: Meteor.absoluteUrl(),
+              shop: shop,
+              order: order,
+              shipment: shipment,
+              items: sellerSortedItemList[index].items,
+              transactionId: order.billing[0].paymentMethod.transactionId,
+              buyerAddress: order.billing[0].address,
+              userName: sellerSortedItemList[index].items[0].account.userName
+            })
+          });
+        } catch (error) {
+          throw new Meteor.Error(403, "Unable to send order notification email to seller.", error);
+        }
       }
     }
   },
