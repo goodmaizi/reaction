@@ -300,6 +300,7 @@
 				"reference": "Reference",
 				"invoice": "Invoice",
 				"ordersNotFound": "Keine Bestellungen gefunden",
+				"orderNumber": "Bestellnummer",
 				"approveInvoice": "Approve",
 				"makeAdjustments": "Make Adjustments",
 				"capturePayment": "Capture Payment",

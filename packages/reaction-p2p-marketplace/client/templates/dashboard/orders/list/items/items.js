@@ -10,6 +10,7 @@ Template.ordersListItems.helpers({
     ReactionCore.Subscriptions.Products = ReactionSubscriptions.subscribe("Product", this.productId);
     if (ReactionCore.Subscriptions.Products.ready()) {
       let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
+      ReactionSubscriptions.reset();
       return moment(product.forSaleOnDate).format("DD.MM.YYYY");
     }
     return null;
@@ -18,6 +19,7 @@ Template.ordersListItems.helpers({
     ReactionCore.Subscriptions.Products = ReactionSubscriptions.subscribe("Product", this.productId);
     if (ReactionCore.Subscriptions.Products.ready()) {
       let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
+      ReactionSubscriptions.reset();
       return product.pickupTimeFrom;
     }
     return null;
@@ -26,6 +28,7 @@ Template.ordersListItems.helpers({
     ReactionCore.Subscriptions.Products = ReactionSubscriptions.subscribe("Product", this.productId);
     if (ReactionCore.Subscriptions.Products.ready()) {
       let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
+      ReactionSubscriptions.reset();
       return product.pickupTimeTo;
     }
     return null;

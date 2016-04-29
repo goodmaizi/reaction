@@ -50,6 +50,8 @@ Package.onUse(function(api) {
   api.addFiles('client/templates/dashboard/orders/sellerOrders.html', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.js', 'client');
   api.addFiles('client/templates/dashboard/orders/sellerOrders.less', 'client');
+  api.addFiles('client/templates/dashboard/orders/details/detail.html', 'client');
+  api.addFiles('client/templates/dashboard/orders/details/detail.js', 'client');  
   api.addFiles('client/templates/signUp/sellerFlag.html', 'client');
   api.addFiles('client/templates/signUp/signUp.html', 'client');
   api.addFiles('client/templates/signUp/signUp.js', 'client');
