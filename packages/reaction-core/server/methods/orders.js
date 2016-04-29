@@ -263,6 +263,7 @@ Meteor.methods({
 
       ReactionCore.i18nextInitForServer(i18next);
 
+      ReactionCore.Log.info("orders/sendNotification transactionId:" + order.billing[0].paymentMethod.transactionId + " userName:" + user.userName + " buyer-address:", order.billing[0].address);
       var compiledItemList = [];
       var index;
       for (index = 0; index < order.items.length; ++index) {
@@ -271,6 +272,7 @@ Meteor.methods({
         compiledItemList[index].account = ReactionCore.Collections.Accounts.findOne(order.items[index].sellerId);
         compiledItemList[index].address = compiledItemList[index].account.profile.addressBook[0];
         compiledItemList[index].forSaleOnDate = moment(compiledItemList[index].product.forSaleOnDate).format("DD.MM.YYYY");
+        ReactionCore.Log.info("orders/sendNotification order item " + index + " product:" + compiledItemList[index].product.title + "(" + compiledItemList[index].product._id + ") forSaleOnDate:" + compiledItemList[index].forSaleOnDate + " pickupTimeFrom:" + compiledItemList[index].product.pickupTimeFrom + " pickupTimeTo:" + compiledItemList[index].product.pickupTimeTo + " seller-address:", compiledItemList[index].address);
       }
 
       // sort items per sellerId
@@ -287,8 +289,7 @@ Meteor.methods({
             break;
           }
         }
-        if(isNewSeller)
-        {
+        if(isNewSeller) {
           sellerSortedItemList[indexNew] = new Object();
           sellerSortedItemList[indexNew].sellerId = compiledItemList[index].product.userId;
           sellerSortedItemList[indexNew].items = [];
@@ -297,9 +298,9 @@ Meteor.methods({
       }
       //ReactionCore.Log.info("orders/sendNotification sellerSortedItemList1", sellerSortedItemList);
 
+      ReactionCore.Log.info("orders/sendNotification to buyer:", order.email);
       SSR.compileTemplate(tpl, ReactionEmailTemplate(tpl));
       try {
-        ReactionCore.Log.info("orders/sendNotification to buyer:", order.email);
         Email.send({
           to: order.email,
           from: `${shop.name} <${shop.emails[0].address}>`,
