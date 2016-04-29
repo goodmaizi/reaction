@@ -297,6 +297,7 @@
         "reference": "Reference",
         "invoice": "Invoice",
         "ordersNotFound": "No orders found",
+        "orderNumber": "Order number",        
         "approveInvoice": "Approve",
         "makeAdjustments": "Make Adjustments",
         "capturePayment": "Capture Payment",
