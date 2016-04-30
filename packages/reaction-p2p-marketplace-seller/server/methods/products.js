@@ -95,12 +95,18 @@ Meteor.methods({
       ReactionCore.Log.info("toggle product active state ", product._id, !
         product.isActive);
 
+      let sendMail = !product.isActive;
+
       let updateResult = Boolean(ReactionCore.Collections.Products.update(product._id, {
         $set: {
           isActive: !product.isActive
         }
       }, { selector: { type: "simple" } }));
-      Meteor.call("products/sendProductReviewEmail", ReactionCore.getCurrentShop()._id, Meteor.userId(), productId);
+
+      if (sendMail) {
+        Meteor.call("products/sendProductReviewEmail", ReactionCore.getCurrentShop()._id, Meteor.userId(), productId);
+      }
+      
       return updateResult;
     }
     ReactionCore.Log.debug("invalid product active state ", productId);
@@ -123,6 +129,7 @@ Meteor.methods({
     const shop = ReactionCore.Collections.Shops.findOne(shopId);
     //const product = ReactionCore.Collections.Products.findOne(productId);
     let adminEmail = process.env.REACTION_EMAIL;
+    ReactionCore.Log.info(`Wanna send product review mail to: `,adminEmail);
 
     if (!adminEmail || !adminEmail.length > 0) {
       return true;
