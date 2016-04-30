@@ -14,7 +14,8 @@ Template.accountProfile.onCreated(() => {
   template.formMessages = new ReactiveVar({});
   template.type = "profileEdit";
 
-  Meteor.subscribe("ProductsForOrdersHistory");
+  Meteor.subscribe("ProductsForOrdersHistory", function () {
+  });
 });
 
 Template.accountProfile.helpers( // for some strange reason our custom heleprs needs to be speficied on the template that we override. doesn't work with our new template name.
