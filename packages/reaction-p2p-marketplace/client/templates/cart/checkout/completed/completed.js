@@ -17,6 +17,13 @@ Template.cartCompleted.helpers({
  * subscribe to products in order to access the products in subtemplates (ordersListItemsMarketplace / items.js)
  */
 Template.cartCompleted.onCreated(function () {
-    Meteor.subscribe("ProductsForOrdersHistory", function () {
+    ReactionCore.MeteorSubscriptions_ProductsForOrdersHistory = Meteor.subscribe("ProductsForOrdersHistory", function () {
     });
+});
+
+Template.cartCompleted.onDestroyed(function() {
+  // stop that subscription, because we want it only on this page, not on any other
+  if (ReactionCore.MeteorSubscriptions_ProductsForOrdersHistory != null) {
+    ReactionCore.MeteorSubscriptions_ProductsForOrdersHistory.stop();
+  }
 });
