@@ -158,7 +158,8 @@ Meteor.methods({
           homepage: Meteor.absoluteUrl(),
           shop: shop,
           user: Meteor.user(),
-          productId: productId
+          productId: productId,
+          userEmail: Meteor.user().emails[0].address
         })
       });
     } catch (e) {
