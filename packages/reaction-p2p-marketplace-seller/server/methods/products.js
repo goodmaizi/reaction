@@ -13,7 +13,8 @@ function belongsToCurrentUser(productId) {
   let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
   ReactionCore.Log.info("Product ",productId," belongs to ",Meteor.userId(),"?");
   ReactionCore.Log.info("productBelongingToCurrUser ",productBelongingToCurrUser);
-  return productBelongingToCurrUser != null;
+
+  return ((productBelongingToCurrUser != null) || ReactionCore.hasAdminAccess());
 }
 
 /**
@@ -106,7 +107,7 @@ Meteor.methods({
       if (sendMail) {
         Meteor.call("products/sendProductReviewEmail", ReactionCore.getCurrentShop()._id, Meteor.userId(), productId);
       }
-      
+
       return updateResult;
     }
     ReactionCore.Log.debug("invalid product active state ", productId);
