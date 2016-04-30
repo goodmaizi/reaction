@@ -10,17 +10,24 @@ Template.addressBook.onCreated(function () {
   this.templateData = ReactiveVar({});
 
   this.autorun(() => {
-    let account = ReactionCore.Collections.Accounts.findOne({
-      userId: Meteor.userId()
-    });
+    if (ReactionCore.Subscriptions.Account.ready()) {
+      console.log("addressBook.js: Account sub ready");
+      //let account = ReactionCore.Collections.Accounts.findOne({
+      //  userId: Meteor.userId()
+      //});
+      let account = ReactionCore.Collections.Accounts.findOne({_id: Meteor.userId()});
+      console.log("addressBook.js: account for ",Meteor.userId()," ",account);
 
-    if (account) {
-      if (account.profile) {
-        if (account.profile.addressBook) {
-          if (account.profile.addressBook.length === 0) {
-            this.currentViewTemplate.set("addressBookAdd");
-          } else {
-            this.currentViewTemplate.set("addressBookGrid");
+      if (account) {
+        if (account.profile) {
+          if (account.profile.addressBook) {
+            if (account.profile.addressBook.length === 0) {
+              console.log("addressBook.js: this.currentViewTemplate.set('addressBookAdd')");
+              this.currentViewTemplate.set("addressBookAdd");
+            } else {
+              console.log("addressBook.js: this.currentViewTemplate.set('addressBookGrid')");
+              this.currentViewTemplate.set("addressBookGrid");
+            }
           }
         }
       }
