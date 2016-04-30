@@ -54,7 +54,7 @@ Template.registerHelper("belongsToCurrentUser", function (productId) {
   let productBelongingToCurrUser = ReactionCore.Collections.Products.findOne({_id:productId, userId:Meteor.userId()})
   //console.log("Template.helpers.belongsToCurrentUser() Product ",productId," belongs to ",Meteor.userId(),"?");
   //console.log("Template.helpers.belongsToCurrentUser() productBelongingToCurrUser ",productBelongingToCurrUser);
-  return productBelongingToCurrUser != null;
+  return ((productBelongingToCurrUser != null) || ReactionCore.hasAdminAccess());
 });
 
 Template.productDetail.onDestroyed(function(){
