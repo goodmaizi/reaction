@@ -19,14 +19,15 @@ Template.cartCheckout.onCreated(function () {
     if (cart.workflow && cart.workflow.status === "new") {
       // if user logged in as normal user, we must pass it through the first stage
       Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "checkoutLogin", cart._id);
-
-      // this will transition to review
-      // make all checkout steps active immediately. don't force address and shipping.
-      Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "coreCheckoutShipping");
     }
-    // this will transition to review
-    // make all checkout steps active immediately. don't force address and shipping.
+    // make all steps available immediately
+    Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "checkoutAddressBook");
+    Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "checkoutAddressBook");
     Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "coreCheckoutShipping");
+    Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "coreCheckoutShipping");
+    Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "coreCheckoutShipping");
+    Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "checkoutReview");
+    Meteor.call("workflow/pushCartWorkflow", "coreCartWorkflow", "checkoutReview");
 
     // always show cart on checkout
     Session.set("displayCart", true);
