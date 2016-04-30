@@ -38,6 +38,8 @@ Template.productDetailEdit.events({
           });
         }
         if (result) {
+          Alerts.removeSeen();
+          
           // redirect to new url on title change
           if (self.field === "title") {
             Meteor.call("products/setHandle", productId,
