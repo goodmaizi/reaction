@@ -1,5 +1,13 @@
 
 <template name="simplifiedProductCssInclude">
+    {{#if hasPermission "createProduct"}}
+      <style>
+        .add-to-cart-block {
+          display: none;
+        }
+      </style>
+    {{/if}}
+
     {{#if belongsToCurrentUser _id }}
       <!-- why doesn't this linked css get applied? -->
       <style>
@@ -13,7 +21,8 @@
         div.displayQuantity,
         .variant-edit-form .form-group:nth-child(1), /* variant title */
         .variant-edit-form .form-group:nth-child(2n+0), /* weight and msrp price */
-        .add-to-cart-block {
+        .add-to-cart-block,
+        .marketplaceProfileWidget {
           display: none;
         }
 
