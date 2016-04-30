@@ -7,30 +7,24 @@ Template.ordersListItemsMarketplace.replaces("ordersListItems");
 
 Template.ordersListItems.helpers({
   sellingDate: function(){
-    ReactionCore.Subscriptions.Products = ReactionSubscriptions.subscribe("Product", this.productId);
-    if (ReactionCore.Subscriptions.Products.ready()) {
-      let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
-      ReactionSubscriptions.reset();
+    let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
+    if(product != undefined)
       return moment(product.forSaleOnDate).format("DD.MM.YYYY");
-    }
-    return null;
+    else
+      return undefined;
   },
   pickupTimeFrom: function(){
-    ReactionCore.Subscriptions.Products = ReactionSubscriptions.subscribe("Product", this.productId);
-    if (ReactionCore.Subscriptions.Products.ready()) {
-      let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
-      ReactionSubscriptions.reset();
+    let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
+    if(product != undefined)
       return product.pickupTimeFrom;
-    }
-    return null;
+    else
+      return undefined;
   },
   pickupTimeTo: function(){
-    ReactionCore.Subscriptions.Products = ReactionSubscriptions.subscribe("Product", this.productId);
-    if (ReactionCore.Subscriptions.Products.ready()) {
-      let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
-      ReactionSubscriptions.reset();
+    let product =  ReactionCore.Collections.Products.findOne({_id: this.productId});
+    if(product != undefined)
       return product.pickupTimeTo;
-    }
-    return null;
+    else
+      return undefined;
   },
 });
