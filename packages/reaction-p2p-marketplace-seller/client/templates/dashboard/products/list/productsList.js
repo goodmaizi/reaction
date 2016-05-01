@@ -13,6 +13,33 @@ Template.dashboardProductsList.helpers({
   },
 });
 
+Template.dashboardProductsList.events({
+  "click .btn-add-product": function (event, template) {
+    console.log("btn-add-product click()");
+    event.preventDefault();
+    event.stopPropagation();
+
+    Meteor.call("products/createProduct", (error, productId) => {
+      let currentTag;
+      let currentTagId;
+
+      if (error) {
+        throw new Meteor.Error("createProduct error", error);
+      } else if (productId) {
+        currentTagId = Session.get("currentTag");
+        currentTag = ReactionCore.Collections.Tags.findOne(currentTagId);
+        if (currentTag) {
+          Meteor.call("products/updateProductTags", productId, currentTag.name, currentTagId);
+        }
+        ReactionRouter.go("product", {
+          handle: productId
+        });
+      }
+    });
+    template.$(".dropdown-toggle").dropdown("toggle");
+  }
+});
+
 Template.dashboardProductsList.onCreated(function() {
   //let SellerProducts = Meteor.subscribe("SellerProducts");
   //if (SellerProducts.ready()) {
