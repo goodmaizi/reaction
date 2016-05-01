@@ -15,7 +15,6 @@ Template.dashboardProductsList.helpers({
 
 Template.dashboardProductsList.events({
   "click .btn-add-product": function (event, template) {
-    console.log("btn-add-product click()");
     event.preventDefault();
     event.stopPropagation();
 
