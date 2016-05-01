@@ -106,8 +106,8 @@
 				"warning": "Ups!",
 				"unauthorizedMessage": "Dir fehlt die Berechtigung, um die Seite anzuzeigen.",
 				"updateSettings": "Update Settings",
-				"monthOptions": "Choose month",
-				"yearOptions": "Choose year",
+				"monthOptions": "Monat",
+				"yearOptions": "Jahr",
 				"shopSettings": "Shop Settings",
 				"dashboard": "Dashboard",
 				"print": "Print",
@@ -116,7 +116,19 @@
 				"notFoundTitle": "Oops!",
 				"notFoundError": "Page not found.",
 				"productNotFound": "This product was not found.",
-				"loadMoreProducts": "Load more products"
+				"loadMoreProducts": "Load more products",
+				"monthJanuary": "Januar",
+        "monthFebruary": "Februar",
+        "monthMarch": "März",
+        "monthApril": "April",
+        "monthMay": "Mai",
+        "monthJune": "Juni",
+        "monthJuly": "July",
+        "monthAugust": "August",
+        "monthSeptember": "September",
+        "monthOctober": "Oktober",
+        "monthNovember": "November",
+        "monthDecember": "Dezember"
 			},
 			"shopSettings": {
 				"general": "General",
@@ -471,7 +483,18 @@
 				"processingError": "There was a problem with your payment.",
 				"completeYourOrder": "Bestellung abschliessen",
 				"addPaymentToCompleteOrder": "Bitte Zahlungsart festlegen um den Einkauf abzuschließen.",
-				"configureNow": "Configure now."
+				"configureNow": "Configure now.",
+				"payerName": "Name auf der Karte",
+        "cardNumber": "Kartennummer",
+        "expireMonth": "Gültig bis Monat",
+        "expireYear": "Gültig bis Jahr",
+        "cvv": "CVV",
+				"resubmitPayment": "Zahlung erneut senden",
+				"submitting": "Zahlung wird verarbeitet",
+				"braintreeErrors": {
+					"81703": "Diese Kreditkarte wird nicht unterstützt.",
+					"81715": "Kreditkartennummer ist ungültig."
+				}
 			},
 			"checkoutReview": {
 				"review": "Zusammenfassung"
@@ -673,6 +696,32 @@
           "products": {
             "noProductsFound": "Keine Mahlzeiten vorhanden."
           }
+      },
+			"globalMessages": {
+        "required": "[label] wird benötigt",
+        "minString": "[label] muss mindestens [min] Zeichen lang sein",
+        "maxString": "[label] cannot exceed [max] characters",
+        "minNumber": "[label] muss mindestens [min] Zeichen lang sein",
+        "maxNumber": "[label] cannot exceed [max]",
+        "minNumberExclusive": "[label] must be greater than [min]",
+        "maxNumberExclusive": "[label] must be less than [max]",
+        "minDate": "[label] must be on or after [min]",
+        "maxDate": "[label] cannot be after [max]",
+        "badDate": "[label] is not a valid date",
+        "minCount": "You must specify at least [minCount] values",
+        "maxCount": "You cannot specify more than [maxCount] values",
+        "noDecimal": "[label] must be an integer",
+        "notAllowed": "[value] is not an allowed value",
+        "expectedString": "[label] must be a string",
+        "expectedNumber": "[label] must be a number",
+        "expectedBoolean": "[label] must be a boolean",
+        "expectedArray": "[label] must be an array",
+        "expectedObject": "[label] must be an object",
+        "expectedConstructor": "[label] must be a [type]",
+        "keyNotInSchema": "[key] is not allowed by the schema",
+        "notUnique": "[label] must be unique",
+        "insertNotAllowed": "[label] cannot be set during an insert",
+        "updateNotAllowed": "[label] cannot be set during an update"
       },
 			"Title is required": "Titel muss ausgefüllt sein",
 			"Menge is required": "Menge muss ausgefüllt sein",
