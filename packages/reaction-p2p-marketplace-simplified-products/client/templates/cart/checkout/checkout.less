@@ -9,7 +9,12 @@
 .checkout-steps-main .checkout-step-completed:nth-child(3), // shipping
 .checkout-steps-side .checkout-step-completed:nth-child(1), // order summary
 .checkout-step-badge,
-//.checkout-steps-main 
+//.checkout-steps-main
 {
+  display: none;
+}
+
+#payment-methods-accordian .panel:first-child,
+#payment-methods-accordian a[aria-controls="genericPaymentForm"] {
   display: none;
 }
