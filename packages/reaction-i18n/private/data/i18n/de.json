@@ -227,8 +227,8 @@
 				"pickupTimeToIsRequired": "Abholzeit 'Bis' wird benötigt",
 				"forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
 				"latestOrderDateMustBeADate": "Letzte Bestellung muss ein Datum sein",
-				"notLoggedIn": "Nicht angemeldet",
-				"youNeedToLogIn": "Du musst Dich zuerst anmelden."
+				"notLoggedIn": "Hunger?",
+				"youNeedToLogIn": "Melde Dich an und die Mahlzeit gehört Dir."
 			},
 			"products": {
 				"all": "ALLE",
@@ -298,7 +298,7 @@
 			},
 			"cartSubTotals": {
 				"head": "Dein Warenkorb",
-				"items": "Warenkorbartikel",
+				"items": "Mahlzeit(en)",
 				"subtotal": "Zwischensumme",
 				"shipping": "Versand",
 				"tax": "Mehrwertsteuer",
@@ -352,7 +352,7 @@
 			},
 			"cartCompleted": {
 				"thankYou": "Vielen Dank!",
-				"itemsFrom": "Artikel von",
+				"itemsFrom": "Mahlzeit von",
 				"yourOrderIsNow": "Deine Bestellnummer lautet:",
 				"summaryMessage": "En guete!",
 				"submitted": "gesendet",
@@ -482,7 +482,7 @@
 				"addPaymentToCompleteOrder": "Add payment to complete order",
 				"processingError": "There was a problem with your payment.",
 				"completeYourOrder": "Bestellung abschliessen",
-				"addPaymentToCompleteOrder": "Bitte Zahlungsart festlegen um den Einkauf abzuschließen.",
+				"addPaymentToCompleteOrder": "Wie möchtest Du bezahlen?",
 				"configureNow": "Configure now.",
 				"payerName": "Name auf der Karte",
         "cardNumber": "Kartennummer",
