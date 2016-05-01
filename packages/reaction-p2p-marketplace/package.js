@@ -52,6 +52,7 @@ Package.onUse(function(api) {
   api.addFiles("client/templates/cart/checkout/header/header.js", ["client"]);
 
   api.addFiles("server/methods/cart.js", ["server"]);
+  api.addFiles("server/methods/checkout.js", ["server"]);
 
   api.addFiles("client/templates/cart/checkout/completed/completed.html", "client");
   api.addFiles("client/templates/cart/checkout/completed/completed.js", "client");
