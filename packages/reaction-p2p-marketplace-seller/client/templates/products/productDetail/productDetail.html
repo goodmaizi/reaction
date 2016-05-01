@@ -15,11 +15,19 @@
     </div>
   </div>
     {{#if isVisible}}
-      <div class="row">
-        <div class="success alert-success">
-          <span> {{i18n 'productDetail.isVisible' 'This product is visible to customers.'}}</span>
+      {{#if isActive}}
+        <div class="row">
+          <div class="success alert-success">
+            <span> {{i18n 'productDetail.isVisible' 'This product is visible to customers.'}}</span>
+          </div>
         </div>
-      </div>
+      {{else}}
+        <div class="row">
+          <div class="alert alert-warning">
+            <span> {{i18n 'productDetail.isNotVisible' 'This product is not visible to customers.'}}</span>
+          </div>
+        </div>
+      {{/if}}
     {{/if}}
     {{#unless isVisible}}
       {{#if isActive}}

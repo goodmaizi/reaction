@@ -642,7 +642,9 @@
 					"description": "Beschreibung",
           "invalidDescription": "Beschreibung zu lang. Maximal 1000 Zeichen.",
 					"noProductsFound": "Keine Mahlzeiten gefunden",
-					"mustAcceptTerms": "Du musst die AGB akzeptieren"
+					"mustAcceptTerms": "Du musst die AGB akzeptieren",
+          "noAddress": "Keine Adresse",
+          "youNeedToEnterYourAddress": "Du musst Deine Adresse eingeben."
 				},
         "mails": {
           "welcome": {

@@ -300,7 +300,7 @@
         "reference": "Reference",
         "invoice": "Invoice",
         "ordersNotFound": "No orders found",
-        "orderNumber": "Order number",        
+        "orderNumber": "Order number",
         "approveInvoice": "Approve",
         "makeAdjustments": "Make Adjustments",
         "capturePayment": "Capture Payment",
@@ -631,7 +631,9 @@
           "description": "Description",
           "invalidDescription": "Description too long. Max 1000 characters.",
 					"noProductsFound": "No products found",
-          "mustAcceptTerms": "You must accept the terms and conditions"
+          "mustAcceptTerms": "You must accept the terms and conditions",
+          "noAddress": "No address",
+          "youNeedToEnterYourAddress": "You need to enter your address."
         },
         "mails": {
           "welcome": {
