@@ -43,7 +43,7 @@ Template.registerHelper("monthOptions", function () {
       let month = months[index];
       monthOptions.push({
         value: parseInt(index, 10) + 1,
-        label: month
+        label: i18next.t("app.month" + month, month)
       });
     }
   }

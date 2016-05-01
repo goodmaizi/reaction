@@ -116,7 +116,19 @@
         "notFoundTitle": "Oops!",
         "notFoundError": "Page not found.",
         "productNotFound": "This product was not found.",
-        "loadMoreProducts": "Load more products"
+        "loadMoreProducts": "Load more products",
+        "monthJanuary": "January",
+        "monthFebruary": "February",
+        "monthMarch": "March",
+        "monthApril": "April",
+        "monthMay": "May",
+        "monthJune": "June",
+        "monthJuly": "July",
+        "monthAugust": "August",
+        "monthSeptember": "September",
+        "monthOctober": "October",
+        "monthNovember": "November",
+        "monthDecember": "December"
       },
       "shopSettings": {
         "general": "General",
@@ -247,7 +259,10 @@
         "duplicateProduct": "Duplicate Product",
         "pinProduct": "Pin Product",
         "toggleSize": "Toggle Size",
-        "deleteProduct": "Delete Product",
+    "duplicateProduct": "Duplicate Product",
+        "pinProduct": "Pin Product",
+        "toggleSize": "Toggle Size",
+    "deleteProduct": "Delete Product",
         "publish": "Publish",
         "moreOptions": "More Options"
       },
@@ -470,7 +485,18 @@
         "processingError": "There was a problem with your payment.",
         "completeYourOrder": "Complete your order",
         "noPaymentMethods": "No payment methods are configured.",
-        "configureNow": "Configure now."
+        "configureNow": "Configure now.",
+        "payerName": "Cardholder name",
+        "cardNumber": "Card number",
+        "expireMonth": "Expiration month",
+        "expireYear": "Expiration year",
+        "cvv": "CVV",
+        "resubmitPayment": "Resubmit payment",
+        "submitting": "Process payment",
+        "braintreeErrors": {
+					"81703": "Credit card type is not accepted by this merchant account.",
+          "81715": "Credit card is invalid."
+				}
       },
       "checkoutReview": {
         "review": "Review"
@@ -662,6 +688,32 @@
           "products": {
             "noProductsFound": "No products found."
           }
+      },
+      "globalMessages": {
+        "required": "[label] is required",
+        "minString": "[label] must be at least [min] characters",
+        "maxString": "[label] cannot exceed [max] characters",
+        "minNumber": "[label] must be at least [min]",
+        "maxNumber": "[label] cannot exceed [max]",
+        "minNumberExclusive": "[label] must be greater than [min]",
+        "maxNumberExclusive": "[label] must be less than [max]",
+        "minDate": "[label] must be on or after [min]",
+        "maxDate": "[label] cannot be after [max]",
+        "badDate": "[label] is not a valid date",
+        "minCount": "You must specify at least [minCount] values",
+        "maxCount": "You cannot specify more than [maxCount] values",
+        "noDecimal": "[label] must be an integer",
+        "notAllowed": "[value] is not an allowed value",
+        "expectedString": "[label] must be a string",
+        "expectedNumber": "[label] must be a number",
+        "expectedBoolean": "[label] must be a boolean",
+        "expectedArray": "[label] must be an array",
+        "expectedObject": "[label] must be an object",
+        "expectedConstructor": "[label] must be a [type]",
+        "keyNotInSchema": "[key] is not allowed by the schema",
+        "notUnique": "[label] must be unique",
+        "insertNotAllowed": "[label] cannot be set during an insert",
+        "updateNotAllowed": "[label] cannot be set during an update"
       }
     }
   }
