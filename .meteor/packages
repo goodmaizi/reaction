@@ -79,7 +79,7 @@ dburles:google-maps
 
 
 
-#reactioncommerce:reaction-paymentmethod
+reactioncommerce:reaction-paymentmethod
 aldeed:collection2@2.9.1
 aldeed:collection2-core@1.1.1
 scydev:reaction-p2p-marketplace-locations
