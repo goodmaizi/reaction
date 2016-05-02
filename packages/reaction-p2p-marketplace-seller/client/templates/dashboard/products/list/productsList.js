@@ -18,51 +18,39 @@ Template.dashboardProductsList.events({
     event.preventDefault();
     event.stopPropagation();
 
-    Meteor.call("products/createProduct", (error, productId) => {
-      let currentTag;
-      let currentTagId;
-
-      if (error) {
-        throw new Meteor.Error("createProduct error", error);
-      } else if (productId) {
-        currentTagId = Session.get("currentTag");
-        currentTag = ReactionCore.Collections.Tags.findOne(currentTagId);
-        if (currentTag) {
-          Meteor.call("products/updateProductTags", productId, currentTag.name, currentTagId);
-        }
-        ReactionRouter.go("product", {
-          handle: productId
-        });
-      }
-    });
-    template.$(".dropdown-toggle").dropdown("toggle");
+    // trigger click on add product button in user menu
+    $(".dropdown-toggle").dropdown("toggle");
+    $('#dropdown-apps-createProduct').trigger('click');
   }
 });
 
 Template.dashboardProductsList.onCreated(function() {
+  this.cleaned = false;
   let SellerProducts = Meteor.subscribe("SellerProducts");
   this.autorun(() => {
-    if (SellerProducts.ready()) {
-        // delete products with no title, description and image
-        let products = ReactionCore.Collections.Products.find({userId: Meteor.userId()}).fetch();
-        console.log("products: ",products);
+    if (this.cleaned == false && SellerProducts.ready()) {
+      // delete products with no title, description and image
+      let products = ReactionCore.Collections.Products.find({userId: Meteor.userId()}).fetch();
+      console.log("products: ",products);
 
-        for (let product of products) {
-          let productId = product._id;
-          let media = ReactionCore.Collections.Media.findOne({
-            "metadata.productId": product._id,
-            "metadata.priority": 0,
-            "metadata.toGrid": 1
-          }, { sort: { uploadedAt: 1 } });
-          console.log("product media: ",media);
+      for (let product of products) {
+        let productId = product._id;
+        let media = ReactionCore.Collections.Media.findOne({
+          "metadata.productId": product._id,
+          "metadata.priority": 0,
+          "metadata.toGrid": 1
+        }, { sort: { uploadedAt: 1 } });
+        console.log("product media: ",media);
 
-          if ( (product.title == null || product.title == "")
-              && (product.description == null || product.description == "")
-              && media == null) {
-            console.log("delete empty product!");
-            ReactionCore.Collections.Products.remove({_id: product._id});
-          }
+        if ( (product.title == null || product.title == "")
+            && (product.description == null || product.description == "")
+            && media == null) {
+          console.log("delete empty product!");
+          ReactionCore.Collections.Products.remove({_id: product._id});
         }
+      }
+
+      this.cleaned = true;
     }
   });
 });
