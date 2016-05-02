@@ -9,12 +9,14 @@ Template.addressBook.onCreated(function () {
   this.currentViewTemplate = ReactiveVar("addressBookAdd");
   this.templateData = ReactiveVar({});
 
+  ReactionSubscriptions.clear();
+  ReactionCore.Subscriptions.Account = ReactionSubscriptions.subscribe("Accounts", Meteor.userId());
+  console.log("addressBook.js: sub ready? ",ReactionCore.Subscriptions.Account.ready());
+
   this.autorun(() => {
+    // because sometimes subscription seems to be missing or filtered wrong, current users account just can't be loaded
     if (ReactionCore.Subscriptions.Account.ready()) {
       console.log("addressBook.js: Account sub ready");
-      //let account = ReactionCore.Collections.Accounts.findOne({
-      //  userId: Meteor.userId()
-      //});
       let account = ReactionCore.Collections.Accounts.findOne({_id: Meteor.userId()});
       console.log("addressBook.js: account for ",Meteor.userId()," ",account);
 
