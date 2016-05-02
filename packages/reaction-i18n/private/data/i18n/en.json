@@ -495,7 +495,10 @@
         "submitting": "Process payment",
         "braintreeErrors": {
 					"81703": "Credit card type is not accepted by this merchant account.",
-          "81715": "Credit card is invalid."
+          "81715": "Credit card is invalid.",
+          "processorResponse": {
+            "2038": "Processor Declined"
+          }
 				}
       },
       "checkoutReview": {

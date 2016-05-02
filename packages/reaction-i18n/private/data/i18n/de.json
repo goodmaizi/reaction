@@ -493,7 +493,10 @@
 				"submitting": "Zahlung wird verarbeitet",
 				"braintreeErrors": {
 					"81703": "Diese Kreditkarte wird nicht unterstützt.",
-					"81715": "Kreditkartennummer ist ungültig."
+					"81715": "Kreditkartennummer ist ungültig.",
+					"processorResponse": {
+            "2038": "Zahlung fehlgeschlagen, bitte verwende eine andere Kreditkarte."
+          }
 				}
 			},
 			"checkoutReview": {
