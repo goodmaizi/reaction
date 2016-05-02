@@ -8,30 +8,34 @@ let Media = ReactionCore.Collections.Media;
  * uploadHandler method
  */
 function uploadHandler(event) {
-  let shopId = ReactionCore.getShopId();
-  let userId = Meteor.userId();
-  let count = Media.find({
-    "metadata.userId": userId
-  }).count();
-  // TODO: we need to mark the first variant images somehow for productGrid.
-  // But how do we know that this is the first, not second or other variant?
-  // Question is open. For now if product has more than 1 top variant, everyone
-  // will have a chance to be displayed
-  const toGrid = 1;
+  let template = Template.instance();
 
-  return FS.Utility.eachFile(event, function (file) {
-    let fileObj;
-    fileObj = new FS.File(file);
-    fileObj.metadata = {
-      ownerId: userId,
-      userId: userId,
-      shopId: shopId,
-      priority: count,
-      toGrid: +toGrid // we need number
-    };
-    Media.insert(fileObj);
-    return count++;
-  });
+  if (template.data.profileViewUser._id == Meteor.userId()) {
+    let shopId = ReactionCore.getShopId();
+    let userId = Meteor.userId();
+    let count = Media.find({
+      "metadata.userId": userId
+    }).count();
+    // TODO: we need to mark the first variant images somehow for productGrid.
+    // But how do we know that this is the first, not second or other variant?
+    // Question is open. For now if product has more than 1 top variant, everyone
+    // will have a chance to be displayed
+    const toGrid = 1;
+
+    return FS.Utility.eachFile(event, function (file) {
+      let fileObj;
+      fileObj = new FS.File(file);
+      fileObj.metadata = {
+        ownerId: userId,
+        userId: userId,
+        shopId: shopId,
+        priority: count,
+        toGrid: +toGrid // we need number
+      };
+      Media.insert(fileObj);
+      return count++;
+    });
+  }
 }
 
 /**
@@ -57,19 +61,15 @@ function updateImagePriorities() {
   return results;
 }
 
-/**
- *  Product Image Gallery
- */
 
-Template.profileImageGallery.helpers({
-  media: function (userId) {
-    let mediaArray = [];
-    userId = userId.hash.userId; // something strange by the way we pass the userId from template
+Template.profileImageGallery.onCreated(function () {
+  let userId = this.data.userId; // something strange by the way we pass the userId from template
 
+  ReactionCore.Subscriptions.ProfileUser = ReactionSubscriptions.subscribe("ProfileUser", userId);
+
+  this.autorun(() => {
     let profileUser;
     if (userId) {
-      //profileUser = Meteor.users.findOne({_id: userId});
-      ReactionCore.Subscriptions.ProfileUser = ReactionSubscriptions.subscribe("ProfileUser", userId);
       if (ReactionCore.Subscriptions.ProfileUser.ready()) {
         profileUser = Meteor.users.findOne({_id: userId});
       }
@@ -78,41 +78,57 @@ Template.profileImageGallery.helpers({
       profileUser = Meteor.user();
     }
     console.log("Template.profileImageGallery.helpers.media() userId: ",userId," profileUser: %o", profileUser);
-
-    if (profileUser.profile) {
-      mediaArray = Media.find({
-        "metadata.userId": profileUser._id
-      }, {
-        sort: {
-          "metadata.priority": 1
-        }
-      });
-    }
-    return mediaArray;
-  },
-  profile: function (userId) {
-    userId = userId.hash.userId; // something strange by the way we pass the userId from template
-
-    let profileUser;
-    if (userId) {
-      //profileUser = Meteor.users.findOne({_id: userId});
-      ReactionCore.Subscriptions.ProfileUser = ReactionSubscriptions.subscribe("ProfileUser", userId);
-      if (ReactionCore.Subscriptions.ProfileUser.ready()) {
-        profileUser = Meteor.users.findOne({_id: userId});
-      }
-    }
-    else {
-      profileUser = Meteor.user();
-    }
-    console.log("Template.profileImageGallery.helpers.profile() profileUser: %o", profileUser);
-
-    return profileUser.profile;
-  }
+    this.data.profileViewUser = profileUser;
+  });
 });
 
 /**
- * productImageGallery onRendered
+ *  Product Image Gallery
  */
+
+Template.profileImageGallery.helpers({
+  media: function (userId) {
+    let mediaArray = [];
+    let template = Template.instance();
+    if (ReactionCore.Subscriptions.ProfileUser.ready()) {
+      if (template.data.profileViewUser.profile) {
+        mediaArray = Media.find({
+          "metadata.userId": template.data.profileViewUser._id
+        }, {
+          sort: {
+            "metadata.priority": 1
+          }
+        });
+      }
+      return mediaArray;
+    }
+  },
+  profile: function (userId) {
+    let template = Template.instance();
+    if (ReactionCore.Subscriptions.ProfileUser.ready()) {
+      return template.data.profileViewUser.profile;
+    }
+  },
+});
+
+function isMyProfile(template) {
+  if (ReactionCore.Subscriptions.ProfileUser.ready()) {
+    if (template.data.profileViewUser._id == Meteor.userId()) {
+      return true;
+    }
+  }
+}
+
+Template.profileImageDetail.helpers({
+  isMyProfile: function () {
+    return isMyProfile(Template.instance().view.parentView.parentView.parentView.templateInstance());
+  }
+});
+Template.profileImageUploader.helpers({
+  isMyProfile: function () {
+    return isMyProfile(Template.instance().view.parentView.parentView.templateInstance());
+  }
+});
 
 Template.profileImageGallery.onRendered(function () {
   return this.autorun(function () {
@@ -158,8 +174,12 @@ Template.profileImageGallery.events({
     }
   },
   "click .remove-image": function () {
-    this.remove();
-    updateImagePriorities();
+    let template = Template.instance();
+
+    if (template.data.profileViewUser._id == Meteor.userId()) {
+      this.remove();
+      updateImagePriorities();
+    }
   },
   "dropped #galleryDropPane": uploadHandler
 });
