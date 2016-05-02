@@ -55,13 +55,14 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access Denied");
     }
 
-    let account =  ReactionCore.Collections.Accounts.findOne({userId: Meteor.userId()});
-    ReactionCore.Log.info("address count", account.profile.addressBook.length);
-    if (account.profile.addressBook.length <= 0) {
-      ReactionCore.Log.info("No address. throw error!");
-      throw new Meteor.Error(403, "error.noProfileAddress");
-      //errorMsg += "Profile address required.";
-      //template.$(".title-edit-input").focus();
+    if (!ReactionCore.hasAdminAccess()) {
+      let account =  ReactionCore.Collections.Accounts.findOne({userId: Meteor.userId()});
+      if (account.profile.addressBook.length <= 0) {
+        ReactionCore.Log.info("No address. throw error!");
+        throw new Meteor.Error(403, "error.noProfileAddress");
+        //errorMsg += "Profile address required.";
+        //template.$(".title-edit-input").focus();
+      }
     }
 
     const product = ReactionCore.Collections.Products.findOne(productId);
