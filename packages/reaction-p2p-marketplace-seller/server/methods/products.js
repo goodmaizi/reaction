@@ -380,7 +380,7 @@ ReactionCore.MethodHooks.before('products/publishProduct', function(options) {
 });
 
 ReactionCore.Collections.Media.on('uploaded', function (fileObj) {
-  ReactionCore.Log.info("ReactionCore.Collections.Media.on('uploaded') fileObj: ", fileObj);
+  //ReactionCore.Log.info("ReactionCore.Collections.Media.on('uploaded') fileObj: ", fileObj);
   var productId = fileObj.metadata.productId;
 
   if(productId != undefined) {
