@@ -293,7 +293,7 @@
 			},
 			"cartDrawer": {
 				"empty": "Du hast noch keine Mahlzeit ausgewählt.",
-				"keepShopping": "Zurück zum Shop",
+				"keepShopping": "Warenkorb zuklappen",
 				"checkout": "Zur Kasse"
 			},
 			"cartSubTotals": {
