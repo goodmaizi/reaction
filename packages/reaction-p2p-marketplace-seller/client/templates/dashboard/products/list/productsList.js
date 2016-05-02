@@ -5,8 +5,8 @@ Template.dashboardProductsList.inheritsHelpersFrom("gridContent"); // for price
 
 Template.dashboardProductsList.helpers({
   products: function (data) { // override to show only this users products
-    let SellerProducts = Meteor.subscribe("SellerProducts");
-    if (SellerProducts.ready()) {
+    //let SellerProducts = Meteor.subscribe("SellerProducts");
+    if (ReactionCore.MeteorSubscriptions_SellerProducts.ready()) {
       //console.log("helper Template.dashboardProductsList.helpers using publication SellerProducts.");
       return ReactionCore.Collections.Products.find({userId: Meteor.userId()});
     }
@@ -26,9 +26,10 @@ Template.dashboardProductsList.events({
 
 Template.dashboardProductsList.onCreated(function() {
   this.cleaned = false;
-  let SellerProducts = Meteor.subscribe("SellerProducts");
+  ReactionCore.MeteorSubscriptions_SellerProducts = Meteor.subscribe("SellerProducts");
+
   this.autorun(() => {
-    if (this.cleaned == false && SellerProducts.ready()) {
+    if (this.cleaned == false && ReactionCore.MeteorSubscriptions_SellerProducts.ready()) {
       // delete products with no title, description and image
       let products = ReactionCore.Collections.Products.find({userId: Meteor.userId()}).fetch();
       console.log("products: ",products);
@@ -53,4 +54,11 @@ Template.dashboardProductsList.onCreated(function() {
       this.cleaned = true;
     }
   });
+});
+
+Template.dashboardProductsList.onDestroyed(function() {
+  // stop that subscription, because we want it only on this page, not on any other
+  if (ReactionCore.MeteorSubscriptions_SellerProducts != null) {
+    ReactionCore.MeteorSubscriptions_SellerProducts.stop();
+  }
 });
