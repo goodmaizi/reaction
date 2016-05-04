@@ -16,7 +16,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 audit-argument-checks   # ensure meteor method argument validation
 
 # Performance & Debugging Tools
-#meteorhacks:fast-render                   # improve initial page loads
+meteorhacks:fast-render                   # improve initial page loads
 #meteortoys:allthings                      # developer tools
 #meteortoys:notifications                  # logging notification
 #meteorhacks:kadira                        # performance monitoring
