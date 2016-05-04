@@ -116,6 +116,10 @@ Security.permit(["insert", "update", "remove"]).collections([Media]).ifHasRole({
   role: ["admin", "owner", "createProduct"],
   group: ReactionCore.getShopId()
 }).ifFileBelongsToShop().apply();
+Security.permit(["insert", "remove"]).collections([Media]).ifHasRole({
+  role: ["guest"],
+  group: ReactionCore.getShopId()
+}).ifFileBelongsToShop().apply();
 
 /*
  * Users with the "admin" or "owner" role may update and
