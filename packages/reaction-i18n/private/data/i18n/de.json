@@ -185,7 +185,7 @@
 				"options": "Optionen",
 				"addToCart": "Bestellen",
 				"chooseOptions": "Es muss eine Produktoption ausgewählt werden, bevor es in den Warenkorb gelegt werden kann.",
-				"outOfStock": "Dieses Produkt ist leider vergriffen und kann nicht geordert werden!",
+				"outOfStock": "Arrrgh...jemand hat Dir die letzte Mahlzeit soeben weggeschnappt!",
 				"productDeleteError": "Fehler beim Löschen von ",
 				"publishFirst": "Produkt kann erst nach Veröffentlichung in den Warenkorb gelegt werden.",
 				"quantityAbbreviation": "QTY",
