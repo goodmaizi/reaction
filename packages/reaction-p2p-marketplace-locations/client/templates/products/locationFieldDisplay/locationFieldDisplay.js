@@ -10,7 +10,7 @@ Template.registerHelper("locationForProduct", function (product) {
 
   //console.log("product.userId:",product.userId);
   if (product.userId != null) {
-    Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
+    Meteor.call("accounts/getUserAddress", product.userId, false, function(error, result) {
       //console.log("accounts/getUserAddress() result: ",result," error: ",error);
       if (!error && result) {
         templateInstance.locationForProduct.set(result.replace("undefined", "").replace("  ", " "));

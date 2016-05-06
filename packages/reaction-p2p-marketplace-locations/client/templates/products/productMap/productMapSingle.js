@@ -56,7 +56,7 @@ Template.productMapSingle.onCreated(function() {
     });
     //console.log('owner %o', prodOwner);
 
-    Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
+    Meteor.call("accounts/getUserAddress", product.userId, true, function(error, result) {
       if(!error && result) {
         let address = result;
         console.log('address', address);

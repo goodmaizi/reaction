@@ -25,7 +25,7 @@ Template.productMap.helpers({
 var markers = {};
 
 function addMarker(map, product) {
-  Meteor.call("accounts/getUserAddress", product.userId, function(error, result) {
+  Meteor.call("accounts/getUserAddress", product.userId, true, function(error, result) {
     if (!error && result) {
       let address = result.replace("undefined", "").replace("  ", " ");
       console.log('address', address);
