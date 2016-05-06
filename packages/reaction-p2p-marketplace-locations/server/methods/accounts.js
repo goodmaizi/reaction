@@ -50,15 +50,20 @@ ReactionCore.MethodHooks.after("accounts/addressBookUpdate",
 */
 Meteor.methods(
   {
-    "accounts/getUserAddress": function (userId) {
+    "accounts/getUserAddress": function (userId, addCountry) {
       check(userId, Match.Optional(String, null));
+      ReactionCore.Log.info("User address string: ",addCountry);
+      check(addCountry, Boolean);
 
       let account =  ReactionCore.Collections.Accounts.findOne({userId: userId});
       //ReactionCore.Log.info("User address book: ",account.profile.addressBook);
 
       if (account != null && account.profile.addressBook != null && account.profile.addressBook.length > 0) {
         let address = account.profile.addressBook[0];
-        let addressString = address.address1+" "+address.address2+", "+address.postal+" "+address.city+", "+address.country
+        let addressString = address.address1+" "+address.address2+", "+address.postal+" "+address.city
+        if (addCountry) {
+          addressString = addressString+", "+address.country
+        }
 
         ReactionCore.Log.info("User address string: ",addressString);
         return addressString;
