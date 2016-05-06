@@ -52,7 +52,7 @@ Meteor.methods(
   {
     "accounts/getUserAddress": function (userId, addCountry) {
       check(userId, Match.Optional(String, null));
-      ReactionCore.Log.info("User address string: ",addCountry);
+      //ReactionCore.Log.info("User address string: ",addCountry);
       check(addCountry, Boolean);
 
       let account =  ReactionCore.Collections.Accounts.findOne({userId: userId});
