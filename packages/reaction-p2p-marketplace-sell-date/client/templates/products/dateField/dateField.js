@@ -182,7 +182,14 @@ Template.registerHelpers(
     },*/
     prettifyDate: function(inDate) {
       //return new Date(inDate).toString('dd.mm.yyyy')
-      return moment(inDate).format('DD.MM.YYYY');
+
+//			var deMoment = moment(inDate);
+//			deMoment.locale('en', {
+//				weekdays: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+//			});
+//      return deMoment.format('dddd DD.MM.YYYY');
+
+			return moment(inDate).format('DD.MM.YYYY');
     },
     prettifyDateTime: function(inDate) {
       //return new Date(inDate).toString('dd.mm.yyyy')
