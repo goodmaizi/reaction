@@ -10,7 +10,18 @@ Meteor.publish("ProfileAccount", function (userId) {
     return this.ready();
   }
 
-  return ReactionCore.Collections.Accounts.find({_id: userId});
+  return ReactionCore.Collections.Accounts.find({_id: userId},
+    {
+      fields:
+      {
+        _id: 1,
+        "profile.addressBook.address1": 1,
+        "profile.addressBook.address2": 1,
+        "profile.addressBook.postal": 1,
+        "profile.addressBook.city": 1,
+      }
+    }
+  );
 });
 
 Meteor.publish("ProfileUser", function (userId) {
@@ -20,5 +31,13 @@ Meteor.publish("ProfileUser", function (userId) {
     return this.ready();
   }
 
-  return Meteor.users.find({_id: userId});
+  return Meteor.users.find({_id: userId},
+    {
+      fields:
+      {
+        _id: 1,
+        "profile.name": 1,
+      }
+    }
+  );
 });
