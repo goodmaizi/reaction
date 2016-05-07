@@ -993,6 +993,9 @@ Meteor.methods({
       };
     }
 
+    // simulate longer response time until order completed
+    //Meteor._sleepForMs(2000);
+
     return ReactionCore.Collections.Cart.update(selector, update,
       function (error, result) {
         if (error) {
