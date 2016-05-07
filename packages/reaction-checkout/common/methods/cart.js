@@ -65,7 +65,7 @@ if (Meteor.isClient) {
             ReactionRouter.go("cart/completed", {}, {
               _id: cartId
             });
-            
+
             // close cart drawer
             if ($("#cart-drawer-container").is(":visible")) {
               console.log("cart drawer is visible. hide it.");
@@ -74,6 +74,10 @@ if (Meteor.isClient) {
                 toggleSession("displayCart");
               });
             }
+            // scroll to top
+            $("html,body").animate({
+              scrollTop: 0
+            }, 0);
 
           } else {
             Alerts.inline("Failed to place order.", "danger", {
