@@ -35,6 +35,7 @@ Package.onUse(function(api) {
   api.use("reactioncommerce:core@0.10.0");
   api.use("reactive-var");
 
+  api.use("sacha:spin");
   api.use("scydev:reaction-search@0.0.2");
 
   api.addFiles('reaction-p2p-marketplace.js');
