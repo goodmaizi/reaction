@@ -11,8 +11,24 @@ FS.HTTP.setHeadersForGet([
  * See: https://github.com/CollectionFS/Meteor-CollectionFS
  * chunkSize: 1024*1024*2; <- CFS default // 256k is default GridFS chunk size, but performs terribly
  */
+let maxUploadKb = 1048576; //bytes
 
 ReactionCore.Collections.Media = new FS.Collection("Media", {
+  filter: {
+        maxSize: maxUploadKb, //bytes  0.5MB = 524288 bytes
+        /*allow: {
+            contentTypes: ['image/*'], // regex wildcard
+            extensions: ['']
+        },*//*
+        deny: {
+            contentTypes: [''],
+            extensions: ['']
+        },*/
+        onInvalid: function(message) {
+            // do stuff if error
+            throw new Meteor.Error(403, "imageTooBig", {maxKb: (maxUploadKb/1024)});
+        }
+    },
   stores: [
     new FS.Store.GridFS("image", {
       chunkSize: 1 * 1024 * 1024

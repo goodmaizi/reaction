@@ -662,7 +662,9 @@
 					"noProductsFound": "No products found",
           "mustAcceptTerms": "You must accept the terms and conditions",
           "noAddress": "No address",
-          "youNeedToEnterYourAddress": "You need to enter your address."
+          "youNeedToEnterYourAddress": "You need to enter your address.",
+          "imageTooBig": "Image too big",
+          "imageTooBigText": "Please try a smaller image. Max {{maxKb}} KB."
         },
         "mails": {
           "welcome": {

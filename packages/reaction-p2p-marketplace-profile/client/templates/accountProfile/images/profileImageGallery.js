@@ -32,7 +32,23 @@ function uploadHandler(event) {
         priority: count,
         toGrid: +toGrid // we need number
       };
-      Media.insert(fileObj);
+      Media.insert(fileObj, function(error, id) {
+        if (error) {
+          console.log("error: ",error);
+          if (error.reason == "imageTooBig") {
+            Alerts.alert(
+              {
+                title: i18next.t("accountsUI.error.imageTooBig", "Image too big"),
+                text: i18next.t("accountsUI.error.imageTooBigText", {defaultValue: "Please try a smaller image", maxKb: error.details.maxKb}),
+                type: "error",
+              },
+              function() {
+                // ...
+              }
+            );
+          }
+        }
+      });
       return count++;
     });
   }

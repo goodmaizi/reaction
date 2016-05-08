@@ -171,7 +171,7 @@
 				"tagsAdd": "Tag hinzufügen",
 				"tagsEdit": "Tags editieren",
 				"tagExists": "Du kannst keine neuen Kategorien erfinden. Wähle eine bestehende.",
-				"dropFile": "Bild hinzufügen",
+				"dropFile": "Bild hinzufügen (max. 1024 KB)",
 				"dropFiles": "Bilder hinzufügen",
 				"addInventory": "Add Inventory",
 				"barcode": "Barcode",
@@ -670,7 +670,9 @@
 					"noProductsFound": "Keine Mahlzeiten gefunden",
 					"mustAcceptTerms": "Du musst die AGB akzeptieren",
           "noAddress": "Keine Adresse",
-          "youNeedToEnterYourAddress": "Du musst Deine Adresse eingeben."
+          "youNeedToEnterYourAddress": "Du musst Deine Adresse eingeben.",
+          "imageTooBig": "Bild ist zu gross",
+          "imageTooBigText": "Bitte versuchs mit einem kleineren Bild. Max {{maxKb}} KB."
 				},
         "mails": {
           "welcome": {
