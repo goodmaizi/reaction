@@ -15,6 +15,7 @@ Meteor.publish("ProfileAccount", function (userId) {
       fields:
       {
         _id: 1,
+        userId: 1,
         "profile.addressBook.address1": 1,
         "profile.addressBook.address2": 1,
         "profile.addressBook.postal": 1,
@@ -36,6 +37,7 @@ Meteor.publish("ProfileUser", function (userId) {
       fields:
       {
         _id: 1,
+        userId: 1,
         "profile.name": 1,
       }
     }
