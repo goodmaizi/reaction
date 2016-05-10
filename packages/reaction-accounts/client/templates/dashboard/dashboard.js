@@ -91,6 +91,16 @@ Template.accountsDashboard.helpers({
             member.role = "owner";
           } else if (Roles.userIsInRole(member.userId, "guest", shopId)) {
             member.role = "guest";
+
+            member.profileName = user.profile.name;
+            if (user.isSeller) { member.isSeller = "Seller" } else { member.isSeller = "Buyer" };
+
+            let account = ReactionCore.Collections.Accounts.findOne({_id: user._id});
+            member.createdAt = account.createdAt;
+            console.log("user.isSeller: ",user.isSeller);
+            if (account.profile.addressBook && account.profile.addressBook.length > 0) {
+              member.address = account.profile.addressBook[0];
+            }
           }
 
           return member;
