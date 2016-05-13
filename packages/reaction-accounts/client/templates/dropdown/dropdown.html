@@ -4,6 +4,7 @@
     <div class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
       {{!--> avatar user=currentUser class="circular-icon" size="small" shape="circle"--}}
       <img class="circular-icon" src="{{getGravatar currentUser 40}}" alt="avatar" />
+      <!--temporary not in use, due to length of username and positioning of shoping cart when mobile use -->
       <span id="logged-in-display-name"> {{displayName}}<b class="caret"></b></span>
     </div>
     <div class="dropdown-menu pull-right" role="menu">
@@ -40,7 +41,7 @@
         <a href={{pathFor name}} id="dropdown-apps-{{name}}" title="{{label}}">
           <i class="{{icon}}"></i>
           <span class="icon-text">
-            {{label}}
+            {{i18n i18nKeyLabel label}}
           </span>
         </a>
       </li>
@@ -55,7 +56,7 @@
       <a id="user-dropdown-apps-{{name}}" title="{{label}}">
         <i class="{{icon}}"></i>
         <span class="icon-text">
-          {{label}}
+          {{i18n i18nKeyLabel label}}
         </span>
       </a>
     </li>

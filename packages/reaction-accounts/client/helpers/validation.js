@@ -30,7 +30,7 @@ window.LoginFormValidation = {
     // Invalid
     return {
       error: "INVALID_EMAIL",
-      reason: i18n.t('accountsUI.error.invalidEmail')
+      reason: i18next.t('accountsUI.error.invalidEmail')
     };
 
   },
@@ -49,7 +49,7 @@ window.LoginFormValidation = {
       } else {
         return {
           error: "INVALID_PASSWORD",
-          reason: i18n.t('accountsUI.error.passwordRequired')
+          reason: i18next.t('accountsUI.error.passwordRequired')
         };
       }
     }
@@ -64,14 +64,14 @@ window.LoginFormValidation = {
     if (password.length < 6) {
       errors.push({
         error: "INVALID_PASSWORD",
-        reason: i18n.t('accountsUI.error.passwordMustBeAtLeast6CharactersLong')
+        reason: i18next.t('accountsUI.error.passwordMustBeAtLeast6CharactersLong')
       });
     }
 
     if (password.match(validPasswordRegex) === null) {
       errors.push({
         error: "INVALID_PASSWORD",
-        reason: i18n.t('accountsUI.error.passwordMustContainRequirements')
+        reason: i18next.t('accountsUI.error.passwordMustContainRequirements')
       });
     }
 
@@ -82,35 +82,5 @@ window.LoginFormValidation = {
 
     // Otherwise the password is valid
     return true
-  },
-
-  isSeller: function(isSeller) {
-    //ReactionCore.Log.error("validate isSeller ", isSeller);
-
-    if (isSeller == null || isSeller == "" || isSeller == true || isSeller == false || isSeller == "on" || isSeller == "off") {
-      return true;
-    }
-
-    // Invalid
-    return {
-      error: "INVALID_ISSELLER",
-      reason: i18n.t('accountsUI.error.invalidIsSeller')
-    };
-  },
-
-  name: function(name) {
-
-    // Valid
-    if (name.length >= 3) {
-      return true;
-    }
-
-    // Invalid
-    return {
-      "error": "INVALID_NAME",
-      "reason": i18n.t('accountsUI.error.usernameTooShort')
-    };
-  },
-
-
+  }
 };

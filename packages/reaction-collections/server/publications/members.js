@@ -24,7 +24,7 @@ Meteor.publish("ShopMembers", function () {
     const publish = {
       fields: {
         _id: 1,
-        email: 1,
+        emails: 1,
         username: 1,
         roles: 1,
         "services.google.name": 1,
@@ -41,7 +41,10 @@ Meteor.publish("ShopMembers", function () {
         "services.weibo.picture": 1,
         "services.github.name": 1,
         "services.github.email": 1,
-        "services.github.username": 1
+        "services.github.username": 1,
+        isSeller: 1,
+        acceptedTerms: 1,
+        "profile.name": 1
       }
     };
 

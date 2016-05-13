@@ -24,7 +24,7 @@ Template.products.events({
         // inject template here
         Blaze.renderWithData(Template.productMap, this.data, $(".container-main")[0])
         console.log('injected map');
-    }    
+    }
     return $(".product-map").show();
   },
   "click .product-list-item": function () {

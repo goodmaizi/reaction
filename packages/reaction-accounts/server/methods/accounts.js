@@ -1,3 +1,4 @@
+
 /**
  * Reaction Accounts handlers
  * creates a login type "anonymous"
@@ -75,34 +76,15 @@ Accounts.onCreateUser(function (options, user) {
         }
       }
     }
-
     // clone before adding roles
     let account = Object.assign({}, user, additionals);
     account.userId = user._id;
-
-    // add additional data
-    ReactionCore.Log.info("Accounts.onCreateUser: options.isSeller ",options.isSeller);
-    account.isSeller = (options.isSeller != null && options.isSeller === true); //options.isSeller; //
-    if (account.isSeller === true) {
-      /*
-      roles[shopId].push("createProduct");
-      roles[shopId].push("account/seller/products"); // for access to our own products route
-      roles[shopId].push("account/seller/orders"); // for access to our own orders route
-      roles[shopId].push("reaction-orders"); // for access on orders collection
-      roles[shopId].push("orders"); // for access on orders collection
-      roles[shopId].push("dashboard/orders"); // for access to existing AND our own orders route
-      ReactionCore.Log.info("Accounts.onCreateUser: add permissions ", roles, " to: ", user.roles);
-      */
-    }
-    user.profile = options.profile;
-
-    ReactionCore.Log.info("Accounts.onCreateUser: ", account, " \noptions: ", options, " \nuser: ", user);
     ReactionCore.Collections.Accounts.insert(account);
 
     // send a welcome email to new users,
     // but skip the first default admin user
     // (default admins already get a verification email)
-    if (!Meteor.users.find().count() === 0) {
+    if (!(Meteor.users.find().count() === 0)) {
       Meteor.call("accounts/sendWelcomeEmail", shopId, user._id);
     }
 
@@ -111,7 +93,7 @@ Accounts.onCreateUser(function (options, user) {
 
     // run onCreateUser hooks
     // (the user object must be returned by all callbacks)
-    userDoc = ReactionCore.Hooks.Events.run("onCreateUser", user, options);
+    const userDoc = ReactionCore.Hooks.Events.run("onCreateUser", user, options);
 
     return userDoc;
   }
@@ -442,6 +424,8 @@ Meteor.methods({
         "emails.address": email
       });
 
+      ReactionCore.i18nextInitForServer(i18next);
+
       if (!user) {
         userId = Accounts.createUser({
           email: email,
@@ -461,12 +445,13 @@ Meteor.methods({
             }
           }
         });
+
         SSR.compileTemplate("accounts/inviteShopMember", ReactionEmailTemplate("accounts/inviteShopMember"));
         try {
           return Email.send({
             to: email,
             from: `${shop.name} <${shop.emails[0].address}>`,
-            subject: `You have been invited to join ${shop.name}`,
+            subject: i18next.t('accountsUI.mails.invited.subject', {shopName: shop.name, defaultValue: `You have been invited to join ${shop.name}`}),
             html: SSR.render("accounts/inviteShopMember", {
               homepage: Meteor.absoluteUrl(),
               shop: shop,
@@ -484,7 +469,7 @@ Meteor.methods({
           return Email.send({
             to: email,
             from: `${shop.name} <${shop.emails[0].address}>`,
-            subject: `You have been invited to join the ${shop.name}`,
+            subject: i18next.t('accountsUI.mails.invited.subject', {shopName: shop.name, defaultValue: `You have been invited to join ${shop.name}`}),
             html: SSR.render("accounts/inviteShopMember", {
               homepage: Meteor.absoluteUrl(),
               shop: shop,
@@ -540,13 +525,17 @@ Meteor.methods({
       ReactionCore.Log.info(`Mail not configured: suppressing welcome email output`);
       return true;
     }
+
+    ReactionCore.i18nextInitForServer(i18next);
+    ReactionCore.Log.info("sendWelcomeEmail: i18n server test:", i18next.t('accountsUI.mails.welcome.subject'));
+
     // fetch and send templates
     SSR.compileTemplate("accounts/sendWelcomeEmail", ReactionEmailTemplate("accounts/sendWelcomeEmail"));
     try {
       return Email.send({
         to: userEmail,
         from: `${shop.name} <${shopEmail}>`,
-        subject: `Welcome to ${shop.name}!`,
+        subject: i18next.t('accountsUI.mails.welcome.subject', {shopName: shop.name, defaultValue: `Welcome to ${shop.name}!`}),
         html: SSR.render("accounts/sendWelcomeEmail", {
           homepage: Meteor.absoluteUrl(),
           shop: shop,

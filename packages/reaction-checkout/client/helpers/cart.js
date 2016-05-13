@@ -35,16 +35,16 @@ Template.registerHelper("cart", function () {
       let storedCart = ReactionCore.Collections.Cart.findOne();
       // we're not being picky here - first thing in cart
       // that is low will trigger a inventory warning
-      if (storedCart !== null ? storedCart.items : void 0) {
+      if (storedCart && storedCart.items) {
         for (item of storedCart.items) {
-          if (item.variants !== null && item.variants.inventoryPolicy &&
+          if (item.variants && item.variants.inventoryPolicy &&
             item.variants.lowInventoryWarningThreshold) {
-            if (item.variants.inventoryQuantity <= item.variants.lowInventoryWarningThreshold) {
-              return true;
-            }
+            return item.variants.inventoryQuantity <=
+              item.variants.lowInventoryWarningThreshold;
           }
         }
       }
+      return false;
     },
     /**
      * showLowInventoryWarning
@@ -52,14 +52,10 @@ Template.registerHelper("cart", function () {
      * @return {Boolean} return true if low inventory on variant
      */
     showItemLowInventoryWarning(variant) {
-      if ((variant !== null ? variant.inventoryPolicy : void 0) && (
-          variant !== null ? variant.lowInventoryWarningThreshold :
-          void 0
-        )) {
-        if ((variant !== null ? variant.inventoryQuantity : void 0) <=
-          variant.lowInventoryWarningThreshold) {
-          return true;
-        }
+      if (variant && variant.inventoryPolicy &&
+        variant.lowInventoryWarningThreshold) {
+        return variant.inventoryQuantity <=
+          variant.lowInventoryWarningThreshold;
       }
       return false;
     }
@@ -74,7 +70,8 @@ Template.registerHelper("cart", function () {
  */
 
 Template.registerHelper("cartPayerName", function () {
-  let cart = ReactionCore.Collections.Cart.findOne();
+  // Is not ideal if customer name contains umlaut öäü, then the braintree form does produce an error, thus the customer should always type in the name as it is on the credit card
+  /*let cart = ReactionCore.Collections.Cart.findOne();
   if (cart) {
     if (cart.billing) {
       if (cart.billing[0].address) {
@@ -83,5 +80,5 @@ Template.registerHelper("cartPayerName", function () {
         }
       }
     }
-  }
+  }*/
 });

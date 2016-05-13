@@ -15,10 +15,17 @@ const getPermissionMap = (permissions) => {
 Template.member.events({
   "click [data-event-action=showMemberSettings]": function () {
     ReactionCore.showActionView({
-      label: "Edit Member",
+      label: "Permissions",
+      i18nKeyLabel: "admin.settings.permissionsSettingsLabel",
       data: this,
       template: "memberSettings"
     });
+  }
+});
+
+Template.member.helpers({
+  getUserAccount: function(userId) {
+    ReactionCore.Collections.Accounts.findOne({_id: userId});
   }
 });
 
@@ -103,7 +110,7 @@ Template.memberSettings.helpers({
   },
 
   hasManyPermissions: function (permissions) {
-    return permissions.length > 1;
+    return Boolean(permissions.length);
   }
 });
 

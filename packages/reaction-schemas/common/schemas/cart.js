@@ -29,11 +29,7 @@ ReactionCore.Schemas.CartItem = new SimpleSchema({
     label: "Product Type",
     type: String,
     optional: true
-  },
-  sellerId: {
-    type: String,
-    index: 1
-  },
+  }
 });
 
 /**

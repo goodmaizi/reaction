@@ -16,32 +16,8 @@ Template.productDetail.helpers({
   product: function () {
     const instance = Template.instance();
     if (instance.subscriptionsReady()) {
-      let productId = instance.productId();
-      let variantId = instance.variantId() || ReactionRouter.getParam("variantId");
-
-      if (!productId.match(/^[A-Za-z0-9]{17}$/)) {
-        handle = productId.toLowerCase();
-        product = ReactionCore.Collections.Products.findOne({
-          handle: handle
-        });
-        productId = product._id;
-      } else {
-        product = ReactionCore.Collections.Products.findOne({
-          _id: productId
-        });
-      }
-      if (product) {
-        // set the default variant
-        // as the default.
-        if (!variantId) {
-          variantId = product.variants[0]._id;
-        }
-        // set in our reactive dictionary
-        ReactionProduct.set("productId", productId);
-        // set on reactive dict for legacy
-        ReactionProduct.set("variantId", variantId);
-        return product;
-      }
+      return ReactionProduct.setProduct(instance.productId(),
+        instance.variantId());
     }
   },
   tags: function () {
@@ -55,41 +31,29 @@ Template.productDetail.helpers({
     }
   },
   tagsComponent: function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       return Template.productTagInputForm;
     }
     return Template.productDetailTags;
   },
   actualPrice: function () {
-    let childVariants;
-    let purchasable;
-    let current = ReactionProduct.selectedVariant();
-    let product = ReactionProduct.selectedProduct();
-    if (product && current) {
-      childVariants = (function () {
-        let _results = [];
-        for (let variant of product.variants) {
-          if ((typeof variant === "object" ? variant.parentId : void 0) === current._id) {
-            _results.push(variant);
-          }
-        }
-        return _results;
-      })();
-      purchasable = childVariants.length > 0 ? false : true;
+    const current = ReactionProduct.selectedVariant();
+    if (typeof current === "object") {
+      const childVariants = ReactionProduct.getVariants(current._id);
+      if (childVariants.length === 0) {
+        return current.price;
+      }
+      return  ReactionProduct.getProductPriceRange().range;
     }
-    if (purchasable) {
-      return current.price;
-    }
-    return ReactionProduct.getProductPriceRange();
   },
   fieldComponent: function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       return Template.productDetailEdit;
     }
     return Template.productDetailField;
   },
   metaComponent: function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       return Template.productMetaFieldForm;
     }
     return Template.productMetaField;
@@ -103,14 +67,14 @@ Template.productDetail.helpers({
 Template.productDetail.events({
   "click #price": function () {
     let formName;
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       let variant = ReactionProduct.selectedVariant();
       if (!variant) {
         return;
       }
 
-      if (variant.parentId) {
-        formName = variant.parentId;
+      if (typeof variant.ancestors[1] === "string") {
+        formName = variant.ancestors[1];
       } else {
         formName = variant._id;
       }
@@ -143,24 +107,20 @@ Template.productDetail.events({
     }
   },
   "click #add-to-cart": function (event, template) {
-    let options;
     let productId;
     let qtyField;
     let quantity;
     let currentVariant = ReactionProduct.selectedVariant();
     let currentProduct = ReactionProduct.selectedProduct();
 
+    // allow only logged in users to do that
+    if (!Blaze._globalHelpers.isLoggedIn(true)) {
+      return;
+    }
+
     if (currentVariant) {
-      if (currentVariant.parentId === null) {
-        options = (function () {
-          let _results = [];
-          for (let variant of currentProduct.variants) {
-            if (variant.parentId === currentVariant._id) {
-              _results.push(variant);
-            }
-          }
-          return _results;
-        })();
+      if (currentVariant.ancestors.length === 1) {
+        const options = ReactionProduct.getVariants(currentVariant._id);
 
         if (options.length > 0) {
           Alerts.inline("Please choose options before adding to cart", "warning", {
@@ -202,6 +162,15 @@ Template.productDetail.events({
             function (error) {
               if (error) {
                 ReactionCore.Log.error("Failed to add to cart.", error);
+
+                if (error.reason == "Not enough items in stock") {
+                  Alerts.inline("Sorry, can't add more items than available!", "warning", {
+                    placement: "productDetail",
+                    i18nKey: "productDetail.outOfStock",
+                    autoHide: 10000
+                  });
+                }
+
                 return error;
               }
             }
@@ -216,14 +185,14 @@ Template.productDetail.events({
           scrollTop: 0
         }, 0);
         // slide out label
-        let addToCartText = i18n.t("productDetail.addedToCart");
+        let addToCartText = i18next.t("productDetail.addedToCart");
         let addToCartTitle = currentVariant.title || "";
         $(".cart-alert-text").text(`${quantity} ${addToCartTitle} ${addToCartText}`);
         return $(".cart-alert").toggle("slide", {
-          direction: i18n.t("languageDirection") === "rtl" ? "left" : "right",
+          direction: i18next.t("languageDirection") === "rtl" ? "left" : "right",
           width: currentVariant.title.length + 50 + "px"
         }, 600).delay(4000).toggle("slide", {
-          direction: i18n.t("languageDirection") === "rtl" ? "left" : "right"
+          direction: i18next.t("languageDirection") === "rtl" ? "left" : "right"
         });
       }
     } else {
@@ -238,17 +207,17 @@ Template.productDetail.events({
     let errorMsg = "";
     const self = this;
     if (!self.title) {
-      errorMsg += "Product title is required. ";
+      errorMsg += `${i18next.t("error.isRequired", { field: i18next.t("productDetailEdit.title") })} `;
       template.$(".title-edit-input").focus();
     }
-    let variants = self.variants;
+    const variants = ReactionProduct.getVariants(self._id);
     for (let variant of variants) {
       let index = _.indexOf(variants, variant);
       if (!variant.title) {
-        errorMsg += "Variant " + (index + 1) + " label is required. ";
+        errorMsg += `${i18next.t("error.variantFieldIsRequired", { field: i18next.t("productVariant.title"), number: index + 1 })} `;
       }
       if (!variant.price) {
-        errorMsg += "Variant " + (index + 1) + " price is required. ";
+        errorMsg += `${i18next.t("error.variantFieldIsRequired", { field: i18next.t("productVariant.price"), number: index + 1 })} `;
       }
     }
     if (errorMsg.length > 0) {
@@ -268,63 +237,29 @@ Template.productDetail.events({
       });
     }
   },
-  "click .toggle-product-isActive-link": function (event, template) {
-    let errorMsg = "";
-    const self = this;
-    if (!self.title) {
-      errorMsg += "Product title is required. ";
-      template.$(".title-edit-input").focus();
-    }
-    let variants = self.variants;
-    for (let variant of variants) {
-      let index = _.indexOf(variants, variant);
-      if (!variant.title) {
-        errorMsg += "Variant " + (index + 1) + " label is required. ";
-      }
-      if (!variant.price) {
-        errorMsg += "Variant " + (index + 1) + " price is required. ";
-      }
-    }
-    if (errorMsg.length > 0) {
-      Alerts.add(errorMsg, "danger", {
-        placement: "productManagement",
-        i18nKey: "productDetail.errorMsg"
-      });
-    } else {
-      Meteor.call("products/activateProduct", self._id, function (error) {
-        if (error) {
-          return Alerts.add(error.reason, "danger", {
-            placement: "productManagement",
-            //id: self._id, // this doesn't work on existing prodcuts?
-            i18nKey: "productDetail.errorMsg"
-          });
-        }
-      });
-    }
-  },
   "click .delete-product-link": function () {
     ReactionProduct.maybeDeleteProduct(this);
   },
   "click .fa-facebook": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".facebookMsg-edit").fadeIn();
       return $(".facebookMsg-edit-input").focus();
     }
   },
   "click .fa-twitter": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".twitterMsg-edit").fadeIn();
       return $(".twitterMsg-edit-input").focus();
     }
   },
   "click .fa-pinterest": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".pinterestMsg-edit").fadeIn();
       return $(".pinterestMsg-edit-input").focus();
     }
   },
   "click .fa-google-plus": function () {
-    if (ReactionCore.hasPermission("createProduct")) {
+    if (ReactionCore.hasPermission("createProduct") && Blaze._globalHelpers.belongsToCurrentUser(ReactionProduct.selectedProduct()._id)) {
       $(".googleplusMsg-edit").fadeIn();
       return $(".googleplusMsg-edit-input").focus();
     }
@@ -333,8 +268,4 @@ Template.productDetail.events({
     Session.set("editing-" + this.field, false);
     return $(".social-media-inputs > *").hide();
   }
-});
-
-Template.productDetail.onRendered(function(){
-  $('.rateit').rateit();
 });

@@ -1,27 +1,23 @@
 Package.describe({
   summary: "Reaction Schemas - core reaction commerce collection schemas",
   name: "reactioncommerce:reaction-schemas",
-  version: "2.0.0",
+  version: "2.0.3",
   documentation: "README.md"
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom("METEOR@1.2");
+  api.versionsFrom("METEOR@1.2.1");
   api.use("random");
   api.use("underscore");
   api.use("ecmascript");
   api.use("momentjs:moment@2.10.6");
   api.use("ongoworks:transliteration@0.1.1");
-  api.use("aldeed:collection2@2.8.0");
+  api.use("aldeed:collection2@2.9.1");
   api.use("aldeed:simple-schema@1.5.3");
   api.use("matb33:collection-hooks@0.8.1");
-  api.use("mikowals:batch-insert@1.1.13");
-
 
   // ReactionCore declaration
   api.addFiles("common/common.js");
-  api.addFiles("common/globals.js");
-
 
   // schemas
   api.addFiles("common/schemas/workflow.js");
@@ -48,7 +44,6 @@ Package.onUse(function (api) {
   api.imply("matb33:collection-hooks");
   api.imply("aldeed:collection2");
   api.imply("aldeed:simple-schema");
-  api.imply("ongoworks:transliteration");
   api.export("ReactionCore");
   api.export("getSlug");
 });
