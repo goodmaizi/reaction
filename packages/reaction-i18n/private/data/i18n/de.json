@@ -228,7 +228,8 @@
 				"forSaleOnDateIsNoDate": "Verkaufsdatum ist kein Datum",
 				"latestOrderDateMustBeADate": "Letzte Bestellung muss ein Datum sein",
 				"notLoggedIn": "Hunger?",
-				"youNeedToLogIn": "Melde Dich an und die Mahlzeit gehört Dir."
+				"youNeedToLogIn": "Melde Dich an und die Mahlzeit gehört Dir.",
+		    "cantChangeOrderedProduct": "Eine Mahlzeit die bereits bestellt wurde kann nicht mehr geändert werden."
 			},
 			"products": {
 				"all": "ALLE",
